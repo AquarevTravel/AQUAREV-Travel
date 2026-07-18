@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AQUAREV Travel | Demande Visa</title>
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="stylesheet" href="visa-style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="visa-page">
+
+<div class="logo">
+<img src="assets/logo/logo.png" alt="AQUAREV Travel">
+</div>
+
+<div class="language-box">
+<button onclick="changeLanguage('fr')">🇫🇷 Français</button>
+<button onclick="changeLanguage('en')">🇬🇧 English</button>
+<button onclick="changeLanguage('ar')">🇩🇿 العربية</button>
+</div>
+
+<h1 data-fr="DEMANDE DE VISA" data-en="VISA APPLICATION" data-ar="طلب تأشيرة">
+DEMANDE DE VISA
+</h1>
+
+<p class="subtitle"
+data-fr="Remplissez votre demande de visa avec AQUAREV Travel"
+data-en="Complete your visa application with AQUAREV Travel"
+data-ar="املأ طلب التأشيرة مع أكواريف ترافل">
+Remplissez votre demande de visa avec AQUAREV Travel
+</p>
+
+
+<form id="visaForm" enctype="multipart/form-data">
+
+<div class="section-title">
+<i class="fa-solid fa-earth-americas"></i>
+<span data-fr="Pays de destination"
+data-en="Destination Country"
+data-ar="دولة الوجهة">
+Pays de destination
+</span>
+</div>
+
+
+<div class="country-selector">
+
+
+<button type="button"
+class="country-btn"
+id="countryButton"
+onclick="toggleCountryPopup()"
+data-fr="🌍 Choisir le pays de destination"
+data-en="🌍 Choose destination country"
+data-ar="🌍 اختر دولة الوجهة">
+🌍 Choisir le pays de destination
+</button>
+
+
+
+<div id="countryPopup" class="country-popup">
+
+
+<div class="country-search">
+
+<i class="fa-solid fa-search"></i>
+
+<input id="countrySearch"
+type="text"
+placeholder="Rechercher une destination"
+data-fr-placeholder="Rechercher une destination"
+data-en-placeholder="Search destination"
+data-ar-placeholder="البحث عن دولة">
+
+</div>
+
+
+
+<div class="country-list">
+
+
+<div class="country-item" data-country="France">🇫🇷 France</div>
+<div class="country-item" data-country="Italie">🇮🇹 Italie</div>
+<div class="country-item" data-country="Espagne">🇪🇸 Espagne</div>
+<div class="country-item" data-country="Allemagne">🇩🇪 Allemagne</div>
+<div class="country-item" data-country="Belgique">🇧🇪 Belgique</div>
+<div class="country-item" data-country="Pays-Bas">🇳🇱 Pays-Bas</div>
+<div class="country-item" data-country="Suisse">🇨🇭 Suisse</div>
+<div class="country-item" data-country="Autriche">🇦🇹 Autriche</div>
+<div class="country-item" data-country="Portugal">🇵🇹 Portugal</div>
+<div class="country-item" data-country="Grèce">🇬🇷 Grèce</div>
+<div class="country-item" data-country="Royaume-Uni">🇬🇧 Royaume-Uni</div>
+<div class="country-item" data-country="Irlande">🇮🇪 Irlande</div>
+<div class="country-item" data-country="Norvège">🇳🇴 Norvège</div>
+<div class="country-item" data-country="Suède">🇸🇪 Suède</div>
+<div class="country-item" data-country="Danemark">🇩🇰 Danemark</div>
+<div class="country-item" data-country="Finlande">🇫🇮 Finlande</div>
+<div class="country-item" data-country="Pologne">🇵🇱 Pologne</div>
+<div class="country-item" data-country="Hongrie">🇭🇺 Hongrie</div>
+<div class="country-item" data-country="Roumanie">🇷🇴 Roumanie</div>
+<div class="country-item" data-country="Turquie">🇹🇷 Turquie</div>
+<div class="country-item" data-country="Canada">🇨🇦 Canada</div>
+<div class="country-item" data-country="USA">🇺🇸 États-Unis</div>
+<div class="country-item" data-country="Australie">🇦🇺 Australie</div>
+<div class="country-item" data-country="Japon">🇯🇵 Japon</div>
+<div class="country-item" data-country="Chine">🇨🇳 Chine</div>
+<div class="country-item" data-country="Corée du Sud">🇰🇷 Corée du Sud</div>
+<div class="country-item" data-country="Inde">🇮🇳 Inde</div>
+<div class="country-item" data-country="EAU">🇦🇪 Émirats Arabes Unis</div>
+<div class="country-item" data-country="Arabie Saoudite">🇸🇦 Arabie Saoudite</div>
+<div class="country-item" data-country="Qatar">🇶🇦 Qatar</div>
+<div class="country-item" data-country="Égypte">🇪🇬 Égypte</div>
+<div class="country-item" data-country="Maroc">🇲🇦 Maroc</div>
+<div class="country-item" data-country="Tunisie">🇹🇳 Tunisie</div>
+<div class="country-item" data-country="Afrique du Sud">🇿🇦 Afrique du Sud</div>
+<div class="country-item" data-country="Brésil">🇧🇷 Brésil</div>
+<div class="country-item" data-country="Mexique">🇲🇽 Mexique</div>
+<div class="country-item" data-country="Singapour">🇸🇬 Singapour</div>
+<div class="country-item" data-country="Malaisie">🇲🇾 Malaisie</div>
+<div class="country-item" data-country="Croatie">🇭🇷 Croatie</div>
+<div class="country-item" data-country="Tchéquie">🇨🇿 République Tchèque</div>
+
+
+</div>
+
+
+<input id="manualCountry"
+type="text"
+placeholder="Autre pays / écrire manuellement"
+data-fr-placeholder="Autre pays / écrire manuellement"
+data-en-placeholder="Other country / write manually"
+data-ar-placeholder="دولة أخرى / اكتب يدويا">
+
+
+</div>
+
+
+<input type="hidden" id="selectedCountry">
+
+
+</div>
+<div class="section-title">
+<i class="fa-solid fa-passport"></i>
+<span data-fr="Type de visa demandé"
+data-en="Visa Type"
+data-ar="نوع التأشيرة المطلوبة">
+Type de visa demandé
+</span>
+</div>
+
+
+<select id="visaType" onchange="showVisaDocuments()">
+
+<option value=""
+data-fr="Choisir le type de visa"
+data-en="Choose visa type"
+data-ar="اختر نوع التأشيرة">
+Choisir le type de visa
+</option>
+
+<option value="tourism">
+🌴 Visa touristique
+</option>
+
+<option value="business">
+💼 Visa affaires
+</option>
+
+<option value="study">
+🎓 Visa études
+</option>
+
+<option value="work">
+🏢 Visa travail
+</option>
+
+<option value="family">
+👨‍👩‍👧 Visa visite familiale
+</option>
+
+</select>
+
+
+
+<div id="tourismSection" class="visa-specific">
+
+<div class="section-title">
+<i class="fa-solid fa-camera"></i>
+
+<span data-fr="Documents visa touristique"
+data-en="Tourist Visa Documents"
+data-ar="وثائق التأشيرة السياحية">
+
+Documents visa touristique
+
+</span>
+
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="file-box">
+<h3>📄 Réservation hôtel</h3>
+<input type="file">
+</div>
+
+
+<div class="file-box">
+<h3>✈️ Billet ou réservation avion</h3>
+<input type="file">
+</div>
+
+
+<div class="file-box">
+<h3>💰 Justificatif financier</h3>
+<input type="file">
+</div>
+
+
+<div class="file-box">
+<h3>🛡️ Assurance voyage</h3>
+<input type="file">
+</div>
+
+
+<div class="file-box full">
+<h3>📎 Autres documents touristiques</h3>
+<input type="file" multiple>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<div id="businessSection" class="visa-specific">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<span data-fr="Documents visa affaires"
+data-en="Business Visa Documents"
+data-ar="وثائق التأشيرة التجارية">
+
+Documents visa affaires
+
+</span>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+<div class="file-box">
+
+<h3>📩 Invitation professionnelle</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>🏢 Documents société</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>✈️ Programme voyage professionnel</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>💰 Relevé financier</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box full">
+
+<h3>📎 Documents supplémentaires</h3>
+
+<input type="file" multiple>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div id="studySection" class="visa-specific">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<span data-fr="Documents visa étude"
+data-en="Study Visa Documents"
+data-ar="وثائق تأشيرة الدراسة">
+
+Documents visa étude
+
+</span>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+
+<div class="file-box">
+<h3>🎓 Certificat d'acceptation universitaire</h3>
+<input type="file">
+</div>
+
+
+
+<div class="file-box">
+<h3>📚 Relevés de notes de toutes les années traduits en français et certifiés</h3>
+<input type="file" multiple>
+</div>
+
+
+
+<div class="file-box">
+<h3>📜 Diplôme Baccalauréat</h3>
+<input type="file">
+</div>
+
+
+
+<div class="file-box">
+<h3>📜 Diplôme Licence</h3>
+<input type="file">
+</div>
+
+
+
+<div class="file-box">
+<h3>📜 Diplôme Master 1</h3>
+<input type="file">
+</div>
+
+
+
+<div class="file-box">
+<h3>📜 Diplôme Master 2</h3>
+<input type="file">
+</div>
+
+
+
+<div class="file-box">
+<h3>🌐 Traductions officielles des diplômes</h3>
+<input type="file" multiple>
+</div>
+
+
+
+<div class="file-box full">
+<h3>📎 Documents complémentaires étude</h3>
+<input type="file" multiple>
+</div>
+
+
+
+</div>
+
+
+</div>
+<div id="workSection" class="visa-specific">
+
+<div class="section-title">
+<i class="fa-solid fa-user-tie"></i>
+<span data-fr="Documents visa travail"
+data-en="Work Visa Documents"
+data-ar="وثائق تأشيرة العمل">
+Documents visa travail
+</span>
+</div>
+
+<div class="form-grid">
+
+<div class="file-box">
+<h3>📄 Contrat de travail</h3>
+<input type="file">
+</div>
+
+<div class="file-box">
+<h3>📩 Autorisation employeur</h3>
+<input type="file">
+</div>
+
+<div class="file-box">
+<h3>📑 Diplômes professionnels</h3>
+<input type="file" multiple>
+</div>
+
+<div class="file-box full">
+<h3>📎 Autres documents travail</h3>
+<input type="file" multiple>
+</div>
+
+</div>
+</div>
+
+
+
+<div id="familySection" class="visa-specific">
+
+<div class="section-title">
+<i class="fa-solid fa-users"></i>
+<span data-fr="Documents visite familiale"
+data-en="Family Visit Documents"
+data-ar="وثائق زيارة عائلية">
+Documents visite familiale
+</span>
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="file-box">
+<h3>👨‍👩‍👧 Lettre invitation familiale</h3>
+<input type="file">
+</div>
+
+
+<div class="file-box">
+<h3>🪪 Pièce identité du proche</h3>
+<input type="file">
+</div>
+
+
+<div class="file-box">
+<h3>🏠 Justificatif résidence famille</h3>
+<input type="file">
+</div>
+
+
+<div class="file-box full">
+<h3>📎 Autres documents famille</h3>
+<input type="file" multiple>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-user"></i>
+
+<span data-fr="Informations personnelles"
+data-en="Personal Information"
+data-ar="المعلومات الشخصية">
+
+Informations personnelles
+
+</span>
+
+</div>
+
+
+
+
+<div class="form-grid">
+
+<div class="input-box">
+
+<label>
+<span
+data-fr="Nom complet"
+data-en="Full name"
+data-ar="الاسم الكامل">
+Nom complet
+</span>
+<span class="required">*</span>
+</label>
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+name="Nom complet"
+placeholder="Nom complet"
+data-fr-placeholder="Nom complet"
+data-en-placeholder="Full name"
+data-ar-placeholder="الاسم الكامل">
+
+</div>
+
+<div class="input-box">
+
+<label>
+<span
+data-fr="Date de naissance"
+data-en="Date of birth"
+data-ar="تاريخ الميلاد">
+Date de naissance
+</span>
+<span class="required">*</span>
+</label>
+
+<i class="fa-solid fa-calendar"></i>
+
+<input
+type="date">
+
+</div>
+
+
+
+
+<div class="input-box">
+
+<label>
+<span
+data-fr="Nom du père"
+data-en="Father's name"
+data-ar="اسم الأب">
+Nom du père
+</span>
+<span class="required">*</span>
+</label>
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+name="Nom du père"
+placeholder="Nom du père"
+data-fr-placeholder="Nom du père"
+data-en-placeholder="Father's name"
+data-ar-placeholder="اسم الأب">
+
+</div>
+
+
+<div class="input-box">
+
+<label>
+<span
+data-fr="Nom complet de la mere "
+data-en="mother's full name"
+data-ar="اسم  و لقب  الأم ">
+Nom complet de la mère
+</span>
+<span class="required">*</span>
+</label>
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+name="Nom complet de la mère"
+placeholder="Nom complet de la mere"
+data-fr-placeholder="Nom complet de la mere"
+data-en-placeholder="mother's full name"
+data-ar-placeholder="إسم  و لقب  الأم">
+
+</div>
+
+
+
+
+
+<div class="input-box">
+
+<label>
+<span
+data-fr="Téléphone"
+data-en="Phone number"
+data-ar="رقم الهاتف">
+Téléphone
+</span>
+<span class="required">*</span>
+</label>
+
+<i class="fa-solid fa-phone"></i>
+
+<input
+type="tel"
+name="Téléphone"
+placeholder="Téléphone"
+data-fr-placeholder="Téléphone"
+data-en-placeholder="Phone number"
+data-ar-placeholder="رقم الهاتف">
+
+</div>
+
+
+
+<div class="input-box">
+
+<label>
+<span
+data-fr="Adresse e-mail"
+data-en="Email address"
+data-ar="البريد الإلكتروني">
+Adresse e-mail
+</span>
+<span class="required">*</span>
+</label>
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+name="Adresse e-mail"
+placeholder="Adresse e-mail"
+data-fr-placeholder="Adresse e-mail"
+data-en-placeholder="Email address"
+data-ar-placeholder="البريد الإلكتروني">
+
+</div>
+
+
+
+
+<div class="input-box full">
+
+<label>
+<span
+data-fr="Adresse complète"
+data-en="Full address"
+data-ar="العنوان الكامل">
+Adresse complète
+</span>
+<span class="required">*</span>
+</label>
+
+<i class="fa-solid fa-location-dot"></i>
+
+<textarea
+placeholder="Adresse complète"
+name="Adresse complète"
+data-fr-placeholder="Adresse complète"
+data-en-placeholder="Full address"
+data-ar-placeholder="العنوان الكامل"></textarea>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="passport-section">
+<div class="section-title">
+
+<i class="fa-solid fa-id-card"></i>
+
+<span data-fr="Informations passeport"
+data-en="Passport Information"
+data-ar="معلومات جواز السفر">
+
+Informations passeport
+
+</span>
+
+</div>
+</div>
+
+
+
+<div class="form-grid">
+
+
+<div class="input-box">
+
+<i class="fa-solid fa-passport"></i>
+
+<input type="text"
+name="Numéro passeport"
+placeholder="Numéro passeport"
+data-fr-placeholder="Numéro passeport"
+data-en-placeholder="Passport number"
+data-ar-placeholder="رقم جواز السفر">
+
+</div>
+
+
+
+
+<div class="input-box">
+
+<label data-fr="Date de délivrance"
+data-en="Issue date"
+data-ar="تاريخ الإصدار">
+
+Date de délivrance
+
+</label>
+
+<input type="date">
+
+</div>
+
+
+
+<div class="input-box">
+
+<label data-fr="Date d'expiration"
+data-en="Expiry date"
+data-ar="تاريخ انتهاء الصلاحية">
+
+Date d'expiration
+
+</label>
+
+<input type="date">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>📄 Première page passeport</h3>
+
+<input type="file">
+
+</div>
+
+
+
+
+<div class="file-box">
+
+<h3>📄 Dernière page passeport</h3>
+
+<input type="file">
+
+</div>
+
+
+
+
+<div class="file-box">
+
+<h3>🪪 Carte d'identité nationale</h3>
+
+<input type="file">
+
+</div>
+
+
+
+</div>
+<div class="section-title">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+<span data-fr="Historique des visas"
+data-en="Visa History"
+data-ar="تاريخ التأشيرات">
+
+Historique des visas
+
+</span>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+<div class="input-box full">
+
+<select>
+
+<option data-fr="Avez-vous déjà obtenu un visa ?"
+data-en="Have you obtained a visa before?"
+data-ar="هل حصلت سابقا على تأشيرة؟">
+
+Avez-vous déjà obtenu un visa ?
+
+</option>
+
+
+<option data-fr="Oui"
+data-en="Yes"
+data-ar="نعم">
+
+Oui
+
+</option>
+
+
+<option data-fr="Non"
+data-en="No"
+data-ar="لا">
+
+Non
+
+</option>
+
+
+</select>
+
+</div>
+
+
+
+<div class="file-box full">
+
+<h3>📑 Photos anciens visas</h3>
+
+<input type="file" multiple>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<span data-fr="Activité professionnelle"
+data-en="Professional Activity"
+data-ar="النشاط المهني">
+
+Activité professionnelle
+
+</span>
+
+</div>
+
+
+
+
+<div class="form-grid">
+
+
+<div class="input-box full">
+
+
+<select id="activityType" onchange="showActivity()">
+
+
+<option value=""
+data-fr="Choisir votre activité"
+data-en="Choose your activity"
+data-ar="اختر نشاطك">
+
+Choisir votre activité
+
+</option>
+
+
+<option value="commerce">
+
+👔 Commerçant
+
+</option>
+
+
+<option value="employee">
+
+🏛️ Fonctionnaire d'état
+
+</option>
+
+
+<option value="free">
+
+🛠️ Activité professionnelle libre
+
+</option>
+
+
+<option value="other">
+
+➕ Autre
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="commerceSection" class="dynamic-section">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-shop"></i>
+
+<span>Documents commerçant</span>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+<div class="file-box">
+
+<h3>📄 Registre de commerce</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>📄 Documents fiscaux</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>🏦 Compte CCP</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>💳 Relevé bancaire Dinar / Euro</h3>
+
+<input type="file">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="employeeSection" class="dynamic-section">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-building"></i>
+
+<span>Documents fonctionnaire</span>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+<div class="file-box">
+
+<h3>📄 Attestation de travail</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>💰 Fiches de paie 3 derniers mois</h3>
+
+<input type="file" multiple>
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>📊 Relevé annuel de salaire</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>🛡️ Attestation affiliation sécurité sociale</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>🌍 Autorisation sortie territoire employeur</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>🏦 Relevé CCP 6 mois</h3>
+
+<input type="file" multiple>
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>💳 Relevé bancaire DZD / EUR</h3>
+
+<input type="file">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+<div id="freeSection" class="dynamic-section">
+
+<div class="section-title">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+<span>Documents activité libre</span>
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="file-box">
+
+<h3>📄 Preuve activité professionnelle</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>📜 Diplômes et certificats professionnels</h3>
+
+<input type="file" multiple>
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>🏦 Relevé bancaire DZD / EUR</h3>
+
+<input type="file">
+
+</div>
+
+
+
+<div class="file-box">
+
+<h3>📎 Documents supplémentaires</h3>
+
+<input type="file" multiple>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="otherSection" class="dynamic-section">
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-plus"></i>
+
+<span>Autres documents</span>
+
+</div>
+
+
+<div class="file-box full">
+
+<h3>📎 Ajouter document complémentaire</h3>
+
+<input type="file" multiple>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-house"></i>
+
+<span data-fr="Situation de résidence"
+data-en="Residence Information"
+data-ar="معلومات السكن">
+
+Situation de résidence
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="form-grid">
+
+
+<div class="input-box full">
+
+
+<select id="residenceType" onchange="showResidence()">
+
+
+
+<option value=""
+data-fr="Choisir résidence"
+data-en="Choose residence"
+data-ar="اختر الإقامة">
+
+Choisir résidence
+
+</option>
+
+
+
+<option value="algeria">
+
+🇩🇿 Résident en Algérie
+
+</option>
+
+
+
+<option value="abroad">
+
+🌍 Résident à l'étranger
+
+</option>
+
+
+
+<option value="both">
+
+🇩🇿🌍 Algérie et étranger
+
+</option>
+
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div id="algeriaResidence" class="dynamic-section">
+
+
+<div class="input-box full">
+
+<textarea
+placeholder="Adresse en Algérie"
+data-fr-placeholder="Adresse en Algérie"
+data-en-placeholder="Address in Algeria"
+data-ar-placeholder="العنوان في الجزائر">
+</textarea>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="abroadResidence" class="dynamic-section">
+
+
+<div class="input-box full">
+
+<textarea
+placeholder="Adresse à l'étranger"
+data-fr-placeholder="Address abroad"
+data-en-placeholder="Address abroad"
+data-ar-placeholder="العنوان في الخارج">
+</textarea>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div id="bothResidence" class="dynamic-section">
+
+
+<div class="input-box full">
+
+<textarea
+placeholder="Adresse Algérie">
+</textarea>
+
+</div>
+
+
+
+<div class="input-box full">
+
+<textarea
+placeholder="Adresse étranger">
+</textarea>
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="section-title">
+
+<i class="fa-solid fa-plane-departure"></i>
+
+<span data-fr="Moyen de voyage"
+data-en="Travel Method"
+data-ar="وسيلة السفر">
+
+Moyen de voyage
+
+</span>
+
+</div>
+
+
+
+
+<div class="form-grid">
+
+
+<div class="input-box">
+
+
+<select>
+
+<option data-fr="Avion"
+data-en="Plane"
+data-ar="الطائرة">
+
+✈️ Avion
+
+</option>
+
+
+<option data-fr="Bateau"
+data-en="Ship"
+data-ar="الباخرة">
+
+🚢 Bateau
+
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="input-box">
+
+
+<i class="fa-solid fa-location-arrow"></i>
+
+
+<input type="text"
+placeholder="Lieu de départ"
+data-fr-placeholder="Lieu de départ"
+data-en-placeholder="Departure place"
+data-ar-placeholder="مكان الانطلاق">
+
+
+</div>
+
+
+</div>
+<div class="section-title">
+
+<i class="fa-solid fa-credit-card"></i>
+
+<span data-fr="Mode de paiement"
+data-en="Payment Method"
+data-ar="طريقة الدفع">
+
+Mode de paiement
+
+</span>
+
+</div>
+
+
+
+<div class="form-grid">
+
+<div class="input-box full">
+
+
+<select id="paymentMethod" onchange="showPayment()">
+
+
+
+<option value=""
+data-fr="Choisir votre paiement"
+data-en="Choose payment"
+data-ar="اختر طريقة الدفع">
+
+Choisir votre paiement
+
+</option>
+
+
+
+<option value="cash">
+
+💵 Paiement cash agence
+
+</option>
+
+
+
+<option value="baridi">
+
+📱 BaridiMob
+
+</option>
+
+
+
+<option value="gold">
+
+💳 Carte Edahabia
+
+</option>
+
+
+
+<option value="visa">
+
+💳 Visa / Mastercard
+
+</option>
+
+
+
+</select>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="cashPayment" class="payment-box dynamic-section">
+
+
+<h3>💵 Paiement en agence</h3>
+
+
+<p data-fr="Veuillez effectuer le paiement directement à l'agence AQUAREV Travel"
+data-en="Pay directly at AQUAREV Travel agency"
+data-ar="قم بالدفع مباشرة في وكالة أكواريف ترافل">
+
+Veuillez effectuer le paiement directement à l'agence AQUAREV Travel
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div id="baridiPayment" class="payment-box dynamic-section">
+
+
+<h3>📱 Paiement BaridiMob</h3>
+
+
+
+<div class="important-number">
+
+00799999001346449446
+
+</div>
+
+
+
+
+<p data-fr="Après paiement veuillez télécharger votre reçu PDF"
+data-en="After payment upload your PDF receipt"
+data-ar="بعد الدفع قم برفع وصل الدفع PDF">
+
+Après paiement veuillez télécharger votre reçu PDF
+
+</p>
+
+
+
+
+<div class="file-box">
+
+
+<h3>📄 Reçu paiement BaridiMob PDF</h3>
+
+
+<input type="file" accept="application/pdf">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="goldPayment" class="payment-box dynamic-section">
+
+
+<h3>💳 Carte Edahabia</h3>
+
+
+<p data-fr="Paiement électronique par carte nationale algérienne"
+data-en="Electronic payment with Algerian card"
+data-ar="الدفع الإلكتروني بالبطاقة الذهبية الجزائرية">
+
+Paiement électronique par carte nationale algérienne
+
+</p>
+
+
+
+<input type="text"
+placeholder="Nom sur la carte">
+
+
+
+<input type="text"
+placeholder="Numéro carte Edahabia">
+
+
+
+<input type="month">
+
+
+
+<input type="password"
+placeholder="Code sécurité">
+
+
+</div>
+
+
+
+
+
+
+
+<div id="visaPayment" class="payment-box dynamic-section">
+
+
+<h3>🌍 Visa / Mastercard</h3>
+
+
+
+<select>
+
+
+<option>
+
+Visa Classic
+
+</option>
+
+
+<option>
+
+Visa Gold
+
+</option>
+
+
+<option>
+
+Visa Platinum
+
+</option>
+
+
+<option>
+
+Mastercard
+
+</option>
+
+
+</select>
+
+
+
+
+<input type="text"
+placeholder="Nom sur la carte">
+
+
+
+<input type="text"
+placeholder="Numéro carte">
+
+
+
+<input type="month">
+
+
+
+<input type="password"
+placeholder="CVV">
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="section-title">
+
+
+<i class="fa-solid fa-paperclip"></i>
+
+
+<span data-fr="Documents complémentaires"
+data-en="Additional Documents"
+data-ar="وثائق إضافية">
+
+Documents complémentaires
+
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="file-box full">
+
+
+<h3>📎 Ajouter un document supplémentaire</h3>
+
+
+<input type="file" multiple>
+
+
+</div>
+
+
+
+
+
+
+
+
+<button class="submit-btn" type="submit">
+
+
+<i class="fa-solid fa-paper-plane"></i>
+
+
+<span data-fr="ENVOYER LA DEMANDE"
+data-en="SEND APPLICATION"
+data-ar="إرسال الطلب">
+
+ENVOYER LA DEMANDE
+
+</span>
+
+
+</button>
+
+
+
+
+
+
+</form>
+
+
+
+
+
+<a href="index.html"
+class="back-home"
+data-fr="← Retour AQUAREV Travel"
+data-en="← Back to AQUAREV Travel"
+data-ar="← العودة إلى أكواريف ترافل">
+
+← Retour AQUAREV Travel
+
+</a>
+
+
+
+
+
+</div>
+
+
+
+<script src="visa-script.js"></script>
+
+
+</body>
+
+</html>

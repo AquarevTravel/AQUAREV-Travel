@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>AQUAREV Travel | Voyages - Vols - Hôtels - Omra</title>
+
+<meta name="description" content="AQUAREV Travel agence de voyages spécialisée dans les vols, hôtels, croisières, séjours et Omra">
+
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+<header class="header">
+
+<div class="logo">
+<img src="assets/logo/logo.png" alt="AQUAREV Travel Logo">
+</div>
+
+<nav class="navbar">
+<ul>
+
+<li><a href="#home" data-fr="Accueil" data-en="Home" data-ar="الرئيسية">Accueil</a></li>
+
+<li><a href="#vols" data-fr="Vols" data-en="Flights" data-ar="الرحلات الجوية">Vols</a></li>
+
+<li><a href="#hotels" data-fr="Hôtels" data-en="Hotels" data-ar="الفنادق">Hôtels</a></li>
+
+<li><a href="#croisieres" data-fr="Croisières" data-en="Cruises" data-ar="الرحلات البحرية">Croisières</a></li>
+
+<li><a href="#reveillon" data-fr="Réveillon" data-en="New Year Trips" data-ar="رحلات رأس السنة">Réveillon</a></li>
+
+<li><a href="#contact" data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+
+</ul>
+</nav>
+
+
+<div class="language-header">
+
+<button class="language-globe" aria-label="Language">
+
+<i class="fa-solid fa-earth-americas"></i>
+
+<span class="current-language">🇫🇷</span>
+
+</button>
+
+
+<div class="language-menu">
+
+<button onclick="changeLanguage('fr')">
+🇫🇷 Français
+</button>
+
+<button onclick="changeLanguage('en')">
+🇬🇧 English
+</button>
+
+<button onclick="changeLanguage('ar')">
+🇩🇿 العربية
+</button>
+
+</div>
+
+</div>
+<div id="user-area" style="visibility:hidden;">
+<a href="signin.html" class="auth-btn signin-btn" id="login-link">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+<span>
+Connexion
+</span>
+
+</a>
+
+<a href="signup.html" class="auth-btn signup-btn" id="signup-link">
+
+<i class="fa-solid fa-user-plus"></i>
+
+<span>
+Inscription
+</span>
+
+</a>
+
+</div>
+
+
+</div>
+
+<div class="menu-toggle">
+
+<i class="fa-solid fa-bars"></i>
+
+</div>
+
+</header>
+
+
+<section id="home" class="hero">
+
+<video autoplay muted loop playsinline class="hero-video">
+
+<source src="assets/videos/hero.mp4" type="video/mp4">
+
+</video>
+
+
+<div class="hero-overlay"></div>
+
+
+<div class="hero-content">
+
+<h2 data-fr="Voyager avec AQUAREV Travel"
+data-en="Travel with AQUAREV Travel"
+data-ar="سافر مع AquaRev Travel">
+
+Voyager avec AQUAREV Travel
+
+</h2>
+
+
+<div class="hero-services">
+
+<div class="visa-container">
+
+<a href="#visas" class="visa-btn">
+
+<i class="fa-solid fa-passport"></i>
+
+<span data-fr="Visas" data-en="Visas" data-ar="التأشيرات">
+Visas
+</span>
+
+</a>
+
+<div class="visa-tooltip"
+onclick="window.location.href='visa-request.html'"
+
+data-fr="RENDEZ-VOUS POUR traitement dossier de  VISA"
+
+data-en= "APPOINTMENT FOR  VISA APPLICATION  PROCESSING"
+
+data-ar="موعد لمعالجة ملف طلب التأشيرة">
+
+RENDEZ-VOUS POUR  traitement dossier de  VISA
+
+</div>
+
+</div>
+
+
+
+<a href="#vols">
+<i class="fa-solid fa-plane-departure"></i>
+<span data-fr="Billetterie" data-en="Ticketing" data-ar="التذاكر">Billetterie</span></a>
+
+<a href="#voyages">
+<i class="fa-solid fa-earth-americas"></i>
+<span data-fr="Séjours" data-en="Stays" data-ar="الإقامات">Séjours</span>
+</a>
+
+<a href="#omra">
+<i class="fa-solid fa-kaaba"></i>
+<span data-fr="Omra" data-en="Omra" data-ar="العمرة">Omra</span>
+</a>
+
+<a href="#hotels">
+<i class="fa-solid fa-hotel"></i>
+<span data-fr="Hôtels Luxe" data-en="Luxury Hotels" data-ar="فنادق فاخرة">Hôtels Luxe</span>
+</a>
+
+<a href="#croisieres">
+<i class="fa-solid fa-ship"></i>
+<span data-fr="Croisières" data-en="Cruises" data-ar="الرحلات البحرية">
+Croisières
+</span></a>
+
+</div>
+
+
+<a href="#vols" class="hero-btn">
+<span data-fr="Réserver maintenant"
+data-en="Book now"
+data-ar="احجز الآن">
+Réserver maintenant
+</span><i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</section>
+<section class="booking-services">
+
+<div class="section-title">
+
+<h2 data-fr="Nos Services" data-en="Our Services" data-ar="خدماتنا">
+Nos Services
+</h2>
+
+<p data-fr="Réservez votre voyage avec AQUAREV Travel"
+data-en="Book your trip with AQUAREV Travel"
+data-ar="احجز رحلتك مع أكواريف ترافل">
+Réservez votre voyage avec AQUAREV Travel
+</p>
+
+</div>
+
+
+<section id="vols" class="service-card">
+
+<div class="service-video">
+
+<video autoplay muted loop playsinline>
+<source src="assets/videos/flights.mp4" type="video/mp4">
+</video>
+
+</div>
+
+
+<div class="service-content">
+
+<h3 data-fr="Réservation des vols"
+data-en="Flight Booking"
+data-ar="حجز الرحلات الجوية">
+Réservation des vols
+</h3>
+
+
+<p data-fr="Trouvez les meilleurs vols internationaux aux meilleurs prix."
+data-en="Find the best international flights at the best prices."
+data-ar="ابحث عن أفضل الرحلات الجوية الدولية بأفضل الأسعار.">
+Trouvez les meilleurs vols internationaux aux meilleurs prix.
+</p>
+
+
+<button>
+<i class="fa-solid fa-plane"></i>
+Réserver un vol
+</button>
+
+</div>
+
+</section>
+
+
+
+<section id="hotels" class="service-card reverse">
+
+<div class="service-video">
+
+<video autoplay muted loop playsinline>
+
+<source src="assets/videos/hotels.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+
+<div class="service-content">
+
+<h3 data-fr="Réservation des hôtels"
+data-en="Hotel Booking"
+data-ar="حجز الفنادق">
+Réservation des hôtels
+</h3>
+
+
+<p data-fr="Des hôtels de luxe partout dans le monde."
+data-en="Luxury hotels around the world."
+data-ar="فنادق فاخرة حول العالم.">
+
+Des hôtels de luxe partout dans le monde.
+
+</p>
+
+
+<button>
+
+<i class="fa-solid fa-hotel"></i>
+
+Réserver hôtel
+
+</button>
+
+
+</div>
+
+</section>
+
+
+
+<section id="croisieres" class="service-card">
+
+<div class="service-video">
+
+<video autoplay muted loop playsinline>
+
+<source src="assets/videos/cruises.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+
+
+<div class="service-content">
+
+<h3 data-fr="Croisières"
+data-en="Cruises"
+data-ar="الرحلات البحرية">
+
+Croisières
+
+</h3>
+
+
+<p data-fr="Découvrez des croisières inoubliables."
+data-en="Discover unforgettable cruises."
+data-ar="اكتشف رحلات بحرية لا تنسى.">
+
+Découvrez des croisières inoubliables.
+
+</p>
+
+
+<button>
+
+<i class="fa-solid fa-ship"></i>
+
+Réserver une croisière
+
+</button>
+
+
+</div>
+
+</section>
+
+
+
+<section id="reveillon" class="service-card reverse">
+
+
+<div class="service-video">
+
+<video autoplay muted loop playsinline>
+
+<source src="assets/videos/reveillon.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+
+<div class="service-content">
+
+
+<h3 data-fr="Voyages Réveillon"
+data-en="New Year Trips"
+data-ar="رحلات رأس السنة">
+
+Voyages Réveillon
+
+</h3>
+
+
+<p data-fr="Célébrez la nouvelle année dans les plus belles destinations."
+data-en="Celebrate the New Year in amazing destinations."
+data-ar="احتفل برأس السنة في أجمل الوجهات.">
+
+Célébrez la nouvelle année dans les plus belles destinations.
+
+</p>
+
+
+<button>
+
+<i class="fa-solid fa-champagne-glasses"></i>
+
+Découvrir
+
+</button>
+
+
+</div>
+
+</section>
+<section id="voyages" class="service-card">
+
+<div class="service-video">
+
+<video autoplay muted loop playsinline>
+
+<source src="assets/videos/travel.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+
+<div class="service-content">
+
+<h3 data-fr="Voyages Divers"
+data-en="Travel Packages"
+data-ar="رحلات متنوعة">
+
+Voyages Divers
+
+</h3>
+
+
+<p data-fr="Des séjours adaptés à tous vos rêves de voyage."
+data-en="Travel packages designed for your dreams."
+data-ar="برامج سياحية تناسب جميع رغباتكم.">
+
+Des séjours adaptés à tous vos rêves de voyage.
+
+</p>
+
+
+<button>
+
+<i class="fa-solid fa-earth-americas"></i>
+
+Voir les offres
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<section id="omra" class="service-card reverse">
+
+
+<div class="service-video">
+
+<video autoplay muted loop playsinline>
+
+<source src="assets/videos/omra.mp4" type="video/mp4">
+
+</video>
+
+</div>
+
+
+
+<div class="service-content">
+
+
+<h3 data-fr="Omra & Hajj"
+data-en="Umrah & Hajj"
+data-ar="العمرة والحج">
+
+Omra & Hajj
+
+</h3>
+
+
+<p data-fr="Organisez votre Omra et Hajj avec une équipe professionnelle."
+data-en="Organize your Umrah and Hajj with our professional team."
+data-ar="نظم رحلة العمرة والحج مع فريقنا المحترف.">
+
+Organisez votre Omra et Hajj avec une équipe professionnelle.
+
+</p>
+
+
+<button>
+
+<i class="fa-solid fa-kaaba"></i>
+
+Réserver Omra
+
+</button>
+
+
+</div>
+
+</section>
+
+</section>
+
+
+
+<section id="contact" class="contact-section">
+
+
+<div class="contact-container">
+
+
+<h2 data-fr="Contactez Nous"
+data-en="Contact Us"
+data-ar="اتصل بنا">
+
+Contactez Nous
+
+</h2>
+
+
+
+<p data-fr="Notre équipe AQUAREV Travel est à votre disposition."
+data-en="Our AQUAREV Travel team is available for you."
+data-ar="فريق أكواريف ترافل في خدمتكم.">
+
+Notre équipe AQUAREV Travel est à votre disposition.
+
+</p>
+
+
+
+<div class="contact-info">
+
+
+<div class="contact-box">
+
+<a href="mailto:aquarev.travel@gmail.com">
+
+<i class="fa-solid fa-envelope"></i>
+
+<h4>Email</h4>
+
+<p>aquarev.travel@gmail.com</p>
+
+</a>
+
+</div>
+
+
+
+<div class="contact-box">
+
+<a href="https://wa.me/213554958578" target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+<h4>WhatsApp</h4>
+
+<p>+213554958578</p>
+
+</a>
+
+</div>
+
+
+
+<div class="contact-box">
+
+<a href="https://maps.google.com/?q=04+chemin+allaghan+tazmalt+bejaia+algeria" target="_blank">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<h4>Adresse</h4>
+
+<p>Tazmalt Béjaia</p>
+
+</a>
+
+</div>
+
+
+
+<div class="contact-box">
+
+<a href="https://www.facebook.com/share/1ZqcXcKhZb/" target="_blank">
+
+<i class="fa-brands fa-facebook-f"></i>
+
+<h4>Facebook</h4>
+
+<p>AQUAREV Travel</p>
+
+</a>
+
+</div>
+
+
+
+<div class="contact-box">
+
+<a href="https://www.instagram.com/aquarevtravel" target="_blank">
+
+<i class="fa-brands fa-instagram"></i>
+
+<h4>Instagram</h4>
+
+<p>@aquarevtravel</p>
+
+</a>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+<footer class="footer">
+
+<div class="footer-content">
+
+<img src="assets/logo/logo.png" alt="AQUAREV Travel">
+
+
+<p>
+© 2026 AQUAREV Travel - Tous droits réservés
+</p>
+
+
+
+<div class="footer-social">
+
+
+<a href="mailto:aquarev.travel@gmail.com" aria-label="Email">
+<i class="fa-solid fa-envelope"></i>
+</a>
+
+
+<a href="https://wa.me/213554958578" target="_blank" aria-label="WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+<a href="https://www.facebook.com/share/1ZqcXcKhZb/" target="_blank" aria-label="Facebook">
+<i class="fa-brands fa-facebook"></i>
+</a>
+
+
+<a href="https://www.instagram.com/aquarevtravel" target="_blank" aria-label="Instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+
+<a href="https://maps.google.com/?q=04+chemin+allaghan+tazmalt+bejaia+algeria" target="_blank" aria-label="Location">
+<i class="fa-solid fa-location-dot"></i>
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+<div id="signin-popup" class="popup">
+<div class="popup-content">
+<span class="close" onclick="closeSignin()">&times;</span>
+<iframe id="signin-frame"></iframe>
+</div>
+</div>
+
+<div id="signup-popup" class="popup">
+<div class="popup-content">
+<span class="close" onclick="closeSignup()">&times;</span>
+<iframe id="signup-frame"></iframe>
+</div>
+</div>
+
+<script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="support-widget">
+
+<button class="support-btn">
+
+<i class="fa-solid fa-cloud"></i>
+
+<span
+class="support-text"
+data-fr="Assistance technique"
+data-en="Technical Support"
+data-ar="المساعدة التقنية">
+المساعدة التقنية
+</span>
+
+</button>
+
+<div class="support-menu">
+
+
+<a class="kahina" href="tel:0660494531">
+📞
+<span
+data-fr="Kahina"
+data-en="Kahina"
+data-ar="كهينة">
+كهينة
+</span>
+</a>
+
+
+<a class="khadija" href="tel:0771182338">
+📞
+<span
+data-fr="Khadija"
+data-en="Khadija"
+data-ar="خديجة">
+خديجة
+</span>
+</a>
+
+
+
+<a class="khadija" href="tel:0660494531">
+📞
+<span
+data-fr="SARAH"
+data-en="SARAH"
+data-ar="سارة">
+SARAH
+</span>
+</a>
+
+<a class="whatsapp" href="https://wa.me/213660494531" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+WhatsApp
+</a>
+<a class="facebook" href="https://www.facebook.com/share/1ZqcXcKhZb/" target="_blank">
+<i class="fa-brands fa-facebook"></i>
+Facebook
+</a>
+
+<a class="instagram" href="https://www.instagram.com/aquarevtravel" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+Instagram
+</a>
+
+
+<a class="email" href="mailto:AQUAREV.travel@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+<span
+data-fr="Email"
+data-en="Email"
+data-ar="البريد الإلكتروني">
+Email
+</span>
+</a>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+const supportWidget=document.querySelector(".support-widget");
+const supportBtn=document.querySelector(".support-btn");
+let closeTimer;
+
+if(supportWidget&&supportBtn){
+
+function openCloud(){
+supportWidget.classList.add("open");
+clearTimeout(closeTimer);
+closeTimer=setTimeout(function(){
+supportWidget.classList.remove("open");
+},4000);
+}
+
+function keepOpen(){
+clearTimeout(closeTimer);
+}
+
+function closeCloud(){
+supportWidget.classList.remove("open");
+}
+
+
+supportBtn.addEventListener("click",function(e){
+e.preventDefault();
+e.stopPropagation();
+openCloud();
+});
+
+
+/* الحاسوب */
+supportWidget.addEventListener("mouseenter",function(){
+openCloud();
+keepOpen();
+});
+
+
+supportWidget.addEventListener("mouseleave",function(){
+closeTimer=setTimeout(function(){
+closeCloud();
+},4000);
+});
+
+
+/* يمنع الإغلاق عند الضغط داخل القائمة */
+supportWidget.addEventListener("click",function(e){
+e.stopPropagation();
+});
+
+
+/* إغلاق عند الضغط خارجها */
+document.addEventListener("click",function(){
+closeCloud();
+});
+
+
+/* دعم اللمس للهاتف */
+supportBtn.addEventListener("touchstart",function(e){
+e.preventDefault();
+openCloud();
+},{passive:false});
+
+
+}
+
+});
+</script>
+
+
+
+
+
+
+
+
+<script type="module">
+
+
+import{auth,db}from"./firebase/firebase-config.js";
+import{
+doc,
+getDoc
+}from"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+import{
+onAuthStateChanged,
+signOut
+}from"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+
+onAuthStateChanged(auth,async(user)=>{
+
+
+
+console.log("AUTH USER:",user);
+
+
+
+const userArea=document.getElementById("user-area");
+const loginLink=document.getElementById("login-link");
+const signupLink=document.getElementById("signup-link");
+
+if(user){
+userArea.style.visibility="visible";
+console.log("USER CONNECTED:",user.email);
+
+let userName="Client";
+
+const userDoc=await getDoc(
+doc(
+db,
+"users",
+user.uid
+)
+);
+
+if(userDoc.exists()){
+
+userName=userDoc.data().name;
+
+}
+
+
+
+
+userArea.innerHTML=`
+
+<div class="user-connected">
+
+<i class="fa-solid fa-user"></i>
+
+<span>
+${userName}
+</span>
+<button id="logout-btn" class="logout-btn">
+<i class="fa-solid fa-right-from-bracket"></i>
+<span
+data-fr="Déconnexion"
+data-en="Logout"
+data-ar="تسجيل الخروج">
+Déconnexion
+</span>
+</button>
+</div>
+
+`;
+if(localStorage.getItem("AQUAREV-language")){
+changeLanguage(localStorage.getItem("AQUAREV-language"));
+}
+document
+.getElementById("logout-btn")
+.addEventListener("click",async()=>{
+
+await signOut(auth);
+
+window.location.reload();
+
+});
+
+}
+
+
+
+else{
+userArea.style.visibility="visible";
+
+userArea.innerHTML=`
+
+<a href="signin.html" class="auth-btn signin-btn">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+<span
+data-fr="Connexion"
+data-en="Sign in"
+data-ar="تسجيل الدخول">
+Connexion
+</span>
+</a>
+
+<a href="signup.html" class="auth-btn signup-btn">
+
+<i class="fa-solid fa-user-plus"></i>
+
+<span
+data-fr="Inscription"
+data-en="Sign up"
+data-ar="التسجيل">
+Inscription
+</span>
+</a>
+`;
+if(localStorage.getItem("AQUAREV-language")){
+changeLanguage(localStorage.getItem("AQUAREV-language"));
+}
+
+}
+
+});
+</script>
+
+</body>
+</html>

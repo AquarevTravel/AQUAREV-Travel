@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AQUAREV Travel - Sign In</title>
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Poppins',sans-serif;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:auto;
+position:relative;
+}
+
+/* VIDEO BACKGROUND */
+.video-bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+/* DARK OVERLAY */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.70));
+z-index:-1;
+}
+
+.login-box{
+width:100%;
+max-width:420px;
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(15px);
+border-radius:30px;
+padding:35px 30px;
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+text-align:center;
+}
+
+.logo img{
+width:90px;
+margin-bottom:15px;
+}
+
+.login-box h2{
+color:#071426;
+font-size:30px;
+font-weight:700;
+margin-bottom:25px;
+}
+
+.input-group{
+position:relative;
+margin-bottom:18px;
+}
+
+.input-group i{
+position:absolute;
+left:18px;
+top:50%;
+transform:translateY(-50%);
+color:#d4af37;
+font-size:17px;
+}
+
+.input-group input{
+width:100%;
+padding:15px 45px;
+border-radius:35px;
+border:1px solid #ddd;
+font-size:15px;
+outline:none;
+transition:.3s;
+}
+
+.input-group input:focus{
+border-color:#d4af37;
+box-shadow:0 0 10px rgba(212,175,55,.25);
+}
+
+.login-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:35px;
+background:linear-gradient(135deg,#d4af37,#f7e58a);
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+color:#071426;
+transition:.3s;
+box-shadow:0 8px 20px rgba(212,175,55,.35);
+}
+
+.login-btn:hover{
+transform:translateY(-3px);
+}
+
+.divider{
+display:flex;
+align-items:center;
+gap:10px;
+margin:25px 0;
+color:#777;
+font-size:14px;
+}
+
+.divider span{
+height:1px;
+background:#ddd;
+flex:1;
+}
+
+.social-btn{
+width:100%;
+padding:13px;
+border-radius:35px;
+border:none;
+margin-bottom:12px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+transition:.3s;
+}
+
+.social-btn:hover{
+transform:translateY(-3px);
+}
+
+.google{
+background:#fff;
+border:1px solid #ddd;
+color:#333;
+}
+
+.facebook{
+background:#1877f2;
+color:#fff;
+}
+
+.apple{
+background:#000;
+color:#fff;
+}
+.signup-link{
+margin-top:18px;
+font-size:14px;
+color:#333;
+}
+
+.signup-link a{
+color:#d4af37;
+font-weight:bold;
+text-decoration:none;
+}
+
+@media(max-width:450px){
+.login-box{
+margin:20px;
+padding:25px 20px;
+}
+.login-box h2{
+font-size:25px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<video class="video-bg" autoplay muted loop>
+<source src="assets/videos/hero.mp4" type="video/mp4">
+</video>
+
+<div class="login-box">
+
+<div class="logo">
+<img src="assets/logo/logo.png" alt="AQUAREV Travel">
+</div>
+
+<h2>
+<i class="fa-solid fa-right-to-bracket" style="color:#d4af37;margin-right:8px;"></i>
+Sign In
+</h2>
+
+<form id="loginForm">
+
+<div class="input-group">
+<i class="fa-solid fa-envelope"></i>
+<input type="email" id="loginEmail" placeholder="Email" required>
+</div>
+
+<div class="input-group">
+<i class="fa-solid fa-lock"></i>
+<input type="password" id="loginPassword" placeholder="Password" required>
+</div>
+
+<button type="submit" class="login-btn">
+<i class="fa-solid fa-user-check"></i>
+Connexion
+</button>
+
+</form>
+
+<div class="divider">
+<span></span>
+OU
+<span></span>
+</div>
+
+<button class="social-btn google">
+<i class="fa-brands fa-google"></i>
+Continuer avec Google
+</button>
+
+<button class="social-btn facebook">
+<i class="fa-brands fa-facebook-f"></i>
+Continuer avec Facebook
+</button>
+
+<button class="social-btn apple">
+<i class="fa-brands fa-apple"></i>
+Continuer avec Apple
+</button>
+
+<p class="signup-link">
+Pas encore de compte ?
+<a href="signup.html">
+Créer un compte
+</a>
+</p>
+
+</div>
+
+
+<script type="module">
+    import{
+auth,
+db
+}from"./firebase/firebase-config.js";
+import{
+doc,
+setDoc,
+serverTimestamp
+}from"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import{
+signInWithEmailAndPassword,
+GoogleAuthProvider,
+signInWithPopup
+}from"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+document.getElementById("loginForm").addEventListener("submit",async(e)=>{
+e.preventDefault();
+
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+const user=auth.currentUser;
+
+await setDoc(
+doc(
+db,
+"users",
+user.uid
+),
+{
+email:user.email,
+name:user.email.split("@")[0],
+provider:"Email",
+createdAt:serverTimestamp()
+},
+{
+merge:true
+}
+);
+
+
+
+window.location.href="index.html";
+
+}catch(error){
+
+console.error(error);
+
+alert(error.message);
+
+}
+
+});
+let googleLoading=false;
+
+document.querySelector(".google").addEventListener("click",async()=>{
+
+if(googleLoading)return;
+
+googleLoading=true;
+
+try{
+
+const provider=new GoogleAuthProvider();
+
+const result=await signInWithPopup(
+auth,
+provider
+);
+
+console.log(result.user);
+
+alert("Connexion Google réussie");
+
+window.location.href="index.html";
+
+}catch(error){
+
+console.error(error);
+
+if(error.code!=="auth/cancelled-popup-request"){
+
+alert(error.message);
+
+}
+
+}finally{
+
+googleLoading=false;
+
+}
+
+});
+document.querySelector(".facebook").onclick=function(){
+alert("Facebook Login sera connecté avec Meta Developers");
+};
+
+
+document.querySelector(".apple").onclick=function(){
+alert("Apple Login sera connecté avec Firebase Apple Authentication");
+};
+
+</script>
+
+</body>
+</html>
