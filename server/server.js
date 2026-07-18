@@ -6,6 +6,9 @@ console.log("PASS:", process.env.EMAIL_PASS ? "OK" : "MISSING");
 const express=require("express");
 const cors=require("cors");
 const path=require("path");
+
+
+
 const upload=require("./upload");
 const generatePDF=require("./pdfGenerator");
 const {sendMail,sendNewUserMail}=require("./mailer");
@@ -73,6 +76,7 @@ message:"Erreur serveur"
 // ===============================
 // START SERVER
 // ===============================
+app.use(express.static(path.join(__dirname,"..")));
 const PORT=process.env.PORT||3000;
 
 app.listen(PORT,"0.0.0.0",()=>{
