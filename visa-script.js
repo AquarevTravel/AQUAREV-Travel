@@ -396,7 +396,7 @@ document.getElementById("paymentMethod").value
 try{
 const response =
 await fetch(
-"http://10.123.251.25:3000/visa-request",
+"https://aquarev-travel.onrender.com/visa-request",
 {
 method:"POST",
 body:formData
