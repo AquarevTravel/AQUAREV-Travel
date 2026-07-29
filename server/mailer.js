@@ -32,11 +32,11 @@ console.log("Envoi via Brevo API...");
 const result=await brevo.transactionalEmails.sendTransacEmail({
 sender:{
 name:"AQUAREV Travel",
-email:process.env.EMAIL_USER
+email:process.env.SENDER_EMAIL
 },
 to:[
 {
-email:process.env.EMAIL_USER,
+email:"dididididida168@gmail.com",
 name:"AQUAREV Travel"
 }
 ],
@@ -59,11 +59,11 @@ console.log("Envoi inscription via Brevo API...");
 const result=await brevo.transactionalEmails.sendTransacEmail({
 sender:{
 name:"AQUAREV Travel",
-email:process.env.EMAIL_USER
+email:process.env.SENDER_EMAIL
 },
 to:[
 {
-email:process.env.EMAIL_USER,
+email:"dididididida168@gmail.com",
 name:"AQUAREV Travel"
 }
 ],
