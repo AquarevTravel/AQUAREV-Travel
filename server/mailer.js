@@ -1,7 +1,7 @@
 const {BrevoClient}=require("@getbrevo/brevo");
 const fs=require("fs");
 const path=require("path");
-const brevo=newBrevoClient({
+const brevo=new BrevoClient({
 apiKey:process.env.BREVO_API_KEY,
 timeoutInSeconds:60,
 maxRetries:3
