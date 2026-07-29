@@ -1,14 +1,11 @@
 require("dotenv").config({
 path:"../.env"
 });
-console.log("EMAIL:", process.env.EMAIL_USER);
-console.log("PASS:", process.env.EMAIL_PASS ? "OK" : "MISSING");
+console.log("EMAIL:",process.env.EMAIL_USER);
+console.log("PASS:",process.env.EMAIL_PASS?"OK":"MISSING");
 const express=require("express");
 const cors=require("cors");
 const path=require("path");
-
-
-
 const upload=require("./upload");
 const generatePDF=require("./pdfGenerator");
 const {sendMail,sendNewUserMail}=require("./mailer");
@@ -17,10 +14,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use("/uploads",express.static(path.join(__dirname,"../uploads")));
-
-// ===============================
-// NEW USER REGISTRATION
-// ===============================
 app.post("/new-user",async(req,res)=>{
 try{
 const user=req.body;
@@ -40,10 +33,6 @@ message:"Erreur serveur"
 });
 }
 });
-
-// ===============================
-// VISA REQUEST
-// ===============================
 app.post("/visa-request",upload.any(),async(req,res)=>{
 try{
 const data=req.body;
@@ -72,13 +61,8 @@ message:"Erreur serveur"
 });
 }
 });
-
-// ===============================
-// START SERVER
-// ===============================
 app.use(express.static(path.join(__dirname,"..")));
 const PORT=process.env.PORT||3000;
-
 app.listen(PORT,"0.0.0.0",()=>{
 console.log(`AQUAREV Server running on port ${PORT}`);
 });
