@@ -1,12 +1,9 @@
 const nodemailer=require("nodemailer");
 const path=require("path");
-const dns=require("dns");
-const net=require("net");
 const transporter=nodemailer.createTransport({
-host:"smtp.gmail.com",
-port:465,
-secure:true,
-family:4,
+host:"smtp-relay.brevo.com",
+port:587,
+secure:false,
 auth:{
 user:process.env.EMAIL_USER,
 pass:process.env.EMAIL_PASS
@@ -16,27 +13,9 @@ rejectUnauthorized:false
 },
 logger:true,
 debug:true,
-connectionTimeout:15000,
-greetingTimeout:15000,
-socketTimeout:15000
-});
-dns.lookup("smtp.gmail.com",{family:4},(err,address)=>{
-if(err){
-console.log("DNS ERROR:",err);
-}else{
-console.log("SMTP IPv4:",address);
-const socket=net.createConnection({host:address,port:465},()=>{
-console.log("SMTP PORT 465 OPEN");
-socket.end();
-});
-socket.on("error",(error)=>{
-console.log("SMTP PORT ERROR:",error.message);
-});
-socket.setTimeout(10000,()=>{
-console.log("SMTP PORT TIMEOUT");
-socket.destroy();
-});
-}
+connectionTimeout:60000,
+greetingTimeout:60000,
+socketTimeout:60000
 });
 async function sendMail(data,files,pdfPath){
 const attachments=[];
@@ -58,8 +37,7 @@ const mailOptions={
 from:process.env.EMAIL_USER,
 to:process.env.EMAIL_USER,
 subject:"Nouvelle demande VISA - AQUAREV Travel",
-text:`
-AquaRev Travel
+text:`AquaRev Travel
 Nouvelle demande VISA reçue.
 Informations client:
 Nom:${data["Nom complet"]||"-"}
