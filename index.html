@@ -916,8 +916,6 @@ userName=userDoc.data().name;
 }
 
 
-
-
 userArea.innerHTML=`
 
 <div class="user-connected">
@@ -927,6 +925,17 @@ userArea.innerHTML=`
 <span>
 ${userName}
 </span>
+
+<a href="portal/" class="messagerie-btn">
+<i class="fa-solid fa-comments"></i>
+<span
+data-fr="Messagerie"
+data-en="Messaging"
+data-ar="الرسائل">
+Messagerie
+</span>
+</a>
+
 <button id="logout-btn" class="logout-btn">
 <i class="fa-solid fa-right-from-bracket"></i>
 <span
@@ -936,10 +945,10 @@ data-ar="تسجيل الخروج">
 Déconnexion
 </span>
 </button>
+
 </div>
 
-`;
-if(localStorage.getItem("AQUAREV-language")){
+`;if(localStorage.getItem("AQUAREV-language")){
 changeLanguage(localStorage.getItem("AQUAREV-language"));
 }
 document
