@@ -1,77 +1,82 @@
-const nodemailer=require("nodemailer");
+const {BrevoClient}=require("@getbrevo/brevo");
+const fs=require("fs");
 const path=require("path");
-const transporter=nodemailer.createTransport({
-host:"smtp-relay.brevo.com",
-port:587,
-secure:false,
-auth:{
-user:process.env.EMAIL_USER,
-pass:process.env.EMAIL_PASS
-},
-tls:{
-rejectUnauthorized:false
-},
-logger:true,
-debug:true,
-connectionTimeout:60000,
-greetingTimeout:60000,
-socketTimeout:60000
+const brevo=new BrevoClient({
+apiKey:process.env.BREVO_API_KEY,
+timeoutInSeconds:60,
+maxRetries:3
 });
-async function sendMail(data,files,pdfPath){
+async function buildAttachments(files,pdfPath){
 const attachments=[];
-if(pdfPath){
+if(pdfPath&&fs.existsSync(pdfPath)){
 attachments.push({
-filename:path.basename(pdfPath),
-path:pdfPath
+name:path.basename(pdfPath),
+content:fs.readFileSync(pdfPath).toString("base64")
 });
 }
 if(files&&files.length){
-files.forEach(file=>{
+for(const file of files){
+if(fs.existsSync(file.path)){
 attachments.push({
-filename:file.originalname,
-path:file.path
-});
+name:file.originalname,
+content:fs.readFileSync(file.path).toString("base64")
 });
 }
-const mailOptions={
-from:process.env.EMAIL_USER,
-to:process.env.EMAIL_USER,
+}
+}
+return attachments;
+}
+async function sendMail(data,files,pdfPath){
+const attachments=await buildAttachments(files,pdfPath);
+console.log("Envoi via Brevo API...");
+const result=await brevo.transactionalEmails.sendTransacEmail({
+sender:{
+name:"AQUAREV Travel",
+email:process.env.EMAIL_USER
+},
+to:[
+{
+email:process.env.EMAIL_USER,
+name:"AQUAREV Travel"
+}
+],
 subject:"Nouvelle demande VISA - AQUAREV Travel",
-text:`AquaRev Travel
+textContent:`AquaRev Travel
 Nouvelle demande VISA reçue.
 Informations client:
 Nom:${data["Nom complet"]||"-"}
 Email:${data["Adresse e-mail"]||"-"}
 Téléphone:${data["Téléphone"]||"-"}
 Destination:${data.selectedCountry||"-"}
-Type visa:${data.visaType||"-"}
-`,
-attachments:attachments
-};
-console.log("Verification de la connexion SMTP...");
-await transporter.verify();
-console.log("SMTP READY");
-await transporter.sendMail(mailOptions);
-console.log("EMAIL VISA ENVOYE");
+Type visa:${data.visaType||"-"}`,
+attachment:attachments
+});
+console.log("EMAIL VISA ENVOYE",result);
+return result;
 }
 async function sendNewUserMail(user){
-const mailOptions={
-from:process.env.EMAIL_USER,
-to:process.env.EMAIL_USER,
+console.log("Envoi inscription via Brevo API...");
+const result=await brevo.transactionalEmails.sendTransacEmail({
+sender:{
+name:"AQUAREV Travel",
+email:process.env.EMAIL_USER
+},
+to:[
+{
+email:process.env.EMAIL_USER,
+name:"AQUAREV Travel"
+}
+],
 subject:"Nouvel utilisateur inscrit - AQUAREV Travel",
-text:`AquaRev Travel
+textContent:`AquaRev Travel
 Nouvelle inscription utilisateur.
 Nom complet:${user.name||"-"}
 Email:${user.email||"-"}
 Méthode inscription:${user.provider||user.method||"Email"}
-Date:${new Date().toLocaleString("fr-FR")}
-`
-};
-console.log("Verification de la connexion SMTP...");
-await transporter.verify();
-console.log("SMTP READY");
-await transporter.sendMail(mailOptions);
-console.log("EMAIL INSCRIPTION ENVOYE");
+Date:${new Date().toLocaleString("fr-FR")}`
+});
+console.log("EMAIL INSCRIPTION ENVOYE",result);
+return result;
 }
 module.exports={
 sendMail,
