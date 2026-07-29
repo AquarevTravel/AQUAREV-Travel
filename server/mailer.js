@@ -2,14 +2,14 @@ const nodemailer=require("nodemailer");
 const path=require("path");
 const transporter=nodemailer.createTransport({
 host:"smtp.gmail.com",
-port:587,
-secure:false,
+port:465,
+secure:true,
+family:4,
 auth:{
 user:process.env.EMAIL_USER,
 pass:process.env.EMAIL_PASS
 },
 tls:{
-ciphers:"SSLv3",
 rejectUnauthorized:false
 },
 connectionTimeout:60000,
@@ -36,8 +36,7 @@ const mailOptions={
 from:process.env.EMAIL_USER,
 to:process.env.EMAIL_USER,
 subject:"Nouvelle demande VISA - AQUAREV Travel",
-text:
-`
+text:`
 AquaRev Travel
 Nouvelle demande VISA reçue.
 Informations client:
@@ -49,15 +48,18 @@ Type visa:${data.visaType||"-"}
 `,
 attachments:attachments
 };
+console.log("Verification de la connexion SMTP...");
+await transporter.verify();
+console.log("SMTP READY");
 await transporter.sendMail(mailOptions);
+console.log("EMAIL VISA ENVOYE");
 }
 async function sendNewUserMail(user){
 const mailOptions={
 from:process.env.EMAIL_USER,
 to:process.env.EMAIL_USER,
 subject:"Nouvel utilisateur inscrit - AQUAREV Travel",
-text:
-`
+text:`
 AquaRev Travel
 Nouvelle inscription utilisateur.
 Nom complet:${user.name||"-"}
@@ -66,7 +68,11 @@ Méthode inscription:${user.provider||user.method||"Email"}
 Date:${new Date().toLocaleString("fr-FR")}
 `
 };
+console.log("Verification de la connexion SMTP...");
+await transporter.verify();
+console.log("SMTP READY");
 await transporter.sendMail(mailOptions);
+console.log("EMAIL INSCRIPTION ENVOYE");
 }
 module.exports={
 sendMail,
