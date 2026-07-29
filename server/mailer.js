@@ -13,14 +13,18 @@ attachments.push({
 name:path.basename(pdfPath),
 content:fs.readFileSync(pdfPath).toString("base64")
 });
+}else if(pdfPath){
+console.log("PDF NOT FOUND:",pdfPath);
 }
 if(files&&files.length){
 for(const file of files){
 if(fs.existsSync(file.path)){
 attachments.push({
-name:file.originalname,
+name:Buffer.from(file.originalname,"latin1").toString("utf8"),
 content:fs.readFileSync(file.path).toString("base64")
 });
+}else{
+console.log("FILE NOT FOUND:",file.path);
 }
 }
 }
