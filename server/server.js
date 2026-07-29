@@ -8,7 +8,8 @@ const cors=require("cors");
 const path=require("path");
 const upload=require("./upload");
 const generatePDF=require("./pdfGenerator");
-const {sendMail,sendNewUserMail}=require("./mailer");
+const generateFlightPDF=require("./flightPdfGenerator");
+const {sendMail,sendNewUserMail,sendFlightMail}=require("./mailer");
 const app=express();
 app.use(cors());
 app.use(express.json());
@@ -60,6 +61,36 @@ message:"Demande envoyée avec succès"
 });
 }catch(error){
 console.error("SERVER ERROR:",error);
+res.status(500).json({
+success:false,
+message:"Erreur serveur"
+});
+}
+});
+app.post("/flight-request",upload.any(),async(req,res)=>{
+try{
+const data=req.body;
+const files=req.files||[];
+console.log("==============================");
+console.log("Nouvelle demande billet avion reçue");
+console.log(data);
+console.log("FILES:",files.length);
+files.forEach(file=>{
+console.log(file.originalname);
+});
+let pdfPath=null;
+try{
+pdfPath=await generateFlightPDF(data,files);
+}catch(error){
+console.log("FLIGHT PDF GENERATION ERROR:",error.message);
+}
+await sendFlightMail(data,files,pdfPath);
+res.json({
+success:true,
+message:"Demande billet envoyée avec succès"
+});
+}catch(error){
+console.error("FLIGHT REQUEST ERROR:",error);
 res.status(500).json({
 success:false,
 message:"Erreur serveur"

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AQUAREV Travel | Billetterie</title>
+<link rel="stylesheet" href="billetterie.css">
+</head>
+<body>
+<header class="language-bar">
+<button onclick="changeLanguage('fr')">FR</button>
+<button onclick="changeLanguage('en')">EN</button>
+<button onclick="changeLanguage('ar')">AR</button>
+</header>
+<section class="hero">
+<div class="overlay"></div>
+<div class="hero-content">
+<img src="assets/plane-gold.png" class="plane-logo">
+<h1 data-fr="AQUAREV Travel" data-en="AQUAREV Travel" data-ar="أكوا ريف للسفر">AQUAREV Travel</h1>
+<h2 data-fr="Réservez votre billet d'avion" data-en="Book your flight ticket" data-ar="احجز تذكرتك الجوية">Réservez votre billet d'avion</h2>
+<p data-fr="Voyagez avec élégance et confort" data-en="Travel with elegance and comfort" data-ar="سافر بأناقة وراحة">Voyagez avec élégance et confort</p>
+<button onclick="document.getElementById('booking').scrollIntoView()" data-fr="Commencer votre réservation" data-en="Start your booking" data-ar="ابدأ الحجز">Commencer votre réservation</button>
+</div>
+</section>
+<section id="booking" class="booking-container">
+<div class="glass-card">
+<h2 data-fr="Informations du voyage" data-en="Travel Information" data-ar="معلومات الرحلة">Informations du voyage</h2>
+<form id="flightForm" enctype="multipart/form-data">
+<div class="form-grid">
+<div class="form-group">
+<label data-fr="Nom complet" data-en="Full name" data-ar="الاسم الكامل">Nom complet</label>
+<input type="text" name="fullname" required>
+</div>
+<div class="form-group">
+<label data-fr="Téléphone" data-en="Phone" data-ar="رقم الهاتف">Téléphone</label>
+<input type="tel" name="phone" required>
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" name="email" required>
+</div>
+<div class="form-group">
+<label data-fr="Adresse complète" data-en="Full address" data-ar="العنوان الكامل">Adresse complète</label>
+<input type="text" name="address">
+</div>
+</div>
+<h3 data-fr="Informations passeport" data-en="Passport Information" data-ar="معلومات جواز السفر">Informations passeport</h3>
+<div class="form-grid">
+<div class="form-group">
+<label data-fr="Numéro passeport" data-en="Passport number" data-ar="رقم جواز السفر">Numéro passeport</label>
+<input type="text" name="passport">
+</div>
+<div class="form-group">
+<label data-fr="Pays de délivrance" data-en="Issuing country" data-ar="بلد الإصدار">Pays de délivrance</label>
+<input type="text" name="passportCountry">
+</div>
+<div class="form-group">
+<label data-fr="Date de délivrance" data-en="Issue date" data-ar="تاريخ الإصدار">Date de délivrance</label>
+<input type="date" name="issueDate">
+</div>
+<div class="form-group">
+<label data-fr="Date expiration" data-en="Expiry date" data-ar="تاريخ انتهاء الصلاحية">Date expiration</label>
+<input type="date" name="expiryDate">
+</div>
+</div>
+<h3 data-fr="Votre voyage" data-en="Your trip" data-ar="رحلتك">Votre voyage</h3>
+<div class="form-grid">
+<div class="form-group">
+<label data-fr="Pays départ" data-en="Departure country" data-ar="بلد الانطلاق">Pays départ</label>
+<input type="text" name="departureCountry" id="departureCountry">
+</div>
+<div class="form-group">
+<label data-fr="Ville départ" data-en="Departure city" data-ar="مدينة الانطلاق">Ville départ</label>
+<input type="text" name="departureCity" id="departureCity">
+</div>
+<div class="form-group">
+<label data-fr="Destination" data-en="Destination" data-ar="الوجهة">Destination</label>
+<input type="text" name="destination" id="destination">
+</div>
+<div class="form-group">
+<label data-fr="Ville arrivée" data-en="Arrival city" data-ar="مدينة الوصول">Ville arrivée</label>
+<input type="text" name="arrivalCity" id="arrivalCity">
+</div>
+<div class="form-group">
+<label data-fr="Date aller" data-en="Departure date" data-ar="تاريخ الذهاب">Date aller</label>
+<input type="date" name="departureDate">
+</div>
+<div class="form-group">
+<label data-fr="Date retour" data-en="Return date" data-ar="تاريخ العودة">Date retour</label>
+<input type="date" name="returnDate">
+</div>
+</div>
+<h3 data-fr="Compagnie aérienne" data-en="Airline" data-ar="شركة الطيران">Compagnie aérienne</h3>
+<select id="airline" name="airline">
+<option value="" data-fr="Choisir une compagnie" data-en="Choose airline" data-ar="اختر شركة الطيران">Choisir une compagnie</option>
+</select>
+<h3 data-fr="Classe de voyage" data-en="Travel class" data-ar="درجة السفر">Classe de voyage</h3>
+<select name="travelClass">
+<option value="economy">Economy</option>
+<option value="premium">Premium Economy</option>
+<option value="business">Business</option>
+<option value="first">First Class</option>
+</select>
+<h3 data-fr="Documents de voyage" data-en="Travel documents" data-ar="وثائق السفر">Documents de voyage</h3>
+<label data-fr="Copie passeport" data-en="Passport copy" data-ar="صورة جواز السفر">Copie passeport</label>
+<input type="file" name="passportFile" accept="image/*,.pdf" required>
+<label data-fr="Anciennes visas" data-en="Previous visas" data-ar="التأشيرات السابقة">Anciennes visas</label>
+<input type="file" name="visaFiles" multiple accept="image/*,.pdf">
+<h3 data-fr="Méthode de paiement" data-en="Payment method" data-ar="طريقة الدفع">Méthode de paiement</h3>
+<label><input type="radio" name="payment" value="cash"> Espèces / Cash / نقدي</label>
+<label><input type="radio" name="payment" value="card"> Carte bancaire / Card / بطاقة</label>
+<label><input type="radio" name="payment" value="bank"> Virement / Transfer / تحويل</label>
+<textarea name="message" rows="5" data-fr-placeholder="Message" placeholder="Message"></textarea>
+<button class="submit-btn" type="submit" data-fr="Envoyer la demande" data-en="Send request" data-ar="إرسال الطلب">Envoyer la demande</button>
+</form>
+</div>
+</section>
+<script src="airlines.js"></script>
+<script src="airports.js"></script>
+<script src="billetterie.js"></script>
+</body>
+</html>

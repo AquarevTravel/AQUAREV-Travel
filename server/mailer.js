@@ -1,7 +1,7 @@
 const {BrevoClient}=require("@getbrevo/brevo");
 const fs=require("fs");
 const path=require("path");
-const brevo=new BrevoClient({
+const brevo=newBrevoClient({
 apiKey:process.env.BREVO_API_KEY,
 timeoutInSeconds:60,
 maxRetries:3
@@ -102,7 +102,58 @@ Date : ${new Date().toLocaleString("fr-FR")}`
 console.log("EMAIL INSCRIPTION ENVOYE",result);
 return result;
 }
+async function sendFlightMail(data,files,pdfPath){
+const attachments=await buildAttachments(files,pdfPath);
+console.log("FLIGHT CLIENT DATA:",data);
+console.log("Envoi réservation billet via Brevo API...");
+const result=await brevo.transactionalEmails.sendTransacEmail({
+sender:{
+name:"AQUAREV Travel",
+email:process.env.SENDER_EMAIL
+},
+to:[
+{
+email:"dididididida168@gmail.com",
+name:"AQUAREV Travel"
+}
+],
+subject:"Nouvelle réservation billet avion - AQUAREV Travel",
+textContent:`AquaRev Travel
+Nouvelle demande de réservation billet avion.
+
+Informations client:
+
+Nom complet : ${getClientValue(data,["fullname","name","Nom complet"])}
+Téléphone : ${getClientValue(data,["phone","Téléphone"])}
+Email : ${getClientValue(data,["email","Adresse e-mail"])}
+Adresse : ${getClientValue(data,["address","Adresse complète"])}
+
+Informations passeport:
+
+Numéro passeport : ${getClientValue(data,["passport","Numéro passeport"])}
+Pays émission : ${getClientValue(data,["passportCountry"])}
+Date émission : ${getClientValue(data,["issueDate"])}
+Date expiration : ${getClientValue(data,["expiryDate"])}
+
+Informations voyage:
+
+Départ pays : ${getClientValue(data,["departureCountry"])}
+Départ ville : ${getClientValue(data,["departureCity"])}
+Destination : ${getClientValue(data,["destination"])}
+Ville arrivée : ${getClientValue(data,["arrivalCity"])}
+Date aller : ${getClientValue(data,["departureDate"])}
+Date retour : ${getClientValue(data,["returnDate"])}
+
+Compagnie aérienne : ${getClientValue(data,["airline"])}
+Classe : ${getClientValue(data,["class"])}
+Paiement : ${getClientValue(data,["payment"])}`,
+attachment:attachments
+});
+console.log("EMAIL BILLET ENVOYE",result);
+return result;
+}
 module.exports={
 sendMail,
-sendNewUserMail
+sendNewUserMail,
+sendFlightMail
 };
