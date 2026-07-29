@@ -47,7 +47,12 @@ console.log("Files:",files.length);
 files.forEach(file=>{
 console.log(file.originalname);
 });
-const pdfPath=await generatePDF(data,files);
+let pdfPath=null;
+try{
+pdfPath=await generatePDF(data,files);
+}catch(error){
+console.log("PDF GENERATION ERROR:",error.message);
+}
 await sendMail(data,files,pdfPath);
 res.json({
 success:true,
