@@ -1,5 +1,7 @@
 const nodemailer=require("nodemailer");
 const path=require("path");
+const dns=require("dns");
+const net=require("net");
 const transporter=nodemailer.createTransport({
 host:"smtp.gmail.com",
 port:465,
@@ -12,9 +14,29 @@ pass:process.env.EMAIL_PASS
 tls:{
 rejectUnauthorized:false
 },
-connectionTimeout:60000,
-greetingTimeout:60000,
-socketTimeout:60000
+logger:true,
+debug:true,
+connectionTimeout:15000,
+greetingTimeout:15000,
+socketTimeout:15000
+});
+dns.lookup("smtp.gmail.com",{family:4},(err,address)=>{
+if(err){
+console.log("DNS ERROR:",err);
+}else{
+console.log("SMTP IPv4:",address);
+const socket=net.createConnection({host:address,port:465},()=>{
+console.log("SMTP PORT 465 OPEN");
+socket.end();
+});
+socket.on("error",(error)=>{
+console.log("SMTP PORT ERROR:",error.message);
+});
+socket.setTimeout(10000,()=>{
+console.log("SMTP PORT TIMEOUT");
+socket.destroy();
+});
+}
 });
 async function sendMail(data,files,pdfPath){
 const attachments=[];
@@ -59,8 +81,7 @@ const mailOptions={
 from:process.env.EMAIL_USER,
 to:process.env.EMAIL_USER,
 subject:"Nouvel utilisateur inscrit - AQUAREV Travel",
-text:`
-AquaRev Travel
+text:`AquaRev Travel
 Nouvelle inscription utilisateur.
 Nom complet:${user.name||"-"}
 Email:${user.email||"-"}
