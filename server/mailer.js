@@ -1,7 +1,7 @@
 const {BrevoClient}=require("@getbrevo/brevo");
 const fs=require("fs");
 const path=require("path");
-const brevo=new BrevoClient({
+const brevo=newBrevoClient({
 apiKey:process.env.BREVO_API_KEY,
 timeoutInSeconds:60,
 maxRetries:3
@@ -20,7 +20,7 @@ if(files&&files.length){
 for(const file of files){
 if(fs.existsSync(file.path)){
 attachments.push({
-name:Buffer.from(file.originalname,"latin1").toString("utf8"),
+name:file.originalname,
 content:fs.readFileSync(file.path).toString("base64")
 });
 }else{
@@ -28,10 +28,20 @@ console.log("FILE NOT FOUND:",file.path);
 }
 }
 }
+console.log("ATTACHMENTS:",attachments.map(item=>item.name));
 return attachments;
+}
+function getClientValue(data,keys){
+for(const key of keys){
+if(data[key]!==undefined&&data[key]!==null&&data[key]!==""){
+return data[key];
+}
+}
+return "-";
 }
 async function sendMail(data,files,pdfPath){
 const attachments=await buildAttachments(files,pdfPath);
+console.log("CLIENT DATA:",data);
 console.log("Envoi via Brevo API...");
 const result=await brevo.transactionalEmails.sendTransacEmail({
 sender:{
@@ -48,11 +58,18 @@ subject:"Nouvelle demande VISA - AQUAREV Travel",
 textContent:`AquaRev Travel
 Nouvelle demande VISA reçue.
 Informations client:
-Nom:${data["Nom complet"]||"-"}
-Email:${data["Adresse e-mail"]||"-"}
-Téléphone:${data["Téléphone"]||"-"}
-Destination:${data.selectedCountry||"-"}
-Type visa:${data.visaType||"-"}`,
+Nom:${getClientValue(data,["Nom complet","nom_complet","nom"])}
+Email:${getClientValue(data,["Adresse e-mail","Adresse e-mail","email"])}
+Téléphone:${getClientValue(data,["Téléphone","TÃ©lÃ©phone","telephone"])}
+Nom du père:${getClientValue(data,["Nom du père","Nom du pÃ¨re"])}
+Nom de la mère:${getClientValue(data,["Nom complet de la mère","Nom complet de la mÃ¨re","Nom complet de la mÃƒÂ¨re"])}
+Adresse:${getClientValue(data,["Adresse complète","Adresse complÃ¨te","adresse"])}
+Passeport:${getClientValue(data,["Numéro passeport","NumÃ©ro passeport"])}
+Destination:${getClientValue(data,["selectedCountry","destination"])}
+Type visa:${getClientValue(data,["visaType"])}
+Activité:${getClientValue(data,["activityType"])}
+Résidence:${getClientValue(data,["residenceType"])}
+Paiement:${getClientValue(data,["paymentMethod"])}`,
 attachment:attachments
 });
 console.log("EMAIL VISA ENVOYE",result);
