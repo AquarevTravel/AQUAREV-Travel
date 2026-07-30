@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AQUAREV Travel | Requests Center</title>
+<link rel="icon" href="../../assets/icons/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="requests.css">
+</head>
+<body>
+<div class="loading-screen" id="loadingScreen">
+<div class="loading-logo">
+<img src="../../assets/logo/logo.png" alt="AQUAREV Travel">
+</div>
+<div class="loading-text">
+AQUAREV REQUESTS
+</div>
+</div>
+<header class="requests-header">
+<div class="brand-box">
+<img src="../../assets/logo/logo.png" alt="AQUAREV Travel">
+<div>
+<h1>AQUAREV Travel</h1>
+<p data-fr="Centre des demandes clients" data-en="Customer Requests Center" data-ar="مركز طلبات العملاء">Centre des demandes clients</p>
+</div>
+</div>
+<div class="language-box">
+<button class="lang-btn active" data-lang="fr">FR</button>
+<button class="lang-btn" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="ar">AR</button>
+</div>
+</header>
+<main class="requests-container">
+<section class="requests-top">
+<div>
+<h2 data-fr="Toutes les demandes" data-en="All Requests" data-ar="جميع الطلبات">Toutes les demandes</h2>
+<p data-fr="Gestion centralisée des demandes AQUAREV Travel." data-en="Centralized management of AQUAREV Travel requests." data-ar="إدارة مركزية لجميع طلبات AQUAREV Travel.">
+Gestion centralisée des demandes AQUAREV Travel.
+</p>
+</div>
+<div class="requests-counter">
+<i class="fa-solid fa-inbox"></i>
+<span id="requestsCount">0</span>
+</div>
+</section>
+<section class="filters-box">
+<div class="filter-item">
+<label data-fr="Type de service" data-en="Service Type" data-ar="نوع الخدمة">Type de service</label>
+<select id="typeFilter">
+<option value="all" data-fr="Tous" data-en="All" data-ar="الكل">Tous</option>
+<option value="Visa">Visa</option>
+<option value="Flights">Flights</option>
+<option value="Hotels">Hotels</option>
+<option value="Tours">Tours</option>
+<option value="Hajj">Hajj & Omra</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="filter-item">
+<label data-fr="Statut" data-en="Status" data-ar="الحالة">Statut</label>
+<select id="statusFilter">
+<option value="all" data-fr="Tous" data-en="All" data-ar="الكل">Tous</option>
+<option value="new">New</option>
+<option value="accepted">Accepted</option>
+<option value="assigned_partner">Partner</option>
+<option value="ignored">Ignored</option>
+</select>
+</div>
+<div class="filter-item search-box">
+<label data-fr="Recherche" data-en="Search" data-ar="بحث">Recherche</label>
+<input id="searchInput" type="text" placeholder="Nom, téléphone, destination">
+</div>
+</section>
+<section class="requests-list" id="requestsList">
+</section>
+</main>
+<div class="request-details-modal" id="requestDetailsModal">
+<div class="details-box">
+<button class="close-details" id="closeDetails">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<div class="details-header">
+<img src="../../assets/logo/logo.png" alt="AQUAREV Travel">
+<div>
+<h2 data-fr="Détails de la demande" data-en="Request Details" data-ar="تفاصيل الطلب">
+Détails de la demande
+</h2>
+<p>AQUAREV Travel</p>
+</div>
+</div>
+<div class="details-content">
+<div class="client-section">
+<h3>
+<i class="fa-solid fa-user"></i>
+<span data-fr="Informations client" data-en="Client Information" data-ar="معلومات العميل">
+Informations client
+</span>
+</h3>
+<div class="info-grid">
+<div>
+<strong data-fr="Nom complet" data-en="Full Name" data-ar="الاسم الكامل">Nom complet</strong>
+<p id="detailName">-</p>
+</div>
+<div>
+<strong data-fr="Téléphone" data-en="Phone" data-ar="الهاتف">Téléphone</strong>
+<p id="detailPhone">-</p>
+</div>
+<div>
+<strong data-fr="Email" data-en="Email" data-ar="البريد الإلكتروني">Email</strong>
+<p id="detailEmail">-</p>
+</div>
+<div>
+<strong data-fr="Résidence" data-en="Residence" data-ar="الإقامة">Résidence</strong>
+<p id="detailResidence">-</p>
+</div>
+</div>
+</div>
+<div class="service-section">
+<h3>
+<i class="fa-solid fa-plane"></i>
+<span data-fr="Service demandé" data-en="Requested Service" data-ar="الخدمة المطلوبة">
+Service demandé
+</span>
+</h3>
+<div class="info-grid">
+<div>
+<strong data-fr="Type" data-en="Type" data-ar="النوع">Type</strong>
+<p id="detailType">-</p>
+</div>
+<div>
+<strong data-fr="Destination" data-en="Destination" data-ar="الوجهة">Destination</strong>
+<p id="detailDestination">-</p>
+</div>
+<div>
+<strong data-fr="Date" data-en="Date" data-ar="التاريخ">Date</strong>
+<p id="detailDate">-</p>
+</div>
+<div>
+<strong data-fr="Méthode paiement" data-en="Payment Method" data-ar="طريقة الدفع">Méthode paiement</strong>
+<p id="detailPayment">-</p>
+</div>
+</div>
+</div>
+<div class="documents-section">
+<h3>
+<i class="fa-solid fa-file-pdf"></i>
+<span data-fr="Documents reçus" data-en="Received Documents" data-ar="الوثائق المستلمة">
+Documents reçus
+</span>
+</h3>
+<div id="documentsList" class="documents-list">
+</div>
+</div>
+<div class="status-section">
+<h3>
+<i class="fa-solid fa-circle-info"></i>
+<span data-fr="Gestion du statut" data-en="Status Management" data-ar="إدارة الحالة">
+Gestion du statut
+</span>
+</h3>
+<select id="detailStatus">
+<option value="new">New</option>
+<option value="accepted">Accepted</option>
+<option value="assigned_partner">Partner</option>
+<option value="ignored">Ignored</option>
+<option value="completed">Completed</option>
+</select>
+<button id="saveStatus">
+<i class="fa-solid fa-floppy-disk"></i>
+<span data-fr="Enregistrer" data-en="Save" data-ar="حفظ">
+Enregistrer
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<footer class="requests-footer">
+<div>
+<img src="../../assets/logo/logo.png" alt="AQUAREV Travel">
+</div>
+<p data-fr="© 2026 AQUAREV Travel - Requests Center" data-en="© 2026 AQUAREV Travel - Requests Center" data-ar="© 2026 AQUAREV Travel - مركز الطلبات">
+© 2026 AQUAREV Travel - Requests Center
+</p>
+</footer>
+<script type="module" src="requests.js"></script>
+<script>
+const langButtons=document.querySelectorAll(".lang-btn");
+function setLanguage(lang){
+localStorage.setItem("aquarevLanguage",lang);
+document.documentElement.lang=lang;
+document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+document.querySelectorAll("[data-fr]").forEach(element=>{
+const text=element.dataset[lang];
+if(text){
+element.textContent=text;
+}
+});
+langButtons.forEach(button=>{
+button.classList.remove("active");
+if(button.dataset.lang===lang){
+button.classList.add("active");
+}
+});
+}
+langButtons.forEach(button=>{
+button.addEventListener("click",()=>{
+setLanguage(button.dataset.lang);
+});
+});
+const savedLang=localStorage.getItem("aquarevLanguage")||"fr";
+setLanguage(savedLang);
+window.addEventListener("load",()=>{
+const loading=document.getElementById("loadingScreen");
+if(loading){
+setTimeout(()=>{
+loading.classList.add("hide");
+},1000);
+}
+});
+</script>
+</body>
+</html>

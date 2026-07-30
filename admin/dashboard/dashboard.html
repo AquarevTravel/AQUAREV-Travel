@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AQUAREV Travel - Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<header class="top-header">
+<div class="logo-area">
+<img src="../assets/logo.png" alt="AQUAREV Travel Logo">
+<div>
+<h1>AQUAREV TRAVEL</h1>
+<p>Luxury Travel Management</p>
+</div>
+</div>
+<div class="admin-title">
+<h2>ADMIN DASHBOARD</h2>
+</div>
+</header>
+<main class="dashboard-container">
+<section class="stats-section">
+<div class="stat-card">
+<h3>Total Requests</h3>
+<span id="totalRequests">0</span>
+</div>
+<div class="stat-card">
+<h3>New Requests</h3>
+<span id="newRequests">0</span>
+</div>
+<div class="stat-card">
+<h3>Visa</h3>
+<span id="visaRequests">0</span>
+</div>
+<div class="stat-card">
+<h3>Flights</h3>
+<span id="flightRequests">0</span>
+</div>
+<div class="stat-card">
+<h3>Hotels</h3>
+<span id="hotelRequests">0</span>
+</div>
+<div class="stat-card">
+<h3>Partners</h3>
+<span id="partnerRequests">0</span>
+</div>
+</section>
+<section class="requests-section">
+<div class="section-header">
+<h2>Latest Requests</h2>
+<button id="refreshBtn">Refresh</button>
+</div>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Type</th>
+<th>Client</th>
+<th>Country</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody id="requestsTable">
+<tr>
+<td colspan="6">Loading requests...</td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+<footer>
+<p>© AQUAREV Travel - Administration Panel</p>
+</footer>
+<script type="module" src="dashboard.js"></script>
+</body>
+</html>
