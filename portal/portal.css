@@ -183,3 +183,15 @@ object-fit:contain;
 border-radius:50%;
 filter:drop-shadow(0 0 8px rgba(201,162,39,.7));
 }
+
+
+
+
+
+
+
+#portalLogo{
+display:block!important;
+visibility:visible!important;
+opacity:1!important;
+}

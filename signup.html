@@ -9,11 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
-
-
-
-
 body{
 font-family:'Poppins',sans-serif;
 background:#fff;
@@ -23,8 +18,6 @@ justify-content:center;
 align-items:center;
 overflow:auto;
 }
-
-
 .signup-box{
 width:80%;
 max-width:300px;
@@ -36,25 +29,24 @@ text-align:center;
 }
 .logo img{
 width:70px;
-margin-bottom:08px
+margin-bottom:8px;
 }
 .signup-box h2{
 color:#071426;
 font-size:22px;
-font: weight 300px;
-margin:8px 0 15px;
-margin-bottom:25px
+font-weight:300;
+margin:8px 0 25px;
 }
 .input-group{
 position:relative;
-margin-bottom:5px
+margin-bottom:5px;
 }
 .input-group i{
 position:absolute;
 left:10px;
 top:50%;
 transform:translateY(-50%);
-color:#c29a16
+color:#c29a16;
 }
 .input-group input{
 width:100%;
@@ -62,11 +54,30 @@ padding:10px 12px;
 border-radius:35px;
 border:1px solid #ddd;
 font-size:15px;
-outline:none
+outline:none;
 }
 .input-group input:focus{
 border-color:#d4af37;
-box-shadow:0 0 10px rgba(212,175,55,.25)
+box-shadow:0 0 10px rgba(212,175,55,.25);
+}
+.account-type{
+margin:10px 0;
+text-align:left;
+font-size:14px;
+color:#071426;
+}
+.account-type label{
+display:block;
+margin-bottom:6px;
+font-weight:600;
+}
+.account-type select{
+width:100%;
+padding:10px;
+border-radius:35px;
+border:1px solid #ddd;
+font-size:14px;
+outline:none;
 }
 .signup-btn{
 width:90%;
@@ -78,22 +89,22 @@ font-size:16px;
 font-weight:700;
 cursor:pointer;
 color:#071426;
-transition:.3s
+transition:.3s;
 }
 .signup-btn:hover{
-transform:translateY(-3px)
+transform:translateY(-3px);
 }
 .divider{
 display:flex;
 align-items:center;
 gap:10px;
 margin:25px 0;
-color:#777
+color:#777;
 }
 .divider span{
 height:8px;
 background:#ddd;
-flex:1
+flex:1;
 }
 .social-btn{
 width:100%;
@@ -108,39 +119,33 @@ display:flex;
 justify-content:center;
 align-items:center;
 gap:12px;
-transition:.3s
+transition:.3s;
 }
 .social-btn:hover{
-transform:translateY(-3px)
+transform:translateY(-3px);
 }
 .google{
 background:#cfb0b0;
 border:1px solid #ddd;
-color:#333
+color:#333;
 }
 .facebook{
 background:#0469ec;
-color:#fff
+color:#fff;
 }
 .apple{
 background:#000000ea;
-color:#fff
+color:#fff;
 }
 .login-link{
 margin-top:18px;
-font-size:14px
+font-size:14px;
 }
 .login-link a{
 color:#d4af37;
 font-weight:bold;
-text-decoration:none
+text-decoration:none;
 }
-
-
-
-
-
-
 .bg-video{
 position:fixed;
 top:0;
@@ -150,7 +155,6 @@ height:100%;
 object-fit:cover;
 z-index:-2;
 }
-
 body::before{
 content:"";
 position:fixed;
@@ -167,18 +171,12 @@ z-index:-1;
 <video autoplay muted loop playsinline class="bg-video">
 <source src="assets/videos/hero.mp4" type="video/mp4">
 </video>
-
-
-
-
 <div class="signup-box">
 <div class="logo">
 <img src="assets/logo/logo.png" alt="AQUAREV Travel">
 </div>
 <h2>
-<i class="fa-solid fa-user-plus"
- style="color:#d4af37;
- margin-right:8px;"></i>
+<i class="fa-solid fa-user-plus" style="color:#d4af37;margin-right:8px;"></i>
 Créer un compte
 </h2>
 <form id="signupForm">
@@ -197,6 +195,13 @@ Créer un compte
 <div class="input-group">
 <i class="fa-solid fa-lock"></i>
 <input type="password" id="signupConfirmPassword" placeholder="Confirmer le mot de passe" required>
+</div>
+<div class="account-type">
+<label>Type de compte</label>
+<select id="accountType">
+<option value="client">Client</option>
+<option value="agency">Agence de voyage</option>
+</select>
 </div>
 <button type="submit" class="signup-btn">
 <i class="fa-solid fa-user-check"></i>
@@ -227,59 +232,45 @@ Connexion
 </a>
 </p>
 </div>
-
 <script type="module">
 import {auth,db} from "./firebase/firebase-config.js";
 import {createUserWithEmailAndPassword,GoogleAuthProvider,signInWithPopup} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 import {doc,setDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
 const signupForm=document.getElementById("signupForm");
-
 signupForm.addEventListener("submit",async(e)=>{
 e.preventDefault();
-
 const name=document.getElementById("signupName").value;
 const email=document.getElementById("signupEmail").value;
 console.log("EMAIL SENT TO FIREBASE:",email);
 const password=document.getElementById("signupPassword").value;
 const confirmPassword=document.getElementById("signupConfirmPassword").value;
-
+const accountType=document.getElementById("accountType").value;
 if(password!==confirmPassword){
 alert("Les mots de passe ne correspondent pas");
 return;
 }
-
-
-
-
-
 try{
-
-const userCredential = await createUserWithEmailAndPassword(
+const userCredential=await createUserWithEmailAndPassword(
 auth,
 email,
 password
 );
-
-const user = userCredential.user;
-
-
+const user=userCredential.user;
+const role=accountType==="agency"?"pending_agency":"client";
 await setDoc(
 doc(db,"users",user.uid),
 {
 name:name,
 email:email,
 provider:"Email",
+role:role,
+status:accountType==="agency"?"waiting":"active",
 createdAt:serverTimestamp()
 }
 );
-
-
-const serverURL = window.location.hostname === "localhost"
-? "http://localhost:3000"
-: "http://10.123.251.25:3000";
-
-
+const serverURL=window.location.hostname==="localhost"
+?"http://localhost:3000"
+:"http://10.123.251.25:3000";
 await fetch(`${serverURL}/new-user`,{
 method:"POST",
 headers:{
@@ -288,123 +279,80 @@ headers:{
 body:JSON.stringify({
 name:name,
 email:email,
-provider:"Email"
+provider:"Email",
+role:role
 })
 });
-
-
+if(role==="pending_agency"){
+alert("Votre demande de partenariat est en cours de validation par AQUAREV.");
+}else{
+alert("Compte client créé avec succès.");
+}
 window.location.href="index.html";
-
-
 }
 catch(error){
-
 console.error(error);
-
 alert(error.message);
-
 }
-
 });
-
-
 const googleButton=document.querySelector(".google");
-
-
 googleButton.addEventListener("click",async()=>{
-
 try{
-
-
 const provider=new GoogleAuthProvider();
-
-
 const result=await signInWithPopup(
 auth,
 provider
 );
-
-
 const user=result.user;
-
-
+const accountType=document.getElementById("accountType").value;
+const role=accountType==="agency"?"pending_agency":"client";
 await setDoc(
 doc(db,"users",user.uid),
 {
 name:user.displayName,
 email:user.email,
 provider:"Google",
+role:role,
+status:accountType==="agency"?"waiting":"active",
 createdAt:serverTimestamp()
 },
 {
 merge:true
 }
 );
-
-
-
-const serverURL = window.location.hostname === "localhost"
-? "http://localhost:3000"
-: "http://10.123.251.25:3000";
-
-
+const serverURL=window.location.hostname==="localhost"
+?"http://localhost:3000"
+:"http://10.123.251.25:3000";
 await fetch(`${serverURL}/new-user`,{
-
 method:"POST",
-
 headers:{
 "Content-Type":"application/json"
 },
-
 body:JSON.stringify({
 name:user.displayName,
 email:user.email,
-provider:"Google"
+provider:"Google",
+role:role
 })
-
 });
-
-
+if(role==="pending_agency"){
+alert("Votre demande de partenariat est en cours de validation par AQUAREV.");
+}else{
+alert("Compte client créé avec succès.");
+}
 window.location.href="index.html";
-
-
 }
 catch(error){
-
 console.error(error);
-
 alert(error.message);
-
 }
-
 });
-
-
 document.querySelector(".facebook").addEventListener("click",()=>{
-
-alert("Facebook Login sera ajouté بعد إعداد Meta Developers");
-
+alert("Facebook Login sera ajouté après إعداد Meta Developers");
 });
-
-
 document.querySelector(".apple").addEventListener("click",()=>{
-
 alert("Apple Login sera ajouté لاحقاً");
-
 });
-
-
-
-
-
-
-
-
-
 </script>
-
-
-
-
 </body>
 </html>

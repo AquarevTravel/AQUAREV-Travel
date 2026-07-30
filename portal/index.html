@@ -20,7 +20,7 @@
 </div>
 <header class="topbar">
 <div class="logo-area">
-<img src="../assets/logo.png" id="portalLogo" alt="AQUAREV">
+<img src="/assets/logo/logo.png" id="portalLogo" alt="AQUAREV">
 <div>
 <h1>AQUAREV Travel</h1>
 <p data-fr="Portail Premium" data-en="Premium Portal" data-ar="البوابة المميزة">Portail Premium</p>
@@ -52,27 +52,27 @@
 </div>
 </div>
 <nav class="menu">
-<button class="menu-item active" data-section="dashboard">
+<button id="dashboardMenu" class="menu-item active" data-section="dashboard">
 <i class="fa-solid fa-house"></i>
 <span data-fr="Tableau de bord" data-en="Dashboard" data-ar="لوحة التحكم">Tableau de bord</span>
 </button>
-<button class="menu-item" data-section="reservations">
+<button id="reservationsMenu" class="menu-item" data-section="reservations">
 <i class="fa-solid fa-plane"></i>
 <span data-fr="Mes réservations" data-en="My Reservations" data-ar="حجوزاتي">Mes réservations</span>
 </button>
-<button class="menu-item" data-section="requests">
+<button id="requestsMenu" class="menu-item" data-section="requests">
 <i class="fa-solid fa-folder-open"></i>
 <span data-fr="Mes demandes" data-en="My Requests" data-ar="طلباتي">Mes demandes</span>
 </button>
-<button class="menu-item" data-section="messagerie">
+<button id="messagerieMenu" class="menu-item" data-section="messagerie">
 <i class="fa-solid fa-comments"></i>
 <span data-fr="Messagerie" data-en="Messaging" data-ar="الرسائل">Messagerie</span>
 </button>
-<button class="menu-item" data-section="notifications">
-<i class="fa-solid fa-bell"></i>
+<button id="notificationsMenu" class="menu-item" data-section="notifications">
+    <i class="fa-solid fa-bell"></i>
 <span data-fr="Notifications" data-en="Notifications" data-ar="الإشعارات">Notifications</span>
 </button>
-<button class="menu-item" data-section="account">
+<button id="accountMenu" class="menu-item" data-section="account">
 <i class="fa-solid fa-user-gear"></i>
 <span data-fr="Mon compte" data-en="My Account" data-ar="حسابي">Mon compte</span>
 </button>
@@ -177,8 +177,7 @@
 <div class="conversation-panel">
 <div class="conversation-header">
     <div class="messagerie-brand">
-<img src="../assets/logo/favicon.png" alt="AQUAREV">
-</div>
+<img src="../assets/logo/favicon.png" alt="AQUAREV" style="width:80px;height:80px;display:block;"></div>
 <h2><i class="fa-solid fa-comments"></i><span data-fr="Messagerie" data-en="Messaging" data-ar="الرسائل">Messagerie</span></h2>
 <div class="conversation-search">
 <i class="fa-solid fa-magnifying-glass"></i>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AQUAREV Partner Profile</title>
+<link rel="icon" href="../assets/logo/logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="profile.css">
+</head>
+<body>
+<div class="profile-background"></div>
+<header class="profile-header">
+<div class="profile-brand">
+<img src="../assets/logo/logo.png" alt="AQUAREV Travel">
+<div>
+<h1>AQUAREV Travel</h1>
+<p data-fr="Profil Partenaire Premium" data-en="Premium Partner Profile" data-ar="ملف الشريك المميز">Profil Partenaire Premium</p>
+</div>
+</div>
+<a href="index.html" class="back-btn">
+<i class="fa-solid fa-arrow-left"></i>
+<span data-fr="Retour portail" data-en="Back Portal" data-ar="العودة للبوابة">Retour portail</span>
+</a>
+</header>
+<main class="profile-container">
+<section class="profile-card">
+<div class="card-title">
+<i class="fa-solid fa-building-circle-check"></i>
+<h2 data-fr="Informations de l'agence" data-en="Agency Information" data-ar="معلومات الوكالة">
+Informations de l'agence
+</h2>
+</div>
+<form id="agencyProfileForm">
+<div class="input-grid">
+<div class="input-group">
+<i class="fa-solid fa-building"></i>
+<input type="text" id="agencyName" placeholder="Nom de l'agence" required>
+</div>
+<div class="input-group">
+<i class="fa-solid fa-globe"></i>
+<input type="text" id="country" placeholder="Pays">
+</div>
+<div class="input-group">
+<i class="fa-solid fa-city"></i>
+<input type="text" id="city" placeholder="Ville">
+</div>
+<div class="input-group">
+<i class="fa-solid fa-location-dot"></i>
+<input type="text" id="address" placeholder="Adresse">
+</div>
+<div class="input-group">
+<i class="fa-solid fa-phone"></i>
+<input type="text" id="phone" placeholder="Téléphone">
+</div>
+<div class="input-group">
+<i class="fa-brands fa-whatsapp"></i>
+<input type="text" id="whatsapp" placeholder="WhatsApp">
+</div>
+<div class="input-group">
+<i class="fa-solid fa-envelope"></i>
+<input type="email" id="agencyEmail" placeholder="Email professionnel">
+</div>
+<div class="input-group">
+<i class="fa-solid fa-globe"></i>
+<input type="url" id="website" placeholder="Site web">
+</div>
+<div class="input-group">
+<i class="fa-brands fa-facebook"></i>
+<input type="url" id="facebook" placeholder="Facebook">
+</div>
+<div class="input-group">
+<i class="fa-brands fa-instagram"></i>
+<input type="url" id="instagram" placeholder="Instagram">
+</div>
+<div class="input-group full">
+<i class="fa-solid fa-pen"></i>
+<textarea id="description" placeholder="Description de votre agence"></textarea>
+</div>
+</div>
+<div class="logo-upload">
+<div class="logo-preview">
+<img id="agencyLogoPreview" src="../assets/logo/logo.png" alt="Agency Logo">
+</div>
+<div class="logo-control">
+<label for="agencyLogo">
+<i class="fa-solid fa-image"></i>
+<span data-fr="Changer le logo" data-en="Change Logo" data-ar="تغيير الشعار">
+Changer le logo
+</span>
+</label>
+<input type="file" id="agencyLogo" accept="image/*">
+</div>
+</div>
+<button type="submit" class="save-profile-btn">
+<i class="fa-solid fa-floppy-disk"></i>
+<span data-fr="Enregistrer les informations" data-en="Save Information" data-ar="حفظ المعلومات">
+Enregistrer les informations
+</span>
+</button>
+</form>
+</section>
+<section class="preview-card">
+<div class="preview-title">
+<i class="fa-solid fa-eye"></i>
+<h2 data-fr="Aperçu public" data-en="Public Preview" data-ar="المعاينة العامة">
+Aperçu public
+</h2>
+</div>
+<div class="agency-public-card">
+<img id="publicLogo" src="../assets/logo/logo.png" alt="Logo">
+<h3 id="publicName">AQUAREV Partner</h3>
+<p id="publicCountry">International Agency</p>
+<div class="public-links">
+<a id="publicFacebook" href="#" target="_blank">
+<i class="fa-brands fa-facebook"></i>
+</a>
+<a id="publicInstagram" href="#" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a id="publicWebsite" href="#" target="_blank">
+<i class="fa-solid fa-globe"></i>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="profile-footer">
+<img src="../assets/logo/logo.png" alt="AQUAREV Travel">
+<p>
+© 2026 AQUAREV Travel
+<br>
+<span data-fr="Réseau international de partenaires premium" data-en="International premium partner network" data-ar="شبكة الشركاء الدولية الفاخرة">
+Réseau international de partenaires premium
+</span>
+</p>
+</footer>
+<script type="module" src="profile.js"></script>
+</body>
+</html>

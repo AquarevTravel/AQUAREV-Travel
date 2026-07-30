@@ -4,6 +4,16 @@ path:"../.env"
 console.log("EMAIL:",process.env.EMAIL_USER);
 console.log("PASS:",process.env.EMAIL_PASS?"OK":"MISSING");
 const express=require("express");
+const admin=require("firebase-admin/app");
+const {getFirestore}=require("firebase-admin/firestore");
+const {getApps,initializeApp,cert}=require("firebase-admin/app");
+const serviceAccount=require("./aquarev-travel-firebase-adminsdk-fbsvc-efffbbec3d.json");
+if(!getApps().length){
+initializeApp({
+credential:cert(serviceAccount)
+});
+}
+const db=getFirestore();
 const cors=require("cors");
 const path=require("path");
 const upload=require("./upload");
@@ -55,6 +65,14 @@ pdfPath=await generatePDF(data,files);
 console.log("PDF GENERATION ERROR:",error.message);
 }
 await sendMail(data,files,pdfPath);
+await db.collection("requests").add({
+type:"Visa",
+data:data,
+files:files.map(file=>file.originalname),
+status:"new",
+createdAt:new Date()
+});
+console.log("REQUEST SAVED TO FIRESTORE");
 res.json({
 success:true,
 message:"Demande envoyée avec succès"

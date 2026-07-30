@@ -38,6 +38,14 @@ const userSnap=await getDoc(userRef);
 if(userSnap.exists()){
 const data=userSnap.data();
 userRole=data.role||"client";
+if(data.role==="admin"){
+window.location.href="../admin/index.html";
+return;
+}
+if(data.role==="partner"){
+window.location.href="../partner/index.html";
+return;
+}
 document.getElementById("userName").textContent=data.name||"Client";
 document.getElementById("userEmail").textContent=data.email||currentUser.email;
 document.getElementById("profileName").value=data.name||"";
@@ -68,42 +76,119 @@ document.getElementById("profileEmail").value=defaultData.email;
 document.getElementById("profileRole").value="client";
 applyRolePermissions();
 }
+
+
 function applyRolePermissions(){
 const menu=document.querySelector(".menu");
 if(!menu)return;
 if(userRole==="admin"){
 console.log("ADMIN MODE");
-showAdminMenu();
+window.location.href="../admin/index.html";
+return;
 }
 else if(userRole==="agency"){
 console.log("AGENCY MODE");
 showAgencyMenu();
+}
+
+else if(userRole==="pending_agency"){
+console.log("PENDING AGENCY MODE");
+showPendingAgencyMenu();
 }
 else{
 console.log("CLIENT MODE");
 showClientMenu();
 }
 }
+function hideAllMenus(){
+const menus=[
+"dashboardMenu",
+"reservationsMenu",
+"requestsMenu",
+"messagerieMenu",
+"notificationsMenu",
+"accountMenu"
+];
+menus.forEach(id=>{
+const element=document.getElementById(id);
+if(element){
+element.style.display="none";
+}
+});
+}
 function showClientMenu(){
+hideAllMenus();
+const clientMenus=[
+"dashboardMenu",
+"reservationsMenu",
+"requestsMenu",
+"messagerieMenu",
+"notificationsMenu",
+"accountMenu"
+];
+clientMenus.forEach(id=>{
+const element=document.getElementById(id);
+if(element){
+element.style.display="flex";
+}
+});
+const badge=document.querySelector(".account-badge span");
+if(badge){
+badge.textContent="Client Premium";
+}
 }
 function showAgencyMenu(){
+hideAllMenus();
+const agencyMenus=[
+"dashboardMenu",
+"requestsMenu",
+"messagerieMenu",
+"notificationsMenu",
+"accountMenu"
+];
+agencyMenus.forEach(id=>{
+const element=document.getElementById(id);
+if(element){
+element.style.display="flex";
+}
+});
 const badge=document.querySelector(".account-badge span");
 if(badge){
 badge.textContent="Agency Partner";
 }
 }
-function showAdminMenu(){
+function showPendingAgencyMenu(){
 const badge=document.querySelector(".account-badge span");
 if(badge){
-badge.textContent="AQUAREV Admin";
+badge.textContent="Agency Pending";
 }
 }
+
+
+
+
+function showAdminMenu(){
+window.location.href="../admin/index.html";
+return;
+}
+
+
 function setupNavigation(){
 const buttons=document.querySelectorAll("[data-section]");
 const sections=document.querySelectorAll(".portal-section");
 buttons.forEach(button=>{
 button.addEventListener("click",()=>{
 const target=button.dataset.section;
+console.log("TARGET:",target,"ROLE:",userRole);
+if(target==="messagerie"&&userRole==="admin"){
+window.location.href="../admin/index.html";
+return;
+}
+
+
+
+
+
 buttons.forEach(btn=>btn.classList.remove("active"));
 button.classList.add("active");
 sections.forEach(section=>{
@@ -185,6 +270,11 @@ console.error("LOGOUT ERROR:",error);
 }
 });
 }
+
+
+
+
+
 function setupMessaging(){
 const sendButton=document.getElementById("sendMessage");
 const input=document.getElementById("messageInput");
@@ -206,6 +296,7 @@ input.value="";
 }
 });
 }
+
 async function sendMessage(text){
 if(!currentUser)return;
 try{
@@ -237,7 +328,7 @@ div.innerHTML=`
 box.appendChild(div);
 box.scrollTop=box.scrollHeight;
 }
-id="7ycj71"
+
 function listenMessages(){
 if(!currentUser)return;
 const messagesRef=query(collection(db,"messages"),orderBy("createdAt","asc"));
