@@ -15,6 +15,7 @@ let allRequests=[];
 let filteredRequests=[];
 let selectedRequest=null;
 let currentLanguage=localStorage.getItem("aquarevLanguage")||"fr";
+let requestsInitialized=false;
 const requestsContainer=document.getElementById("requestsList");
 const requestDetails=document.getElementById("requestDetailsModal");
 const detailsContent=document.getElementById("requestDetails");
@@ -41,11 +42,42 @@ displayRequests(filteredRequests.length?filteredRequests:allRequests);
 }
 document.querySelectorAll(".lang-btn").forEach(button=>{
 button.addEventListener("click",()=>{
-changeLanguage(button.dataset.lang));
+changeLanguage(button.dataset.lang);
 });
 });
 applyLanguage();
+function getClientName(request){
+const data=request.data||{};
+return data["Nom complet"]||data.name||data.fullName||"Client AQUAREV";
+}
+function getPhone(request){
+const data=request.data||{};
+return data["Téléphone"]||data.phone||"-";
+}
+function getDestination(request){
+const data=request.data||{};
+return data.destination||data.selectedCountry||"-";
+}
+function getService(request){
+return request.type||"Service";
+}
+function getStatus(request){
+return request.status||"new";
+}
+function formatDate(value){
+if(!value){
+return"-";
+}
+if(value.seconds){
+return new Date(value.seconds*1000).toLocaleDateString();
+}
+return new Date(value).toLocaleDateString();
+}
 function loadRequests(){
+if(requestsInitialized){
+return;
+}
+requestsInitialized=true;
 try{
 const requestsQuery=query(
 collection(db,"requests"),
@@ -71,33 +103,6 @@ function updateCounter(){
 if(requestsCount){
 requestsCount.textContent=allRequests.length;
 }
-}
-function getClientName(request){
-const data=request.data||{};
-return data["Nom complet"]||data.name||data.fullName||"Client AQUAREV";
-}
-function getPhone(request){
-const data=request.data||{};
-return data["Téléphone"]||data.phone||"-";
-}
-function getDestination(request){
-const data=request.data||{};
-return data.destination||data.selectedCountry||"-";
-}
-function getService(request){
-return request.type||"Service";
-}
-function getStatus(request){
-return request.status||"new";
-}
-function formatDate(date){
-if(!date){
-return"-";
-}
-if(date.seconds){
-return new Date(date.seconds*1000).toLocaleDateString();
-}
-return new Date(date).toLocaleDateString();
 }
 function displayRequests(data){
 if(!requestsContainer){
@@ -149,9 +154,11 @@ card.innerHTML=`
 </div>
 `;
 const openButton=card.querySelector(".open-request");
+if(openButton){
 openButton.addEventListener("click",()=>{
 openRequestDetails(request);
 });
+}
 requestsContainer.appendChild(card);
 });
 }
@@ -179,12 +186,16 @@ detailsContent.innerHTML=`
 <span>${getPhone(request)}</span>
 </div>
 <div class="detail-box">
+<strong data-fr="Adresse complète" data-en="Full address" data-ar="العنوان الكامل">Adresse complète</strong>
+<span>${data["Adresse complète"]||data.address||"-"}</span>
+</div>
+<div class="detail-box">
 <strong data-fr="Destination" data-en="Destination" data-ar="الوجهة">Destination</strong>
 <span>${getDestination(request)}</span>
 </div>
 <div class="detail-box">
-<strong data-fr="Type de service" data-en="Service type" data-ar="نوع الخدمة">Type de service</strong>
-<span>${getService(request)}</span>
+<strong data-fr="Type de visa" data-en="Visa type" data-ar="نوع التأشيرة">Type de visa</strong>
+<span>${data.visaType||"-"}</span>
 </div>
 <div class="detail-box">
 <strong data-fr="Date réception" data-en="Received date" data-ar="تاريخ الاستلام">Date réception</strong>
@@ -197,7 +208,7 @@ detailsContent.innerHTML=`
 </div>
 <div class="documents-section">
 <h3>
-<i class="fa-solid fa-file-pdf"></i>
+<i class="fa-solid fa-file"></i>
 <span data-fr="Documents envoyés" data-en="Uploaded documents" data-ar="الوثائق المرسلة">Documents envoyés</span>
 </h3>
 <div class="documents-list">
@@ -228,7 +239,7 @@ updateRequestStatus(request.id,button.dataset.status);
 }
 function renderDocuments(request){
 let files=[];
-if(request.files&&Array.isArray(request.files)){
+if(Array.isArray(request.files)){
 files=request.files;
 }
 if(files.length===0){
@@ -238,19 +249,11 @@ return`
 }
 let html="";
 files.forEach(file=>{
-let fileName=typeof file==="string"?file:file.name||file.url||"Document";
-let fileUrl=typeof file==="object"?file.url||file.path:"#";
-let extension=fileName.split(".").pop().toLowerCase();
-let icon="fa-file";
-if(extension==="pdf"){
-icon="fa-file-pdf";
-}
-if(extension==="jpg"||extension==="jpeg"||extension==="png"){
-icon="fa-image";
-}
+const fileName=typeof file==="string"?file:file.name||"Document";
+const fileUrl=typeof file==="object"?file.url||file.path:"#";
 html+=`
 <a class="document-item" href="${fileUrl}" target="_blank">
-<i class="fa-solid ${icon}"></i>
+<i class="fa-solid fa-file"></i>
 <span>${fileName}</span>
 </a>
 `;
@@ -316,7 +319,6 @@ displayRequests(filteredRequests);
 function searchRequest(value){
 const search=value.toLowerCase();
 filteredRequests=allRequests.filter(request=>{
-const data=request.data||{};
 const client=getClientName(request).toLowerCase();
 const destination=getDestination(request).toLowerCase();
 const service=getService(request).toLowerCase();
@@ -340,20 +342,6 @@ searchInput.addEventListener("input",()=>{
 searchRequest(searchInput.value);
 });
 }
-document.querySelectorAll(".lang-btn").forEach(button=>{
-button.addEventListener("click",()=>{
-changeLanguage(button.dataset.lang);
-});
-});
-
-
-
-
-
-
-
-
-
 function setupMobileSupport(){
 const menu=document.getElementById("mobileMenu");
 const sidebar=document.getElementById("sidebar");
@@ -409,6 +397,9 @@ function refreshRequests(){
 displayRequests(allRequests);
 }
 function startRequestsCenter(){
+if(requestsInitialized){
+return;
+}
 loadRequests();
 setupMobileSupport();
 setupRequestTabs();
@@ -420,4 +411,21 @@ window.addEventListener("languageChanged",()=>{
 applyLanguage();
 refreshRequests();
 });
+document.querySelectorAll(".lang-btn").forEach(button=>{
+button.addEventListener("click",()=>{
+changeLanguage(button.dataset.lang);
+});
+});
+const logoutBtn=document.getElementById("logoutBtn");
+if(logoutBtn){
+logoutBtn.addEventListener("click",()=>{
+localStorage.removeItem("aquarevUser");
+window.location.href="../index.html";
+});
+}
+setInterval(()=>{
+if(requestsInitialized){
+refreshRequests();
+}
+},60000);
 console.log("AQUAREV REQUEST CENTER READY");
