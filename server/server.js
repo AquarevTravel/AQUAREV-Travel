@@ -8,8 +8,8 @@ const admin=require("firebase-admin/app");
 const {getFirestore}=require("firebase-admin/firestore");
 const {getApps,initializeApp,cert}=require("firebase-admin/app");
 let serviceAccount;
-if(process.env.FIREBASE_SERVICE_ACCOUNT){
-serviceAccount=JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+if(process.env.RENDER){
+serviceAccount=require("/etc/secrets/firebase-service-account.json");
 }else{
 serviceAccount=require("./aquarev-travel-firebase-adminsdk-fbsvc-efffbbec3d.json");
 }
