@@ -169,3 +169,17 @@ body[dir="rtl"] .message.received{justify-content:flex-end}
 .account-photo{width:140px;height:140px}
 .modal-content{width:90%}
 }
+
+
+.messagerie-brand{
+display:flex;
+align-items:center;
+margin-right:10px;
+}
+.messagerie-brand img{
+width:38px;
+height:38px;
+object-fit:contain;
+border-radius:50%;
+filter:drop-shadow(0 0 8px rgba(201,162,39,.7));
+}
