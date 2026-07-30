@@ -7,7 +7,12 @@ const express=require("express");
 const admin=require("firebase-admin/app");
 const {getFirestore}=require("firebase-admin/firestore");
 const {getApps,initializeApp,cert}=require("firebase-admin/app");
-const serviceAccount=require("./aquarev-travel-firebase-adminsdk-fbsvc-efffbbec3d.json");
+let serviceAccount;
+if(process.env.FIREBASE_SERVICE_ACCOUNT){
+serviceAccount=JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+}else{
+serviceAccount=require("./aquarev-travel-firebase-adminsdk-fbsvc-efffbbec3d.json");
+}
 if(!getApps().length){
 initializeApp({
 credential:cert(serviceAccount)
