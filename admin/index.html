@@ -4,24 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>AQUAREV Travel | Admin Dashboard</title>
-<link rel="icon" href="../assets/icons/favicon.png">
+<link rel="icon" href="../assets/logo/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<link rel="stylesheet" href="admin.css">
+<link rel="stylesheet" href="/admin/admin.css">
 </head>
 <body>
 <div class="loading-screen" id="loadingScreen">
 <div class="loading-logo">
-<img src="../assets/logo/logo.png" alt="AQUAREV">
+<img src="/assets/logo/logo.png" alt="AQUAREV">
 </div>
 <div class="loading-text">AQUAREV ADMIN</div>
 </div>
 <div class="dashboard">
 <aside class="sidebar" id="sidebar">
 <div class="sidebar-header">
-<img src="../assets/logo/logo.png" class="sidebar-logo" alt="AQUAREV">
+<img src="/assets/logo/logo.png" class="sidebar-logo" alt="AQUAREV">
 <h2>AQUAREV</h2>
 <p data-fr="Administration" data-en="Administration" data-ar="الإدارة">Administration</p>
 </div>
@@ -94,7 +94,7 @@
 <p data-fr="Supervisez l'ensemble des demandes, partenaires et opérations depuis un seul tableau de bord." data-en="Manage all requests, partners and operations from one dashboard." data-ar="قم بإدارة جميع الطلبات والشركاء والعمليات من لوحة تحكم واحدة.">Supervisez l'ensemble des demandes, partenaires et opérations depuis un seul tableau de bord.</p>
 </div>
 <div class="welcome-logo">
-<img src="../assets/logo/logo.png" alt="AQUAREV">
+<img src="/assets/logo/logo.png" alt="AQUAREV">
 </div>
 </div>
 <div class="stats-grid">
@@ -142,14 +142,49 @@
 <p data-fr="Toutes les demandes reçues depuis le site AQUAREV." data-en="All requests received from the AQUAREV website." data-ar="جميع الطلبات الواردة من موقع AQUAREV.">Toutes les demandes reçues depuis le site AQUAREV.</p>
 </div>
 <div class="request-tabs">
-<button class="request-tab active" data-request="visa"><i class="fa-solid fa-passport"></i><span data-fr="Visa" data-en="Visa" data-ar="التأشيرات">Visa</span></button>
-<button class="request-tab" data-request="flights"><i class="fa-solid fa-plane-departure"></i><span data-fr="Vols" data-en="Flights" data-ar="الطيران">Vols</span></button>
-<button class="request-tab" data-request="hotels"><i class="fa-solid fa-hotel"></i><span data-fr="Hôtels" data-en="Hotels" data-ar="الفنادق">Hôtels</span></button>
-<button class="request-tab" data-request="hajj"><i class="fa-solid fa-kaaba"></i><span data-fr="Hajj & Omra" data-en="Hajj & Umrah" data-ar="الحج والعمرة">Hajj & Omra</span></button>
-<button class="request-tab" data-request="tours"><i class="fa-solid fa-earth-europe"></i><span data-fr="Voyages organisés" data-en="Organized Tours" data-ar="الرحلات المنظمة">Voyages organisés</span></button>
-<button class="request-tab" data-request="other"><i class="fa-solid fa-layer-group"></i><span data-fr="Autres" data-en="Other" data-ar="طلبات أخرى">Autres</span></button>
+<button class="request-tab active" data-request="all">
+<i class="fa-solid fa-layer-group"></i>
+<span data-fr="Toutes" data-en="All" data-ar="الكل">Toutes</span>
+</button>
+<button class="request-tab" data-request="Visa">
+<i class="fa-solid fa-passport"></i>
+<span data-fr="Visa" data-en="Visa" data-ar="التأشيرات">Visa</span>
+</button>
+
+
+<button class="request-tab" data-request="Vols">
+<i class="fa-solid fa-plane-departure"></i>
+<span data-fr="Vols" data-en="Flights" data-ar="الطيران">Vols</span>
+</button>
+
+
+
+
+<button class="request-tab" data-request="Hôtels">
+<i class="fa-solid fa-hotel"></i>
+<span data-fr="Hôtels" data-en="Hotels" data-ar="الفنادق">Hôtels</span>
+</button>
+<button class="request-tab" data-request="Hajj">
+<i class="fa-solid fa-kaaba"></i>
+<span data-fr="Hajj & Omra" data-en="Hajj & Umrah" data-ar="الحج والعمرة">Hajj & Omra</span>
+</button>
+<button class="request-tab" data-request="Voyages organisés">
+<i class="fa-solid fa-earth-europe"></i>
+<span data-fr="Voyages organisés" data-en="Organized Tours" data-ar="الرحلات المنظمة">Voyages organisés</span>
+</button>
+<button class="request-tab" data-request="Autres">
+<i class="fa-solid fa-layer-group"></i>
+<span data-fr="Autres" data-en="Other" data-ar="أخرى">Autres</span>
+</button>
+<button class="request-tab" data-request="archives">
+<i class="fa-solid fa-box-archive"></i>
+<span data-fr="Archives" data-en="Archives" data-ar="الأرشيف">Archives</span>
+</button>
 </div>
 <div class="request-container">
+<div class="requests-list" id="requestsList">
+</div>
+
 <div class="request-card">
 <div class="request-top">
 <div>
@@ -159,31 +194,134 @@
 <span class="status waiting" id="requestStatus">Waiting</span>
 </div>
 <div class="request-body">
+
 <div class="request-row">
 <strong data-fr="Service :" data-en="Service:" data-ar="الخدمة:">Service :</strong>
 <span id="requestType">-</span>
 </div>
+
 <div class="request-row">
 <strong data-fr="Destination :" data-en="Destination:" data-ar="الوجهة:">Destination :</strong>
 <span id="requestDestination">-</span>
 </div>
+
 <div class="request-row">
 <strong data-fr="Date :" data-en="Date:" data-ar="التاريخ:">Date :</strong>
 <span id="requestDate">-</span>
 </div>
+
+<hr>
+
 <div class="request-row">
-<strong data-fr="Description :" data-en="Description:" data-ar="الوصف:">Description :</strong>
-<p id="requestDescription">-</p>
+<strong data-fr="Nom complet :" data-en="Full Name:" data-ar="الاسم الكامل:">Nom complet :</strong>
+<span id="requestFullName">-</span>
 </div>
+
+<div class="request-row">
+<strong data-fr="Date naissance :" data-en="Birth Date:" data-ar="تاريخ الميلاد:">Date naissance :</strong>
+<span id="requestBirthDate">-</span>
 </div>
+
+<div class="request-row">
+<strong data-fr="Téléphone :" data-en="Phone:" data-ar="الهاتف:">Téléphone :</strong>
+<span id="requestPhone">-</span>
+</div>
+
+<div class="request-row">
+<strong data-fr="Email :" data-en="Email:" data-ar="البريد الإلكتروني:">Email :</strong>
+<span id="requestEmail">-</span>
+</div>
+
+<div class="request-row">
+<strong data-fr="Adresse complète :" data-en="Full Address:" data-ar="العنوان الكامل:">Adresse complète :</strong>
+<span id="requestAddress">-</span>
+</div>
+
+<hr>
+
+
+<div class="request-row">
+<strong data-fr="Numéro de passeport :" data-en="Passport number:" data-ar="رقم جواز السفر:">Numéro de passeport :</strong>
+<span id="requestPassportNumber">-</span>
+</div>
+<div class="request-row">
+<strong data-fr="Date de délivrance du passeport :" data-en="Passport issue date:" data-ar="تاريخ إصدار جواز السفر:">Date de délivrance du passeport :</strong>
+<span id="requestPassportStart">-</span>
+</div>
+<div class="request-row">
+<strong data-fr="Date expiration passeport :" data-en="Passport expiry date:" data-ar="تاريخ انتهاء جواز السفر:">Date expiration passeport :</strong>
+<span id="requestPassportEnd">-</span>
+</div>
+
+<div class="request-row">
+<strong data-fr="Père :" data-en="Father:" data-ar="الأب:">Père :</strong>
+<span id="requestFather">-</span>
+</div>
+
+<div class="request-row">
+<strong data-fr="Mère :" data-en="Mother:" data-ar="الأم:">Mère :</strong>
+<span id="requestMother">-</span>
+</div>
+
+<hr>
+
+<div class="request-row">
+<strong data-fr="Type Visa :" data-en="Visa Type:" data-ar="نوع التأشيرة:">Type Visa :</strong>
+<span id="requestVisaType">-</span>
+</div>
+
+<div class="request-row">
+<strong data-fr="Activité :" data-en="Activity:" data-ar="النشاط:">Activité :</strong>
+<span id="requestActivity">-</span>
+</div>
+
+<div class="request-row">
+<strong data-fr="Résidence :" data-en="Residence:" data-ar="الإقامة:">Résidence :</strong>
+<span id="requestResidence">-</span>
+</div>
+
+<div class="request-row">
+<strong data-fr="Paiement :" data-en="Payment:" data-ar="الدفع:">Paiement :</strong>
+<span id="requestPayment">-</span>
+</div>
+
+<hr>
+
+
+
+
+
+<div class="request-row">
+<strong data-fr="Documents :" data-en="Documents:" data-ar="الوثائق:">Documents :</strong>
+<div id="requestFiles">-</div>
+</div>
+
+</div>
+
 <div class="request-actions">
-<button class="accept-btn"><i class="fa-solid fa-circle-check"></i><span data-fr="Accepter" data-en="Accept" data-ar="قبول">Accepter</span></button>
-<button class="transfer-btn"><i class="fa-solid fa-share-nodes"></i><span data-fr="Transférer" data-en="Transfer" data-ar="تحويل">Transférer</span></button>
-<button class="ignore-btn"><i class="fa-solid fa-circle-xmark"></i><span data-fr="Ignorer" data-en="Ignore" data-ar="تجاهل">Ignorer</span></button>
+<button class="accept-btn">
+<i class="fa-solid fa-circle-check"></i>
+<span data-fr="Accepter" data-en="Accept" data-ar="قبول">Accepter</span>
+</button>
+
+<button class="transfer-btn">
+<i class="fa-solid fa-share-nodes"></i>
+<span data-fr="Transférer" data-en="Transfer" data-ar="تحويل">Transférer</span>
+</button>
+
+<button class="ignore-btn">
+<i class="fa-solid fa-circle-xmark"></i>
+<span data-fr="Ignorer" data-en="Ignore" data-ar="تجاهل">Ignorer</span>
+</button>
 </div>
 </div>
+
+
 <div class="partner-selector">
-<h3><i class="fa-solid fa-handshake"></i><span data-fr="Choisir un partenaire" data-en="Choose Partner" data-ar="اختيار شريك">Choisir un partenaire</span></h3>
+<h3>
+<i class="fa-solid fa-handshake"></i>
+<span data-fr="Choisir un partenaire" data-en="Choose Partner" data-ar="اختيار شريك">Choisir un partenaire</span>
+</h3>
 <div class="partner-list" id="partnerList">
 </div>
 </div>
@@ -191,7 +329,10 @@
 </section>
 <section class="page-section" id="agenciesPage">
 <div class="section-header">
-<h2><i class="fa-solid fa-building"></i><span data-fr="Agences" data-en="Agencies" data-ar="الوكالات">Agences</span></h2>
+<h2>
+<i class="fa-solid fa-building"></i>
+<span data-fr="Agences" data-en="Agencies" data-ar="الوكالات">Agences</span>
+</h2>
 <p data-fr="Validation des nouvelles agences." data-en="Approve new agencies." data-ar="اعتماد الوكالات الجديدة.">Validation des nouvelles agences.</p>
 </div>
 <div class="table-wrapper">
@@ -211,7 +352,10 @@
 </section>
 <section class="page-section" id="partnersPage">
 <div class="section-header">
-<h2><i class="fa-solid fa-handshake-angle"></i><span data-fr="Partenaires" data-en="Partners" data-ar="الشركاء">Partenaires</span></h2>
+<h2>
+<i class="fa-solid fa-handshake-angle"></i>
+<span data-fr="Partenaires" data-en="Partners" data-ar="الشركاء">Partenaires</span>
+</h2>
 <p data-fr="Tous les partenaires actifs AQUAREV." data-en="All active AQUAREV partners." data-ar="جميع شركاء AQUAREV النشطين.">Tous les partenaires actifs AQUAREV.</p>
 </div>
 <div class="partner-grid" id="partnersGrid">
@@ -219,7 +363,10 @@
 </section>
 <section class="page-section" id="messagingPage">
 <div class="section-header">
-<h2><i class="fa-solid fa-comments"></i><span data-fr="Messagerie" data-en="Messaging" data-ar="الرسائل">Messagerie</span></h2>
+<h2>
+<i class="fa-solid fa-comments"></i>
+<span data-fr="Messagerie" data-en="Messaging" data-ar="الرسائل">Messagerie</span>
+</h2>
 <p data-fr="Communication avec clients et partenaires." data-en="Communication with clients and partners." data-ar="التواصل مع العملاء والشركاء.">Communication avec clients et partenaires.</p>
 </div>
 <div class="empty-state">
@@ -229,7 +376,10 @@
 </section>
 <section class="page-section" id="notificationsPage">
 <div class="section-header">
-<h2><i class="fa-solid fa-bell"></i><span data-fr="Notifications" data-en="Notifications" data-ar="الإشعارات">Notifications</span></h2>
+<h2>
+<i class="fa-solid fa-bell"></i>
+<span data-fr="Notifications" data-en="Notifications" data-ar="الإشعارات">Notifications</span>
+</h2>
 <p data-fr="Historique des alertes." data-en="Notifications history." data-ar="سجل التنبيهات.">Historique des alertes.</p>
 </div>
 <div class="empty-state">
@@ -239,7 +389,10 @@
 </section>
 <section class="page-section" id="settingsPage">
 <div class="section-header">
-<h2><i class="fa-solid fa-gears"></i><span data-fr="Paramètres" data-en="Settings" data-ar="الإعدادات">Paramètres</span></h2>
+<h2>
+<i class="fa-solid fa-gears"></i>
+<span data-fr="Paramètres" data-en="Settings" data-ar="الإعدادات">Paramètres</span>
+</h2>
 <p data-fr="Configuration générale AQUAREV." data-en="General AQUAREV configuration." data-ar="إعدادات AQUAREV العامة.">Configuration générale AQUAREV.</p>
 </div>
 <div class="settings-grid">
@@ -258,7 +411,7 @@
 </main>
 <footer class="admin-footer">
 <div class="footer-logo">
-<img src="../assets/logo/logo.png" alt="AQUAREV Travel">
+<img src="/assets/logo/logo.png" alt="AQUAREV Travel">
 </div>
 <div class="footer-content">
 <p data-fr="© 2026 AQUAREV Travel - Administration Premium" data-en="© 2026 AQUAREV Travel - Premium Administration" data-ar="© 2026 AQUAREV Travel - الإدارة المميزة">© 2026 AQUAREV Travel - Administration Premium</p>
@@ -294,51 +447,6 @@
 </div>
 </div>
 <div class="mobile-overlay" id="mobileOverlay"></div>
-<script type="module" src="admin.js"></script>
-<script>
-const langButtons=document.querySelectorAll(".lang-btn");
-langButtons.forEach(button=>{
-button.addEventListener("click",()=>{
-const lang=button.dataset.lang;
-document.documentElement.dir=lang==="ar"?"rtl":"ltr";
-document.querySelectorAll("[data-fr]").forEach(element=>{
-if(element.dataset[lang]){
-element.textContent=element.dataset[lang];
-}
-});
-langButtons.forEach(btn=>btn.classList.remove("active"));
-button.classList.add("active");
-localStorage.setItem("aquarevLanguage",lang);
-});
-});
-const savedLanguage=localStorage.getItem("aquarevLanguage");
-if(savedLanguage){
-const activeButton=document.querySelector(`[data-lang="${savedLanguage}"]`);
-if(activeButton){
-activeButton.click();
-}
-}
-const mobileMenu=document.getElementById("mobileMenu");
-const sidebar=document.getElementById("sidebar");
-const mobileOverlay=document.getElementById("mobileOverlay");
-if(mobileMenu){
-mobileMenu.addEventListener("click",()=>{
-sidebar.classList.toggle("show");
-mobileOverlay.classList.toggle("show");
-});
-}
-if(mobileOverlay){
-mobileOverlay.addEventListener("click",()=>{
-sidebar.classList.remove("show");
-mobileOverlay.classList.remove("show");
-});
-}
-window.addEventListener("load",()=>{
-const loading=document.getElementById("loadingScreen");
-setTimeout(()=>{
-loading.classList.add("hide");
-},1000);
-});
-</script>
+<script type="module" src="/admin/admin.js"></script>
 </body>
 </html>

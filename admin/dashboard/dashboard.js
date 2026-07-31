@@ -417,6 +417,7 @@ confirmTransfer.addEventListener("click",transferRequest);
 }
 async function createPartnerNotification(partnerId,request){
 try{
+    
 await addDoc(collection(db,"users",partnerId,"notifications"),{
 title:"Nouvelle demande AQUAREV",
 titleEn:"New AQUAREV Request",
