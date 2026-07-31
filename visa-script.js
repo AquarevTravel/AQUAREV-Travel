@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
 
@@ -364,6 +366,7 @@ fields.forEach(field => {
         field.id;
 
     if (key) {
+            console.log("FORM FIELD:", key, field.value);
         formData.append(key, field.value.trim());
     }
 
@@ -396,8 +399,8 @@ document.getElementById("paymentMethod").value
 try{
 const response =
 await fetch(
-"https://aquarev-travel.onrender.com/visa-request",
-{
+"https://aquarev-travel-anfn.onrender.com/visa-request", 
+    {
 method:"POST",
 body:formData
 }
@@ -573,3 +576,15 @@ localStorage.removeItem(key);
 });
 };
 });
+
+
+
+
+
+
+function toggleCountryPopup(){
+const popup=document.getElementById("countryPopup");
+if(popup){
+popup.classList.toggle("active");
+}
+}
