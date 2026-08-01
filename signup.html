@@ -235,8 +235,68 @@ Connexion
 </div>
 <script type="module">
 import {auth,db} from "./firebase/firebase-config.js";
-import {createUserWithEmailAndPassword,GoogleAuthProvider,OAuthProvider,signInWithPopup} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+import {createUserWithEmailAndPassword,GoogleAuthProvider,OAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 import {doc,setDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+getRedirectResult(auth)
+
+
+.then(async(result)=>{
+console.log("REDIRECT RESULT:",result);
+
+if(result){
+const user=result.user;
+console.log("GOOGLE USER:",user);
+
+await setDoc(
+doc(db,"users",user.uid),
+{
+name:user.displayName,
+email:user.email,
+provider:"Google",
+createdAt:serverTimestamp()
+},
+{
+merge:true
+}
+);
+
+alert("Google OK");
+window.location.href="index.html";
+}
+else{
+console.log("NO REDIRECT RESULT");
+}
+})
+.catch(error=>{
+console.error("REDIRECT ERROR:",error);
+alert(error.message);
+});
+
+
+auth.onAuthStateChanged(async(user)=>{
+if(user){
+console.log("CURRENT USER:",user);
+
+await setDoc(
+doc(db,"users",user.uid),
+{
+name:user.displayName||"Google User",
+email:user.email,
+provider:"Google",
+createdAt:serverTimestamp()
+},
+{
+merge:true
+}
+);
+
+window.location.href="index.html";
+}
+});
+
+
 const signupForm=document.getElementById("signupForm");
 signupForm.addEventListener("submit",async(e)=>{
 e.preventDefault();
@@ -297,17 +357,22 @@ console.error(error);
 alert(error.message);
 }
 });
+
 const googleButton=document.querySelector(".google");
 googleButton.addEventListener("click",async()=>{
 try{
 const provider=new GoogleAuthProvider();
+
 const result=await signInWithPopup(
 auth,
 provider
 );
+
 const user=result.user;
+
 const accountType=document.getElementById("accountType").value;
 const role=accountType==="agency"?"pending_agency":"client";
+
 await setDoc(
 doc(db,"users",user.uid),
 {
@@ -322,9 +387,11 @@ createdAt:serverTimestamp()
 merge:true
 }
 );
+
 const serverURL=window.location.hostname==="localhost"
 ?"http://localhost:3000"
 :"http://10.123.251.25:3000";
+
 await fetch(`${serverURL}/new-user`,{
 method:"POST",
 headers:{
@@ -337,22 +404,60 @@ provider:"Google",
 role:role
 })
 });
+
 if(role==="pending_agency"){
 alert("Votre demande de partenariat est en cours de validation par AQUAREV.");
 }else{
 alert("Compte client créé avec succès.");
 }
+
 window.location.href="index.html";
+
 }
 catch(error){
-console.error(error);
+console.error("GOOGLE ERROR:",error);
 alert(error.message);
 }
 });
-document.querySelector(".facebook").addEventListener("click",()=>{
-alert("Facebook Login sera ajouté après إعداد Meta Developers");
+let facebookLoading=false;
+document.querySelector(".facebook").addEventListener("click",async()=>{
+if(facebookLoading)return;
+facebookLoading=true;
+try{
+const provider=new FacebookAuthProvider();
+provider.addScope("email");
+const result=await signInWithPopup(
+auth,
+provider
+);
+const user=result.user;
+const accountType=document.getElementById("accountType").value;
+const role=accountType==="agency"?"pending_agency":"client";
+await setDoc(
+doc(db,"users",user.uid),
+{
+name:user.displayName||"Facebook User",
+email:user.email,
+provider:"Facebook",
+role:role,
+status:accountType==="agency"?"waiting":"active",
+createdAt:serverTimestamp()
+},
+{
+merge:true
+}
+);
+alert("Compte créé avec Facebook.");
+window.location.href="index.html";
+}
+catch(error){
+console.error("FACEBOOK SIGNUP ERROR:",error);
+alert(error.message);
+}
+finally{
+facebookLoading=false;
+}
 });
-
 </script>
 </body>
 </html>
