@@ -264,10 +264,15 @@ doc,
 setDoc,
 serverTimestamp
 }from"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
 import{
 signInWithEmailAndPassword,
 GoogleAuthProvider,
-signInWithPopup
+FacebookAuthProvider,
+signInWithPopup,
+fetchSignInMethodsForEmail,
+linkWithCredential
 }from"https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 document.getElementById("loginForm").addEventListener("submit",async(e)=>{
@@ -308,10 +313,16 @@ merge:true
 window.location.href="index.html";
 
 }catch(error){
-
 console.error(error);
+if(error.code==="auth/account-exists-with-different-credential"){
+
+alert("Ce compte existe déjà avec Google. Connectez-vous d'abord avec Google pour lier Facebook.");
+
+}else{
 
 alert(error.message);
+
+}
 
 }
 
@@ -356,9 +367,55 @@ googleLoading=false;
 }
 
 });
-document.querySelector(".facebook").onclick=function(){
-alert("Facebook Login sera connecté avec Meta Developers");
-};
+
+
+let facebookLoading=false;
+
+document.querySelector(".facebook").addEventListener("click",async()=>{
+
+if(facebookLoading)return;
+
+facebookLoading=true;
+
+try{
+
+const provider=new FacebookAuthProvider();
+
+provider.addScope("email");
+const result=await signInWithPopup(
+auth,
+provider
+);
+
+console.log(result.user);
+
+alert("Connexion Facebook réussie");
+
+window.location.href="index.html";
+
+}
+
+
+catch(error){
+
+console.error("FACEBOOK ERROR:",error);
+console.error("ERROR EMAIL:",error.customData?.email);
+console.error("ERROR PROVIDER:",error.customData?._tokenResponse?.providerId);
+
+alert(error.message);
+
+}
+
+
+
+
+finally{
+
+facebookLoading=false;
+
+}
+
+});
 
 
 document.querySelector(".apple").onclick=function(){

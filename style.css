@@ -809,3 +809,335 @@ height:32px;
 .user-connected>i{
 font-size:13px;
 }
+
+
+
+
+
+
+@media(max-width:800px){
+.language-header{
+transform:translateX(20px);
+}
+}
+
+
+
+
+
+
+@media(max-width:768px){
+#user-area{
+transform:translateX(20px)!important;
+}
+}
+
+
+
+
+@media(max-width:768px){
+.auth-btn{
+padding:5px 5px!important;
+font-size:11px!important;
+}
+
+.auth-buttons{
+gap:5px!important;
+}
+}
+
+
+
+
+
+
+@media(max-width:768px){
+
+html[lang="fr"] #user-area,
+html[lang="en"] #user-area,
+html[lang="fr"] .language-header,
+html[lang="en"] .language-header{
+transform:translateX(-5px);
+}
+
+html[lang="ar"] #user-area,
+html[lang="ar"] .language-header{
+transform:translateX(5px);
+}
+
+}
+
+
+
+
+@media(max-width:768px){
+
+.user-connected span{
+font-size:10px!important;
+}
+
+.messagerie-btn,
+.logout-btn{
+padding:1px 5px!important;
+font-size:10px!important;
+height:5px!important;
+line-height:1!important;
+border-radius:14px!important;
+}
+
+.messagerie-btn i,
+.logout-btn i{
+font-size:10px!important;
+}
+
+#user-area{
+gap:5px!important;
+}
+
+.language-globe{
+width:32px!important;
+height:32px!important;
+font-size:14px!important;
+}
+
+}
+
+@media(max-width:768px){
+
+html[lang="fr"] .language-header,
+html[lang="en"] .language-header{
+transform:translateX(-15px);
+}
+
+html[dir="rtl"] .language-header,
+body.rtl .language-header{
+transform:translateX(15px);
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+html[lang="fr"] .user-connected,
+html[lang="fr"] .messagerie-btn,
+html[lang="fr"] .logout-btn,
+html[lang="fr"] .language-header,
+html[lang="en"] .user-connected,
+html[lang="en"] .messagerie-btn,
+html[lang="en"] .logout-btn,
+html[lang="en"] .language-header{
+transform:translateX(-30px);
+}
+
+html[dir="rtl"] .user-connected,
+html[dir="rtl"] .messagerie-btn,
+html[dir="rtl"] .logout-btn,
+html[dir="rtl"] .language-header,
+body.rtl .user-connected,
+body.rtl .messagerie-btn,
+body.rtl .logout-btn,
+body.rtl .language-header{
+transform:translateX(15px);
+}
+
+}
+
+
+
+
+
+
+@media(max-width:768px){
+
+html[lang="fr"] .user-connected span,
+html[lang="en"] .user-connected span{
+transform:translateX(-45px);
+display:inline-block;
+}
+
+html[dir="rtl"] .user-connected span,
+body.rtl .user-connected span{
+transform:translateX(15px);
+display:inline-block;
+}
+
+}
+
+
+
+
+
+
+@media(max-width:768px){
+.logout-btn{
+box-shadow:none!important;
+background:none!important;
+border:none!important;
+}
+}
+
+@media(max-width:768px){
+
+.messagerie-btn{
+box-shadow:none!important;
+border:none!important;
+}
+
+}
+
+
+@media(max-width:768px){
+
+.messagerie-btn{
+background:none!important;
+box-shadow:none!important;
+border:none!important;
+}
+
+}
+
+
+@media(max-width:768px){
+
+html[lang="fr"] .messagerie-btn,
+html[lang="en"] .messagerie-btn{
+transform:translateX(-15px);
+}
+
+html[lang="fr"] .logout-btn,
+html[lang="en"] .logout-btn{
+transform:translateX(-35px);
+}
+
+}
+
+@media(max-width:768px){
+
+html[lang="ar"] #user-area,
+body.rtl #user-area{
+gap:3px!important;
+}
+
+html[lang="ar"] .user-connected,
+body.rtl .user-connected{
+gap: -10px!important;
+}
+
+html[lang="ar"] .messagerie-btn,
+body.rtl .messagerie-btn{
+transform:translateX(-20px);
+}
+
+html[lang="ar"] .logout-btn,
+body.rtl .logout-btn{
+transform:translateX(-10px);
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+html[lang="ar"] .user-connected span,
+body.rtl .user-connected span{
+transform:translateX(-10px);
+display:inline-block;
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+.user-connected i,
+.messagerie-btn i,
+.logout-btn i{
+display:none!important;
+}
+
+}
+
+
+@media(max-width:768px){
+
+html[lang="fr"] .user-connected,
+html[lang="en"] .user-connected{
+transform:translateX(0)!important;
+}
+
+html[lang="fr"] .messagerie-btn,
+html[lang="en"] .messagerie-btn{
+transform:translateX(0)!important;
+}
+
+html[lang="fr"] .logout-btn,
+html[lang="en"] .logout-btn{
+transform:translateX(0)!important;
+}
+
+}
+
+
+
+@media(max-width:768px){
+
+html[lang="fr"] .menu-toggle,
+html[lang="en"] .menu-toggle{
+transform:translateX(-35px);
+}
+
+html[lang="ar"] .menu-toggle,
+body.rtl .menu-toggle{
+transform:translateX(25px);
+}
+
+}
+
+
+
+
+@media(max-width:768px){
+
+html[lang="fr"] #user-area .logout-btn{
+transform:translateX(-10px)!important;
+position:relative;
+left:-10px!important;
+}
+
+}
+
+@media(max-width:768px){
+
+html[lang="ar"] #user-area .logout-btn,
+body.rtl #user-area .logout-btn{
+transform:translateX(5px)!important;
+position:relative;
+left:5px!important;
+}
+
+}
+
+
+
+
+@media(max-width:768px){
+
+body:not(.logged-in) .menu-toggle{
+transform:translateX(15px)!important;
+}
+
+}
+
+
+@media(max-width:768px){
+
+html[lang="fr"] .auth-buttons,
+html[lang="en"] .auth-buttons{
+transform:translateX(35px);
+}
+
+}
