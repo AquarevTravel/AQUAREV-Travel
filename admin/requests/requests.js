@@ -1,5 +1,18 @@
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import{getFirestore,collection,query,orderBy,onSnapshot,doc,updateDoc}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import{
+initializeApp
+}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import{
+getFirestore,
+collection,
+query,
+orderBy,
+onSnapshot,
+doc,
+updateDoc,
+addDoc
+}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 const firebaseConfig={
 apiKey:"AIzaSyAycKfhrRV8qcbhvwj0NV5iE_4zlgcDyWo",
 authDomain:"aquarev-travel.firebaseapp.com",
@@ -95,6 +108,7 @@ id:item.id,
 ...item.data()
 });
 });
+
 filteredRequests=[...allRequests];
 updateCounter();
 displayRequests(allRequests);
@@ -108,6 +122,10 @@ if(requestsCount){
 requestsCount.textContent=allRequests.length;
 }
 }
+
+
+
+
 function displayRequests(data){
 if(!requestsContainer){
 return;
@@ -122,7 +140,9 @@ requestsContainer.innerHTML=`
 `;
 return;
 }
+
 data.forEach(request=>{
+    console.log("REQUEST PDF:",request.pdfPath,request);
 const card=document.createElement("div");
 card.className="request-card";
 card.innerHTML=`
@@ -132,6 +152,7 @@ card.innerHTML=`
 </div>
 <div class="request-main-info">
 <h3>${getService(request)}</h3>
+${request.type==="Vols"?'<span class="flight-tag"><i class="fa-solid fa-plane"></i> Vol</span>':""}
 <p>${getClientName(request)}</p>
 </div>
 <span class="request-status status-${getStatus(request)}">${getStatus(request)}</span>
@@ -155,6 +176,14 @@ card.innerHTML=`
 <i class="fa-solid fa-eye"></i>
 <span data-fr="Voir" data-en="View" data-ar="عرض">Voir</span>
 </button>
+${request.pdfPath?
+`
+<a class="pdf-button" href="http://localhost:3000/pdf/${request.pdfPath.split("\\").pop()}" target="_blank">
+<i class="fa-solid fa-file-pdf"></i>
+PDF
+</a>
+`
+:""}
 </div>
 `;
 const openButton=card.querySelector(".open-request");
@@ -166,9 +195,15 @@ openRequestDetails(request);
 requestsContainer.appendChild(card);
 });
 }
+
 function openRequestDetails(request){
 selectedRequest=request;
 if(!requestDetails||!detailsContent){
+return;
+}
+
+if(request.type==="Vols"){
+openFlightRequestDetails(request);
 return;
 }
 const data=request.data||{};
@@ -264,13 +299,32 @@ html+=`
 });
 return html;
 }
+
+
+
 async function updateRequestStatus(requestId,status){
 try{
+const request=allRequests.find(r=>r.id===requestId);
+if(!request){
+return;
+}
 await updateDoc(doc(db,"requests",requestId),{
 status:status,
 updatedAt:new Date(),
 handledBy:"AQUAREV Travel"
 });
+
+
+if(status==="accepted"||status==="rejected"){
+await addDoc(collection(db,"archives"),{
+...request,
+status:status,
+archivedAt:new Date()
+});
+await updateDoc(doc(db,"requests",requestId),{
+status:"archived"
+});
+}
 }catch(error){
 console.error("UPDATE STATUS ERROR:",error);
 }

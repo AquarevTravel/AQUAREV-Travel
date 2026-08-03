@@ -1,6 +1,6 @@
 import {auth,db} from "../firebase/firebase-config.js";
 import {onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-import {doc,getDoc,collection,getDocs,addDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import {doc,getDoc,collection,getDocs,addDoc,serverTimestamp,query,where,orderBy,onSnapshot,updateDoc} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 let currentUser=null;
 let currentLanguage="fr";
@@ -20,6 +20,10 @@ logout:"تسجيل الخروج"
 }
 };
 
+
+
+
+
 onAuthStateChanged(auth,async(user)=>{
 if(!user){
 window.location.href="../signin.html";
@@ -27,7 +31,26 @@ return;
 }
 currentUser=user;
 await loadPartnerProfile(user.uid);
+await updatePartnerOnlineStatus(user.uid);
 });
+
+async function updatePartnerOnlineStatus(uid){
+try{
+const userRef=doc(db,"users",uid);
+await updateDoc(userRef,{
+online:true,
+lastSeen:serverTimestamp()
+});
+window.addEventListener("beforeunload",async()=>{
+await updateDoc(userRef,{
+online:false,
+lastSeen:serverTimestamp()
+});
+});
+}catch(error){
+console.error("ONLINE STATUS ERROR:",error);
+}
+}
 
 async function loadPartnerProfile(uid){
 try{
@@ -93,7 +116,6 @@ console.error("REQUEST ERROR:",error);
 
 
 
-
 document.querySelectorAll(".menu-item").forEach(button=>{
 button.addEventListener("click",()=>{
 document.querySelectorAll(".menu-item").forEach(b=>b.classList.remove("active"));
@@ -130,11 +152,58 @@ el.textContent=el.getAttribute("data-"+lang);
 
 const sendButton=document.getElementById("sendPartnerMessage");
 
+async function loadPartnerMessages(){
+try{
+const messagesContainer=document.getElementById("partnerMessages");
+if(!messagesContainer||!currentUser){
+return;
+}
+const messagesQuery=query(
+collection(db,"partner_messages"),
+where("partnerId","==",currentUser.uid),
+orderBy("createdAt","asc")
+);
+onSnapshot(messagesQuery,(snapshot)=>{
+messagesContainer.innerHTML="";
+if(snapshot.empty){
+messagesContainer.innerHTML=`
+<div class="empty-state">
+<i class="fa-solid fa-message"></i>
+<p>Aucun message pour le moment.</p>
+</div>`;
+return;
+}
+snapshot.forEach(item=>{
+const data=item.data();
+const message=document.createElement("div");
+message.className=data.sender==="partner"
+?"chat-message partner"
+:"chat-message admin";
+message.innerHTML=`
+<p>${data.message}</p>
+<small>
+${data.createdAt?.toDate
+?data.createdAt.toDate().toLocaleString()
+:""}
+</small>
+`;
+messagesContainer.appendChild(message);
+});
+messagesContainer.scrollTop=messagesContainer.scrollHeight;
+});
+}catch(error){
+console.error("LOAD MESSAGES ERROR:",error);
+}
+}
+
+
 if(sendButton){
 sendButton.addEventListener("click",async()=>{
 const input=document.getElementById("partnerMessageInput");
 const message=input.value.trim();
-if(!message)return;
+if(!message||!currentUser){
+return;
+}
 try{
 await addDoc(collection(db,"partner_messages"),{
 partnerId:currentUser.uid,
@@ -143,13 +212,13 @@ createdAt:serverTimestamp(),
 sender:"partner"
 });
 input.value="";
-alert("Message envoyé à AQUAREV");
 }catch(error){
-console.error(error);
+console.error("SEND MESSAGE ERROR:",error);
 }
 });
 }
 
+loadPartnerMessages();
 const logoutButton=document.createElement("button");
 logoutButton.className="logout-partner";
 logoutButton.innerHTML='<i class="fa-solid fa-right-from-bracket"></i> Déconnexion';

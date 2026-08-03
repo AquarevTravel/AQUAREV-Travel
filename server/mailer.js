@@ -3,8 +3,8 @@ const fs=require("fs");
 const path=require("path");
 const brevo=new BrevoClient({
 apiKey:process.env.BREVO_API_KEY,
-timeoutInSeconds:60,
-maxRetries:3
+timeoutInSeconds:120,
+maxRetries:5
 });
 async function buildAttachments(files,pdfPath){
 const attachments=[];
@@ -152,8 +152,65 @@ attachment:attachments
 console.log("EMAIL BILLET ENVOYE",result);
 return result;
 }
+
+
+
+
+async function sendPartnerMail(email,pdfPath,request){
+try{
+    console.log("PARTNER MAIL TEST START");
+console.log("EMAIL:",email);
+console.log("PDF:",pdfPath);
+console.log("REQUEST:",request.id);
+if(!email||!pdfPath){
+console.log("PARTNER EMAIL OR PDF MISSING");
+return;
+}
+const fs=require("fs");
+const path=require("path");
+if(!fs.existsSync(pdfPath)){
+console.log("PARTNER PDF NOT FOUND:",pdfPath);
+return;
+}
+const attachment={
+name:path.basename(pdfPath),
+content:fs.readFileSync(pdfPath).toString("base64")
+};
+const result=await brevo.transactionalEmails.sendTransacEmail({
+sender:{
+name:"AQUAREV Travel",
+email:process.env.SENDER_EMAIL
+},
+to:[
+{
+email:email,
+name:"AQUAREV Partner"
+}
+],
+subject:"Nouvelle demande AQUAREV Travel",
+textContent:`AQUAREV Travel
+
+Une nouvelle demande vous a été transférée.
+
+Service : ${request.type||"-"}
+Destination : ${request.data?.destination||request.data?.selectedCountry||"-"}
+
+Merci de consulter le document PDF joint.
+
+AQUAREV Travel`,
+attachment:[
+attachment
+]
+});
+console.log("PARTNER EMAIL SENT:",email);
+return result;
+}catch(error){
+console.error("PARTNER EMAIL ERROR:",error);
+}
+}
 module.exports={
 sendMail,
 sendNewUserMail,
-sendFlightMail
+sendFlightMail,
+sendPartnerMail
 };

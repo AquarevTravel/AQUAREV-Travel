@@ -523,6 +523,7 @@ display:flex;
 flex-direction:column;
 gap:12px
 }
+
 .partner-item{
 background:#f9fafc;
 border:1px solid var(--border);
@@ -564,6 +565,7 @@ body[dir="rtl"] .admin-table th,
 body[dir="rtl"] .admin-table td{
 text-align:right
 }
+
 .partner-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -777,6 +779,7 @@ grid-template-columns:repeat(2,1fr)
 .request-container{
 grid-template-columns:1fr
 }
+
 .partner-grid{
 grid-template-columns:repeat(2,1fr)
 }
@@ -820,6 +823,7 @@ flex-direction:column;
 text-align:center;
 gap:25px
 }
+
 .stats-grid{
 grid-template-columns:1fr
 }
@@ -885,3 +889,1128 @@ font-size:24px
 }
 }
 
+
+
+.partner-pending-section{
+margin-top:30px;
+padding:20px;
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+border:1px solid rgba(212,175,55,0.25);
+}
+.partner-pending-section h3{
+display:flex;
+align-items:center;
+gap:10px;
+color:#d4af37;
+font-size:20px;
+margin-bottom:20px;
+}
+#pendingPartnersList{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
+}
+.pending-partner-card{
+background:#111;
+border-radius:12px;
+padding:18px;
+border:1px solid rgba(212,175,55,0.2);
+}
+.pending-partner-card h4{
+color:#fff;
+margin-bottom:8px;
+}
+.pending-partner-card p{
+color:#aaa;
+margin-bottom:15px;
+}
+.pending-partner-card button{
+padding:10px 18px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+margin-right:8px;
+}
+.accept-partner{
+background:#d4af37;
+color:#000;
+}
+.reject-partner{
+background:#8b0000;
+color:#fff;
+}
+.accept-partner:hover,
+.reject-partner:hover{
+opacity:0.85;
+}
+
+
+.notification-badge{
+display:none;
+position:absolute;
+top:-8px;
+right:-10px;
+min-width:22px;
+height:22px;
+padding:0 6px;
+background:#d4af37;
+color:#000;
+font-size:12px;
+font-weight:800;
+border-radius:50%;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 10px rgba(212,175,55,0.8);
+}
+.menu-item{
+position:relative;
+}
+
+
+.request-tab{
+position:relative;
+}
+.request-badge{
+display:none;
+position:absolute;
+top:-8px;
+right:-10px;
+min-width:20px;
+height:20px;
+padding:0 5px;
+background:#d4af37;
+color:#000;
+font-size:11px;
+font-weight:800;
+border-radius:50%;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 8px rgba(212,175,55,0.8);
+}
+
+
+.flight-tag{
+display:inline-flex;
+align-items:center;
+gap:6px;
+background:linear-gradient(135deg,#0B3D91,#1e88e5);
+color:white;
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:600;
+margin-top:8px;
+box-shadow:0 3px 8px rgba(11,61,145,0.25);
+}
+.flight-tag i{
+font-size:13px;
+}
+
+
+
+
+
+#requestPDF{
+margin-top:15px;
+}
+
+#requestPDF strong{
+display:block;
+margin-bottom:8px;
+color:#0B3D91;
+font-size:16px;
+}
+
+#pdfLink{
+display:inline-flex;
+align-items:center;
+gap:10px;
+background:linear-gradient(135deg,#C9A227,#e7c65b);
+color:white;
+padding:12px 25px;
+border-radius:12px;
+font-size:16px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(201,162,39,0.35);
+transition:0.3s ease;
+}
+
+#pdfLink i{
+font-size:24px;
+color:white;
+}
+
+#pdfLink:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(201,162,39,0.55);
+}
+
+/* ================================
+   AQUAREV LUXURY REQUEST VIEW
+================================ */
+
+.request-card{
+background:linear-gradient(145deg,#ffffff,#f8f6ef);
+border:1px solid rgba(201,162,39,0.35);
+border-radius:22px;
+box-shadow:0 12px 35px rgba(0,0,0,0.10);
+overflow:hidden;
+position:relative;
+}
+
+.request-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:5px;
+background:linear-gradient(90deg,#C9A227,#0B3D91,#C9A227);
+}
+
+.request-top{
+padding:22px 25px;
+background:linear-gradient(135deg,#0B3D91,#071d45);
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.request-top h3{
+font-size:23px;
+font-weight:800;
+letter-spacing:.4px;
+color:#C9A227;
+}
+
+.request-top p{
+margin-top:5px;
+font-size:15px;
+color:white;
+}
+
+.request-body{
+padding:22px;
+}
+
+.request-row{
+background:white;
+border-radius:12px;
+padding:11px 16px;
+margin-bottom:8px;
+border:1px solid rgba(201,162,39,0.15);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+transition:.3s ease;
+}
+
+.request-row:hover{
+transform:translateX(3px);
+box-shadow:0 6px 15px rgba(0,0,0,0.07);
+border-color:#C9A227;
+}
+
+.request-row strong{
+color:#0B3D91;
+font-size:14px;
+font-weight:800;
+}
+
+.request-row span,
+.request-row div{
+color:#333;
+font-size:14px;
+font-weight:600;
+text-align:right;
+}
+
+.request-body hr{
+border:none;
+height:1px;
+background:linear-gradient(90deg,transparent,#C9A227,transparent);
+margin:18px 0;
+}
+
+
+/* PDF Luxury Button */
+
+#requestPDF{
+background:rgba(201,162,39,0.06);
+padding:14px;
+border-radius:15px;
+border:1px solid rgba(201,162,39,0.25);
+}
+
+#requestPDF strong{
+color:#0B3D91;
+font-size:15px;
+}
+
+#pdfLink{
+min-width:150px;
+justify-content:center;
+font-size:15px;
+padding:11px 22px;
+border-radius:12px;
+background:linear-gradient(135deg,#C9A227,#f3d477);
+color:white;
+box-shadow:0 7px 18px rgba(201,162,39,.3);
+}
+
+#pdfLink:hover{
+transform:translateY(-2px) scale(1.03);
+}
+
+
+/* Admin footer identity inside request */
+
+.request-card:after{
+content:"AquaRev_Travel  •  Service AQUAREV  •  www.aquarev-travel-anfn.onrender.com";
+display:block;
+text-align:center;
+padding:14px;
+font-size:12px;
+color:#666;
+background:#faf8f0;
+border-top:1px solid rgba(201,162,39,.18);
+}
+
+
+/* Mobile optimization */
+
+@media(max-width:600px){
+
+.request-top{
+padding:18px;
+flex-direction:column;
+align-items:flex-start;
+gap:8px;
+}
+
+.request-top h3{
+font-size:20px;
+}
+
+.request-body{
+padding:15px;
+}
+
+.request-row{
+padding:10px 12px;
+display:block;
+}
+
+.request-row strong{
+display:block;
+margin-bottom:5px;
+}
+
+.request-row span,
+.request-row div{
+display:block;
+text-align:left;
+font-size:13px;
+}
+
+#pdfLink{
+width:100%;
+font-size:14px;
+padding:10px;
+}
+
+.request-card:after{
+font-size:11px;
+padding:12px;
+}
+
+}
+
+
+
+
+
+/* =================================
+   AQUAREV LUXURY DIRECT EMAIL BOX
+================================= */
+
+.partner-email-box{
+margin-top:25px;
+padding:22px;
+background:linear-gradient(145deg,#ffffff,#f8f4e8);
+border-radius:20px;
+border:1px solid rgba(201,162,39,0.35);
+box-shadow:0 12px 35px rgba(0,0,0,0.12);
+position:relative;
+overflow:hidden;
+}
+
+.partner-email-box::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:5px;
+background:linear-gradient(90deg,#C9A227,#0B3D91,#C9A227);
+}
+
+.partner-email-box label{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:16px;
+font-weight:800;
+color:#0B3D91;
+margin-bottom:15px;
+}
+
+.partner-email-box label i{
+width:38px;
+height:38px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:linear-gradient(135deg,#C9A227,#f3d477);
+color:white;
+font-size:18px;
+box-shadow:0 5px 15px rgba(201,162,39,.45);
+}
+
+#partnerEmail{
+width:100%;
+height:52px;
+padding:0 18px;
+border-radius:14px;
+border:1px solid rgba(11,61,145,0.25);
+background:white;
+font-size:16px;
+font-weight:600;
+color:#222;
+outline:none;
+transition:.3s ease;
+box-shadow:inset 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#partnerEmail::placeholder{
+color:#aaa;
+font-weight:500;
+}
+
+#partnerEmail:focus{
+border-color:#C9A227;
+box-shadow:
+0 0 0 4px rgba(201,162,39,.15),
+0 8px 20px rgba(0,0,0,.1);
+transform:translateY(-2px);
+}
+
+
+/* Mobile */
+@media(max-width:600px){
+
+.partner-email-box{
+padding:18px;
+}
+
+.partner-email-box label{
+font-size:14px;
+}
+
+#partnerEmail{
+height:48px;
+font-size:14px;
+}
+
+}
+
+
+
+
+
+/* =======================================================
+   AQUAREV LUXURY AGENCIES GRID
+======================================================= */
+
+.agencies-toolbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.agency-counter{
+display:flex;
+align-items:center;
+gap:12px;
+padding:12px 20px;
+background:linear-gradient(135deg,#0B3D91,#133f8a);
+border-radius:15px;
+color:#fff;
+font-weight:700;
+box-shadow:0 8px 18px rgba(11,61,145,.25);
+}
+
+.agency-counter i{
+color:#C9A227;
+font-size:20px;
+}
+
+#agencyCounter{
+font-size:22px;
+font-weight:900;
+color:#C9A227;
+}
+
+.agencies-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+gap:18px;
+}
+
+.agency-card{
+position:relative;
+background:linear-gradient(145deg,#ffffff,#f9f7f1);
+border-radius:18px;
+padding:16px;
+border:1px solid rgba(201,162,39,.25);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.30s;
+overflow:hidden;
+cursor:pointer;
+}
+
+.agency-card:hover{
+transform:translateY(-6px);
+box-shadow:0 18px 35px rgba(0,0,0,.16);
+border-color:#C9A227;
+}
+
+.agency-card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:5px;
+background:linear-gradient(90deg,#C9A227,#0B3D91,#C9A227);
+}
+
+.agency-logo{
+width:54px;
+height:54px;
+border-radius:50%;
+margin:auto;
+margin-bottom:12px;
+background:linear-gradient(135deg,#0B3D91,#184da6);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+color:#C9A227;
+box-shadow:0 8px 20px rgba(11,61,145,.25);
+}
+
+.agency-name{
+text-align:center;
+font-size:16px;
+font-weight:800;
+color:#0B3D91;
+margin-bottom:6px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.agency-country{
+text-align:center;
+font-size:13px;
+color:#777;
+margin-bottom:10px;
+}
+
+.agency-email{
+font-size:12px;
+text-align:center;
+color:#444;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+margin-bottom:12px;
+}
+
+.agency-status{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:8px;
+font-size:12px;
+font-weight:700;
+}
+
+.status-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+}
+
+.status-online{
+background:#2ecc71;
+box-shadow:0 0 10px #2ecc71;
+}
+
+.status-offline{
+background:#b5b5b5;
+}
+
+@media(max-width:900px){
+
+.agencies-grid{
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.agency-card{
+padding:14px;
+}
+
+}
+
+@media(max-width:500px){
+
+.agencies-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.agency-logo{
+width:48px;
+height:48px;
+font-size:20px;
+}
+
+.agency-name{
+font-size:14px;
+}
+
+.agency-email{
+font-size:11px;
+}
+
+}
+
+
+/* =======================================================
+   AQUAREV PARTNER DASHBOARD
+======================================================= */
+
+.partner-dashboard{
+margin-top:30px;
+background:linear-gradient(145deg,#ffffff,#f8f6ef);
+border:1px solid rgba(201,162,39,.30);
+border-radius:25px;
+padding:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+
+.partner-dashboard-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:linear-gradient(135deg,#0B3D91,#071d45);
+border-radius:18px;
+color:white;
+}
+
+
+.partner-dashboard-header h2{
+color:#C9A227;
+font-size:26px;
+font-weight:900;
+margin-bottom:8px;
+}
+
+
+.partner-dashboard-header p{
+color:white;
+font-size:15px;
+}
+
+
+.partner-online-status{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:800;
+}
+
+
+#dashboardStatusDot{
+width:13px;
+height:13px;
+border-radius:50%;
+background:#aaa;
+}
+
+
+.status-online-dot{
+background:#2ecc71!important;
+box-shadow:0 0 12px #2ecc71;
+}
+
+
+.status-offline-dot{
+background:#888!important;
+}
+
+
+
+.partner-stats-grid{
+margin-top:25px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+
+.partner-stat-card{
+background:white;
+border-radius:18px;
+padding:20px;
+text-align:center;
+border:1px solid rgba(201,162,39,.20);
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+
+.partner-stat-card:hover{
+transform:translateY(-5px);
+border-color:#C9A227;
+}
+
+
+.partner-stat-card i{
+font-size:28px;
+color:#C9A227;
+margin-bottom:12px;
+}
+
+
+.partner-stat-card h3{
+font-size:28px;
+color:#0B3D91;
+font-weight:900;
+margin-bottom:8px;
+}
+
+
+.partner-stat-card p{
+font-size:14px;
+color:#777;
+font-weight:700;
+}
+
+
+
+.partner-last-activity{
+margin-top:20px;
+padding:15px 20px;
+background:#faf8f0;
+border-radius:15px;
+border:1px solid rgba(201,162,39,.20);
+display:flex;
+align-items:center;
+gap:10px;
+color:#555;
+}
+
+
+.partner-last-activity i{
+color:#C9A227;
+}
+
+
+
+@media(max-width:900px){
+
+.partner-stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+
+.partner-dashboard-header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+}
+
+
+
+@media(max-width:500px){
+
+.partner-stats-grid{
+grid-template-columns:1fr;
+}
+
+
+.partner-dashboard{
+padding:15px;
+}
+
+
+.partner-dashboard-header h2{
+font-size:21px;
+}
+
+}
+
+
+
+
+
+/* =====================================
+   AQUAREV MESSAGING PAGE
+===================================== */
+
+.messaging-layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:25px;
+    margin-top:25px;
+    width:100%;
+}
+
+
+/* قائمة الشركاء */
+
+.messaging-partners{
+
+    background:#ffffff;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    border:1px solid #eee;
+}
+
+
+.messaging-partners h3{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+    color:#1e3a8a;
+    font-size:18px;
+}
+
+
+
+#messagingPartnersList{
+
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+
+
+.messaging-partner-item{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:1px solid transparent;
+}
+
+
+.messaging-partner-item:hover{
+
+    background:#eef6ff;
+    border-color:#2563eb;
+}
+
+
+
+.messaging-partner-item h4{
+
+    margin:0;
+    font-size:15px;
+    color:#111827;
+
+}
+
+
+.messaging-partner-item p{
+
+    margin:4px 0 0;
+
+    font-size:13px;
+
+    color:#6b7280;
+
+}
+
+
+
+.messaging-partner-status{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+}
+
+
+
+.status-online{
+
+    background:#22c55e;
+
+}
+
+
+.status-offline{
+
+    background:#9ca3af;
+
+}
+
+
+
+/* =====================================
+   CHAT BOX
+===================================== */
+
+
+.admin-chat-box{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:520px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    overflow:hidden;
+
+    border:1px solid #eee;
+
+}
+
+
+
+
+.admin-chat-header{
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:linear-gradient(135deg,#0f766e,#2563eb);
+
+    color:white;
+
+}
+
+
+
+.admin-chat-header i{
+
+    font-size:25px;
+
+}
+
+
+
+.admin-chat-header h3{
+
+    margin:0;
+
+    font-size:18px;
+
+}
+
+
+.admin-chat-header p{
+
+    margin:5px 0 0;
+
+    opacity:.85;
+
+    font-size:13px;
+
+}
+
+
+
+/* الرسائل */
+
+.admin-chat-messages{
+
+    flex:1;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+    background:#f8fafc;
+
+}
+
+
+
+.empty-state{
+
+    text-align:center;
+
+    color:#9ca3af;
+
+    padding:50px 20px;
+
+}
+
+
+.empty-state i{
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* صندوق الكتابة */
+
+.admin-chat-input{
+
+    display:flex;
+
+    gap:10px;
+
+    padding:15px;
+
+    background:white;
+
+    border-top:1px solid #eee;
+
+}
+
+
+
+.admin-chat-input input{
+
+    flex:1;
+
+    padding:14px 18px;
+
+    border-radius:30px;
+
+    border:1px solid #ddd;
+
+    outline:none;
+
+    font-size:14px;
+
+}
+
+
+.admin-chat-input input:focus{
+
+    border-color:#2563eb;
+
+}
+
+
+
+#sendMessagingMessage{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+
+#sendMessagingMessage:hover{
+
+    transform:scale(1.08);
+
+    background:#1d4ed8;
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.messaging-layout{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.messaging-partners{
+
+    order:2;
+
+}
+
+
+.admin-chat-box{
+
+    min-height:450px;
+
+}
+
+}

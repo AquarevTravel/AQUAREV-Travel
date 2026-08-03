@@ -45,6 +45,8 @@ doc.moveTo(50,y).lineTo(545,y).strokeColor(COLORS.gold).stroke();
 doc.fontSize(9).fillColor(COLORS.gray).text("Date d'envoi : "+new Date().toLocaleString("fr-FR"),50,y+10);
 doc.fontSize(11).fillColor(COLORS.blue).text("AQUAREV Travel",50,y+28);
 }
+
+
 function generateFlightPDF(data,files){
 return new Promise((resolve,reject)=>{
 const reference="FLY-"+Date.now();

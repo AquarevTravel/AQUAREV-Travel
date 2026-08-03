@@ -114,3 +114,138 @@ body{font-family:'Poppins',sans-serif;background:#071426;color:#fff;min-height:1
 .cloud-info div{font-size:12px}
 .agency-cloud-trigger{width:42px;height:42px}
 }
+
+
+
+/* ===============================
+PARTNER CHAT PREMIUM
+================================ */
+
+.chat-container{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(212,175,55,0.25);
+border-radius:20px;
+padding:20px;
+backdrop-filter:blur(15px);
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+
+.chat-messages{
+height:350px;
+overflow-y:auto;
+padding:15px;
+display:flex;
+flex-direction:column;
+gap:12px;
+background:rgba(0,0,0,0.15);
+border-radius:15px;
+}
+
+
+.chat-message{
+max-width:70%;
+padding:12px 18px;
+border-radius:18px;
+font-size:14px;
+line-height:1.5;
+animation:messageAppear .3s ease;
+}
+
+
+.chat-message.partner{
+align-self:flex-end;
+background:linear-gradient(135deg,#d4af37,#f5d76e);
+color:#111;
+border-bottom-right-radius:5px;
+}
+
+
+.chat-message.admin{
+align-self:flex-start;
+background:rgba(255,255,255,0.12);
+color:white;
+border:1px solid rgba(255,255,255,0.15);
+border-bottom-left-radius:5px;
+}
+
+
+.chat-message small{
+display:block;
+margin-top:6px;
+font-size:11px;
+opacity:.7;
+}
+
+
+
+.chat-input{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+
+.chat-input input{
+flex:1;
+padding:14px 18px;
+border-radius:30px;
+border:none;
+outline:none;
+background:rgba(255,255,255,0.1);
+color:white;
+font-size:14px;
+}
+
+
+.chat-input input::placeholder{
+color:rgba(255,255,255,.6);
+}
+
+
+
+#sendPartnerMessage{
+width:50px;
+height:50px;
+border-radius:50%;
+border:none;
+cursor:pointer;
+background:linear-gradient(135deg,#d4af37,#f8e7a1);
+color:#111;
+font-size:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:.3s;
+}
+
+
+#sendPartnerMessage:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px rgba(212,175,55,.6);
+}
+
+
+
+.chat-messages::-webkit-scrollbar{
+width:6px;
+}
+
+
+.chat-messages::-webkit-scrollbar-thumb{
+background:#d4af37;
+border-radius:10px;
+}
+
+
+
+@keyframes messageAppear{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}

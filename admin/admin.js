@@ -5,35 +5,47 @@ const sidebar=document.getElementById("sidebar");
 const mobileMenu=document.getElementById("mobileMenu");
 const mobileOverlay=document.getElementById("mobileOverlay");
 let currentLanguage=localStorage.getItem("aquarevLanguage")||"fr";
+let currentChatPartnerId = null;
+
 function openPage(page){
+
+console.log("OPEN PAGE START:",page);
+
 pages.forEach(section=>{
 section.classList.remove("active-page");
 });
+
 const target=document.getElementById(page+"Page");
+console.log("PAGE TARGET:",target);
+console.log("BEFORE CLASS:",target?.className);
+
+
+console.log("TARGET FOUND:",target);
+
 if(target){
+
 target.classList.add("active-page");
+console.log("AFTER CLASS:",target.className);
+
+console.log("CLASS AFTER ADD:",target.className);
+
 }
+
 menuItems.forEach(item=>{
+
 item.classList.remove("active");
+
 if(item.dataset.page===page){
 item.classList.add("active");
 }
+
 });
+
 if(window.innerWidth<=900){
 sidebar.classList.remove("show");
 mobileOverlay.classList.remove("show");
 }
-}
-menuItems.forEach(item=>{
-item.addEventListener("click",()=>{
-openPage(item.dataset.page);
-});
-});
-if(mobileMenu){
-mobileMenu.addEventListener("click",()=>{
-sidebar.classList.toggle("show");
-mobileOverlay.classList.toggle("show");
-});
+
 }
 if(mobileOverlay){
 mobileOverlay.addEventListener("click",()=>{
@@ -41,6 +53,19 @@ sidebar.classList.remove("show");
 mobileOverlay.classList.remove("show");
 });
 }
+menuItems.forEach(item=>{
+
+item.addEventListener("click",()=>{
+
+const page=item.dataset.page;
+
+console.log("CLICK PAGE:",page);
+
+openPage(page);
+
+});
+
+});
 function changeLanguage(lang){
 currentLanguage=lang;
 localStorage.setItem("aquarevLanguage",lang);
@@ -78,7 +103,7 @@ console.error("LOGOUT ERROR:",error);
 });
 }
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import{getFirestore,collection,getDocs,doc,getDoc,updateDoc,onSnapshot,query,orderBy,addDoc}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import{getFirestore,collection,getDocs,doc,getDoc,updateDoc,onSnapshot,query,orderBy,addDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import{getAuth,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 const firebaseConfig={
 apiKey:"AIzaSyAycKfhrRV8qcbhvwj0NV5iE_4zlgcDyWo",
@@ -88,6 +113,8 @@ storageBucket:"aquarev-travel.firebasestorage.app",
 messagingSenderId:"396344577424",
 appId:"1:396344577424:web:be477d67f13f7a99e27715"
 };
+
+
 const app=initializeApp(firebaseConfig);
 const db=getFirestore(app);
 const auth=getAuth(app);
@@ -96,7 +123,68 @@ let archivedRequestsData=[];
 let partnersData=[];
 let selectedRequest=null;
 let selectedPartner=null;
+let selectedChatPartner=null;
 let currentRequestFilter="all";
+
+
+
+
+function updateRequestBadges(){
+let counts={
+all:0,
+Visa:0,
+Vols:0,
+"Hôtels":0,
+Hajj:0,
+"Voyages organisés":0,
+Autres:0,
+archives:0
+};
+requestsData.forEach(request=>{
+if(request.status!=="archived"){
+counts.all++;
+const type=request.type||request.service||"Autres";
+if(counts[type]!==undefined){
+counts[type]++;
+}
+}
+});
+archivedRequestsData.forEach(request=>{
+counts.archives++;
+});
+const badges={
+allBadge:counts.all,
+visaBadge:counts.Visa,
+volsBadge:counts.Vols,
+hotelsBadge:counts["Hôtels"],
+hajjBadge:counts.Hajj,
+toursBadge:counts["Voyages organisés"],
+otherBadge:counts.Autres,
+archivesBadge:counts.archives
+};
+Object.keys(badges).forEach(id=>{
+const badge=document.getElementById(id);
+if(badge){
+if(badges[id]>0){
+badge.textContent=badges[id];
+badge.style.display="flex";
+}else{
+badge.textContent="";
+badge.style.display="none";
+}
+}
+});
+const mainBadge=document.getElementById("requestsBadge");
+if(mainBadge){
+if(counts.all>0){
+mainBadge.textContent=counts.all;
+mainBadge.style.display="flex";
+}else{
+mainBadge.textContent="";
+mainBadge.style.display="none";
+}
+}
+}
 
 
 
@@ -104,6 +192,29 @@ async function refreshDashboard(){
 try{
 const requestsSnapshot=await getDocs(collection(db,"requests"));
 const usersSnapshot=await getDocs(collection(db,"users"));
+
+let pendingPartnersCount=0;
+usersSnapshot.forEach(item=>{
+const data=item.data();
+if(data.role==="pending_agency"&&data.status==="waiting"){
+pendingPartnersCount++;
+}
+});
+const partnerBadge=document.getElementById("partnerBadge");
+if(partnerBadge){
+if(pendingPartnersCount>0){
+partnerBadge.textContent=pendingPartnersCount;
+partnerBadge.style.display="flex";
+}else{
+partnerBadge.textContent="";
+partnerBadge.style.display="none";
+}
+}
+
+
+
+
+
 let requestsCount=0;
 let agenciesCount=0;
 let partnersCount=0;
@@ -143,6 +254,8 @@ totalNotifications.textContent=notificationsCount;
 console.error("DASHBOARD REFRESH ERROR:",error);
 }
 }
+
+
 async function loadRequests(){
 try{
 const requestQuery=query(collection(db,"requests"),orderBy("createdAt","desc"));
@@ -161,6 +274,9 @@ requestsData.push(data);
 }
 });
 displayRequests();
+
+
+updateRequestBadges();
 });
 }catch(error){
 console.error("REQUEST LOAD ERROR:",error);
@@ -457,7 +573,35 @@ type.textContent=getService(request);
 if(destination){
 destination.textContent=getDestination(request);
 }
+const visaFields=document.getElementById("visaFields");
+const flightFields=document.getElementById("flightFields");
+const hotelFields=document.getElementById("hotelFields");
+
+if(visaFields) visaFields.style.display="none";
+if(flightFields) flightFields.style.display="none";
+if(hotelFields) hotelFields.style.display="none";
+
+switch(request.type){
+
+case "Visa":
+if(visaFields) visaFields.style.display="block";
+break;
+
+case "Vols":
+if(flightFields) flightFields.style.display="block";
+break;
+
+case "Hôtels":
+if(hotelFields) hotelFields.style.display="block";
+break;
+
+default:
+// لا تعرض أي حقول خاصة
+break;
+
+}
 const requestData=request.data||{};
+
 console.log("ALL VISA FIELDS:",requestData);
 
 if(fullName){
@@ -612,6 +756,31 @@ files.innerHTML=request.files.join("<br>");
 files.textContent="-";
 }
 }
+
+
+
+
+
+
+
+const requestPDF=document.getElementById("requestPDF");
+const pdfLink=document.getElementById("pdfLink");
+
+if(requestPDF&&pdfLink){
+if(request.pdfPath){
+requestPDF.style.display="flex";
+pdfLink.href="http://localhost:3000/pdf/"+request.pdfPath.split("\\").pop();
+}
+else{
+requestPDF.style.display="none";
+}
+}
+
+
+
+
+
+
 }function filterRequestsByType(type){
 currentRequestFilter=type;
 displayRequests();
@@ -651,38 +820,24 @@ console.log("REQUEST ARCHIVED:",action);
 console.error("CREATE ARCHIVE ERROR:",error);
 }
 }
+
 async function updateRequestStatus(status){
 if(!selectedRequest){
 return;
 }
 try{
+await createArchiveCopy(selectedRequest,status);
 await updateDoc(doc(db,"requests",selectedRequest.id),{
-status:status,
+status:"archived",
+originalStatus:status,
 updatedAt:new Date(),
 handledBy:"AQUAREV Admin"
 });
-await createArchiveCopy(selectedRequest,status);
-console.log("REQUEST STATUS UPDATED:",status);
+console.log("REQUEST MOVED TO ARCHIVE:",status);
 }catch(error){
 console.error("UPDATE REQUEST STATUS ERROR:",error);
 }
-}
-async function archiveRequest(){
-if(!selectedRequest){
-return;
-}
-try{
-await updateDoc(doc(db,"requests",selectedRequest.id),{
-status:"archived",
-archivedAt:new Date(),
-handledBy:"AQUAREV Admin"
-});
-console.log("REQUEST ARCHIVED");
-}catch(error){
-console.error("ARCHIVE REQUEST ERROR:",error);
-}
-}
-const acceptButton=document.querySelector(".accept-btn");
+}const acceptButton=document.querySelector(".accept-btn");
 const ignoreButton=document.querySelector(".ignore-btn");
 if(acceptButton){
 acceptButton.addEventListener("click",()=>{
@@ -700,6 +855,34 @@ archiveButton.addEventListener("click",()=>{
 archiveRequest();
 });
 }
+
+async function loadPendingPartners(){
+try{
+const snapshot=await getDocs(collection(db,"users"));
+let pendingPartners=[];
+snapshot.forEach(item=>{
+const data=item.data();
+if(data.role==="pending_agency"&&data.status==="waiting"){
+pendingPartners.push({
+id:item.id,
+...data
+});
+}
+});
+console.log("PENDING PARTNERS:",pendingPartners);
+return pendingPartners;
+}catch(error){
+console.error("LOAD PENDING PARTNERS ERROR:",error);
+return [];
+}
+}
+
+
+
+
+
+
+
 async function loadPartners(){
 try{
 const snapshot=await getDocs(collection(db,"users"));
@@ -718,45 +901,313 @@ displayPartners();
 console.error("PARTNERS LOAD ERROR:",error);
 }
 }
-function displayPartners(){
-const partnerList=document.getElementById("partnerList");
-const modalPartnerList=document.getElementById("modalPartnerList");
-if(partnerList){
-partnerList.innerHTML="";
+
+async function displayPendingPartners(){
+const list=document.getElementById("pendingPartnersList");
+if(!list){
+return;
 }
+const pendingPartners=await loadPendingPartners();
+list.innerHTML="";
+pendingPartners.forEach(partner=>{
+const card=document.createElement("div");
+card.className="pending-partner-card";
+card.innerHTML=`
+<h4>${partner.name||"Partner"}</h4>
+<p>${partner.email||""}</p>
+<button class="accept-partner" data-id="${partner.id}">Accept</button>
+<button class="reject-partner" data-id="${partner.id}">Reject</button>
+`;
+list.appendChild(card);
+});
+
+
+
+
+
+
+document.querySelectorAll(".accept-partner").forEach(button=>{
+button.addEventListener("click",async()=>{
+const id=button.dataset.id;
+await updateDoc(doc(db,"users",id),{
+role:"partner",
+status:"active"
+});
+await displayPendingPartners();
+await loadPartners();
+});
+});
+document.querySelectorAll(".reject-partner").forEach(button=>{
+button.addEventListener("click",async()=>{
+const id=button.dataset.id;
+await updateDoc(doc(db,"users",id),{
+status:"rejected"
+});
+await displayPendingPartners();
+});
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function displayPartners(){
+
+const partnersGrid=document.getElementById("partnersGrid");
+const modalPartnerList=document.getElementById("modalPartnerList");
+const agenciesGrid=document.getElementById("agenciesGrid");
+const agencyCounter=document.getElementById("agencyCounter");
+const messagingPartnersList=document.getElementById("messagingPartnersList");
+
+if(partnersGrid){
+partnersGrid.innerHTML="";
+}
+
+
 if(modalPartnerList){
 modalPartnerList.innerHTML="";
 }
+
+if(agenciesGrid){
+agenciesGrid.innerHTML="";
+}
+
+if(messagingPartnersList){
+messagingPartnersList.innerHTML="";
+}
+
+if(agencyCounter){
+agencyCounter.textContent=partnersData.length;
+}
+
+partnersData.sort((a,b)=>{
+if(a.online===true&&b.online!==true){
+return -1;
+}
+if(a.online!==true&&b.online===true){
+return 1;
+}
+if(a.lastSeen&&b.lastSeen){
+return b.lastSeen.seconds-a.lastSeen.seconds;
+}
+return 0;
+});
+
+
 partnersData.forEach(partner=>{
+
+
+/* ===========================
+PARTNERS PAGE
+=========================== */
+
 const partnerCard=document.createElement("div");
+
 partnerCard.className="partner-item";
+
 partnerCard.innerHTML=`
 <h4>${partner.agencyName||partner.name||"AQUAREV Partner"}</h4>
 <p>${partner.country||""} ${partner.city||""}</p>
 `;
-if(partnerList){
-partnerList.appendChild(partnerCard);
+
+if(partnersGrid){
+partnersGrid.appendChild(partnerCard);
 }
-const modalCard=document.createElement("div");
-modalCard.className="modal-partner";
-modalCard.innerHTML=`
+
+
+/* ===========================
+MESSAGING PARTNERS LIST
+=========================== */
+
+if(messagingPartnersList){
+
+const messagePartner=document.createElement("div");
+
+messagePartner.className="messaging-partner-item";
+
+const online=partner.online===true;
+
+messagePartner.innerHTML=`
+
+<div class="messaging-partner-status ${online?"status-online":"status-offline"}"></div>
+
 <div>
-<strong>${partner.agencyName||partner.name||"AQUAREV Partner"}</strong>
-<p>${partner.email||""}</p>
+
+<h4>
+${partner.agencyName||partner.name||"AQUAREV Partner"}
+</h4>
+
+<p>
+${partner.email||"-"}
+</p>
+
 </div>
-<i class="fa-solid fa-circle-check"></i>
+
 `;
+
+messagePartner.addEventListener("click",()=>{
+
+currentChatPartnerId = partner.id;
+console.log("SELECTED PARTNER ID:", currentChatPartnerId);
+
+
+openPartnerChat(partner);
+
+const name=document.getElementById("messagingChatPartnerName");
+const email=document.getElementById("messagingChatPartnerEmail");
+
+if(name){
+name.textContent=partner.agencyName||partner.name||"AQUAREV Partner";
+}
+
+if(email){
+email.textContent=partner.email||"-";
+}
+
+});
+
+messagingPartnersList.appendChild(messagePartner);
+
+}
+
+
+
+
+
+
+/* ===========================
+TRANSFER MODAL
+=========================== */
+
+const modalCard=document.createElement("div");
+
+modalCard.className="modal-partner";
+
+modalCard.innerHTML=`
+
+<div>
+
+<strong>
+${partner.agencyName||partner.name||"AQUAREV Partner"}
+</strong>
+
+<p>
+${partner.email||""}
+</p>
+
+</div>
+
+<i class="fa-solid fa-circle-check"></i>
+
+`;
+
 modalCard.addEventListener("click",()=>{
+
 document.querySelectorAll(".modal-partner").forEach(item=>{
 item.classList.remove("selected");
 });
+
 modalCard.classList.add("selected");
+
 selectedPartner=partner;
+
+openPartnerChat(partner);
+
 });
+
+
 if(modalPartnerList){
 modalPartnerList.appendChild(modalCard);
 }
+
+
+
+
+
+/* ===========================
+AGENCIES PAGE
+=========================== */
+
+if(agenciesGrid){
+
+const card=document.createElement("div");
+
+card.className="agency-card";
+
+const online=partner.online===true;
+
+const lastSeen=partner.lastSeen?.toDate
+? partner.lastSeen.toDate().toLocaleString()
+:"Jamais connecté";
+
+
+card.innerHTML=`
+
+<div class="agency-logo">
+<i class="fa-solid fa-building"></i>
+</div>
+
+
+<div class="agency-name">
+${partner.agencyName||partner.name||"AQUAREV"}
+</div>
+
+
+<div class="agency-country">
+${partner.country||""} ${partner.city||""}
+</div>
+
+
+<div class="agency-email">
+${partner.email||"-"}
+</div>
+
+
+<div class="agency-status">
+
+<div class="status-dot ${online?"status-online":"status-offline"}"></div>
+
+<span>
+${online?"ONLINE":"OFFLINE"}
+</span>
+
+</div>
+
+
+<div class="agency-lastseen">
+
+<i class="fa-solid fa-clock"></i>
+
+${lastSeen}
+
+</div>
+
+`;
+
+
+card.addEventListener("click",()=>{
+
+openPartnerChat(partner);
+
 });
+
+
+agenciesGrid.appendChild(card);
+
+}
+
+
+});
+
 }
 const transferButton=document.querySelector(".transfer-btn");
 const transferModal=document.getElementById("transferModal");
@@ -773,37 +1224,96 @@ closeTransferModal.addEventListener("click",()=>{
 transferModal.classList.remove("show");
 });
 }
+
 const confirmTransfer=document.querySelector(".confirm-transfer");
+
+async function sendDirectPartnerEmail(email){
+try{
+const response=await fetch("http://localhost:3000/send-partner-email",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+email:email,
+requestId:selectedRequest.id
+})
+});
+const result=await response.json();
+if(!result.success){
+console.error("DIRECT PARTNER EMAIL ERROR:",result.message);
+return false;
+}
+console.log("DIRECT PARTNER EMAIL SENT");
+return true;
+}catch(error){
+console.error("DIRECT EMAIL ERROR:",error);
+return false;
+}
+}
+
 async function transferRequest(){
 if(!selectedRequest){
 return;
 }
-if(!selectedPartner){
-console.error("NO PARTNER SELECTED");
+
+const emailInput=document.getElementById("partnerEmail");
+const partnerEmail=emailInput?emailInput.value.trim():"";
+
+if(!selectedPartner&&!partnerEmail){
+console.error("NO PARTNER OR EMAIL SELECTED");
 return;
 }
+
+if(emailInput&&emailInput===document.activeElement){
+console.log("USER STILL WRITING EMAIL");
+return;
+}
+
 try{
+
+if(partnerEmail){
+await sendDirectPartnerEmail(partnerEmail);
+}
+
+if(selectedPartner){
+
+await createArchiveCopy(selectedRequest,"assigned_partner");
+
 await updateDoc(doc(db,"requests",selectedRequest.id),{
-status:"assigned_partner",
+status:"archived",
+originalStatus:"assigned_partner",
 assignedPartner:selectedPartner.id,
 assignedPartnerName:selectedPartner.agencyName||selectedPartner.name||"",
 assignedAt:new Date(),
 handledBy:"AQUAREV Admin"
 });
+
 await createPartnerNotification(selectedPartner.id,selectedRequest);
+
+}
+
 transferModal.classList.remove("show");
+
 selectedPartner=null;
+
+const emailInput=document.getElementById("partnerEmail");
+if(emailInput){
+emailInput.value="";
+}
+
 console.log("REQUEST TRANSFERRED SUCCESSFULLY");
+
 }catch(error){
 console.error("TRANSFER REQUEST ERROR:",error);
 }
 }
+
 if(confirmTransfer){
 confirmTransfer.addEventListener("click",()=>{
 transferRequest();
 });
-}
-async function createPartnerNotification(partnerId,request){
+}async function createPartnerNotification(partnerId,request){
 try{
 const notificationRef=collection(db,"users",partnerId,"notifications");
 await addDoc(notificationRef,{
@@ -824,6 +1334,195 @@ console.log("PARTNER NOTIFICATION CREATED");
 console.error("CREATE NOTIFICATION ERROR:",error);
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openPartnerChat(partner){
+
+selectedChatPartner=partner;
+
+const box=document.getElementById("adminChatBox");
+const name=document.getElementById("chatPartnerName");
+const email=document.getElementById("chatPartnerEmail");
+
+if(box){
+box.style.display="block";
+}
+
+if(name){
+name.textContent=partner.agencyName||partner.name||"Partner";
+}
+
+if(email){
+email.textContent=partner.email||"-";
+}
+
+loadAdminPartnerMessages(partner.id);
+
+}
+
+
+function loadAdminPartnerMessages(partnerId){
+
+const container=document.getElementById("adminChatMessages");
+
+if(!container){
+return;
+}
+
+
+const messagesQuery=query(
+collection(db,"partner_messages"),
+where("partnerId","==",partnerId),
+orderBy("createdAt","asc")
+);
+
+
+onSnapshot(messagesQuery,(snapshot)=>{
+
+container.innerHTML="";
+
+
+if(snapshot.empty){
+
+container.innerHTML=`
+<div class="empty-state">
+<i class="fa-solid fa-message"></i>
+<p>Aucune conversation</p>
+</div>
+`;
+
+return;
+
+}
+
+
+snapshot.forEach(item=>{
+
+const data=item.data();
+
+const div=document.createElement("div");
+
+
+div.className=data.sender==="admin"
+?"chat-message admin"
+:"chat-message partner";
+
+
+div.innerHTML=`
+
+<p>${data.message}</p>
+
+<small>
+${data.createdAt?.toDate
+?data.createdAt.toDate().toLocaleString()
+:""}
+</small>
+
+`;
+
+
+container.appendChild(div);
+
+
+});
+
+
+container.scrollTop=container.scrollHeight;
+
+
+});
+
+
+}
+
+
+
+const adminSendButton=document.getElementById("sendAdminMessage");
+
+
+if(adminSendButton){
+
+adminSendButton.addEventListener("click",async()=>{
+
+
+const input=document.getElementById("adminMessageInput");
+
+const message=input.value.trim();
+
+
+if(!message||!selectedChatPartner){
+
+return;
+
+}
+
+
+try{
+
+
+
+
+    console.log("ADMIN TRY SEND:", {
+partner: currentChatPartnerId,
+message: text
+});
+
+
+
+
+await addDoc(collection(db,"partner_messages"),{
+
+partnerId:selectedChatPartner.id,
+
+message:message,
+
+createdAt:serverTimestamp(),
+
+sender:"admin"
+
+
+});
+
+
+input.value="";
+
+
+}catch(error){
+
+console.error("ADMIN MESSAGE ERROR:",error);
+
+}
+
+
+});
+
+
+}
+
+
+
+
 async function checkAdminAccess(user){
 if(!user){
 console.error("NO ADMIN USER");
@@ -864,8 +1563,108 @@ if(access){
 await refreshDashboard();
 await loadRequests();
 await loadPartners();
+
+await loadPendingPartners();
+await displayPendingPartners();
 }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const sendBtn = document.getElementById("sendMessagingMessage");
+const messageInput = document.getElementById("messagingMessageInput");
+
+
+if(sendBtn){
+
+sendBtn.addEventListener("click", async()=>{
+
+
+const text = messageInput.value.trim();
+
+
+if(!text){
+return;
+}
+
+
+if(!currentChatPartnerId){
+alert("Choisir un partenaire");
+return;
+}
+
+
+
+try{
+
+await addDoc(collection(db,"partner_messages"),{
+
+partnerId: currentChatPartnerId,
+
+sender:"admin",
+
+message:text,
+
+createdAt:serverTimestamp()
+
+});
+
+
+
+messageInput.value="";
+
+
+
+await loadAdminPartnerMessages(currentChatPartnerId);
+
+
+
+console.log("MESSAGE SENT");
+
+
+}catch(error){
+
+console.error("SEND MESSAGE ERROR:",error);
+
+}
+
+
+});
+
+
+}
+
+
+
+
+
+
+
 window.addEventListener("load",()=>{
 console.log("AQUAREV ADMIN DASHBOARD READY");
 const loadingScreen=document.getElementById("loadingScreen");
@@ -875,3 +1674,17 @@ loadingScreen.classList.add("hide");
 },800);
 }
 });
+
+
+
+
+
+
+
+
+
+
+setTimeout(()=>{
+const page=document.getElementById("partnersPage");
+console.log("PARTNERS PAGE STATUS:",page?.className);
+},3000);

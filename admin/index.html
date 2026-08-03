@@ -30,10 +30,17 @@
 <i class="fa-solid fa-chart-line"></i>
 <span data-fr="Tableau de bord" data-en="Dashboard" data-ar="لوحة التحكم">Tableau de bord</span>
 </button>
+
+
+
 <button class="menu-item" data-page="requests">
 <i class="fa-solid fa-inbox"></i>
 <span data-fr="Demandes" data-en="Requests" data-ar="الطلبات">Demandes</span>
+<span id="requestsBadge" class="notification-badge"></span>
 </button>
+
+
+
 <button class="menu-item" data-page="agencies">
 <i class="fa-solid fa-building"></i>
 <span data-fr="Agences" data-en="Agencies" data-ar="الوكالات">Agences</span>
@@ -41,6 +48,7 @@
 <button class="menu-item" data-page="partners">
 <i class="fa-solid fa-handshake"></i>
 <span data-fr="Partenaires" data-en="Partners" data-ar="الشركاء">Partenaires</span>
+<span id="partnerBadge" class="notification-badge"></span>
 </button>
 <button class="menu-item" data-page="messaging">
 <i class="fa-solid fa-comments"></i>
@@ -142,44 +150,76 @@
 <p data-fr="Toutes les demandes reçues depuis le site AQUAREV." data-en="All requests received from the AQUAREV website." data-ar="جميع الطلبات الواردة من موقع AQUAREV.">Toutes les demandes reçues depuis le site AQUAREV.</p>
 </div>
 <div class="request-tabs">
+
+
+
+
 <button class="request-tab active" data-request="all">
 <i class="fa-solid fa-layer-group"></i>
 <span data-fr="Toutes" data-en="All" data-ar="الكل">Toutes</span>
+<span id="allBadge" class="request-badge"></span>
 </button>
+
 <button class="request-tab" data-request="Visa">
 <i class="fa-solid fa-passport"></i>
 <span data-fr="Visa" data-en="Visa" data-ar="التأشيرات">Visa</span>
+<span id="visaBadge" class="request-badge"></span>
 </button>
 
 
 <button class="request-tab" data-request="Vols">
 <i class="fa-solid fa-plane-departure"></i>
 <span data-fr="Vols" data-en="Flights" data-ar="الطيران">Vols</span>
+<span id="volsBadge" class="request-badge"></span>
 </button>
-
-
 
 
 <button class="request-tab" data-request="Hôtels">
 <i class="fa-solid fa-hotel"></i>
 <span data-fr="Hôtels" data-en="Hotels" data-ar="الفنادق">Hôtels</span>
+<span id="hotelsBadge" class="request-badge"></span>
 </button>
+
+
+
+
 <button class="request-tab" data-request="Hajj">
 <i class="fa-solid fa-kaaba"></i>
 <span data-fr="Hajj & Omra" data-en="Hajj & Umrah" data-ar="الحج والعمرة">Hajj & Omra</span>
+<span id="hajjBadge" class="request-badge"></span>
 </button>
+
+
+
+
+
+
 <button class="request-tab" data-request="Voyages organisés">
 <i class="fa-solid fa-earth-europe"></i>
 <span data-fr="Voyages organisés" data-en="Organized Tours" data-ar="الرحلات المنظمة">Voyages organisés</span>
+<span id="toursBadge" class="request-badge"></span>
 </button>
+
+
+
+
 <button class="request-tab" data-request="Autres">
 <i class="fa-solid fa-layer-group"></i>
 <span data-fr="Autres" data-en="Other" data-ar="أخرى">Autres</span>
+<span id="otherBadge" class="request-badge"></span>
 </button>
+
+
 <button class="request-tab" data-request="archives">
 <i class="fa-solid fa-box-archive"></i>
 <span data-fr="Archives" data-en="Archives" data-ar="الأرشيف">Archives</span>
+<span id="archivesBadge" class="request-badge"></span>
 </button>
+
+
+
+
+
 </div>
 <div class="request-container">
 <div class="requests-list" id="requestsList">
@@ -194,6 +234,9 @@
 <span class="status waiting" id="requestStatus">Waiting</span>
 </div>
 <div class="request-body">
+
+<!-- GENERAL FIELDS -->
+<div id="generalFields">
 
 <div class="request-row">
 <strong data-fr="Service :" data-en="Service:" data-ar="الخدمة:">Service :</strong>
@@ -237,17 +280,24 @@
 <span id="requestAddress">-</span>
 </div>
 
-<hr>
+</div>
 
+
+<!-- VISA FIELDS -->
+<div id="visaFields">
+
+<hr>
 
 <div class="request-row">
 <strong data-fr="Numéro de passeport :" data-en="Passport number:" data-ar="رقم جواز السفر:">Numéro de passeport :</strong>
 <span id="requestPassportNumber">-</span>
 </div>
+
 <div class="request-row">
 <strong data-fr="Date de délivrance du passeport :" data-en="Passport issue date:" data-ar="تاريخ إصدار جواز السفر:">Date de délivrance du passeport :</strong>
 <span id="requestPassportStart">-</span>
 </div>
+
 <div class="request-row">
 <strong data-fr="Date expiration passeport :" data-en="Passport expiry date:" data-ar="تاريخ انتهاء جواز السفر:">Date expiration passeport :</strong>
 <span id="requestPassportEnd">-</span>
@@ -280,24 +330,118 @@
 <span id="requestResidence">-</span>
 </div>
 
+</div>
+
+
+<!-- FLIGHT FIELDS -->
+<div id="flightFields" style="display:none;">
+
+<hr>
+
+<div class="request-row">
+<strong>Départ pays :</strong>
+<span id="flightDepartureCountry">-</span>
+</div>
+
+<div class="request-row">
+<strong>Départ ville :</strong>
+<span id="flightDepartureCity">-</span>
+</div>
+
+<div class="request-row">
+<strong>Ville arrivée :</strong>
+<span id="flightArrivalCity">-</span>
+</div>
+
+<div class="request-row">
+<strong>Date aller :</strong>
+<span id="flightDepartureDate">-</span>
+</div>
+
+<div class="request-row">
+<strong>Date retour :</strong>
+<span id="flightReturnDate">-</span>
+</div>
+
+<div class="request-row">
+<strong>Compagnie :</strong>
+<span id="flightAirline">-</span>
+</div>
+
+<div class="request-row">
+<strong>Classe :</strong>
+<span id="flightClass">-</span>
+</div>
+
+</div>
+
+
+<!-- HOTEL FIELDS -->
+<div id="hotelFields" style="display:none;">
+
+<hr>
+
+<div class="request-row">
+<strong>Hôtel :</strong>
+<span id="hotelName">-</span>
+</div>
+
+<div class="request-row">
+<strong>Date arrivée :</strong>
+<span id="hotelArrival">-</span>
+</div>
+
+<div class="request-row">
+<strong>Date départ :</strong>
+<span id="hotelDeparture">-</span>
+</div>
+
+<div class="request-row">
+<strong>Nombre personnes :</strong>
+<span id="hotelGuests">-</span>
+</div>
+
+<div class="request-row">
+<strong>Type chambre :</strong>
+<span id="hotelRoom">-</span>
+</div>
+
+</div>
+
+
+<!-- PAYMENT -->
 <div class="request-row">
 <strong data-fr="Paiement :" data-en="Payment:" data-ar="الدفع:">Paiement :</strong>
 <span id="requestPayment">-</span>
 </div>
 
+
 <hr>
 
 
-
-
-
+<!-- DOCUMENTS -->
 <div class="request-row">
 <strong data-fr="Documents :" data-en="Documents:" data-ar="الوثائق:">Documents :</strong>
 <div id="requestFiles">-</div>
 </div>
 
+
+<!-- PDF -->
+<div class="request-row" id="requestPDF" style="display:none;">
+
+<strong>PDF :</strong>
+
+<div>
+<a id="pdfLink" href="#" target="_blank">
+<i class="fa-solid fa-file-pdf"></i>
+Voir PDF
+</a>
 </div>
 
+</div>
+
+
+</div>
 <div class="request-actions">
 <button class="accept-btn">
 <i class="fa-solid fa-circle-check"></i>
@@ -327,53 +471,330 @@
 </div>
 </div>
 </section>
+
 <section class="page-section" id="agenciesPage">
+
 <div class="section-header">
 <h2>
 <i class="fa-solid fa-building"></i>
 <span data-fr="Agences" data-en="Agencies" data-ar="الوكالات">Agences</span>
 </h2>
-<p data-fr="Validation des nouvelles agences." data-en="Approve new agencies." data-ar="اعتماد الوكالات الجديدة.">Validation des nouvelles agences.</p>
+<p data-fr="Toutes les agences partenaires AQUAREV." data-en="All AQUAREV partner agencies." data-ar="جميع وكالات AQUAREV الشريكة.">Toutes les agences partenaires AQUAREV.</p>
 </div>
-<div class="table-wrapper">
-<table class="admin-table">
-<thead>
-<tr>
-<th data-fr="Agence" data-en="Agency" data-ar="الوكالة">Agence</th>
-<th data-fr="Email" data-en="Email" data-ar="البريد">Email</th>
-<th data-fr="Statut" data-en="Status" data-ar="الحالة">Statut</th>
-<th data-fr="Action" data-en="Action" data-ar="الإجراء">Action</th>
-</tr>
-</thead>
-<tbody id="agencyTable">
-</tbody>
-</table>
+
+<div class="agencies-toolbar">
+
+<div class="agency-counter">
+<i class="fa-solid fa-building-shield"></i>
+<span id="agencyCounter">0</span>
+<span
+data-fr="Agences partenaires"
+data-en="Partner Agencies"
+data-ar="الوكالات الشريكة">
+Agences partenaires
+</span>
 </div>
+
+</div>
+
+<div class="agencies-grid" id="agenciesGrid">
+
+<!-- Les cartes seront générées automatiquement -->
+
+</div>
+
 </section>
+
+
 <section class="page-section" id="partnersPage">
+
+
+
 <div class="section-header">
 <h2>
 <i class="fa-solid fa-handshake-angle"></i>
-<span data-fr="Partenaires" data-en="Partners" data-ar="الشركاء">Partenaires</span>
+<span
+data-fr="Partenaires"
+data-en="Partners"
+data-ar="الشركاء">
+Partenaires
+</span>
 </h2>
-<p data-fr="Tous les partenaires actifs AQUAREV." data-en="All active AQUAREV partners." data-ar="جميع شركاء AQUAREV النشطين.">Tous les partenaires actifs AQUAREV.</p>
+
+<p
+data-fr="Tous les partenaires actifs AQUAREV."
+data-en="All active AQUAREV partners."
+data-ar="جميع شركاء AQUAREV النشطين.">
+Tous les partenaires actifs AQUAREV.
+</p>
+
 </div>
+
+
+<div class="partners-layout">
+
 <div class="partner-grid" id="partnersGrid">
 </div>
+
+
+<div class="partner-dashboard"
+id="partnerDashboard"
+style="display:none;">
+
+<div class="partner-dashboard-header">
+
+<div>
+
+<h2 id="dashboardPartnerName">
+AQUAREV Partner
+</h2>
+
+<p id="dashboardPartnerEmail">
+-
+</p>
+
+</div>
+
+<div class="partner-online-status">
+
+<span id="dashboardStatusDot"></span>
+
+<span id="dashboardStatusText">
+Offline
+</span>
+
+</div>
+
+</div>
+
+
+<div class="partner-stats-grid">
+
+<div class="partner-stat-card">
+
+<i class="fa-solid fa-passport"></i>
+
+<h3 id="partnerVisaCount">
+0
+</h3>
+
+<p>
+Visa Requests
+</p>
+
+</div>
+
+
+<div class="partner-stat-card">
+
+<i class="fa-solid fa-plane"></i>
+
+<h3 id="partnerFlightCount">
+0
+</h3>
+
+<p>
+Flight Requests
+</p>
+
+</div>
+<div class="partner-stat-card">
+
+<i class="fa-solid fa-hotel"></i>
+
+<h3 id="partnerHotelCount">
+0
+</h3>
+
+<p>
+Hotel Requests
+</p>
+
+</div>
+
+
+<div class="partner-stat-card">
+
+<i class="fa-solid fa-money-bill-wave"></i>
+
+<h3 id="partnerRevenue">
+0 DA
+</h3>
+
+<p>
+Revenue
+</p>
+
+</div>
+
+</div>
+
+
+<div class="partner-last-activity">
+
+<i class="fa-solid fa-clock"></i>
+
+<span>
+Last Activity :
+</span>
+
+<strong id="partnerLastSeen">
+-
+</strong>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="partner-pending-section">
+
+<h3>
+
+<i class="fa-solid fa-user-clock"></i>
+
+Demandes partenaires en attente
+
+</h3>
+
+<div id="pendingPartnersList">
+</div>
+
+</div>
+
 </section>
+</section>
+
+
 <section class="page-section" id="messagingPage">
+
+
+
+
 <div class="section-header">
 <h2>
 <i class="fa-solid fa-comments"></i>
 <span data-fr="Messagerie" data-en="Messaging" data-ar="الرسائل">Messagerie</span>
 </h2>
-<p data-fr="Communication avec clients et partenaires." data-en="Communication with clients and partners." data-ar="التواصل مع العملاء والشركاء.">Communication avec clients et partenaires.</p>
+
+<p data-fr="Communication avec clients et partenaires." data-en="Communication with clients and partners." data-ar="التواصل مع العملاء والشركاء.">
+Communication avec clients et partenaires.
+</p>
+
 </div>
-<div class="empty-state">
+
+
+<div class="messaging-layout">
+
+
+<div class="messaging-partners">
+
+<h3>
+<i class="fa-solid fa-users"></i>
+Partenaires
+</h3>
+
+<div id="messagingPartnersList">
+
+</div>
+
+</div>
+
+
+
+<div class="admin-chat-box" id="messagingChatBox">
+
+
+<div class="admin-chat-header">
+
 <i class="fa-solid fa-comments"></i>
-<h3 data-fr="Messagerie bientôt disponible" data-en="Messaging coming soon" data-ar="الرسائل قريبًا">Messagerie bientôt disponible</h3>
+
+<div>
+
+<h3 id="messagingChatPartnerName">
+Choisir un partenaire
+</h3>
+
+<p id="messagingChatPartnerEmail">
+-
+</p>
+
 </div>
+
+</div>
+
+
+
+<div class="admin-chat-messages" id="messagingChatMessages">
+
+<div class="empty-state">
+
+<i class="fa-solid fa-message"></i>
+
+<p>Aucune conversation</p>
+
+</div>
+
+</div>
+
+
+
+<div class="admin-chat-input">
+
+<input 
+type="text"
+id="messagingMessageInput"
+placeholder="Message au partenaire">
+
+
+<button id="sendMessagingMessage">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="page-section" id="notificationsPage">
 <div class="section-header">
 <h2>
@@ -424,29 +845,74 @@
 </footer>
 </div>
 </div>
+
 <div class="transfer-modal" id="transferModal">
 <div class="modal-box">
+
 <button class="close-modal" id="closeTransferModal">
 <i class="fa-solid fa-xmark"></i>
 </button>
+
 <div class="modal-header">
 <i class="fa-solid fa-handshake"></i>
-<h2 data-fr="Transférer la demande" data-en="Transfer Request" data-ar="تحويل الطلب">Transférer la demande</h2>
-<p data-fr="Choisissez un partenaire AQUAREV." data-en="Choose an AQUAREV partner." data-ar="اختر شريك AQUAREV.">Choisissez un partenaire AQUAREV.</p>
+<h2 data-fr="Transférer la demande" data-en="Transfer Request" data-ar="تحويل الطلب">
+Transférer la demande
+</h2>
+<p data-fr="Choisissez un partenaire AQUAREV." data-en="Choose an AQUAREV partner." data-ar="اختر شريك AQUAREV.">
+Choisissez un partenaire AQUAREV.
+</p>
 </div>
+
 <div class="modal-body">
-<div id="modalPartnerList">
+
+<div id="modalPartnerList"></div>
+
+<hr>
+
+
+
+
+<div class="partner-email-box">
+
+<label for="partnerEmail">
+<i class="fa-solid fa-envelope"></i>
+<span
+data-fr="Ou envoyer directement par Email"
+data-en="Or send directly by Email"
+data-ar="أو الإرسال مباشرة عبر البريد الإلكتروني">
+Ou envoyer directement par Email
+</span>
+</label>
+
+<input
+type="email"
+id="partnerEmail"
+placeholder="partner@email.com">
+
 </div>
+
 </div>
+
 <div class="modal-footer">
+
 <button class="confirm-transfer">
 <i class="fa-solid fa-paper-plane"></i>
-<span data-fr="Envoyer au partenaire" data-en="Send to Partner" data-ar="إرسال للشريك">Envoyer au partenaire</span>
+<span
+data-fr="Envoyer au partenaire"
+data-en="Send to Partner"
+data-ar="إرسال للشريك">
+Envoyer au partenaire
+</span>
 </button>
+
+</div>
+
 </div>
 </div>
-</div>
+
 <div class="mobile-overlay" id="mobileOverlay"></div>
+
 <script type="module" src="/admin/admin.js"></script>
+
 </body>
 </html>

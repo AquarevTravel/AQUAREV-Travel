@@ -24,12 +24,14 @@ const path=require("path");
 const upload=require("./upload");
 const generatePDF=require("./pdfGenerator");
 const generateFlightPDF=require("./flightPdfGenerator");
-const {sendMail,sendNewUserMail,sendFlightMail}=require("./mailer");
-const app=express();
+const {sendMail,sendNewUserMail,sendFlightMail,sendPartnerMail}=require("./mailer");
+const app=require("express")();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use("/uploads",express.static(path.join(__dirname,"../uploads")));
+app.use("/pdf",express.static(path.join(__dirname,"../pdf")));
+app.use("/pdf",express.static(path.join(__dirname,"pdf")));
 app.post("/new-user",async(req,res)=>{
 try{
 const user=req.body;
@@ -70,10 +72,12 @@ pdfPath=await generatePDF(data,files);
 console.log("PDF GENERATION ERROR:",error.message);
 }
 await sendMail(data,files,pdfPath);
+console.log("PDF PATH BEFORE FIRESTORE:",pdfPath);
 await db.collection("requests").add({
 type:"Visa",
 data:data,
 files:files.map(file=>file.originalname),
+pdfPath:pdfPath,
 status:"new",
 createdAt:new Date()
 });
@@ -90,6 +94,8 @@ message:"Erreur serveur"
 });
 }
 });
+
+
 app.post("/flight-request",upload.any(),async(req,res)=>{
 try{
 const data=req.body;
@@ -107,7 +113,17 @@ pdfPath=await generateFlightPDF(data,files);
 }catch(error){
 console.log("FLIGHT PDF GENERATION ERROR:",error.message);
 }
+console.log("FLIGHT PDF PATH:",pdfPath);
 await sendFlightMail(data,files,pdfPath);
+await db.collection("requests").add({
+type:"Vols",
+data:data,
+files:files.map(file=>file.originalname),
+pdfPath:pdfPath,
+status:"new",
+createdAt:new Date()
+});
+console.log("FLIGHT REQUEST SAVED TO FIRESTORE");
 res.json({
 success:true,
 message:"Demande billet envoyée avec succès"
@@ -117,6 +133,43 @@ console.error("FLIGHT REQUEST ERROR:",error);
 res.status(500).json({
 success:false,
 message:"Erreur serveur"
+});
+}
+});
+app.post("/send-partner-email",async(req,res)=>{
+try{
+const {email,requestId}=req.body;
+if(!email||!requestId){
+return res.status(400).json({
+success:false,
+message:"Email or request ID missing"
+});
+}
+const requestSnap=await db.collection("requests").doc(requestId).get();
+if(!requestSnap.exists){
+return res.status(404).json({
+success:false,
+message:"Request not found"
+});
+}
+const requestData={
+id:requestSnap.id,
+...requestSnap.data()
+};
+await sendPartnerMail(
+email,
+requestData.pdfPath,
+requestData
+);
+res.json({
+success:true,
+message:"Partner email sent successfully"
+});
+}catch(error){
+console.error("SEND PARTNER EMAIL ERROR:",error);
+res.status(500).json({
+success:false,
+message:"Server error"
 });
 }
 });

@@ -398,9 +398,8 @@ document.getElementById("paymentMethod").value
 );
 try{
 const response =
-await fetch(
-"https://aquarev-travel-anfn.onrender.com/visa-request", 
-    {
+await 
+fetch("http://localhost:3000/visa-request",{
 method:"POST",
 body:formData
 }
