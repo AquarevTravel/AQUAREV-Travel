@@ -158,6 +158,7 @@ const messagesContainer=document.getElementById("partnerMessages");
 if(!messagesContainer||!currentUser){
 return;
 }
+
 const messagesQuery=query(
 collection(db,"partner_messages"),
 where("partnerId","==",currentUser.uid),
@@ -206,10 +207,17 @@ return;
 }
 try{
 await addDoc(collection(db,"partner_messages"),{
+
 partnerId:currentUser.uid,
+
+sender:"partner",
+
 message:message,
-createdAt:serverTimestamp(),
-sender:"partner"
+
+read:false,
+
+createdAt:serverTimestamp()
+
 });
 input.value="";
 }catch(error){

@@ -237,7 +237,13 @@ Connexion
 import {auth,db} from "./firebase/firebase-config.js";
 
 import {createUserWithEmailAndPassword,GoogleAuthProvider,OAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-import {doc,setDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import {
+doc,
+setDoc,
+addDoc,
+collection,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 getRedirectResult(auth)
 
@@ -393,6 +399,26 @@ merge:true
 }
 );
 
+
+if(role==="pending_agency"){
+
+await addDoc(
+collection(db,"notifications"),
+{
+title:"Nouvelle demande de partenariat",
+message:`${name} a envoyé une demande de partenariat.`,
+userName:name,
+email:email,
+type:"partner",
+read:false,
+createdAt:serverTimestamp()
+}
+);
+
+console.log("PARTNER REQUEST NOTIFICATION CREATED");
+
+}
+
 const serverURL=window.location.hostname==="localhost"
 ?"http://localhost:3000"
 :"http://10.123.251.25:3000";
@@ -410,7 +436,7 @@ role:role
 })
 });
 
-if(role==="pending_agency"){
+if(accountType==="agency"){
 alert("Votre demande de partenariat est en cours de validation par AQUAREV.");
 }else{
 alert("Compte client créé avec succès.");
@@ -438,6 +464,8 @@ provider
 const user=result.user;
 const accountType=document.getElementById("accountType").value;
 const role=accountType==="agency"?"pending_agency":"client";
+console.log("SELECTED ACCOUNT TYPE:", accountType);
+console.log("CREATED ROLE:", role);
 await setDoc(
 doc(db,"users",user.uid),
 {

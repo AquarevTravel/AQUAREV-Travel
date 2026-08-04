@@ -103,7 +103,7 @@ console.error("LOGOUT ERROR:",error);
 });
 }
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import{getFirestore,collection,getDocs,doc,getDoc,updateDoc,onSnapshot,query,orderBy,addDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import{getFirestore,collection,getDocs,doc,getDoc,updateDoc,onSnapshot,query,orderBy,addDoc,serverTimestamp,where}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import{getAuth,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 const firebaseConfig={
 apiKey:"AIzaSyAycKfhrRV8qcbhvwj0NV5iE_4zlgcDyWo",
@@ -500,6 +500,15 @@ return getService(request).toLowerCase()===currentRequestFilter.toLowerCase();
 });
 }
 }
+
+
+
+
+
+
+
+
+
 if(data.length===0){
 if(title){
 title.textContent="Aucune demande";
@@ -1040,7 +1049,7 @@ messagePartner.innerHTML=`
 
 <div class="messaging-partner-status ${online?"status-online":"status-offline"}"></div>
 
-<div>
+<div class="partner-info">
 
 <h4>
 ${partner.agencyName||partner.name||"AQUAREV Partner"}
@@ -1052,11 +1061,21 @@ ${partner.email||"-"}
 
 </div>
 
+<span class="message-badge" id="badge-${partner.id}" style="display:none">
+0
+</span>
+
 `;
 
 messagePartner.addEventListener("click",()=>{
 
 currentChatPartnerId = partner.id;
+const badge = document.getElementById("badge-"+partner.id);
+
+if(badge){
+    badge.textContent="";
+    badge.style.display="none";
+}
 console.log("SELECTED PARTNER ID:", currentChatPartnerId);
 
 
@@ -1276,6 +1295,11 @@ if(partnerEmail){
 await sendDirectPartnerEmail(partnerEmail);
 }
 
+console.log("TRANSFER DEBUG:",{
+selectedPartner:selectedPartner,
+selectedRequest:selectedRequest
+});
+
 if(selectedPartner){
 
 await createArchiveCopy(selectedRequest,"assigned_partner");
@@ -1290,6 +1314,17 @@ handledBy:"AQUAREV Admin"
 });
 
 await createPartnerNotification(selectedPartner.id,selectedRequest);
+console.log("BEFORE ADMIN NOTIFICATION");
+
+await addDoc(collection(db,"notifications"),{
+title:"Nouvelle activité AQUAREV",
+message:`Le partenaire ${selectedPartner.agencyName || selectedPartner.name || "PARTENAIRE"} a reçu une nouvelle demande.`,
+userName:selectedPartner.agencyName || selectedPartner.name || "PARTENAIRE",
+email:selectedPartner.email || "",
+type:"partner",
+read:false,
+createdAt:serverTimestamp()
+});
 
 }
 
@@ -1311,8 +1346,12 @@ console.error("TRANSFER REQUEST ERROR:",error);
 
 if(confirmTransfer){
 confirmTransfer.addEventListener("click",()=>{
+
+    console.log("CONFIRM TRANSFER CLICKED");
+
 transferRequest();
 });
+
 }async function createPartnerNotification(partnerId,request){
 try{
 const notificationRef=collection(db,"users",partnerId,"notifications");
@@ -1354,16 +1393,13 @@ console.error("CREATE NOTIFICATION ERROR:",error);
 
 
 
-
-
-
 function openPartnerChat(partner){
 
 selectedChatPartner=partner;
 
 const box=document.getElementById("adminChatBox");
-const name=document.getElementById("chatPartnerName");
-const email=document.getElementById("chatPartnerEmail");
+const name=document.getElementById("messagingChatPartnerName");
+const email=document.getElementById("messagingChatPartnerEmail");
 
 if(box){
 box.style.display="block";
@@ -1377,14 +1413,17 @@ if(email){
 email.textContent=partner.email||"-";
 }
 
-loadAdminPartnerMessages(partner.id);
+loadAdminPartnerMessages(partner.id, partner.agencyName || partner.name || "PARTENAIRE");
+
 
 }
 
 
-function loadAdminPartnerMessages(partnerId){
 
-const container=document.getElementById("adminChatMessages");
+
+function loadAdminPartnerMessages(partnerId, partnerName="PARTENAIRE"){
+
+const container=document.getElementById("messagingChatMessages");
 
 if(!container){
 return;
@@ -1399,6 +1438,7 @@ orderBy("createdAt","asc")
 
 
 onSnapshot(messagesQuery,(snapshot)=>{
+    console.log("MESSAGES COUNT:", snapshot.size);
 
 container.innerHTML="";
 
@@ -1428,8 +1468,11 @@ div.className=data.sender==="admin"
 ?"chat-message admin"
 :"chat-message partner";
 
-
 div.innerHTML=`
+
+<strong class="sender-name">
+${data.sender==="admin" ? "AQUAREV ADMIN" : partnerName}
+</strong>
 
 <p>${data.message}</p>
 
@@ -1448,11 +1491,13 @@ container.appendChild(div);
 });
 
 
-container.scrollTop=container.scrollHeight;
+// تمرير تلقائي لآخر رسالة
+setTimeout(()=>{
+    container.scrollTop = container.scrollHeight;
+},100);
 
 
 });
-
 
 }
 
@@ -1471,12 +1516,13 @@ const input=document.getElementById("adminMessageInput");
 const message=input.value.trim();
 
 
-if(!message||!selectedChatPartner){
+if(!message || !currentChatPartnerId){
+
+alert("Choisir un partenaire");
 
 return;
 
 }
-
 
 try{
 
@@ -1493,17 +1539,17 @@ message: text
 
 await addDoc(collection(db,"partner_messages"),{
 
-partnerId:selectedChatPartner.id,
+partnerId:currentChatPartnerId,
 
-message:message,
+sender:"admin",
 
-createdAt:serverTimestamp(),
+message:text,
 
-sender:"admin"
+read:true,
 
+createdAt:serverTimestamp()
 
 });
-
 
 input.value="";
 
@@ -1563,8 +1609,64 @@ if(access){
 await refreshDashboard();
 await loadRequests();
 await loadPartners();
+listenNotifications();
+loadNotifications();
+
+// listenPartnerMessages();
+
+
+
+
+
+
+
+
+
+
+
+function listenNotifications(){
+
+console.log("LISTEN NOTIFICATIONS STARTED");
+
+
+const q=query(
+collection(db,"notifications"),
+where("read","==",false)
+);
+
+
+onSnapshot(q,(snapshot)=>{
+
+
+const badge=document.getElementById("notificationsBadge");
+
+
+if(badge){
+
+
+if(snapshot.size>0){
+
+badge.textContent=snapshot.size;
+badge.style.display="inline-flex";
+
+}else{
+
+badge.textContent="";
+badge.style.display="none";
+
+}
+
+
+}
+
+
+
+});
+
+}
 
 await loadPendingPartners();
+listenNotifications();
 await displayPendingPartners();
 }
 });
@@ -1665,14 +1767,115 @@ console.error("SEND MESSAGE ERROR:",error);
 
 
 
-window.addEventListener("load",()=>{
-console.log("AQUAREV ADMIN DASHBOARD READY");
-const loadingScreen=document.getElementById("loadingScreen");
-if(loadingScreen){
-setTimeout(()=>{
-loadingScreen.classList.add("hide");
-},800);
+
+
+
+
+
+
+
+
+function loadNotifications(){
+
+
+const container=document.getElementById("notificationsList");
+
+
+if(!container)return;
+
+
+
+const q=query(
+collection(db,"notifications"),
+orderBy("createdAt","desc")
+);
+
+
+
+onSnapshot(q,(snapshot)=>{
+
+
+container.innerHTML="";
+
+
+snapshot.forEach(item=>{
+
+
+const data=item.data();
+
+
+const div=document.createElement("div");
+
+
+div.className=
+"notification-item "+data.type;
+
+
+
+div.innerHTML=`
+
+<strong>
+${data.title}
+</strong>
+
+
+<p>
+${data.message}
+</p>
+
+
+<small>
+${data.userName||""}
+${data.email? " - "+data.email:""}
+</small>
+
+
+`;
+
+
+
+container.appendChild(div);
+
+
+
+});
+
+
+});
+
 }
+
+
+
+
+
+
+
+
+
+
+
+window.addEventListener("load",()=>{
+
+console.log("AQUAREV ADMIN DASHBOARD READY");
+
+
+const loadingScreen=document.getElementById("loadingScreen");
+
+if(loadingScreen){
+
+setTimeout(()=>{
+
+loadingScreen.classList.add("hide");
+
+},800);
+
+}
+
+
+// تشغيل مراقبة رسائل الشركاء
+// listenPartnerMessages();
+
 });
 
 
@@ -1680,7 +1883,13 @@ loadingScreen.classList.add("hide");
 
 
 
+setTimeout(()=>{
 
+const page=document.getElementById("partnersPage");
+
+console.log("PARTNERS PAGE STATUS:",page?.className);
+
+},3000);
 
 
 
@@ -1688,3 +1897,15 @@ setTimeout(()=>{
 const page=document.getElementById("partnersPage");
 console.log("PARTNERS PAGE STATUS:",page?.className);
 },3000);
+
+const floatBtn=document.getElementById("floatingNotification");
+
+if(floatBtn){
+
+floatBtn.onclick=()=>{
+
+openPage("notifications");
+
+};
+
+}

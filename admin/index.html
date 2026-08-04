@@ -51,12 +51,28 @@
 <span id="partnerBadge" class="notification-badge"></span>
 </button>
 <button class="menu-item" data-page="messaging">
-<i class="fa-solid fa-comments"></i>
-<span data-fr="Messagerie" data-en="Messaging" data-ar="الرسائل">Messagerie</span>
+    <i class="fa-solid fa-envelope"></i>
+
+
+<span data-fr="Messagerie" data-en="Messaging" data-ar="...">
+Messagerie
+</span>
+
+<span id="messagesBadge" class="notification-badge"></span>
+
 </button>
 <button class="menu-item" data-page="notifications">
+
+<span class="notification-icon">
 <i class="fa-solid fa-bell"></i>
-<span data-fr="Notifications" data-en="Notifications" data-ar="الإشعارات">Notifications</span>
+</span>
+
+<span data-fr="Notifications" data-en="Notifications">
+Notifications
+</span>
+
+<span id="notificationsBadge" class="notification-badge"></span>
+
 </button>
 <button class="menu-item" data-page="settings">
 <i class="fa-solid fa-gear"></i>
@@ -226,7 +242,7 @@
 </div>
 
 <div class="request-card">
-<div class="request-top">
+    <div class="request-top">
 <div>
 <h3 id="requestTitle">Aucune demande</h3>
 <p id="requestClient">-</p>
@@ -803,10 +819,14 @@ placeholder="Message au partenaire">
 </h2>
 <p data-fr="Historique des alertes." data-en="Notifications history." data-ar="سجل التنبيهات.">Historique des alertes.</p>
 </div>
+
 <div class="empty-state">
 <i class="fa-solid fa-bell"></i>
 <h3 data-fr="Aucune notification" data-en="No notifications" data-ar="لا توجد إشعارات">Aucune notification</h3>
 </div>
+
+<div id="notificationsList"></div>
+
 </section>
 <section class="page-section" id="settingsPage">
 <div class="section-header">
@@ -913,6 +933,14 @@ Envoyer au partenaire
 <div class="mobile-overlay" id="mobileOverlay"></div>
 
 <script type="module" src="/admin/admin.js"></script>
+
+<div id="floatingNotification">
+
+<i class="fa-solid fa-plane"></i>
+
+<span id="floatingNotificationBadge"></span>
+
+</div>
 
 </body>
 </html>
