@@ -4,6 +4,17 @@ const langButtons=document.querySelectorAll(".lang-btn");
 const sidebar=document.getElementById("sidebar");
 const mobileMenu=document.getElementById("mobileMenu");
 const mobileOverlay=document.getElementById("mobileOverlay");
+if(mobileMenu){
+
+mobileMenu.addEventListener("click",()=>{
+
+sidebar.classList.toggle("show");
+
+mobileOverlay.classList.toggle("show");
+
+});
+
+}
 let currentLanguage=localStorage.getItem("aquarevLanguage")||"fr";
 let currentChatPartnerId = null;
 
