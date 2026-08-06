@@ -1,8 +1,9 @@
 require("dotenv").config({
-path:"../.env"
+path:"./.env"
 });
 console.log("EMAIL:",process.env.EMAIL_USER);
 console.log("PASS:",process.env.EMAIL_PASS?"OK":"MISSING");
+console.log("BREVO KEY:", process.env.BREVO_API_KEY ? "FOUND" : "MISSING");
 const express=require("express");
 const admin=require("firebase-admin/app");
 const {getFirestore}=require("firebase-admin/firestore");
@@ -17,6 +18,33 @@ if(!getApps().length){
 initializeApp({
 credential:cert(serviceAccount)
 });
+
+
+
+
+const testDb=getFirestore();
+
+testDb.collection("test_connection").add({
+time:new Date()
+})
+.then(()=>{
+console.log("🔥 FIRESTORE CONNECTION OK");
+})
+.catch(error=>{
+console.error("🔥 FIRESTORE CONNECTION ERROR:",error);
+});
+
+
+
+
+
+
+
+
+
+
+
+
 }
 const db=getFirestore();
 const cors=require("cors");
@@ -73,6 +101,8 @@ console.log("PDF GENERATION ERROR:",error.message);
 }
 await sendMail(data,files,pdfPath);
 console.log("PDF PATH BEFORE FIRESTORE:",pdfPath);
+
+
 await db.collection("requests").add({
 type:"Visa",
 data:data,
@@ -81,6 +111,9 @@ pdfPath:pdfPath,
 status:"new",
 createdAt:new Date()
 });
+
+
+
 console.log("REQUEST SAVED TO FIRESTORE");
 res.json({
 success:true,
@@ -177,5 +210,5 @@ app.use("/billetterie",express.static(path.join(__dirname,"../billetterie")));
 app.use(express.static(path.join(__dirname,"..")));
 const PORT=process.env.PORT||3000;
 app.listen(PORT,"0.0.0.0",()=>{
-console.log(`AQUAREV Server running on port ${PORT}`);
+ console.log("AQUAREV Server running on port "+PORT);
 });

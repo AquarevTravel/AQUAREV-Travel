@@ -399,7 +399,8 @@ document.getElementById("paymentMethod").value
 try{
 const response =
 await 
-fetch("http://localhost:3000/visa-request",{
+fetch("/visa-request",
+{
 method:"POST",
 body:formData
 }

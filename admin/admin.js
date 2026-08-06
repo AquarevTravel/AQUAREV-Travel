@@ -278,11 +278,24 @@ const data={
 id:item.id,
 ...item.data()
 };
+
+
+
+
 if(data.status==="archived"){
+
 archivedRequestsData.push(data);
-}else{
+
+}else if(data.status!=="deleted"){
+
 requestsData.push(data);
+
 }
+
+
+
+
+
 });
 displayRequests();
 
@@ -501,6 +514,7 @@ const residence=document.getElementById("requestResidence");
 const payment=document.getElementById("requestPayment");
 const birthDate=document.getElementById("requestBirthDate");
 let data=[];
+
 if(currentRequestFilter==="archives"){
 data=archivedRequestsData;
 }else{
@@ -515,7 +529,668 @@ return getService(request).toLowerCase()===currentRequestFilter.toLowerCase();
 
 
 
+const allServicesDashboard=document.getElementById("allServicesDashboard");
 
+if(allServicesDashboard){
+
+
+
+    const requestsList=document.getElementById("requestsList");
+
+if(currentRequestFilter==="all"){
+requestsList.style.display="none";
+}else{
+requestsList.style.display="grid";
+}
+
+
+
+
+if(currentRequestFilter==="all"){
+
+allServicesDashboard.style.display="grid";
+
+}else{
+
+allServicesDashboard.style.display="none";
+
+}
+
+}
+
+
+const requestCard = document.querySelector(".request-card");
+
+if(requestCard){
+
+if(currentRequestFilter==="all"){
+
+requestCard.style.display="none";
+
+}else{
+
+requestCard.style.display="block";
+
+}
+
+}
+
+
+
+
+
+if(allServicesDashboard && currentRequestFilter==="all"){
+
+allServicesDashboard.innerHTML=`
+
+<div class="service-box" data-service="Visa">
+<i class="fa-solid fa-passport"></i>
+<h3>VISA</h3>
+<p>${requestsData.filter(r=>getService(r)==="Visa").length} demandes</p>
+</div>
+
+
+<div class="service-box" data-service="Vols">
+<i class="fa-solid fa-plane"></i>
+<h3>VOLS</h3>
+<p>${requestsData.filter(r=>getService(r)==="Vols").length} demandes</p>
+</div>
+
+
+<div class="service-box" data-service="Hôtels">
+<i class="fa-solid fa-hotel"></i>
+<h3>HÔTELS</h3>
+<p>${requestsData.filter(r=>getService(r)==="Hôtels").length} demandes</p>
+</div>
+
+
+<div class="service-box" data-service="Hajj">
+<i class="fa-solid fa-kaaba"></i>
+<h3>HAJJ</h3>
+<p>${requestsData.filter(r=>getService(r)==="Hajj").length} demandes</p>
+</div>
+
+
+<div class="service-box" data-service="Voyages organisés">
+<i class="fa-solid fa-earth-europe"></i>
+<h3>VOYAGES</h3>
+<p>${requestsData.filter(r=>getService(r)==="Voyages organisés").length} demandes</p>
+</div>
+
+
+<div class="service-box" data-service="Autres">
+<i class="fa-solid fa-layer-group"></i>
+<h3>AUTRES</h3>
+<p>${requestsData.filter(r=>getService(r)==="Autres").length} demandes</p>
+</div>
+
+
+<div class="service-box" data-service="archives">
+<i class="fa-solid fa-box-archive"></i>
+<h3>ARCHIVES</h3>
+<p>${archivedRequestsData.length} demandes</p>
+</div>
+
+`;
+
+document.querySelectorAll(".service-box").forEach(box=>{
+
+box.addEventListener("click",()=>{
+
+const service=box.dataset.service;
+
+filterRequestsByType(service);
+
+});
+
+});
+
+
+
+
+
+}
+
+
+
+
+const serviceBoxes = document.querySelectorAll(".service-box");
+
+
+serviceBoxes.forEach(box=>{
+
+box.addEventListener("click",()=>{
+
+const service = box.dataset.service;
+
+currentRequestFilter = service;
+
+openPage("requests");
+
+displayRequests();
+
+});
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function displaySelectedRequest(request){
+
+selectedRequest=request;
+
+const title=document.getElementById("requestTitle");
+const client=document.getElementById("requestClient");
+const status=document.getElementById("requestStatus");
+const type=document.getElementById("requestType");
+const destination=document.getElementById("requestDestination");
+const date=document.getElementById("requestDate");
+
+
+if(title){
+title.textContent=getService(request);
+}
+
+if(client){
+client.textContent=getClientName(request);
+}
+
+if(status){
+status.textContent=getStatus(request);
+status.className="status "+getStatus(request);
+}
+
+if(type){
+type.textContent=getService(request);
+}
+
+if(destination){
+destination.textContent=getDestination(request);
+}
+
+if(date){
+date.textContent=formatRequestDate(request);
+}
+
+console.log("SELECTED REQUEST:",request);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const requestsList=document.getElementById("requestsList");
+
+
+const oldRequestsList = document.getElementById("requestsList");
+
+if(oldRequestsList && currentRequestFilter==="all"){
+    oldRequestsList.style.display="none";
+}else if(oldRequestsList){
+    oldRequestsList.style.display="grid";
+}
+
+
+
+
+
+if(requestsList){
+
+requestsList.innerHTML="";
+
+data.forEach((request,index)=>{
+
+const card=document.createElement("div");
+
+card.className="request-item-card";
+
+card.innerHTML=`
+
+
+<div class="request-card-menu">
+
+<button class="request-menu-btn">
+<i class="fa-solid fa-ellipsis-vertical"></i>
+</button>
+
+<div class="request-menu-options">
+
+${
+currentRequestFilter==="archives"
+
+?
+
+`
+<button class="restore-request">
+<i class="fa-solid fa-rotate-left"></i>
+RESTAURER
+</button>
+`
+
+:
+
+`
+<button class="archive-request">
+<i class="fa-solid fa-box-archive"></i>
+TRANSFERT VERS ARCHIVE
+</button>
+`
+
+}
+
+<button class="delete-request">
+<i class="fa-solid fa-trash"></i>
+SUPPRIMER
+</button>
+
+</div>
+
+</div>
+
+
+
+
+<h4>
+${getService(request)}
+</h4>
+
+<p>
+<i class="fa-solid fa-user"></i>
+${getClientName(request)}
+</p>
+
+<p>
+<i class="fa-solid fa-location-dot"></i>
+${getDestination(request)}
+</p>
+
+<span class="status ${getStatus(request)}">
+${getStatus(request)}
+</span>
+
+`;
+
+
+
+
+
+
+
+
+card.addEventListener("click",(e)=>{
+
+if(
+e.target.closest(".request-card-menu") ||
+e.target.closest(".request-menu-btn") ||
+e.target.closest(".request-menu-options")
+){
+return;
+}
+
+selectedRequest=request;
+
+displaySelectedRequest(request);
+
+
+const infoCard=document.querySelector(".request-card");
+
+
+if(currentRequestFilter==="all"){
+
+if(infoCard){
+infoCard.style.display="none";
+}
+
+}else{
+
+if(infoCard){
+infoCard.style.display="block";
+}
+
+}
+
+if(infoCard){
+
+setTimeout(()=>{
+
+infoCard.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+},100);
+
+}
+
+});
+
+
+
+requestsList.appendChild(card);
+
+
+const menuBtn = card.querySelector(".request-menu-btn");
+const menuOptions = card.querySelector(".request-menu-options");
+
+
+
+
+
+
+
+
+
+
+
+
+
+let menuTimer;
+
+menuBtn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+document.querySelectorAll(".request-menu-options")
+.forEach(menu=>{
+menu.style.display="none";
+});
+
+
+menuOptions.style.display="block";
+
+
+// إخفاء بعد 3 ثواني إذا لم يتم الاختيار
+clearTimeout(menuTimer);
+
+menuTimer=setTimeout(()=>{
+
+menuOptions.style.display="none";
+
+},3000);
+
+
+});
+
+
+// إذا خرجت الفأرة من منطقة القائمة والنقاط
+card.querySelector(".request-card-menu").addEventListener("mouseleave",()=>{
+
+clearTimeout(menuTimer);
+
+menuOptions.style.display="none";
+
+});
+
+
+
+
+const archiveBtn = card.querySelector(".archive-request");
+const deleteBtn = card.querySelector(".delete-request");
+const restoreBtn = card.querySelector(".restore-request");
+
+if(restoreBtn){
+
+restoreBtn.addEventListener("click", async (e)=>{
+
+e.stopPropagation();
+
+menuOptions.style.display="none";
+
+try{
+
+await updateDoc(
+doc(db,"requests",request.id),
+{
+status:"new"
+}
+);
+
+console.log("REQUEST RESTORED");
+
+}catch(error){
+
+console.error("RESTORE ERROR:",error);
+
+}
+
+});
+
+}
+
+
+
+
+
+
+
+
+if(deleteBtn){
+
+deleteBtn.addEventListener("click", async (e)=>{
+
+e.stopPropagation();
+
+menuOptions.style.display="none";
+
+try{
+
+await updateDoc(
+doc(db,"requests",request.id),
+{
+status:"deleted"
+}
+);
+
+console.log("REQUEST DELETED");
+
+}catch(error){
+
+console.error("DELETE ERROR:",error);
+
+}
+
+});
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(archiveBtn){
+
+
+archiveBtn.addEventListener("click", async (e)=>{
+
+e.stopPropagation();
+
+menuOptions.style.display="none";
+
+try{
+
+await updateDoc(
+doc(db,"requests",request.id),
+{
+status:"archived"
+}
+);
+
+console.log("REQUEST ARCHIVED");
+
+}catch(error){
+
+console.error("ARCHIVE ERROR:",error);
+
+}
+
+});
+
+}
+
+if(deleteBtn){
+
+deleteBtn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+menuOptions.style.display="none";
+
+// هنا نضع لاحقا كود الحذف
+
+});
+
+}
+
+
+
+// منع اختفاء القائمة أثناء المرور فوقها
+menuOptions.addEventListener("mouseenter",()=>{
+
+clearTimeout(menuTimer);
+
+});
+
+
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+const archiveBtn = card.querySelector(".archive-request");
+
+if(archiveBtn){
+
+archiveBtn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+selectedRequest=request;
+
+updateRequestStatus("archived");
+
+
+});
+
+}
+
+
+
+
+const deleteBtn = card.querySelector(".delete-request");
+
+
+if(deleteBtn){
+
+deleteBtn.addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+
+selectedRequest=request;
+
+
+if(confirm("Supprimer cette demande ?")){
+
+deleteDoc(doc(db,"requests",request.id));
+
+}
+
+
+});
+
+}
 
 
 
@@ -795,16 +1470,50 @@ else{
 requestPDF.style.display="none";
 }
 }
-
-
-
-
-
-
-}function filterRequestsByType(type){
-currentRequestFilter=type;
-displayRequests();
 }
+
+
+function filterRequestsByType(type){
+
+currentRequestFilter=type;
+
+
+/* تغيير الزر النشط في الأعلى */
+
+document.querySelectorAll(".request-tab").forEach(tab=>{
+
+tab.classList.remove("active");
+
+if(tab.dataset.request===type){
+
+tab.classList.add("active");
+
+}
+
+});
+
+
+displayRequests();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.querySelectorAll(".request-tab").forEach(tab=>{
 tab.addEventListener("click",()=>{
 document.querySelectorAll(".request-tab").forEach(item=>{
