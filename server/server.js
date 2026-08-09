@@ -211,9 +211,41 @@ app.use(express.static(path.join(__dirname,"..")));
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const {createCheckout}=require("./chargily/chargily");
 const {createMastercardCheckout}=require("./mastercard/mastercard");
 const {createBinanceCheckout}=require("./binance/binance");
+const SITE_URL=process.env.SITE_URL||"https://aquarev-travel-anfn.onrender.com";
+
 app.post("/api/payment/chargily",async(req,res)=>{
 try{
 const checkout=await createCheckout({
@@ -221,8 +253,11 @@ amount:req.body.amount,
 currency:req.body.currency,
 name:req.body.name,
 email:req.body.email,
-success_url:"http://localhost:3000/payment-success.html",
-failure_url:"http://localhost:3000/payment-failed.html"
+bookingId:req.body.bookingId,
+ferry:req.body.ferry,
+route:req.body.route,
+success_url:`${SITE_URL}/payment-success.html`,
+failure_url:`${SITE_URL}/payment-failed.html`
 });
 res.json(checkout);
 }catch(error){
@@ -232,6 +267,7 @@ error:"Payment creation failed"
 });
 }
 });
+
 app.post("/api/payment/mastercard",async(req,res)=>{
 try{
 const checkout=await createMastercardCheckout({
@@ -240,8 +276,8 @@ currency:req.body.currency,
 name:req.body.name,
 email:req.body.email,
 bookingId:req.body.bookingId,
-success_url:"http://localhost:3000/payment-success.html",
-failure_url:"http://localhost:3000/payment-failed.html"
+success_url:`${SITE_URL}/payment-success.html`,
+failure_url:`${SITE_URL}/payment-failed.html`
 });
 res.json(checkout);
 }catch(error){
@@ -251,6 +287,7 @@ error:"Mastercard payment creation failed"
 });
 }
 });
+
 app.post("/api/payment/binance",async(req,res)=>{
 try{
 const checkout=await createBinanceCheckout({
@@ -259,8 +296,8 @@ currency:req.body.currency,
 name:req.body.name,
 email:req.body.email,
 bookingId:req.body.bookingId,
-success_url:"http://localhost:3000/payment-success.html",
-failure_url:"http://localhost:3000/payment-failed.html"
+success_url:`${SITE_URL}/payment-success.html`,
+failure_url:`${SITE_URL}/payment-failed.html`
 });
 res.json(checkout);
 }catch(error){
@@ -270,6 +307,22 @@ error:"Binance payment creation failed"
 });
 }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
