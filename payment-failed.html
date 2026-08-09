@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>AQUAREV Travel - Payment Failed</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #fff3f0, #fff, #e8f8ff);
+        font-family: Arial, sans-serif;
+        color: #12343b;
+      }
+      .card {
+        width: min(90%, 600px);
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 25px;
+        padding: 50px 30px;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 80, 130, 0.2);
+      }
+      .icon {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 25px;
+        border-radius: 50%;
+        background: #ff7f6a;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        font-weight: bold;
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+        color: #d94f3d;
+      }
+      p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+      }
+      a {
+        display: inline-block;
+        padding: 14px 30px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #00b4d8, #0077b6);
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      a:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="icon">!</div>
+      <h1>Payment Failed</h1>
+      <p>Unfortunately, your payment could not be completed.</p>
+      <p>Please try again or choose another payment method.</p>
+      <a href="/ferries.html">Return to Booking</a>
+    </div>
+  </body>
+</html>
