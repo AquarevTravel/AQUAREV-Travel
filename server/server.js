@@ -208,7 +208,73 @@ message:"Server error"
 });
 app.use("/billetterie",express.static(path.join(__dirname,"../billetterie")));
 app.use(express.static(path.join(__dirname,"..")));
+
+
+
+const {createCheckout}=require("./chargily/chargily");
+const {createMastercardCheckout}=require("./mastercard/mastercard");
+const {createBinanceCheckout}=require("./binance/binance");
+app.post("/api/payment/chargily",async(req,res)=>{
+try{
+const checkout=await createCheckout({
+amount:req.body.amount,
+currency:req.body.currency,
+name:req.body.name,
+email:req.body.email,
+success_url:"http://localhost:3000/payment-success.html",
+failure_url:"http://localhost:3000/payment-failed.html"
+});
+res.json(checkout);
+}catch(error){
+console.error("CHARGILY PAYMENT ERROR:",error);
+res.status(500).json({
+error:"Payment creation failed"
+});
+}
+});
+app.post("/api/payment/mastercard",async(req,res)=>{
+try{
+const checkout=await createMastercardCheckout({
+amount:req.body.amount,
+currency:req.body.currency,
+name:req.body.name,
+email:req.body.email,
+bookingId:req.body.bookingId,
+success_url:"http://localhost:3000/payment-success.html",
+failure_url:"http://localhost:3000/payment-failed.html"
+});
+res.json(checkout);
+}catch(error){
+console.error("MASTERCARD PAYMENT ERROR:",error);
+res.status(500).json({
+error:"Mastercard payment creation failed"
+});
+}
+});
+app.post("/api/payment/binance",async(req,res)=>{
+try{
+const checkout=await createBinanceCheckout({
+amount:req.body.amount,
+currency:req.body.currency,
+name:req.body.name,
+email:req.body.email,
+bookingId:req.body.bookingId,
+success_url:"http://localhost:3000/payment-success.html",
+failure_url:"http://localhost:3000/payment-failed.html"
+});
+res.json(checkout);
+}catch(error){
+console.error("BINANCE PAYMENT ERROR:",error);
+res.status(500).json({
+error:"Binance payment creation failed"
+});
+}
+});
+
+
+
 const PORT=process.env.PORT||3000;
 app.listen(PORT,"0.0.0.0",()=>{
- console.log("AQUAREV Server running on port "+PORT);
+console.log("AQUAREV Server running on port "+PORT);
 });
+

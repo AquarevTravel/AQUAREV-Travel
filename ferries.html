@@ -1,812 +1,566 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" dir="ltr">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>
-AQUAREV Ferries | Luxury Mediterranean Sea Journeys
-</title>
-
-<link rel="icon" href="assets/logo/favicon.png">
-
-<link rel="stylesheet" href="ferries.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cinzel:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
-</head>
-
-
-<body>
-
-
-<!-- HEADER -->
-
-<header class="ferry-header">
-
-
-<div class="ferry-logo">
-
-<img src="assets/logo/logo.png" alt="AQUAREV Travel">
-
-</div>
-
-
-
-<nav class="ferry-nav">
-
-<ul>
-
-<li>
-<a href="index.html"
-data-fr="Accueil"
-data-en="Home"
-data-ar="الرئيسية">
-
-Accueil
-
-</a>
-</li>
-
-
-<li>
-<a href="index.html#vols"
-data-fr="Vols"
-data-en="Flights"
-data-ar="الرحلات الجوية">
-
-Vols
-
-</a>
-</li>
-
-
-
-<li>
-<a href="index.html#hotels"
-data-fr="Hôtels"
-data-en="Hotels"
-data-ar="الفنادق">
-
-Hôtels
-
-</a>
-</li>
-
-
-
-<li>
-<a href="ferries.html"
-class="active"
-data-fr="Ferries"
-data-en="Ferries"
-data-ar="العبارات البحرية">
-
-Ferries
-
-</a>
-</li>
-
-
-
-<li>
-<a href="index.html#contact"
-data-fr="Contact"
-data-en="Contact"
-data-ar="اتصل بنا">
-
-Contact
-
-</a>
-</li>
-
-
-</ul>
-
-</nav>
-
-<div class="ferry-actions">
-
-
-<div class="language-box">
-
-<button class="language-btn">
-
-<i class="fa-solid fa-earth-americas"></i>
-
-</button>
-
-
-<div class="language-menu">
-
-<button onclick="changeLanguage('fr')">
-🇫🇷 Français
-</button>
-
-
-<button onclick="changeLanguage('en')">
-🇬🇧 English
-</button>
-
-
-<button onclick="changeLanguage('ar')">
-🇩🇿 العربية
-</button>
-
-
-</div>
-
-</div>
-
-<a href="signin.html" class="login-btn">
-
-<i class="fa-solid fa-user"></i>
-
-<span
-data-fr="Connexion"
-data-en="Login"
-data-ar="دخول">
-
-Connexion
-
-</span>
-
-</a>
-
-
-</div>
-
-
-
-</header>
-
-
-
-
-
-<!-- HERO -->
-
-
-<section class="ferry-hero">
-
-
-<div class="hero-content">
-
-
-<h1
-
-data-fr="Voyages Maritimes de Luxe Avec AquaRev Travel"
-
-data-en="Luxury Mediterranean Sea Journeys With Aquarev_Travel"
-
-data-ar=" رحلات بحرية متوسطية فاخرة مع أكواريف ترافل">
-
-Luxury Mediterranean Sea Journeys
-
-</h1>
-
-
-
-<p
-
-data-fr="Réservez votre voyage maritime avec AQUAREV"
-
-data-en="Book your premium sea journey with AQUAREV"
-
-data-ar="احجز رحلتك البحرية الفاخرة مع أكواريف">
-
-Book your premium sea journey with AQUAREV
-
-</p>
-
-
-
-<a href="#gnv"
-
-class="hero-button">
-
-<i class="fa-solid fa-ship"></i>
-
-<span
-
-data-fr="Commencer la réservation"
-
-data-en="Start Booking"
-
-data-ar="ابدأ الحجز">
-
-Start Booking
-
-</span>
-
-
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- GNV SECTION -->
-
-
-<section id="gnv" class="booking-section gnv-section">
-
-
-<div class="booking-card">
-
-<div class="company-title">
-
-<img
-src="assets/ferries/gnv-logo.png"
-alt="GNV"
-class="company-logo">
-
-<h2>
-
-GNV Mediterranean Ferries
-
-</h2>
-
-<p>
-
-Official Booking Partner
-
-</p>
-
-</div>
-
-
-<div class="form-grid">
-
-
-
-<div class="input-box">
-
-<label>
-
-Departure
-
-</label>
-
-<input type="text" placeholder="Algeria">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>
-
-Arrival
-
-</label>
-
-<input type="text" placeholder="Marseille">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>
-
-Departure Date
-
-</label>
-
-<input type="date">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>
-
-Return Date
-
-</label>
-
-<input type="date">
-
-</div>
-
-
-</div>
-
-
-
-
-
-<h3>
-
-Passenger Information
-
-</h3>
-
-
-<div class="form-grid">
-
-
-
-<div class="input-box">
-
-<label>
-
-First Name
-
-</label>
-
-<input type="text">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>
-
-Last Name
-
-</label>
-
-<input type="text">
-
-</div>
-
-
-
-<div class="input-box">
-
-<label>
-
-Passport Number
-
-</label>
-
-<input type="text">
-
-</div>
-
-
-</div>
-
-
-
-
-
-<h3>
-
-Documents Upload
-
-</h3>
-
-
-
-<div class="upload-grid">
-
-
-<div>
-
-<label>
-
-Passport
-
-</label>
-
-<input type="file">
-
-</div>
-
-
-
-<div>
-
-<label>
-
-Vehicle Registration
-
-(Carte Grise)
-
-</label>
-
-<input type="file">
-
-</div>
-
-
-
-<div>
-
-<label>
-
-Driving License
-
-</label>
-
-<input type="file">
-
-</div>
-
-
-
-</div>
-
-
-
-
-<button class="search-btn">
-
-SEARCH GNV FERRIES
-
-</button>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- CORSICA LINEA SECTION -->
-
-
-<section id="corsica" class="booking-section corsica-section">
-
-
-<div class="booking-card">
-
-<div class="company-title">
-
-<img
-src="assets/ferries/corsica-logo.png"
-alt="Corsica Linea"
-class="company-logo">
-
-<h2>
-
-Corsica Linea
-
-</h2>
-
-<p>
-
-Official Booking Partner
-
-</p>
-
-</div>
-
-<div class="form-grid">
-
-
-<div class="input-box">
-
-<label>
-
-Departure
-
-</label>
-
-<input type="text" placeholder="Algeria">
-
-</div>
-
-
-<div class="input-box">
-
-<label>
-
-Arrival
-
-</label>
-
-<input type="text" placeholder="France">
-
-</div>
-
-
-<div class="input-box">
-
-<label>
-
-Departure Date
-
-</label>
-
-<input type="date">
-
-</div>
-
-
-<div class="input-box">
-
-<label>
-
-Return Date
-
-</label>
-
-<input type="date">
-
-</div>
-
-
-</div>
-
-
-
-
-
-<h3>
-
-Passenger Information
-
-</h3>
-
-
-
-<div class="form-grid">
-
-
-<div class="input-box">
-
-<label>
-
-First Name
-
-</label>
-
-<input type="text">
-
-</div>
-
-
-<div class="input-box">
-
-<label>
-
-Last Name
-
-</label>
-
-<input type="text">
-
-</div>
-
-
-<div class="input-box">
-
-<label>
-
-Passport Number
-
-</label>
-
-<input type="text">
-
-</div>
-
-
-</div>
-
-
-
-
-
-<h3>
-
-Documents Upload
-
-</h3>
-
-
-
-<div class="upload-grid">
-
-
-<div>
-
-<label>
-
-Passport
-
-</label>
-
-<input type="file">
-
-</div>
-
-
-
-<div>
-
-<label>
-
-Vehicle Registration
-
-</label>
-
-<input type="file">
-
-</div>
-
-
-
-<div>
-
-<label>
-
-Driving License
-
-</label>
-
-<input type="file">
-
-</div>
-
-
-</div>
-
-
-
-
-<button class="search-btn">
-
-SEARCH CORSICA LINEA
-
-</button>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- AQUAREV EXPERIENCE -->
-
-
-<section class="experience-section">
-
-
-<h2>
-
-AQUAREV Premium Sea Experience
-
-</h2>
-
-
-
-<div class="experience-grid">
-
-
-<div class="experience-card">
-
-<i class="fa-solid fa-bed"></i>
-
-<h3>
-
-Luxury Cabins
-
-</h3>
-
-<p>
-
-Comfort and sea view during your journey.
-
-</p>
-
-</div>
-
-
-
-
-<div class="experience-card">
-
-<i class="fa-solid fa-utensils"></i>
-
-<h3>
-
-Sea Restaurants
-
-</h3>
-
-<p>
-
-Enjoy Mediterranean flavors onboard.
-
-</p>
-
-</div>
-
-
-
-
-<div class="experience-card">
-
-<i class="fa-solid fa-water"></i>
-
-<h3>
-
-Mediterranean Views
-
-</h3>
-
-<p>
-
-Travel surrounded by blue horizons.
-
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<footer class="ferry-footer">
-
-
-<p>
-
-© 2026 AQUAREV Travel
-
-</p>
-
-
-<p>
-
-Luxury Mediterranean Experiences
-
-</p>
-
-
-</footer>
-
-
-
-
-<script src="ferries.js"></script>
-
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>AQUAREV Ferries | Luxury Mediterranean Sea Journeys</title>
+    <link rel="icon" href="assets/logo/favicon.png" />
+    <link rel="stylesheet" href="ferries.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Cinzel:wght@600;700;800&family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="ferry-header">
+      <div class="ferry-logo">
+        <img src="assets/logo/logo.png" alt="AQUAREV Travel" />
+      </div>
+      <nav class="ferry-nav">
+        <ul>
+          <li>
+            <a
+              href="index.html"
+              data-fr="Accueil"
+              data-en="Home"
+              data-ar="الرئيسية"
+            >
+              Accueil
+            </a>
+          </li>
+          <li>
+            <a
+              href="index.html#vols"
+              data-fr="Vols"
+              data-en="Flights"
+              data-ar="الرحلات الجوية"
+            >
+              Vols
+            </a>
+          </li>
+          <li>
+            <a
+              href="index.html#hotels"
+              data-fr="Hôtels"
+              data-en="Hotels"
+              data-ar="الفنادق"
+            >
+              Hôtels
+            </a>
+          </li>
+          <li>
+            <a
+              href="ferries.html"
+              class="active"
+              data-fr="Ferries"
+              data-en="Ferries"
+              data-ar="العبارات البحرية"
+            >
+              Ferries
+            </a>
+          </li>
+          <li>
+            <a
+              href="index.html#contact"
+              data-fr="Contact"
+              data-en="Contact"
+              data-ar="اتصل بنا"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="ferry-actions">
+        <div class="language-box">
+          <button class="language-btn">
+            <i class="fa-solid fa-earth-americas"></i>
+          </button>
+          <div class="language-menu">
+            <button onclick="changeLanguage('fr')">🇫🇷 Français</button>
+            <button onclick="changeLanguage('en')">🇬🇧 English</button>
+            <button onclick="changeLanguage('ar')">🇩🇿 العربية</button>
+          </div>
+        </div>
+        <a href="signin.html" class="login-btn">
+          <i class="fa-solid fa-user"></i>
+          <span data-fr="Connexion" data-en="Login" data-ar="دخول">
+            Connexion
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="ferry-hero">
+      <div class="hero-content">
+        <h1
+          data-fr="Voyages Maritimes de Luxe Avec AquaRev Travel"
+          data-en="Luxury Mediterranean Sea Journeys With Aquarev_Travel"
+          data-ar="رحلات بحرية متوسطية فاخرة مع أكواريف"
+        >
+          Luxury Mediterranean Sea Journeys
+        </h1>
+        <p
+          data-fr="Réservez votre voyage maritime avec AQUAREV"
+          data-en="Book your premium sea journey with AQUAREV"
+          data-ar="احجز رحلتك البحرية الفاخرة مع أكواريف"
+        >
+          Book your premium sea journey with AQUAREV
+        </p>
+        <a href="#gnv" class="hero-button">
+          <i class="fa-solid fa-ship"></i>
+          <span
+            data-fr="Commencer la réservation"
+            data-en="Start Booking"
+            data-ar="ابدأ الحجز"
+          >
+            Start Booking
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- GNV SECTION -->
+    <section id="gnv" class="booking-section gnv-section">
+      <div class="booking-card">
+        <div class="company-title">
+          <img
+            src="assets/ferries/gnv-logo.png"
+            alt="GNV"
+            class="company-logo"
+          />
+          <h2
+            data-fr="GNV Ferries Méditerranée"
+            data-en="GNV Mediterranean Ferries"
+            data-ar="عبارات GNV المتوسطية"
+          >
+            GNV Mediterranean Ferries
+          </h2>
+          <p
+            data-fr="Partenaire officiel de réservation"
+            data-en="Official Booking Partner"
+            data-ar="شريك الحجز الرسمي"
+          >
+            Official Booking Partner
+          </p>
+        </div>
+        <div class="form-grid">
+          <div class="input-box">
+            <label data-fr="Départ" data-en="Departure" data-ar="الانطلاق">
+              Departure
+            </label>
+            <input type="text" placeholder="Algeria" />
+          </div>
+          <div class="input-box">
+            <label data-fr="Arrivée" data-en="Arrival" data-ar="الوصول">
+              Arrival
+            </label>
+            <input type="text" placeholder="Marseille" />
+          </div>
+          <div class="input-box">
+            <label
+              data-fr="Date de départ"
+              data-en="Departure Date"
+              data-ar="تاريخ الذهاب"
+            >
+              Departure Date
+            </label>
+            <input type="date" />
+          </div>
+          <div class="input-box">
+            <label
+              data-fr="Date de retour"
+              data-en="Return Date"
+              data-ar="تاريخ العودة"
+            >
+              Return Date
+            </label>
+            <input type="date" />
+          </div>
+        </div>
+
+        <h3
+          data-fr="Informations passagers"
+          data-en="Passenger Information"
+          data-ar="معلومات المسافرين"
+        >
+          Passenger Information
+        </h3>
+
+        <div class="form-grid">
+          <div class="input-box">
+            <label data-fr="Prénom" data-en="First Name" data-ar="الاسم">
+              First Name
+            </label>
+            <input id="gnvFirstName" type="text" />
+          </div>
+          <div class="input-box">
+            <label data-fr="Nom" data-en="Last Name" data-ar="اللقب">
+              Last Name
+            </label>
+            <input id="gnvLastName" type="text" />
+          </div>
+          <div class="input-box">
+            <label
+              data-fr="Numéro de passeport"
+              data-en="Passport Number"
+              data-ar="رقم جواز السفر"
+            >
+              Passport Number
+            </label>
+            <input id="gnvPassportNumber" type="text" />
+          </div>
+        </div>
+
+        <h3
+          data-fr="Téléchargement des documents"
+          data-en="Documents Upload"
+          data-ar="رفع الوثائق"
+        >
+          Documents Upload
+        </h3>
+
+        <div class="upload-grid">
+          <div>
+            <label data-fr="Passeport" data-en="Passport" data-ar="جواز السفر">
+              Passport
+            </label>
+            <input type="file" />
+          </div>
+          <div>
+            <label
+              data-fr="Carte grise du véhicule"
+              data-en="Vehicle Registration (Carte Grise)"
+              data-ar="البطاقة الرمادية للسيارة"
+            >
+              Vehicle Registration (Carte Grise)
+            </label>
+            <input type="file" />
+          </div>
+          <div>
+            <label
+              data-fr="Permis de conduire"
+              data-en="Driving License"
+              data-ar="رخصة القيادة"
+            >
+              Driving License
+            </label>
+            <input type="file" />
+          </div>
+        </div>
+
+        <button
+          class="search-btn"
+          data-fr="RECHERCHER LES FERRIES GNV"
+          data-en="SEARCH GNV FERRIES"
+          data-ar="البحث عن عبارات GNV"
+        >
+          SEARCH GNV FERRIES
+        </button>
+      </div>
+    </section>
+
+    <!-- CORSICA LINEA SECTION -->
+    <section id="corsica" class="booking-section corsica-section">
+      <div class="booking-card">
+        <div class="company-title">
+          <img
+            src="assets/ferries/corsica-logo.png"
+            alt="Corsica Linea"
+            class="company-logo"
+          />
+          <h2
+            data-fr="Corsica Linea"
+            data-en="Corsica Linea"
+            data-ar="كورسيكا لاينيا"
+          >
+            Corsica Linea
+          </h2>
+          <p
+            data-fr="Partenaire officiel de réservation"
+            data-en="Official Booking Partner"
+            data-ar="شريك الحجز الرسمي"
+          >
+            Official Booking Partner
+          </p>
+        </div>
+
+        <div class="form-grid">
+          <div class="input-box">
+            <label data-fr="Départ" data-en="Departure" data-ar="الانطلاق">
+              Departure
+            </label>
+            <input type="text" placeholder="Algeria" />
+          </div>
+          <div class="input-box">
+            <label data-fr="Arrivée" data-en="Arrival" data-ar="الوصول">
+              Arrival
+            </label>
+            <input type="text" placeholder="France" />
+          </div>
+          <div class="input-box">
+            <label
+              data-fr="Date de départ"
+              data-en="Departure Date"
+              data-ar="تاريخ الذهاب"
+            >
+              Departure Date
+            </label>
+            <input type="date" />
+          </div>
+          <div class="input-box">
+            <label
+              data-fr="Date de retour"
+              data-en="Return Date"
+              data-ar="تاريخ العودة"
+            >
+              Return Date
+            </label>
+            <input type="date" />
+          </div>
+        </div>
+
+        <h3
+          data-fr="Informations passagers"
+          data-en="Passenger Information"
+          data-ar="معلومات المسافرين"
+        >
+          Passenger Information
+        </h3>
+
+        <div class="form-grid">
+          <div class="input-box">
+            <label data-fr="Prénom" data-en="First Name" data-ar="الاسم">
+              First Name
+            </label>
+            <input id="corsicaFirstName" type="text" />
+          </div>
+          <div class="input-box">
+            <label data-fr="Nom" data-en="Last Name" data-ar="اللقب">
+              Last Name
+            </label>
+            <input id="corsicaLastName" type="text" />
+          </div>
+          <div class="input-box">
+            <label
+              data-fr="Numéro de passeport"
+              data-en="Passport Number"
+              data-ar="رقم جواز السفر"
+            >
+              Passport Number
+            </label>
+            <input id="corsicaPassportNumber" type="text" />
+          </div>
+        </div>
+
+        <h3
+          data-fr="Téléchargement des documents"
+          data-en="Documents Upload"
+          data-ar="رفع الوثائق"
+        >
+          Documents Upload
+        </h3>
+
+        <div class="upload-grid">
+          <div>
+            <label data-fr="Passeport" data-en="Passport" data-ar="جواز السفر">
+              Passport
+            </label>
+            <input type="file" />
+          </div>
+          <div>
+            <label
+              data-fr="Carte grise du véhicule"
+              data-en="Vehicle Registration (Carte Grise)"
+              data-ar="البطاقة الرمادية للسيارة"
+            >
+              Vehicle Registration (Carte Grise)
+            </label>
+            <input type="file" />
+          </div>
+          <div>
+            <label
+              data-fr="Permis de conduire"
+              data-en="Driving License"
+              data-ar="رخصة القيادة"
+            >
+              Driving License
+            </label>
+            <input type="file" />
+          </div>
+        </div>
+
+        <button
+          class="search-btn"
+          data-fr="RECHERCHER LES FERRIES Corica"
+          data-en="SEARCH GNV FERRIES"
+          data-ar="البحث عن عبارات GNV"
+        >
+          SEARCH Corsica FERRIES
+        </button>
+      </div>
+    </section>
+
+    <!-- CORSICA RESULTS -->
+
+    <!-- AQUAREV EXPERIENCE -->
+    <section class="experience-section">
+      <h2
+        data-fr="Expérience Maritime Premium AQUAREV"
+        data-en="AQUAREV Premium Sea Experience"
+        data-ar="تجربة AQUAREV البحرية الفاخرة"
+      >
+        AQUAREV Premium Sea Experience
+      </h2>
+
+      <div class="experience-grid">
+        <div class="experience-card">
+          <i class="fa-solid fa-bed"></i>
+          <h3
+            data-fr="Cabines de Luxe"
+            data-en="Luxury Cabins"
+            data-ar="كبائن فاخرة"
+          >
+            Luxury Cabins
+          </h3>
+          <p
+            data-fr="Confort et vue sur la mer pendant votre voyage."
+            data-en="Comfort and sea view during your journey."
+            data-ar="راحة وإطلالة بحرية أثناء رحلتك."
+          >
+            Comfort and sea view during your journey.
+          </p>
+        </div>
+
+        <div class="experience-card">
+          <i class="fa-solid fa-utensils"></i>
+          <h3
+            data-fr="Restaurants en Mer"
+            data-en="Sea Restaurants"
+            data-ar="مطاعم بحرية"
+          >
+            Sea Restaurants
+          </h3>
+          <p
+            data-fr="Découvrez les saveurs méditerranéennes à bord."
+            data-en="Enjoy Mediterranean flavors onboard."
+            data-ar="استمتع بنكهات البحر الأبيض المتوسط على متن السفينة."
+          >
+            Enjoy Mediterranean flavors onboard.
+          </p>
+        </div>
+
+        <div class="experience-card">
+          <i class="fa-solid fa-water"></i>
+          <h3
+            data-fr="Vues Méditerranéennes"
+            data-en="Mediterranean Views"
+            data-ar="إطلالات متوسطية"
+          >
+            Mediterranean Views
+          </h3>
+          <p
+            data-fr="Voyagez entouré d'horizons bleus."
+            data-en="Travel surrounded by blue horizons."
+            data-ar="سافر محاطًا بآفاق زرقاء خلابة."
+          >
+            Travel surrounded by blue horizons.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ferry-footer">
+      <p
+        data-fr="© 2026 AQUAREV Travel"
+        data-en="© 2026 AQUAREV Travel"
+        data-ar="© 2026 أكواريف ترافل"
+      >
+        © 2026 AQUAREV Travel
+      </p>
+      <p
+        data-fr="Expériences Méditerranéennes de Luxe"
+        data-en="Luxury Mediterranean Experiences"
+        data-ar="تجارب متوسطية فاخرة"
+      >
+        Luxury Mediterranean Experiences
+      </p>
+    </footer>
+
+    <div class="ferry-modal" id="ferryModal">
+      <div class="ferry-modal-content">
+        <div class="ferry-terminal">
+          <div id="ferryResultsTerminal"></div>
+
+          <div
+            class="payment-section"
+            id="paymentSection"
+            style="display: none"
+          >
+            <h3
+              data-fr="Méthode de paiement"
+              data-en="Payment Method"
+              data-ar="طريقة الدفع"
+            >
+              PAYMENT METHOD
+            </h3>
+
+            <div class="payment-info">
+              <p>
+                BOOKING ID :
+                <span id="bookingId"></span>
+              </p>
+              <p>
+                AMOUNT :
+                <span id="paymentAmount"></span>
+              </p>
+              <p>
+                CURRENCY :
+                <span id="paymentCurrency"></span>
+              </p>
+            </div>
+
+            <div class="payment-buttons">
+              <button
+                class="payment-btn payment-btn-card"
+                data-method="gold-card"
+              >
+                <img src="assets/payment/edahabia.png" alt="Edahabia" />
+                <span
+                  data-fr="Carte Edahabia"
+                  data-en="Edahabia Card"
+                  data-ar="البطاقة الذهبية"
+                  >البطاقة الذهبية</span
+                >
+              </button>
+              <button class="payment-btn payment-btn-cash" data-method="cash">
+                <img src="assets/payment/cash.png" alt="Cash" />
+                <span data-fr="Espèces" data-en="Cash" data-ar="نقدا"
+                  >CASH</span
+                >
+              </button>
+            </div>
+            <div id="paymentStatus"></div>
+          </div>
+        </div>
+
+        <button
+          class="close-modal"
+          data-fr="Fermer"
+          data-en="Close"
+          data-ar="إغلاق"
+        >
+          CLOSE
+        </button>
+      </div>
+    </div>
+
+    <script src="ferries.js"></script>
+  </body>
 </html>

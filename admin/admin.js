@@ -725,6 +725,10 @@ const type=document.getElementById("requestType");
 const destination=document.getElementById("requestDestination");
 const date=document.getElementById("requestDate");
 
+const requestPDF=document.getElementById("requestPDF");
+const pdfLink=document.getElementById("pdfLink");
+
+
 
 if(title){
 title.textContent=getService(request);
@@ -1137,19 +1141,6 @@ clearTimeout(menuTimer);
 
 
 
-});
-
-
-}
-
-
-
-
-
-
-
-const archiveBtn = card.querySelector(".archive-request");
-
 if(archiveBtn){
 
 archiveBtn.addEventListener("click",(e)=>{
@@ -1168,7 +1159,6 @@ updateRequestStatus("archived");
 
 
 
-const deleteBtn = card.querySelector(".delete-request");
 
 
 if(deleteBtn){
@@ -1191,6 +1181,18 @@ deleteDoc(doc(db,"requests",request.id));
 });
 
 }
+
+
+
+
+});
+
+
+}
+
+
+
+
 
 
 
@@ -1296,7 +1298,6 @@ break;
 
 }
 const requestData=request.data||{};
-
 console.log("ALL VISA FIELDS:",requestData);
 
 if(fullName){
@@ -1419,6 +1420,54 @@ date.textContent=formatRequestDate(request);
 }
 
 
+
+
+
+
+
+
+
+
+if(email){
+email.textContent=getEmail(request);
+}
+
+if(phone){
+phone.textContent=getPhone(request);
+}
+
+if(address){
+address.textContent=getAddress(request);
+}
+
+if(passport){
+passport.textContent=getPassport(request);
+}
+
+if(father){
+father.textContent=getFatherName(request);
+}
+
+if(mother){
+mother.textContent=getMotherName(request);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if(description){
 description.textContent=getDescription(request);
 }
@@ -1458,14 +1507,11 @@ files.textContent="-";
 
 
 
-const requestPDF=document.getElementById("requestPDF");
-const pdfLink=document.getElementById("pdfLink");
 
 if(requestPDF&&pdfLink){
 if(request.pdfPath){
 requestPDF.style.display="flex";
-pdfLink.href="http://localhost:3000/pdf/"+request.pdfPath.split("\\").pop();
-}
+pdfLink.href="/pdf/"+request.pdfPath.split("\\").pop();}
 else{
 requestPDF.style.display="none";
 }
