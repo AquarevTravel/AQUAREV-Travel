@@ -194,6 +194,9 @@ amount:ferry.price,
 currency:ferry.currency,
 paymentMethod:method
 };
+
+
+
 fetch("/api/payment/chargily",{
 method:"POST",
 headers:{"Content-Type":"application/json"},

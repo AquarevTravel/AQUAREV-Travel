@@ -136,34 +136,91 @@ box-shadow:0 0 30px rgba(255,255,255,.8);
 padding:90px 30px;
 position:relative;
 }
+
+
+
+
 .gnv-section{
 position:relative;
-min-height:100vh;
+min-height:0;
+height:auto;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:120px 30px;
-background:linear-gradient(rgba(0,119,182,.20),rgba(2,62,138,.20)),url("assets/ferries/gnv-ship.jpg");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:fixed;
+padding:70px 30px;
 overflow:hidden;
+isolation:isolate;
+background:#000;
 }
+.gnv-slideshow{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.gnv-slide{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;transform:scale(1.03);animation:gnvFade 42s infinite}
+.gnv-slide-1{background-image:url("assets/ferries/gnv-ship.jpg");animation-delay:0s}
+.gnv-slide-2{background-image:url("assets/ferries/gnv-terrace.jpg");animation-delay:6s}
+.gnv-slide-3{background-image:url("assets/ferries/gnv-restaurant.jpg");animation-delay:12s}
+.gnv-slide-4{background-image:url("assets/ferries/gnv-cabins.jpg");animation-delay:18s}
+.gnv-slide-5{background-image:url("assets/ferries/gnv-lounge.jpg");animation-delay:24s}
+.gnv-slide-6{background-image:url("assets/ferries/gnv-bar.jpg");animation-delay:30s}
+.gnv-slide-7{background-image:url("assets/ferries/gnv-balcon.jpg");animation-delay:36s}
+.gnv-slideshow::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,35,70,.12),rgba(0,20,45,.25));z-index:5;pointer-events:none}
+.gnv-section .booking-card{position:relative;z-index:10}
+@keyframes gnvFade{0%{opacity:0;transform:scale(1.03)}4%{opacity:1}14%{opacity:1}18%{opacity:0}100%{opacity:0;transform:scale(1.08)}}
+@media(max-width:768px){
+.gnv-section{
+min-height:0;
+height:auto;
+padding:45px 10px 35px;
+}
+.gnv-slide{
+background-position:center top;
+animation-duration:42s;
+}
+}
+
+
+
+
+
+
 .corsica-section{
 position:relative;
-min-height:100vh;
+min-height:0;
+height:auto;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:120px 30px;
-background:linear-gradient(rgba(0,180,216,.20),rgba(2,62,138,.20)),url("assets/ferries/corsica-ship.jpg");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:fixed;
+padding:70px 30px;
 overflow:hidden;
+isolation:isolate;
+background:#000;
 }
+.corsica-section .gnv-slideshow{position:absolute;inset:0;z-index:0;overflow:hidden}
+.corsica-section .crc-slide{position:absolute;inset:0;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0;animation:crcFade 42s infinite}
+.corsica-section .crc-slide-1{background-image:url("assets/ferries/corsica-ship.jpg");animation-delay:0s}
+.corsica-section .crc-slide-2{background-image:url("assets/ferries/crc-terrace.jpg");animation-delay:6s}
+.corsica-section .crc-slide-3{background-image:url("assets/ferries/crc-restaurant.jpg");animation-delay:12s}
+.corsica-section .crc-slide-4{background-image:url("assets/ferries/crc-cabins.jpg");animation-delay:18s}
+.corsica-section .crc-slide-5{background-image:url("assets/ferries/crc-lounge.jpg");animation-delay:24s}
+.corsica-section .crc-slide-6{background-image:url("assets/ferries/crc-bar.jpg");animation-delay:30s}
+.corsica-section .crc-slide-7{background-image:url("assets/ferries/crc-balcon.jpg");animation-delay:36s}
+.corsica-section .gnv-slideshow::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,35,70,.10),rgba(0,20,45,.25));z-index:5;pointer-events:none}
+.corsica-section .booking-card{position:relative;z-index:10}
+@keyframes crcFade{0%{opacity:0}5%{opacity:1}12%{opacity:1}16%{opacity:0}100%{opacity:0}}
+@media(max-width:768px){
+.corsica-section{
+min-height:0;
+height:auto;
+padding:45px 10px 35px;
+}
+.corsica-section .crc-slide{
+background-position:center top;
+}
+}
+
+
+
+
+
+
 .input-box input,
 .input-box select{
 width:100%;
@@ -365,17 +422,7 @@ display:none!important;
 .language-box.active .language-menu{
 display:block!important;
 }
-.gnv-section::before,
-.corsica-section::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.12));
-pointer-events:none;
-}
+
 
 
 
@@ -513,25 +560,7 @@ margin:15px 0;
 .booking-section{
 padding:15px 10px;
 }
-.gnv-section,
-.corsica-section{
-min-height:auto;
-padding:20px 10px;
-background-position:center top;
-background-repeat:no-repeat;
-background-size:cover;
-background-attachment:scroll;
-}
-.gnv-section{
-background-image:url("assets/ferries/gnv-ship.jpg");
-}
-.corsica-section{
-background-image:url("assets/ferries/corsica-ship.jpg");
-}
-.gnv-section::before,
-.corsica-section::before{
-background:rgba(0,119,182,.15);
-}
+
 .booking-card{
 width:100%;
 padding:10px;
@@ -1192,4 +1221,65 @@ border:2px solid #d4af37;
 }
 .payment-btn-cash{
 border:2px solid #168a45;
+}
+
+
+
+
+
+
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    transition: .3s;
+}
+
+.footer-social a:hover {
+    transform: translateY(-5px);
+}
+
+.footer-social a:nth-child(1) {
+    background: #d93025;
+}
+
+.footer-social a:nth-child(2) {
+    background: #25D366;
+}
+
+.footer-social a:nth-child(3) {
+    background: #1877F2;
+}
+
+.footer-social a:nth-child(4) {
+    background: linear-gradient(45deg,#feda75,#d62976,#4f5bd5);
+}
+
+.footer-social a:nth-child(5) {
+    background: #00a8e8;
+}
+
+
+.footer-social a:nth-child(5) {
+    background: #000;
+    color: #fff;
+}
+
+.footer-social a:nth-child(6) {
+    background: #00a8e8;
+    color: #fff;
 }
