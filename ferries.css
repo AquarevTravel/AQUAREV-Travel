@@ -1283,3 +1283,17 @@ border:2px solid #168a45;
     background: #00a8e8;
     color: #fff;
 }
+
+
+
+
+
+
+
+
+.hero-booking-buttons{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:18px;margin:35px auto 0}.luxury-book-btn{position:relative;width:340px;min-height:82px;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-radius:22px;text-decoration:none;color:#fff;overflow:hidden;border:1px solid rgba(255,255,255,.65);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);box-shadow:0 15px 35px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.45);transition:transform .45s ease,box-shadow .45s ease}.gnv-btn{background:linear-gradient(135deg,#00b4d8,#0077b6)}.corsica-btn{background:linear-gradient(135deg,#ffc107,#ff6f61)}.luxury-book-btn:before{content:"";position:absolute;top:-100%;left:-40%;width:45%;height:300%;background:rgba(255,255,255,.25);transform:rotate(25deg);transition:.7s;pointer-events:none}.luxury-book-btn:hover:before{left:120%}.luxury-book-btn:hover{transform:translateY(-6px) scale(1.025);box-shadow:0 22px 45px rgba(0,0,0,.35),0 0 35px rgba(255,255,255,.25)}.luxury-book-btn .btn-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.55);font-size:23px;flex-shrink:0}.luxury-book-btn .btn-text{flex:1;text-align:left;padding-left:15px}.luxury-book-btn .btn-text small{display:block;font-size:10px;letter-spacing:2px;opacity:.9;margin-bottom:4px}.luxury-book-btn .btn-text strong{display:block;font-family:"Cinzel",serif;font-size:20px;letter-spacing:1px}.luxury-book-btn .btn-arrow{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.18);font-size:22px;transition:.4s}.luxury-book-btn:hover .btn-arrow{transform:translateX(5px);background:rgba(255,255,255,.35)}@media(max-width:768px){.hero-booking-buttons{width:100%;gap:12px;margin-top:25px}.luxury-book-btn{width:min(390px,94vw);min-height:68px;padding:10px 14px;border-radius:18px}.luxury-book-btn .btn-icon{width:40px;height:40px;font-size:18px}.luxury-book-btn .btn-text{padding-left:10px}.luxury-book-btn .btn-text small{font-size:8px;letter-spacing:1.5px}.luxury-book-btn .btn-text strong{font-size:16px}.luxury-book-btn .btn-arrow{width:32px;height:32px;font-size:18px}}
+
+
+
+
+.ferry-hero h1{font-size:50px!important}

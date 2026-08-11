@@ -1341,3 +1341,12 @@ transform:translateX(35px);
     }
 
 }
+
+
+
+
+
+.footer-social a:nth-child(5) {
+    background: #000;
+    color: #fff;
+}
