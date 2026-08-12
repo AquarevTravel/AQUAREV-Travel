@@ -197,23 +197,11 @@ paymentMethod:method
 
 
 
-fetch("/api/payment/chargily",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(paymentData)
-})
-.then(response=>response.json())
-.then(data=>{
-console.log("CHARGILY RESPONSE:",data);
-const status=document.getElementById("paymentStatus");
-if(status)status.innerText="REDIRECTING TO PAYMENT";
-if(data.checkout_url)window.location.href=data.checkout_url;
-})
-.catch(error=>{
-console.error("PAYMENT ERROR:",error);
-const status=document.getElementById("paymentStatus");
-if(status)status.innerText="PAYMENT ERROR";
-});
+fetch("/api/payment/chargily",
+    {method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(paymentData)}).then(async response=>{const data=await response.json();console.log("CHARGILY HTTP STATUS:",response.status);console.log("CHARGILY RESPONSE:",data);if(!response.ok)throw new Error(data.error||"Payment server error");const checkoutUrl=data.checkout_url||data.url;console.log("CHARGILY CHECKOUT URL:",checkoutUrl);if(!checkoutUrl)throw new Error("Chargily checkout URL missing");const status=document.getElementById("paymentStatus");if(status)status.innerText="REDIRECTING TO PAYMENT";window.location.assign(checkoutUrl)}).catch(error=>{console.error("PAYMENT ERROR:",error);const status=document.getElementById("paymentStatus");if(status)status.innerText="PAYMENT ERROR"});
+
 };
 });
 };
