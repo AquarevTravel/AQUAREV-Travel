@@ -1,13 +1,9 @@
 require("dotenv").config({
-path: require("path").join(__dirname, "../.env")
+path:"./.env"
 });
-
-console.log("EMAIL:", process.env.EMAIL_USER);
-console.log("PASS:", process.env.EMAIL_PASS ? "OK" : "MISSING");
+console.log("EMAIL:",process.env.EMAIL_USER);
+console.log("PASS:",process.env.EMAIL_PASS?"OK":"MISSING");
 console.log("BREVO KEY:", process.env.BREVO_API_KEY ? "FOUND" : "MISSING");
-
-
-
 const express=require("express");
 const admin=require("firebase-admin/app");
 const {getFirestore}=require("firebase-admin/firestore");
@@ -50,29 +46,18 @@ console.error("🔥 FIRESTORE CONNECTION ERROR:",error);
 
 
 }
-
-
-
 const db=getFirestore();
 const cors=require("cors");
 const path=require("path");
 const upload=require("./upload");
-const {ensureDestinationImage}=require("./download-destination-image");
 const generatePDF=require("./pdfGenerator");
 const generateFlightPDF=require("./flightPdfGenerator");
 const {sendMail,sendNewUserMail,sendFlightMail,sendPartnerMail}=require("./mailer");
-const {processUnreadGmailMessages}=require("../gmail/gmailReceiver");
-const {processPartnerProgram}=require("./partner-programs/program-service");
-const partnerProgramsRouter=require("./routes/partner-programs");
 const app=require("express")();
 app.use(cors());
 app.use(express.json());
-app.use("/api/partner-programs",partnerProgramsRouter);
 app.use(express.urlencoded({extended:true}));
 app.use("/uploads",express.static(path.join(__dirname,"../uploads")));
-
-
-
 app.use("/pdf",express.static(path.join(__dirname,"../pdf")));
 app.use("/pdf",express.static(path.join(__dirname,"pdf")));
 app.post("/new-user",async(req,res)=>{
@@ -228,11 +213,38 @@ app.use(express.static(path.join(__dirname,"..")));
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const {createCheckout}=require("./chargily/chargily");
 const {createMastercardCheckout}=require("./mastercard/mastercard");
 const {createBinanceCheckout}=require("./binance/binance");
 const SITE_URL=process.env.SITE_URL||"https://aquarev-travel-anfn.onrender.com";
-
 
 app.post("/api/payment/chargily",async(req,res)=>{
 try{
@@ -315,14 +327,7 @@ error:"Binance payment creation failed"
 
 
 const PORT=process.env.PORT||3000;
-
-
-app.listen(PORT,"0.0.0.0",async()=>{
+app.listen(PORT,"0.0.0.0",()=>{
 console.log("AQUAREV Server running on port "+PORT);
-try{
-await processUnreadGmailMessages(processPartnerProgram,db);
-console.log("📧 Gmail → Partner Program → Offers: CONNECTÉ");
-}catch(error){
-console.error("❌ Gmail processing error:",error.message||error);
-}
 });
+
