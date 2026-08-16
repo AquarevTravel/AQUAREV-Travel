@@ -1,496 +1,651 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AQUAREV Travel - Sign Up</title>
-<link rel="icon" href="assets/icons/favicon.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:'Poppins',sans-serif;
-background:#fff;
-min-height:auto;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:auto;
-}
-.signup-box{
-width:80%;
-max-width:300px;
-background:#fff;
-border-radius:10px;
-padding:5px 6px;
-box-shadow:0 10px 10px rgba(0,0,0,.15);
-text-align:center;
-}
-.logo img{
-width:70px;
-margin-bottom:8px;
-}
-.signup-box h2{
-color:#071426;
-font-size:22px;
-font-weight:300;
-margin:8px 0 25px;
-}
-.input-group{
-position:relative;
-margin-bottom:5px;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>AQUAREV Travel - Sign Up</title>
+    <link rel="icon" href="assets/icons/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #fff;
+        min-height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+      }
+      .signup-box {
+        width: 80%;
+        max-width: 300px;
+        background: #fff;
+        border-radius: 10px;
+        padding: 5px 6px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+        text-align: center;
+      }
+      .logo img {
+        width: 70px;
+        margin-bottom: 8px;
+      }
+      .signup-box h2 {
+        color: #071426;
+        font-size: 22px;
+        font-weight: 300;
+        margin: 8px 0 25px;
+      }
+      .input-group {
+        position: relative;
+        margin-bottom: 5px;
+      }
 
+      .input-group input {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 35px;
+        border: 1px solid #ddd;
+        font-size: 15px;
+        outline: none;
+      }
+      .input-group input:focus {
+        border-color: #d4af37;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+      }
+      .account-type {
+        margin: 10px 0;
+        text-align: left;
+        font-size: 14px;
+        color: #071426;
+      }
+      .account-type label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+      .account-type select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 35px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        outline: none;
+      }
 
+      .account-options {
+        position: relative;
+      }
 
-.input-group input{
-width:100%;
-padding:10px 12px;
-border-radius:35px;
-border:1px solid #ddd;
-font-size:15px;
-outline:none;
-}
-.input-group input:focus{
-border-color:#d4af37;
-box-shadow:0 0 10px rgba(212,175,55,.25);
-}
-.account-type{
-margin:10px 0;
-text-align:left;
-font-size:14px;
-color:#071426;
-}
-.account-type label{
-display:block;
-margin-bottom:6px;
-font-weight:600;
-}
-.account-type select{
-width:100%;
-padding:10px;
-border-radius:35px;
-border:1px solid #ddd;
-font-size:14px;
-outline:none;
-}
-.signup-btn{
-width:90%;
-padding:10px;
-border:none;
-border-radius:35px;
-background:linear-gradient(135deg,#d4af37,#f7e58a);
-font-size:16px;
-font-weight:700;
-cursor:pointer;
-color:#071426;
-transition:.3s;
-}
-.signup-btn:hover{
-transform:translateY(-3px);
-}
-.divider{
-display:flex;
-align-items:center;
-gap:10px;
-margin:25px 0;
-color:#777;
-}
-.divider span{
-height:8px;
-background:#ddd;
-flex:1;
-}
-.social-btn{
-width:100%;
-padding:10px;
-border-radius:35px;
-border:none;
-margin-bottom:12px;
-font-size:15px;
-font-weight:700;
-cursor:pointer;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:12px;
-transition:.3s;
-}
-.social-btn:hover{
-transform:translateY(-3px);
-}
-.google{
-background:#cfb0b0;
-border:1px solid #ddd;
-color:#333;
-}
-.facebook{
-background:#0469ec;
-color:#fff;
-}
+      .account-option {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid #ddd;
+        border-radius: 16px;
+        background: #fff;
+        color: #071426;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        text-align: left;
+        transition: 0.3s;
+      }
 
+      .account-option i {
+        width: 28px;
+        font-size: 18px;
+        color: #d4af37;
+        text-align: center;
+      }
 
+      .account-option span {
+        font-size: 12px;
+        font-weight: 700;
+        flex: 1;
+      }
 
-.login-link{
-margin-top:18px;
-font-size:14px;
-}
-.login-link a{
-color:#d4af37;
-font-weight:bold;
-text-decoration:none;
-}
-.bg-video{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-}
-body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.45);
-z-index:-1;
-}
-</style>
-</head>
-<body>
-<video autoplay muted loop playsinline class="bg-video">
-<source src="assets/videos/hero.mp4" type="video/mp4">
-</video>
-<div class="signup-box">
-<div class="logo">
-<img src="assets/logo/logo.png" alt="AQUAREV Travel">
-</div>
-<h2>
-<i class="fa-solid fa-user-plus" style="color:#d4af37;margin-right:8px;"></i>
-Créer un compte
-</h2>
-<form id="signupForm">
-<div class="input-group">
-<i class="fa-solid fa-user"></i>
-<input type="text" id="signupName" placeholder="Nom complet" required>
-</div>
-<div class="input-group">
-<i class="fa-solid fa-envelope"></i>
-<input type="email" id="signupEmail" placeholder="Email" required>
-</div>
-<div class="input-group">
-<i class="fa-solid fa-lock"></i>
-<input type="password" id="signupPassword" placeholder="Mot de passe" required>
-</div>
-<div class="input-group">
-<i class="fa-solid fa-lock"></i>
-<input type="password" id="signupConfirmPassword" placeholder="Confirmer le mot de passe" required>
-</div>
-<div class="account-type">
-<label>Type de compte</label>
-<select id="accountType">
-<option value="client">Client</option>
-<option value="agency">Agence de voyage</option>
-</select>
-</div>
-<button type="submit" class="signup-btn">
-<i class="fa-solid fa-user-check"></i>
-Créer mon compte
-</button>
-</form>
-<div class="divider">
-<span></span>
-OU
-<span></span>
-</div>
-<button type="button" class="social-btn google">
-<i class="fa-brands fa-google"></i>
-Créer avec Google
-</button>
-<button type="button" class="social-btn facebook">
-<i class="fa-brands fa-facebook-f"></i>
-Créer avec Facebook
-</button>
+      .account-option small {
+        font-size: 9px;
+        color: #888;
+      }
 
+      .account-option:not(.active) {
+        display: none;
+      }
 
+      .account-options.open .account-option {
+        display: flex;
+        margin-top: 6px;
+      }
 
+      .account-options.open .account-option.active {
+        display: flex;
+      }
 
+      .account-options::after {
+        content: "\f078";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 11px;
+        color: #777;
+        pointer-events: none;
+      }
 
+      .account-options.open::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
 
+      .account-option.active {
+        border: 2px solid #d4af37;
+        background: linear-gradient(135deg, #fff, #fff8df);
+        box-shadow: 0 5px 18px rgba(212, 175, 55, 0.22);
+      }
 
+      .signup-btn {
+        width: 90%;
+        padding: 10px;
+        border: none;
+        border-radius: 35px;
+        background: linear-gradient(135deg, #d4af37, #f7e58a);
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        color: #071426;
+        transition: 0.3s;
+      }
+      .signup-btn:hover {
+        transform: translateY(-3px);
+      }
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 25px 0;
+        color: #777;
+      }
+      .divider span {
+        height: 8px;
+        background: #ddd;
+        flex: 1;
+      }
+      .social-btn {
+        width: 100%;
+        padding: 10px;
+        border-radius: 35px;
+        border: none;
+        margin-bottom: 12px;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        transition: 0.3s;
+      }
+      .social-btn:hover {
+        transform: translateY(-3px);
+      }
+      .google {
+        background: #cfb0b0;
+        border: 1px solid #ddd;
+        color: #333;
+      }
+      .facebook {
+        background: #0469ec;
+        color: #fff;
+      }
 
+      .login-link {
+        margin-top: 18px;
+        font-size: 14px;
+      }
+      .login-link a {
+        color: #d4af37;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="assets/videos/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="signup-box">
+      <div class="logo">
+        <img src="assets/logo/logo.png" alt="AQUAREV Travel" />
+      </div>
+      <h2>
+        <i
+          class="fa-solid fa-user-plus"
+          style="color: #d4af37; margin-right: 8px"
+        ></i>
+        Créer un compte
+      </h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Nom complet"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" id="signupEmail" placeholder="Email" required />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Mot de passe"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input
+            type="password"
+            id="signupConfirmPassword"
+            placeholder="Confirmer le mot de passe"
+            required
+          />
+        </div>
 
+        <div class="account-type">
+          <label>Type de compte</label>
+          <div class="account-options">
+            <button
+              type="button"
+              class="account-option active"
+              data-type="client"
+            >
+              <i class="fa-solid fa-user"></i>
+              <span>CLIENT</span>
+              <small>Compte client</small>
+            </button>
+            <button type="button" class="account-option" data-type="partner">
+              <i class="fa-solid fa-handshake"></i>
+              <span>PARTENAIRE ECONOMIQUE</span>
+              <small>Partenaire économique</small>
+            </button>
+            <button type="button" class="account-option" data-type="agency">
+              <i class="fa-solid fa-building"></i>
+              <span>AGENCE DE VOYAGE</span>
+              <small>Agence commerciale</small>
+            </button>
+          </div>
+          <input type="hidden" id="accountType" value="client" />
+        </div>
 
-<p class="login-link">
-Vous avez déjà un compte ?
-<a href="signin.html">
-Connexion
-</a>
-</p>
-</div>
-<script type="module">
-import {auth,db} from "./firebase/firebase-config.js";
+        <button type="submit" class="signup-btn">
+          <i class="fa-solid fa-user-check"></i>
+          Créer mon compte
+        </button>
+      </form>
+      <div class="divider">
+        <span></span>
+        OU
+        <span></span>
+      </div>
+      <button type="button" class="social-btn google">
+        <i class="fa-brands fa-google"></i>
+        Créer avec Google
+      </button>
+      <button type="button" class="social-btn facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+        Créer avec Facebook
+      </button>
 
-import {createUserWithEmailAndPassword,GoogleAuthProvider,OAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-import {
-doc,
-setDoc,
-addDoc,
-collection,
-serverTimestamp
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+      <p class="login-link">
+        Vous avez déjà un compte ?
+        <a href="signin.html"> Connexion </a>
+      </p>
+    </div>
+    <script type="module">
+      import { auth, db } from "./firebase/firebase-config.js";
 
-getRedirectResult(auth)
+      import {
+        createUserWithEmailAndPassword,
+        GoogleAuthProvider,
+        OAuthProvider,
+        signInWithPopup,
+        signInWithRedirect,
+        getRedirectResult,
+      } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+      import {
+        doc,
+        setDoc,
+        addDoc,
+        collection,
+        serverTimestamp,
+      } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
+      getRedirectResult(auth)
+        .then(async (result) => {
+          console.log("REDIRECT RESULT:", result);
 
-.then(async(result)=>{
-console.log("REDIRECT RESULT:",result);
+          if (result) {
+            const user = result.user;
+            console.log("GOOGLE USER:", user);
 
-if(result){
-const user=result.user;
-console.log("GOOGLE USER:",user);
+            await setDoc(
+              doc(db, "users", user.uid),
+              {
+                name: user.displayName,
+                email: user.email,
+                provider: "Google",
+                createdAt: serverTimestamp(),
+              },
+              {
+                merge: true,
+              },
+            );
 
-await setDoc(
-doc(db,"users",user.uid),
-{
-name:user.displayName,
-email:user.email,
-provider:"Google",
-createdAt:serverTimestamp()
-},
-{
-merge:true
-}
-);
+            alert("Google OK");
 
-alert("Google OK");
+            window.location.href = "index.html";
+          } else {
+            console.log("NO REDIRECT RESULT");
+          }
+        })
+        .catch((error) => {
+          console.error("REDIRECT ERROR:", error);
+          alert(error.message);
+        });
 
+      auth.onAuthStateChanged(async (user) => {
+        if (user) {
+          console.log("CURRENT USER:", user);
 
+          await setDoc(
+            doc(db, "users", user.uid),
+            {
+              name: user.displayName || "Google User",
+              email: user.email,
+              provider: "Google",
+              createdAt: serverTimestamp(),
+            },
+            {
+              merge: true,
+            },
+          );
 
-window.location.href="index.html";
-}
-else{
-console.log("NO REDIRECT RESULT");
-}
-})
-.catch(error=>{
-console.error("REDIRECT ERROR:",error);
-alert(error.message);
-});
+          window.location.href = "index.html";
+        }
+      });
 
+      const signupForm = document.getElementById("signupForm");
 
-auth.onAuthStateChanged(async(user)=>{
-if(user){
-console.log("CURRENT USER:",user);
+      document.querySelectorAll(".account-option").forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(".account-option").forEach((item) => {
+            item.classList.remove("active");
+          });
 
-await setDoc(
-doc(db,"users",user.uid),
-{
-name:user.displayName||"Google User",
-email:user.email,
-provider:"Google",
-createdAt:serverTimestamp()
-},
-{
-merge:true
-}
-);
+          button.classList.add("active");
 
-window.location.href="index.html";
+          document.getElementById("accountType").value =
+            button.getAttribute("data-type");
+        });
+      });
 
+      signupForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("signupName").value;
+        const email = document.getElementById("signupEmail").value;
+        console.log("EMAIL SENT TO FIREBASE:", email);
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword = document.getElementById(
+          "signupConfirmPassword",
+        ).value;
+        const accountType = document.getElementById("accountType").value;
+        if (password !== confirmPassword) {
+          alert("Les mots de passe ne correspondent pas");
+          return;
+        }
+        try {
+          const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password,
+          );
+          const user = userCredential.user;
+          const role =
+            accountType === "agency"
+              ? "pending_agency"
+              : accountType === "partner"
+                ? "economic_partner"
+                : "client";
 
-}
-});
+          await setDoc(doc(db, "users", user.uid), {
+            name: name,
+            email: email,
+            provider: "Email",
+            role: role,
+            status: accountType === "agency" ? "waiting" : "active",
+            createdAt: serverTimestamp(),
+          });
+          const serverURL =
+            window.location.hostname === "localhost"
+              ? "http://localhost:3000"
+              : "http://10.123.251.25:3000";
+          await fetch(`${serverURL}/new-user`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              provider: "Email",
+              role: role,
+            }),
+          });
 
+          if (role === "pending_agency") {
+            alert(
+              "Votre demande de partenariat est en cours de validation par AQUAREV.",
+            );
+          } else {
+            alert("Compte client créé avec succès.");
+          }
+          window.location.href = "index.html";
+        } catch (error) {
+          console.error(error);
+          alert(error.message);
+        }
+      });
 
-const signupForm=document.getElementById("signupForm");
-signupForm.addEventListener("submit",async(e)=>{
-e.preventDefault();
-const name=document.getElementById("signupName").value;
-const email=document.getElementById("signupEmail").value;
-console.log("EMAIL SENT TO FIREBASE:",email);
-const password=document.getElementById("signupPassword").value;
-const confirmPassword=document.getElementById("signupConfirmPassword").value;
-const accountType=document.getElementById("accountType").value;
-if(password!==confirmPassword){
-alert("Les mots de passe ne correspondent pas");
-return;
-}
-try{
-const userCredential=await createUserWithEmailAndPassword(
-auth,
-email,
-password
-);
-const user=userCredential.user;
-const role=accountType==="agency"?"pending_agency":"client";
-await setDoc(
-doc(db,"users",user.uid),
-{
-name:name,
-email:email,
-provider:"Email",
-role:role,
-status:accountType==="agency"?"waiting":"active",
-createdAt:serverTimestamp()
-}
-);
-const serverURL=window.location.hostname==="localhost"
-?"http://localhost:3000"
-:"http://10.123.251.25:3000";
-await fetch(`${serverURL}/new-user`,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-name:name,
-email:email,
-provider:"Email",
-role:role
-})
-});
+      const googleButton = document.querySelector(".google");
+      googleButton.addEventListener("click", async () => {
+        try {
+          const provider = new GoogleAuthProvider();
 
-if(role==="pending_agency"){
-alert("Votre demande de partenariat est en cours de validation par AQUAREV.");
-}else{
-alert("Compte client créé avec succès.");
-}
-window.location.href="index.html";
-}
-catch(error){
-console.error(error);
-alert(error.message);
-}
-});
+          const result = await signInWithPopup(auth, provider);
 
-const googleButton=document.querySelector(".google");
-googleButton.addEventListener("click",async()=>{
-try{
-const provider=new GoogleAuthProvider();
+          const user = result.user;
 
-const result=await signInWithPopup(
-auth,
-provider
-);
+          const accountType = document.getElementById("accountType").value;
+          const role =
+            accountType === "agency"
+              ? "pending_agency"
+              : accountType === "partner"
+                ? "economic_partner"
+                : "client";
 
-const user=result.user;
+          await setDoc(
+            doc(db, "users", user.uid),
+            {
+              name: user.displayName,
+              email: user.email,
+              provider: "Google",
+              role: role,
+              status: accountType === "agency" ? "waiting" : "active",
+              createdAt: serverTimestamp(),
+            },
+            {
+              merge: true,
+            },
+          );
 
-const accountType=document.getElementById("accountType").value;
-const role=accountType==="agency"?"pending_agency":"client";
+          if (role === "pending_agency") {
+            await addDoc(collection(db, "notifications"), {
+              title: "Nouvelle demande de partenariat",
+              message: `${name} a envoyé une demande de partenariat.`,
+              userName: name,
+              email: email,
+              type: "partner",
+              read: false,
+              createdAt: serverTimestamp(),
+            });
 
-await setDoc(
-doc(db,"users",user.uid),
-{
-name:user.displayName,
-email:user.email,
-provider:"Google",
-role:role,
-status:accountType==="agency"?"waiting":"active",
-createdAt:serverTimestamp()
-},
-{
-merge:true
-}
-);
+            console.log("PARTNER REQUEST NOTIFICATION CREATED");
+          }
 
+          const serverURL =
+            window.location.hostname === "localhost"
+              ? "http://localhost:3000"
+              : "http://10.123.251.25:3000";
 
-if(role==="pending_agency"){
+          await fetch(`${serverURL}/new-user`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: user.displayName,
+              email: user.email,
+              provider: "Google",
+              role: role,
+            }),
+          });
 
-await addDoc(
-collection(db,"notifications"),
-{
-title:"Nouvelle demande de partenariat",
-message:`${name} a envoyé une demande de partenariat.`,
-userName:name,
-email:email,
-type:"partner",
-read:false,
-createdAt:serverTimestamp()
-}
-);
+          if (accountType === "agency") {
+            alert(
+              "Votre demande de partenariat est en cours de validation par AQUAREV.",
+            );
+          } else if (accountType === "partner") {
+            alert("Votre compte partenaire économique a été créé avec succès.");
+          } else {
+            alert("Compte client créé avec Facebook.");
+          }
+          window.location.href = "index.html";
+        } catch (error) {
+          console.error("GOOGLE ERROR:", error);
+          alert(error.message);
+        }
+      });
+      let facebookLoading = false;
+      document
+        .querySelector(".facebook")
+        .addEventListener("click", async () => {
+          if (facebookLoading) return;
+          facebookLoading = true;
+          try {
+            const provider = new FacebookAuthProvider();
+            provider.addScope("email");
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            const accountType = document.getElementById("accountType").value;
+            const role = accountType === "agency" ? "pending_agency" : "client";
+            console.log("SELECTED ACCOUNT TYPE:", accountType);
+            console.log("CREATED ROLE:", role);
+            await setDoc(
+              doc(db, "users", user.uid),
+              {
+                name: user.displayName || "Facebook User",
+                email: user.email,
+                provider: "Facebook",
+                role: role,
+                status: accountType === "agency" ? "waiting" : "active",
+                createdAt: serverTimestamp(),
+              },
+              {
+                merge: true,
+              },
+            );
+            alert("Compte créé avec Facebook.");
+            window.location.href = "index.html";
+          } catch (error) {
+            console.error("FACEBOOK SIGNUP ERROR:", error);
+            alert(error.message);
+          } finally {
+            facebookLoading = false;
+          }
+        });
 
-console.log("PARTNER REQUEST NOTIFICATION CREATED");
+      const accountOptions = document.querySelector(".account-options");
+      const accountButtons = document.querySelectorAll(".account-option");
+      const accountTypeInput = document.getElementById("accountType");
 
-}
+      accountOptions.addEventListener("click", (e) => {
+        const button = e.target.closest(".account-option");
 
-const serverURL=window.location.hostname==="localhost"
-?"http://localhost:3000"
-:"http://10.123.251.25:3000";
+        if (!button) return;
 
-await fetch(`${serverURL}/new-user`,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-name:user.displayName,
-email:user.email,
-provider:"Google",
-role:role
-})
-});
+        const type = button.dataset.type;
 
-if(accountType==="agency"){
-alert("Votre demande de partenariat est en cours de validation par AQUAREV.");
-}else{
-alert("Compte client créé avec succès.");
-}
+        accountTypeInput.value = type;
 
-window.location.href="index.html";
+        accountButtons.forEach((item) => {
+          item.classList.remove("active");
+        });
 
-}
-catch(error){
-console.error("GOOGLE ERROR:",error);
-alert(error.message);
-}
-});
-let facebookLoading=false;
-document.querySelector(".facebook").addEventListener("click",async()=>{
-if(facebookLoading)return;
-facebookLoading=true;
-try{
-const provider=new FacebookAuthProvider();
-provider.addScope("email");
-const result=await signInWithPopup(
-auth,
-provider
-);
-const user=result.user;
-const accountType=document.getElementById("accountType").value;
-const role=accountType==="agency"?"pending_agency":"client";
-console.log("SELECTED ACCOUNT TYPE:", accountType);
-console.log("CREATED ROLE:", role);
-await setDoc(
-doc(db,"users",user.uid),
-{
-name:user.displayName||"Facebook User",
-email:user.email,
-provider:"Facebook",
-role:role,
-status:accountType==="agency"?"waiting":"active",
-createdAt:serverTimestamp()
-},
-{
-merge:true
-}
-);
-alert("Compte créé avec Facebook.");
-window.location.href="index.html";
-}
-catch(error){
-console.error("FACEBOOK SIGNUP ERROR:",error);
-alert(error.message);
-}
-finally{
-facebookLoading=false;
-}
-});
-</script>
-</body>
+        button.classList.add("active");
+
+        accountOptions.classList.remove("open");
+      });
+
+      accountOptions.addEventListener("click", (e) => {
+        if (e.target.closest(".account-option.active")) {
+          accountOptions.classList.toggle("open");
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!accountOptions.contains(e.target)) {
+          accountOptions.classList.remove("open");
+        }
+      });
+    </script>
+  </body>
 </html>
