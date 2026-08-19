@@ -50,7 +50,7 @@ email:process.env.SENDER_EMAIL
 },
 to:[
 {
-email:"dididididida168@gmail.com",
+email:"agence.aquarev.travel@gmail.com",
 name:"AQUAREV Travel"
 }
 ],
@@ -86,7 +86,7 @@ email:process.env.SENDER_EMAIL
 },
 to:[
 {
-email:"dididididida168@gmail.com",
+email:"agence.aquarev.travel@gmail.com",
 name:"AQUAREV Travel"
 }
 ],
@@ -113,7 +113,7 @@ email:process.env.SENDER_EMAIL
 },
 to:[
 {
-email:"dididididida168@gmail.com",
+email:"agence.aquarev.travel@gmail.com",
 name:"AQUAREV Travel"
 }
 ],
