@@ -1,5 +1,6 @@
+const path=require("path");
 require("dotenv").config({
-path:"./.env"
+path:path.join(__dirname,"../.env")
 });
 console.log("EMAIL:",process.env.EMAIL_USER);
 console.log("PASS:",process.env.EMAIL_PASS?"OK":"MISSING");
@@ -48,7 +49,6 @@ console.error("🔥 FIRESTORE CONNECTION ERROR:",error);
 }
 const db=getFirestore();
 const cors=require("cors");
-const path=require("path");
 const upload=require("./upload");
 const generatePDF=require("./pdfGenerator");
 const generateFlightPDF=require("./flightPdfGenerator");

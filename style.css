@@ -124,9 +124,13 @@ transition:.3s;
 .hero-services{margin-top:35px;display:grid;grid-template-columns:repeat(3,auto);justify-content:center;gap:18px;max-width:1000px;margin-left:auto;margin-right:auto}
 .hero-services a{min-width:180px;height:55px;display:flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.35);border-radius:14px;color:#fff;font-size:15px;font-weight:600;position:relative;overflow:hidden;transition:.45s;backdrop-filter:blur(15px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
 
-.hero-services a i{font-size:20px;color:var(--gold);
-    transition:.4s}
-
+.hero-services a i{
+    font-size:30px;
+    color:#00bfff;
+    filter:drop-shadow(0 0 8px #fff)drop-shadow(0 0 18px #00bfff);
+    animation:premiumIcon 3s ease-in-out infinite;
+    transition:.5s
+}
 
 .hero-services a::before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.9),transparent);transform:skewX(-25deg);transition:.7s}
 .hero-services a:hover::before{left:160%}
