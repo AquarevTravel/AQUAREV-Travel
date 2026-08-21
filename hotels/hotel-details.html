@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Détails de l'hôtel - AQUAREV Travel" />
+    <title>Hôtel - AQUAREV Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./hotel-details.css" />
+  </head>
+  <body>
+    <header class="details-header">
+      <div class="header-inner">
+        <a href="./hotels.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Retour aux hôtels</span>
+        </a>
+        <a href="./hotels.html" class="brand">
+          <span>AQUAREV</span>
+          <small>TRAVEL</small>
+        </a>
+        <div class="header-right">
+          <span
+            ><i class="fa-solid fa-shield-halved"></i> Réservation
+            sécurisée</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <main id="hotelDetails">
+      <section class="details-loading" id="loadingState">
+        <div class="loader"></div>
+        <p>Chargement de l'hôtel...</p>
+      </section>
+
+      <section class="details-error hidden" id="errorState">
+        <div class="error-icon"><i class="fa-solid fa-hotel"></i></div>
+        <h1>Hôtel introuvable</h1>
+        <p id="errorMessage">
+          Impossible de charger les informations de cet hôtel.
+        </p>
+        <a href="./hotels.html" class="primary-button">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour aux hôtels
+        </a>
+      </section>
+
+      <section class="details-page hidden" id="detailsPage">
+        <div class="breadcrumb">
+          <a href="./hotels.html">Hôtels</a>
+          <i class="fa-solid fa-chevron-right"></i>
+          <span id="breadcrumbHotel">Hôtel</span>
+        </div>
+
+        <section class="hotel-gallery-section">
+          <div class="hotel-main-image">
+            <img id="hotelMainImage" src="" alt="" />
+            <div class="image-badge" id="featuredBadge">
+              <i class="fa-solid fa-star"></i>
+              Sélection AQUAREV
+            </div>
+          </div>
+        </section>
+
+        <section class="hotel-main-grid">
+          <div class="hotel-information">
+            <div class="hotel-type" id="hotelType">HÔTEL</div>
+            <h1 id="hotelName">Hôtel AQUAREV</h1>
+            <div class="hotel-meta">
+              <div class="hotel-stars" id="hotelStars"></div>
+              <strong id="hotelRating">0.0</strong>
+              <span>/ 10</span>
+              <span class="rating-label">Excellent</span>
+            </div>
+            <div class="hotel-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <span id="hotelDestination">Destination</span>
+            </div>
+
+            <div class="hotel-description">
+              <span class="section-kicker">AQUAREV TRAVEL</span>
+              <h2>Votre séjour commence ici.</h2>
+              <p id="hotelDescription">
+                Découvrez cet établissement sélectionné par AQUAREV Travel pour
+                son confort, son emplacement et la qualité de ses services.
+              </p>
+            </div>
+
+            <div class="services-section">
+              <h2>Services & équipements</h2>
+              <div class="services-grid" id="hotelServices"></div>
+            </div>
+          </div>
+
+          <aside class="booking-summary">
+            <div class="summary-kicker">VOTRE SÉJOUR</div>
+            <h2>Résumé de la réservation</h2>
+
+            <div class="summary-row">
+              <span><i class="fa-regular fa-calendar"></i> Arrivée</span>
+              <strong id="summaryCheckIn">Sélectionner</strong>
+            </div>
+
+            <div class="summary-row">
+              <span><i class="fa-regular fa-calendar-check"></i> Départ</span>
+              <strong id="summaryCheckOut">Sélectionner</strong>
+            </div>
+
+            <div class="summary-row">
+              <span><i class="fa-solid fa-users"></i> Voyageurs</span>
+              <strong id="summaryGuests">2 Adultes · 1 Chambre</strong>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="price-label">À partir de</div>
+            <div class="price-line">
+              <strong id="hotelPrice">0 DZD</strong>
+              <span>/ nuit</span>
+            </div>
+
+            <div class="price-note">
+              <i class="fa-solid fa-circle-info"></i>
+              <span
+                >Le prix final sera calculé selon vos dates et le nombre de
+                chambres.</span
+              >
+            </div>
+
+            <button type="button" class="booking-button" id="bookingButton">
+              <i class="fa-solid fa-calendar-check"></i>
+              Réserver cet hôtel
+            </button>
+
+            <div class="secure-note">
+              <i class="fa-solid fa-lock"></i>
+              Réservation sécurisée
+            </div>
+          </aside>
+        </section>
+
+        <section class="stay-details">
+          <div class="stay-card">
+            <i class="fa-solid fa-hotel"></i>
+            <div>
+              <strong>Établissement sélectionné</strong>
+              <span id="stayHotelName">Hôtel AQUAREV</span>
+            </div>
+          </div>
+          <div class="stay-card">
+            <i class="fa-solid fa-shield-heart"></i>
+            <div>
+              <strong>Assistance AQUAREV</strong>
+              <span>Notre équipe vous accompagne</span>
+            </div>
+          </div>
+          <div class="stay-card">
+            <i class="fa-solid fa-credit-card"></i>
+            <div>
+              <strong>Paiement sécurisé</strong>
+              <span>Processus de réservation sécurisé</span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./hotel-details.js"></script>
+  </body>
+</html>

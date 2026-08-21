@@ -245,7 +245,7 @@ const {createCheckout}=require("./chargily/chargily");
 const {createMastercardCheckout}=require("./mastercard/mastercard");
 const {createBinanceCheckout}=require("./binance/binance");
 const SITE_URL=process.env.SITE_URL||"https://aquarev-travel-anfn.onrender.com";
-
+const {createHotelPayment}=require("./services/payment-service");
 app.post("/api/payment/chargily",async(req,res)=>{
 try{
 const checkout=await createCheckout({
@@ -253,8 +253,11 @@ amount:req.body.amount,
 currency:req.body.currency,
 name:req.body.name,
 email:req.body.email,
+bookingType:req.body.bookingType||"ferry",
 bookingId:req.body.bookingId,
+bookingReference:req.body.bookingReference||req.body.reference,
 ferry:req.body.ferry,
+hotelName:req.body.hotelName,
 route:req.body.route,
 success_url:`${SITE_URL}/payment-success.html`,
 failure_url:`${SITE_URL}/payment-failed.html`
@@ -267,7 +270,6 @@ error:"Payment creation failed"
 });
 }
 });
-
 app.post("/api/payment/mastercard",async(req,res)=>{
 try{
 const checkout=await createMastercardCheckout({
@@ -276,7 +278,7 @@ currency:req.body.currency,
 name:req.body.name,
 email:req.body.email,
 bookingId:req.body.bookingId,
-success_url:`${SITE_URL}/payment-success.html`,
+success_url:`${SITE_URL}/hotel-confirmation.html`,
 failure_url:`${SITE_URL}/payment-failed.html`
 });
 res.json(checkout);
@@ -317,7 +319,37 @@ error:"Binance payment creation failed"
 
 
 
+app.post("/api/payment/hotel",async(req,res)=>{
+try{
+const checkout=await createHotelPayment({
+amount:req.body.amount,
+currency:req.body.currency,
+name:req.body.name,
+email:req.body.email,
+bookingId:req.body.bookingId,
+hotelName:req.body.hotelName,
+checkIn:req.body.checkIn,
+checkOut:req.body.checkOut,
+nights:req.body.nights,
+rooms:req.body.rooms,
+success_url:`${SITE_URL}/payment-success.html`,
+failure_url:`${SITE_URL}/payment-failed.html`
+});
 
+res.json({
+success:true,
+...checkout
+});
+
+}catch(error){
+console.error("HOTEL PAYMENT ERROR:",error.response?.data||error.message);
+
+res.status(500).json({
+success:false,
+error:"Hotel payment creation failed"
+});
+}
+});
 
 
 

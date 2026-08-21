@@ -1,0 +1,343 @@
+[
+{
+"id": "hotel-paris-louvre",
+"name": "Hôtel Paris Louvre",
+"destination": "Paris, France",
+"city": "Paris",
+"country": "France",
+"stars": 5,
+"rating": 9.2,
+"type": "hotel",
+"price": 28500,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(22).jpg",
+"services": [
+"wifi",
+"breakfast",
+"parking",
+"pool"
+]
+},
+{
+"id": "hotel-istanbul-bosphore",
+"name": "Istanbul Bosphore Palace",
+"destination": "Istanbul, Türkiye",
+"city": "Istanbul",
+"country": "Türkiye",
+"stars": 5,
+"rating": 9.4,
+"type": "hotel",
+"price": 24500,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(2).jpg",
+"services": [
+"wifi",
+"breakfast",
+"pool",
+"parking"
+]
+},
+{
+"id": "hotel-dubai-royal",
+"name": "Dubai Royal Resort",
+"destination": "Dubai, UAE",
+"city": "Dubai",
+"country": "UAE",
+"stars": 5,
+"rating": 9.6,
+"type": "resort",
+"price": 42000,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(3).jpg",
+"services": [
+"wifi",
+"breakfast",
+"pool",
+"parking"
+]
+},
+{
+"id": "hotel-barcelona-mediterraneo",
+"name": "Barcelona Mediterráneo",
+"destination": "Barcelona, Espagne",
+"city": "Barcelona",
+"country": "Espagne",
+"stars": 4,
+"rating": 8.9,
+"type": "hotel",
+"price": 21500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(4).jpg",
+"services": [
+"wifi",
+"breakfast",
+"parking"
+]
+},
+{
+"id": "hotel-newyork-manhattan",
+"name": "Manhattan Grand Hotel",
+"destination": "New York, USA",
+"city": "New York",
+"country": "USA",
+"stars": 5,
+"rating": 9.1,
+"type": "hotel",
+"price": 38500,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(5).jpg",
+"services": [
+"wifi",
+"breakfast",
+"parking"
+]
+},
+{
+"id": "hotel-maldives-paradise",
+"name": "Maldives Paradise Resort",
+"destination": "Maldives",
+"city": "Malé",
+"country": "Maldives",
+"stars": 5,
+"rating": 9.7,
+"type": "resort",
+"price": 55000,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(6).jpg",
+"services": [
+"wifi",
+"breakfast",
+"pool"
+]
+},
+{
+"id": "hotel-paris-eiffel",
+"name": "Paris Eiffel Palace",
+"destination": "Paris, France",
+"city": "Paris",
+"country": "France",
+"stars": 4,
+"rating": 8.8,
+"type": "hotel",
+"price": 19500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(7).jpg",
+"services": [
+"wifi",
+"breakfast"
+]
+},
+{
+"id": "hotel-istanbul-sultanahmet",
+"name": "Sultanahmet Grand Hotel",
+"destination": "Istanbul, Türkiye",
+"city": "Istanbul",
+"country": "Türkiye",
+"stars": 4,
+"rating": 8.7,
+"type": "hotel",
+"price": 16500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(8).jpg",
+"services": [
+"wifi",
+"breakfast",
+"parking"
+]
+},
+{
+"id": "hotel-dubai-marina",
+"name": "Dubai Marina Luxury",
+"destination": "Dubai, UAE",
+"city": "Dubai",
+"country": "UAE",
+"stars": 5,
+"rating": 9.3,
+"type": "hotel",
+"price": 33500,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(9).jpg",
+"services": [
+"wifi",
+"breakfast",
+"pool"
+]
+},
+{
+"id": "hotel-barcelona-plaza",
+"name": "Barcelona Plaza Hotel",
+"destination": "Barcelona, Espagne",
+"city": "Barcelona",
+"country": "Espagne",
+"stars": 3,
+"rating": 8.2,
+"type": "hotel",
+"price": 13500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(10).jpg",
+"services": [
+"wifi",
+"breakfast"
+]
+},
+{
+"id": "hotel-newyork-central",
+"name": "New York Central Hotel",
+"destination": "New York, USA",
+"city": "New York",
+"country": "USA",
+"stars": 4,
+"rating": 8.6,
+"type": "hotel",
+"price": 29500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(11).jpg",
+"services": [
+"wifi",
+"parking"
+]
+},
+{
+"id": "hotel-maldives-lagoon",
+"name": "Maldives Lagoon Resort",
+"destination": "Maldives",
+"city": "Malé",
+"country": "Maldives",
+"stars": 4,
+"rating": 9.0,
+"type": "resort",
+"price": 39500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(12).jpg",
+"services": [
+"wifi",
+"breakfast",
+"pool"
+]
+},
+{
+"id": "hotel-paris-boutique",
+"name": "Paris Boutique Residence",
+"destination": "Paris, France",
+"city": "Paris",
+"country": "France",
+"stars": 3,
+"rating": 8.4,
+"type": "hotel",
+"price": 12500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(13).jpg",
+"services": [
+"wifi",
+"breakfast"
+]
+},
+{
+"id": "hotel-istanbul-golden",
+"name": "Golden Horn Istanbul",
+"destination": "Istanbul, Türkiye",
+"city": "Istanbul",
+"country": "Türkiye",
+"stars": 3,
+"rating": 8.1,
+"type": "hotel",
+"price": 11500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(14).jpg",
+"services": [
+"wifi",
+"breakfast"
+]
+},
+{
+"id": "hotel-dubai-palm",
+"name": "Palm Jumeirah Residence",
+"destination": "Dubai, UAE",
+"city": "Dubai",
+"country": "UAE",
+"stars": 4,
+"rating": 8.9,
+"type": "apartment",
+"price": 27500,
+"currency": "DZD",
+"featured": false,
+"image": "./assets/images/hotels/(15).jpg",
+"services": [
+"wifi",
+"pool",
+"parking"
+]
+},
+{
+"id": "hotel-barcelona-sea",
+"name": "Barcelona Sea View Resort",
+"destination": "Barcelona, Espagne",
+"city": "Barcelona",
+"country": "Espagne",
+"stars": 5,
+"rating": 9.1,
+"type": "resort",
+"price": 31000,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(16).jpg",
+"services": [
+"wifi",
+"breakfast",
+"pool",
+"parking"
+]
+},
+{
+"id": "hotel-newyork-broadway",
+"name": "Broadway Luxury Hotel",
+"destination": "New York, USA",
+"city": "New York",
+"country": "USA",
+"stars": 5,
+"rating": 9.3,
+"type": "hotel",
+"price": 45000,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(17).jpg",
+"services": [
+"wifi",
+"breakfast",
+"parking"
+]
+},
+{
+"id": "hotel-maldives-villa",
+"name": "Maldives Ocean Villa",
+"destination": "Maldives",
+"city": "Malé",
+"country": "Maldives",
+"stars": 5,
+"rating": 9.8,
+"type": "villa",
+"price": 68000,
+"currency": "DZD",
+"featured": true,
+"image": "./assets/images/hotels/(18).jpg",
+"services": [
+"wifi",
+"breakfast",
+"pool"
+]
+}
+]

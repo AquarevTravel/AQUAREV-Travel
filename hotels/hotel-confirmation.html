@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Confirmation de réservation - AQUAREV Travel"
+    />
+    <title>Réservation confirmée - AQUAREV Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./hotel-confirmation.css" />
+  </head>
+  <body>
+    <header class="confirmation-header">
+      <div class="header-inner">
+        <a href="./hotels.html" class="brand">
+          <span>AQUAREV</span>
+          <small>TRAVEL</small>
+        </a>
+        <div class="header-secure">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Réservation sécurisée</span>
+        </div>
+      </div>
+    </header>
+    <main class="confirmation-page">
+      <section class="loading-state" id="loadingState">
+        <div class="loader"></div>
+        <p>Chargement de votre confirmation...</p>
+      </section>
+      <section class="error-state hidden" id="errorState">
+        <div class="error-icon">
+          <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <h1>Confirmation indisponible</h1>
+        <p id="errorMessage">
+          Impossible de récupérer les informations de votre réservation.
+        </p>
+        <a href="./hotels.html" class="primary-button">
+          <i class="fa-solid fa-hotel"></i>
+          Retour aux hôtels
+        </a>
+      </section>
+      <section class="confirmation-content hidden" id="confirmationContent">
+        <div class="confirmation-hero">
+          <div class="success-icon">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <span class="confirmation-kicker">AQUAREV TRAVEL</span>
+          <h1>Réservation confirmée</h1>
+          <p>Votre demande de réservation a été enregistrée avec succès.</p>
+          <div class="reference-box">
+            <span>Référence de réservation</span>
+            <strong id="bookingReference">—</strong>
+            <button
+              type="button"
+              class="copy-reference"
+              id="copyReference"
+              title="Copier la référence"
+            >
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+        </div>
+        <div class="confirmation-grid">
+          <div class="confirmation-main">
+            <div class="confirmation-card hotel-card">
+              <div class="hotel-image">
+                <img id="hotelImage" src="" alt="" />
+              </div>
+              <div class="hotel-info">
+                <span class="hotel-type" id="hotelType">HÔTEL</span>
+                <h2 id="hotelName">—</h2>
+                <div class="hotel-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span id="hotelDestination">—</span>
+                </div>
+                <div class="hotel-rating">
+                  <span id="hotelStars"></span>
+                  <strong id="hotelRating">—</strong>
+                  <span>/ 10</span>
+                </div>
+              </div>
+            </div>
+            <div class="confirmation-card">
+              <div class="card-title">
+                <i class="fa-solid fa-calendar-days"></i>
+                <div>
+                  <h2>Votre séjour</h2>
+                  <p>Informations de votre réservation</p>
+                </div>
+              </div>
+              <div class="details-grid">
+                <div class="detail-item">
+                  <span><i class="fa-regular fa-calendar"></i> Arrivée</span>
+                  <strong id="checkIn">—</strong>
+                </div>
+                <div class="detail-item">
+                  <span
+                    ><i class="fa-regular fa-calendar-check"></i> Départ</span
+                  >
+                  <strong id="checkOut">—</strong>
+                </div>
+                <div class="detail-item">
+                  <span><i class="fa-solid fa-moon"></i> Nuits</span>
+                  <strong id="nights">—</strong>
+                </div>
+                <div class="detail-item">
+                  <span><i class="fa-solid fa-users"></i> Voyageurs</span>
+                  <strong id="guests">—</strong>
+                </div>
+                <div class="detail-item">
+                  <span><i class="fa-solid fa-bed"></i> Chambres</span>
+                  <strong id="rooms">—</strong>
+                </div>
+              </div>
+            </div>
+            <div class="confirmation-card">
+              <div class="card-title">
+                <i class="fa-solid fa-user"></i>
+                <div>
+                  <h2>Informations du voyageur</h2>
+                  <p>Coordonnées utilisées pour la réservation</p>
+                </div>
+              </div>
+              <div class="guest-details">
+                <div>
+                  <span>Nom complet</span>
+                  <strong id="guestName">—</strong>
+                </div>
+                <div>
+                  <span>E-mail</span>
+                  <strong id="guestEmail">—</strong>
+                </div>
+                <div>
+                  <span>Téléphone</span>
+                  <strong id="guestPhone">—</strong>
+                </div>
+              </div>
+              <div class="special-request hidden" id="specialRequestBox">
+                <span>Demande particulière</span>
+                <p id="specialRequest">—</p>
+              </div>
+            </div>
+            <div class="confirmation-actions">
+              <button type="button" class="payment-button" id="paymentButton">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Payer maintenant</span>
+              </button>
+              <button
+                type="button"
+                class="action-button print-button"
+                id="printButton"
+              >
+                <i class="fa-solid fa-print"></i>
+                <span>Imprimer</span>
+              </button>
+              <button
+                type="button"
+                class="action-button pdf-button"
+                id="pdfButton"
+              >
+                <i class="fa-solid fa-file-pdf"></i>
+                <span>Télécharger PDF</span>
+              </button>
+              <button
+                type="button"
+                class="action-button share-button"
+                id="shareButton"
+              >
+                <i class="fa-solid fa-share-nodes"></i>
+                <span>Partager</span>
+              </button>
+              <a href="./hotels.html" class="primary-button">
+                <i class="fa-solid fa-hotel"></i>
+                <span>Retour aux hôtels</span>
+              </a>
+            </div>
+            <div class="action-status hidden" id="actionStatus"></div>
+          </div>
+          <aside class="confirmation-sidebar">
+            <div class="price-card">
+              <span class="price-kicker">TOTAL ESTIMÉ</span>
+              <h2>Montant du séjour</h2>
+              <div class="price-total">
+                <strong id="totalPrice">—</strong>
+                <span id="currency">DZD</span>
+              </div>
+              <div class="price-breakdown">
+                <div>
+                  <span>Tarif par nuit</span>
+                  <strong id="pricePerNight">—</strong>
+                </div>
+                <div>
+                  <span id="priceCalculation">—</span>
+                  <strong></strong>
+                </div>
+              </div>
+              <div class="price-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <span
+                  >Le montant affiché est indicatif. La confirmation finale
+                  dépend de la disponibilité.</span
+                >
+              </div>
+            </div>
+            <div class="assistance-card">
+              <div class="assistance-icon">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <div>
+                <strong>Besoin d'aide ?</strong>
+                <span
+                  >L'équipe AQUAREV Travel reste à votre disposition pour toute
+                  question concernant votre réservation.</span
+                >
+              </div>
+            </div>
+            <div class="secure-card">
+              <i class="fa-solid fa-lock"></i>
+              <div>
+                <strong>Réservation sécurisée</strong>
+                <span
+                  >Vos informations ont été enregistrées de manière
+                  sécurisée.</span
+                >
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <script src="./hotel-confirmation.js"></script>
+  </body>
+</html>

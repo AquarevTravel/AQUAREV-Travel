@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Paiement sécurisé - AQUAREV Travel" />
+    <title>Paiement - AQUAREV Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./hotel-payment.css" />
+  </head>
+  <body>
+    <header class="payment-header">
+      <div class="header-inner">
+        <a href="./hotel-booking.html" class="back-link"
+          ><i class="fa-solid fa-arrow-left"></i
+          ><span>Retour à la réservation</span></a
+        >
+        <a href="./hotels.html" class="brand"
+          ><span>AQUAREV</span><small>TRAVEL</small></a
+        >
+        <div class="secure-badge">
+          <i class="fa-solid fa-shield-halved"></i
+          ><span>Paiement sécurisé</span>
+        </div>
+      </div>
+    </header>
+    <main class="payment-page">
+      <section class="payment-loading" id="loadingState">
+        <div class="loader"></div>
+        <p>Préparation du paiement...</p>
+      </section>
+      <section class="payment-error hidden" id="errorState">
+        <div class="error-icon"><i class="fa-solid fa-credit-card"></i></div>
+        <h1>Paiement indisponible</h1>
+        <p id="errorMessage">Impossible de préparer votre paiement.</p>
+        <a href="./hotel-booking.html" class="primary-button"
+          ><i class="fa-solid fa-arrow-left"></i>Retour à la réservation</a
+        >
+      </section>
+      <section class="payment-content hidden" id="paymentContent">
+        <div class="payment-intro">
+          <span class="section-kicker">AQUAREV TRAVEL</span>
+          <h1>Finalisez votre paiement</h1>
+          <p>
+            Vérifiez votre réservation puis choisissez votre méthode de
+            paiement.
+          </p>
+        </div>
+        <div class="payment-grid">
+          <div class="payment-main">
+            <div class="payment-card">
+              <div class="card-heading">
+                <span class="step-number">1</span>
+                <div>
+                  <h2>Votre réservation</h2>
+                  <p>Résumé du séjour</p>
+                </div>
+              </div>
+              <div class="hotel-summary">
+                <img id="hotelImage" src="" alt="" />
+                <div>
+                  <span id="hotelType">HÔTEL</span>
+                  <h3 id="hotelName">Hôtel AQUAREV</h3>
+                  <p>
+                    <i class="fa-solid fa-location-dot"></i
+                    ><span id="hotelDestination">Destination</span>
+                  </p>
+                </div>
+              </div>
+              <div class="details-grid">
+                <div><span>Arrivée</span><strong id="checkIn">—</strong></div>
+                <div><span>Départ</span><strong id="checkOut">—</strong></div>
+                <div><span>Nuits</span><strong id="nights">—</strong></div>
+                <div><span>Voyageurs</span><strong id="guests">—</strong></div>
+                <div><span>Chambres</span><strong id="rooms">—</strong></div>
+                <div>
+                  <span>Référence</span><strong id="reference">—</strong>
+                </div>
+              </div>
+            </div>
+            <div class="payment-card">
+              <div class="card-heading">
+                <span class="step-number">2</span>
+                <div>
+                  <h2>Mode de paiement</h2>
+                  <p>Choisissez votre méthode de paiement</p>
+                </div>
+              </div>
+              <div class="methods">
+                <button
+                  type="button"
+                  class="method active"
+                  data-method="chargily"
+                >
+                  <i class="fa-solid fa-credit-card"></i>
+                  <span
+                    ><strong>Carte bancaire</strong
+                    ><small>Paiement sécurisé via Chargily</small></span
+                  >
+                  <i class="fa-solid fa-circle-check check"></i>
+                </button>
+                <button type="button" class="method" data-method="mastercard">
+                  <i class="fa-brands fa-cc-mastercard"></i>
+                  <span
+                    ><strong>Mastercard</strong
+                    ><small>Paiement sécurisé</small></span
+                  >
+                  <i class="fa-solid fa-circle-check check"></i>
+                </button>
+                <button type="button" class="method" data-method="binance">
+                  <i class="fa-brands fa-bitcoin"></i>
+                  <span
+                    ><strong>Binance Pay</strong
+                    ><small>Paiement en cryptomonnaie</small></span
+                  >
+                  <i class="fa-solid fa-circle-check check"></i>
+                </button>
+              </div>
+              <div class="payment-notice">
+                <i class="fa-solid fa-lock"></i>
+                <span
+                  >Vous serez redirigé vers la plateforme de paiement sécurisée
+                  après avoir cliqué sur
+                  <strong>Payer maintenant</strong>.</span
+                >
+              </div>
+              <button type="button" id="payButton" class="pay-button">
+                <i class="fa-solid fa-lock"></i>
+                <span>Payer maintenant</span>
+              </button>
+              <div id="paymentMessage" class="payment-message hidden"></div>
+            </div>
+          </div>
+          <aside class="payment-sidebar">
+            <div class="amount-card">
+              <span class="summary-kicker">MONTANT À PAYER</span>
+              <h2 id="hotelNameSide">Hôtel AQUAREV</h2>
+              <div class="amount">
+                <strong id="totalAmount">0</strong>
+                <span id="currency">DZD</span>
+              </div>
+              <div class="amount-line"><span id="calculation">—</span></div>
+              <div class="secure-line">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Paiement sécurisé</span>
+              </div>
+            </div>
+            <div class="guest-card">
+              <span class="summary-kicker">VOYAGEUR</span>
+              <strong id="guestName">—</strong>
+              <span id="guestEmail">—</span>
+              <span id="guestPhone">—</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <script src="./hotel-payment.js"></script>
+  </body>
+</html>

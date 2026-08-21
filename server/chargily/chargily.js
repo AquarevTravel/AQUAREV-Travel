@@ -37,18 +37,36 @@ throw new Error("Unsupported payment currency: "+originalCurrency);
 }
 
 const bookingId=paymentData.bookingId||"";
+const bookingType=String(paymentData.bookingType||"ferry").toLowerCase();
 const ferry=paymentData.ferry||"Ferry";
+const hotelName=paymentData.hotelName||"Hôtel";
 const route=paymentData.route||"";
+const bookingReference=paymentData.bookingReference||paymentData.reference||"";
+
+let description="";
+
+if(bookingType==="hotel"){
+description="AQUAREV Hotel Booking - "+hotelName;
+}else{
+description="AQUAREV Ferry Booking - "+ferry;
+}
 
 const checkoutData={
 amount:amountDZD,
 currency:"dzd",
-success_url:`${SITE_URL}/payment-success.html`,
-failure_url:`${SITE_URL}/payment-failed.html`,
-description:"AQUAREV Ferry Booking - "+ferry,
+
+
+success_url:paymentData.success_url||`${SITE_URL}/payment-success.html`,
+failure_url:paymentData.failure_url||`${SITE_URL}/payment-failed.html`,
+
+
+description:description,
 metadata:{
 bookingId:bookingId,
+bookingType:bookingType,
+bookingReference:bookingReference,
 ferry:ferry,
+hotelName:hotelName,
 route:route,
 originalAmount:originalAmount,
 originalCurrency:originalCurrency,
@@ -74,6 +92,9 @@ timeout:30000
 const checkoutUrl=response.data?.checkout_url||response.data?.url;
 
 console.log("CHARGILY CHECKOUT CREATED");
+console.log("BOOKING TYPE:",bookingType);
+console.log("BOOKING ID:",bookingId||"N/A");
+console.log("BOOKING REFERENCE:",bookingReference||"N/A");
 console.log("ORIGINAL AMOUNT:",originalAmount,originalCurrency);
 console.log("EXCHANGE RATE:",exchangeRate||"N/A");
 console.log("CHARGILY AMOUNT:",amountDZD,"DZD");
@@ -85,7 +106,14 @@ throw new Error("Chargily did not return a checkout URL");
 
 return{
 ...response.data,
-checkout_url:checkoutUrl
+checkout_url:checkoutUrl,
+bookingType:bookingType,
+bookingId:bookingId,
+bookingReference:bookingReference,
+amountDZD:amountDZD,
+originalAmount:originalAmount,
+originalCurrency:originalCurrency,
+exchangeRate:exchangeRate
 };
 
 }catch(error){

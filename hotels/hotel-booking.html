@@ -1,0 +1,337 @@
+<!doctype html>
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="description" content="Réservation d'hôtel - AQUAREV Travel" />
+    <title>Réservation - AQUAREV Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./hotel-booking.css" />
+  </head>
+  <body>
+    <header class="booking-header">
+      <div class="header-inner">
+        <a href="./hotels.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Retour aux hôtels</span>
+        </a>
+        <a href="./hotels.html" class="brand">
+          <span>AQUAREV</span>
+          <small>TRAVEL</small>
+        </a>
+        <div class="header-secure">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Réservation sécurisée</span>
+        </div>
+      </div>
+    </header>
+    <main class="booking-page">
+      <section class="booking-loading" id="loadingState">
+        <div class="loader"></div>
+        <p>Préparation de votre réservation...</p>
+      </section>
+      <section class="booking-error hidden" id="errorState">
+        <div class="error-icon">
+          <i class="fa-solid fa-hotel"></i>
+        </div>
+        <h1>Réservation indisponible</h1>
+        <p id="errorMessage">Impossible de préparer cette réservation.</p>
+        <a href="./hotels.html" class="primary-button">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour aux hôtels
+        </a>
+      </section>
+      <section class="booking-content hidden" id="bookingContent">
+        <div class="booking-intro">
+          <div>
+            <span class="section-kicker">AQUAREV TRAVEL</span>
+            <h1>Finalisez votre réservation</h1>
+            <p>Vérifiez les informations de votre séjour avant de continuer.</p>
+          </div>
+          <div class="secure-badge">
+            <i class="fa-solid fa-lock"></i>
+            Paiement sécurisé
+          </div>
+        </div>
+        <div class="booking-grid">
+          <div class="booking-main">
+            <div class="booking-form-card">
+              <div class="card-heading">
+                <span class="step-number">1</span>
+                <div>
+                  <h2>Informations du séjour</h2>
+                  <p>Dates et voyageurs</p>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="checkIn">
+                    <i class="fa-regular fa-calendar"></i>
+                    Arrivée
+                  </label>
+                  <input type="date" id="checkIn" name="checkIn" />
+                </div>
+                <div class="form-group">
+                  <label for="checkOut">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    Départ
+                  </label>
+                  <input type="date" id="checkOut" name="checkOut" />
+                </div>
+                <div class="form-group">
+                  <label for="adults">
+                    <i class="fa-solid fa-user"></i>
+                    Adultes
+                  </label>
+                  <select id="adults" name="adults">
+                    <option value="1">1 Adulte</option>
+                    <option value="2" selected>2 Adultes</option>
+                    <option value="3">3 Adultes</option>
+                    <option value="4">4 Adultes</option>
+                    <option value="5">5 Adultes</option>
+                    <option value="6">6 Adultes</option>
+                    <option value="7">7 Adultes</option>
+                    <option value="8">8 Adultes</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="children">
+                    <i class="fa-solid fa-child"></i>
+                    Enfants
+                  </label>
+                  <select id="children" name="children">
+                    <option value="0" selected>0 Enfant</option>
+                    <option value="1">1 Enfant</option>
+                    <option value="2">2 Enfants</option>
+                    <option value="3">3 Enfants</option>
+                    <option value="4">4 Enfants</option>
+                    <option value="5">5 Enfants</option>
+                    <option value="6">6 Enfants</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="rooms">
+                    <i class="fa-solid fa-bed"></i>
+                    Chambres
+                  </label>
+                  <select id="rooms" name="rooms">
+                    <option value="1" selected>1 Chambre</option>
+                    <option value="2">2 Chambres</option>
+                    <option value="3">3 Chambres</option>
+                    <option value="4">4 Chambres</option>
+                    <option value="5">5 Chambres</option>
+                    <option value="6">6 Chambres</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-message hidden" id="formMessage"></div>
+            </div>
+            <div class="booking-form-card">
+              <div class="card-heading">
+                <span class="step-number">2</span>
+                <div>
+                  <h2>Vos informations</h2>
+                  <p>Informations nécessaires à la réservation</p>
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="firstName">
+                    <i class="fa-regular fa-user"></i>
+                    Prénom
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Votre prénom"
+                    autocomplete="given-name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">
+                    <i class="fa-regular fa-user"></i>
+                    Nom
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Votre nom"
+                    autocomplete="family-name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    <i class="fa-regular fa-envelope"></i>
+                    Adresse e-mail
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="exemple@email.com"
+                    autocomplete="email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone">
+                    <i class="fa-solid fa-phone"></i>
+                    Téléphone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+213 ..."
+                    autocomplete="tel"
+                  />
+                </div>
+                <div class="form-group full-width">
+                  <label for="specialRequest">
+                    <i class="fa-regular fa-comment"></i>
+                    Demande particulière
+                    <span>(facultatif)</span>
+                  </label>
+                  <textarea
+                    id="specialRequest"
+                    name="specialRequest"
+                    rows="4"
+                    placeholder="Une demande particulière concernant votre séjour ?"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="booking-form-card">
+              <div class="card-heading">
+                <span class="step-number">3</span>
+                <div>
+                  <h2>Confirmation</h2>
+                  <p>Vérifiez votre demande</p>
+                </div>
+              </div>
+              <div class="confirmation-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>
+                  Votre demande sera transmise à AQUAREV Travel. Le prix final
+                  et la disponibilité seront confirmés selon vos dates et le
+                  nombre de chambres.
+                </p>
+              </div>
+              <label class="terms-label">
+                <input type="checkbox" id="terms" />
+                <span
+                  >J'accepte les conditions de réservation et confirme que les
+                  informations fournies sont exactes.</span
+                >
+              </label>
+              <button type="button" class="confirm-button" id="confirmButton">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Confirmer la demande de réservation</span>
+              </button>
+              <div class="secure-note">
+                <i class="fa-solid fa-lock"></i>
+                Vos informations sont traitées de manière sécurisée.
+              </div>
+            </div>
+          </div>
+          <aside class="booking-sidebar">
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img id="hotelImage" src="" alt="" />
+              </div>
+              <div class="hotel-card-content">
+                <span class="hotel-type" id="hotelType">HÔTEL</span>
+                <h2 id="hotelName">Hôtel AQUAREV</h2>
+                <div class="hotel-rating">
+                  <span id="hotelStars"></span>
+                  <strong id="hotelRating">—</strong>
+                  <span>/ 10</span>
+                </div>
+                <div class="hotel-location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span id="hotelDestination">Destination</span>
+                </div>
+              </div>
+            </div>
+            <div class="summary-card">
+              <span class="summary-kicker">VOTRE SÉJOUR</span>
+              <h2>Résumé</h2>
+              <div class="summary-row">
+                <span>
+                  <i class="fa-regular fa-calendar"></i>
+                  Arrivée
+                </span>
+                <strong id="summaryCheckIn">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>
+                  <i class="fa-regular fa-calendar-check"></i>
+                  Départ
+                </span>
+                <strong id="summaryCheckOut">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>
+                  <i class="fa-solid fa-moon"></i>
+                  Nuits
+                </span>
+                <strong id="summaryNights">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>
+                  <i class="fa-solid fa-users"></i>
+                  Voyageurs
+                </span>
+                <strong id="summaryGuests">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>
+                  <i class="fa-solid fa-bed"></i>
+                  Chambres
+                </span>
+                <strong id="summaryRooms">—</strong>
+              </div>
+              <div class="price-breakdown">
+                <div class="price-label">Tarif indicatif par nuit</div>
+                <div class="price-value">
+                  <strong id="pricePerNight">0</strong>
+                  <span id="priceCurrency">DZD</span>
+                </div>
+                <div class="price-calculation">
+                  <span id="priceCalculation">—</span>
+                  <strong id="estimatedTotal">—</strong>
+                </div>
+              </div>
+              <div class="price-note">
+                <i class="fa-solid fa-circle-info"></i>
+                <span
+                  >Le montant affiché est indicatif. La confirmation finale
+                  dépend de la disponibilité.</span
+                >
+              </div>
+            </div>
+            <div class="assistance-card">
+              <i class="fa-solid fa-headset"></i>
+              <div>
+                <strong>Besoin d'aide ?</strong>
+                <span>L'équipe AQUAREV Travel est à votre disposition.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <script src="./hotel-booking.js"></script>
+  </body>
+</html>

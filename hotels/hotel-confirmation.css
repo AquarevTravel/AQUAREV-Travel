@@ -1,0 +1,178 @@
+:root{--navy:#052d47;--blue:#0084a3;--sky:#00b4d8;--gold:#d4af37;--text:#203746;--muted:#71838e;--border:#dce9ee;--light:#f4fafc;--white:#fff;--shadow:0 20px 60px rgba(3,36,52,.12);--success:#008e68}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;background:#f7fbfc;color:var(--text);line-height:1.6}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.hidden{display:none!important}
+.confirmation-header{height:76px;background:var(--navy);color:#fff;display:flex;align-items:center}
+.header-inner{width:min(1180px,calc(100% - 40px));margin:auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:8px;font-family:Cinzel,serif;font-weight:700;letter-spacing:2px;color:#fff}
+.brand small{font-family:Montserrat,sans-serif;font-size:9px;letter-spacing:2px;color:var(--sky);margin-top:13px;margin-left:-7px}
+.header-secure{font-size:11px;color:rgba(255,255,255,.75)}
+.header-secure i{color:var(--sky);margin-right:5px}
+.confirmation-page{width:min(1180px,calc(100% - 40px));margin:auto;padding:45px 0 70px}
+.confirmation-hero{text-align:center;margin-bottom:35px}
+.success-icon{width:76px;height:76px;border-radius:50%;background:#effaf6;color:var(--success);display:flex;align-items:center;justify-content:center;font-size:31px;margin:0 auto 18px;box-shadow:0 10px 30px rgba(0,142,104,.12)}
+.confirmation-kicker{font-size:10px;letter-spacing:2.5px;color:var(--blue);font-weight:800}
+.confirmation-hero h1{font-family:Cinzel,serif;color:var(--navy);font-size:34px;line-height:1.25;margin:5px 0 8px}
+.confirmation-hero>p{font-size:13px;color:var(--muted)}
+.reference-box{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:3px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 48px 13px 25px;margin-top:18px;box-shadow:0 8px 25px rgba(3,36,52,.05)}
+.reference-box span{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px}
+.reference-box strong{font-size:18px;letter-spacing:1.5px;color:var(--navy)}
+.copy-reference{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:30px;height:30px;border:1px solid var(--border);border-radius:8px;background:#f7fbfc;color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:12px;transition:.2s}
+.copy-reference:hover{background:#eaf8fb;border-color:var(--sky);transform:translateY(-50%) scale(1.04)}
+.confirmation-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:25px;align-items:start}
+.confirmation-main{display:flex;flex-direction:column;gap:20px}
+.confirmation-card,.price-card,.assistance-card,.secure-card{background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 12px 40px rgba(3,36,52,.06)}
+.hotel-card{display:flex;overflow:hidden}
+.hotel-image{width:230px;min-height:170px;flex-shrink:0;background:#eaf3f5}
+.hotel-image img{width:100%;height:100%;display:block;object-fit:cover}
+.hotel-info{padding:24px;display:flex;flex-direction:column;justify-content:center}
+.hotel-type{font-size:9px;letter-spacing:2px;color:var(--blue);font-weight:800}
+.hotel-info h2{font-family:Cinzel,serif;color:var(--navy);font-size:23px;line-height:1.3;margin:5px 0 8px}
+.hotel-location{font-size:11px;color:var(--muted)}
+.hotel-location i{color:var(--sky);margin-right:5px}
+.hotel-rating{display:flex;align-items:center;gap:6px;margin-top:9px;font-size:10px}
+.hotel-rating span:first-child{color:var(--gold);letter-spacing:1px}
+.hotel-rating strong{color:var(--navy)}
+.confirmation-card:not(.hotel-card){padding:25px}
+.card-title{display:flex;align-items:center;gap:11px;margin-bottom:20px}
+.card-title>i{width:38px;height:38px;border-radius:10px;background:#eaf8fb;color:var(--blue);display:flex;align-items:center;justify-content:center}
+.card-title h2{font-family:Cinzel,serif;color:var(--navy);font-size:19px}
+.card-title p{font-size:10px;color:var(--muted)}
+.details-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.detail-item{border:1px solid #e7f0f3;border-radius:11px;padding:13px;background:#fbfdfe}
+.detail-item span{display:block;font-size:9px;color:var(--muted);margin-bottom:4px}
+.detail-item span i{color:var(--sky);margin-right:5px}
+.detail-item strong{display:block;color:var(--navy);font-size:12px}
+.guest-details{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.guest-details>div{border-bottom:1px solid #edf3f5;padding-bottom:11px}
+.guest-details span,.special-request>span{display:block;font-size:9px;color:var(--muted);margin-bottom:4px}
+.guest-details strong{display:block;color:var(--navy);font-size:11px;word-break:break-word}
+.special-request{border-top:1px solid var(--border);margin-top:18px;padding-top:18px}
+.special-request p{font-size:11px;color:var(--text);background:#f7fbfc;border-radius:10px;padding:11px;line-height:1.6}
+.confirmation-sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:20px}
+.price-card{padding:25px}
+.price-kicker{font-size:9px;letter-spacing:2px;color:var(--blue);font-weight:800}
+.price-card h2{font-family:Cinzel,serif;color:var(--navy);font-size:20px;margin:4px 0 15px}
+.price-total{display:flex;align-items:baseline;gap:6px;border-bottom:1px solid var(--border);padding-bottom:17px}
+.price-total strong{font-size:28px;color:var(--navy)}
+.price-total span{font-size:10px;color:var(--muted)}
+.price-breakdown{padding:13px 0 3px}
+.price-breakdown div{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;font-size:10px;padding:7px 0}
+.price-breakdown span{color:var(--muted)}
+.price-breakdown strong{color:var(--navy);text-align:right}
+.price-note{display:flex;align-items:flex-start;gap:8px;background:#f4fafc;border-radius:10px;padding:11px;margin-top:10px;font-size:9px;color:#82949d;line-height:1.5}
+.price-note i{color:var(--sky);margin-top:2px}
+.assistance-card{padding:18px;display:flex;gap:12px}
+.assistance-icon{width:38px;height:38px;flex-shrink:0;border-radius:10px;background:#eaf8fb;color:var(--blue);display:flex;align-items:center;justify-content:center}
+.assistance-card strong{display:block;color:var(--navy);font-size:11px;margin-bottom:3px}
+.assistance-card span{display:block;color:var(--muted);font-size:9px;line-height:1.5}
+.secure-card{padding:16px;display:flex;gap:10px;align-items:flex-start}
+.secure-card>i{color:var(--success);font-size:14px;margin-top:2px}
+.secure-card strong{display:block;color:var(--navy);font-size:10px}
+.secure-card span{display:block;color:var(--muted);font-size:9px}
+.confirmation-actions{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:9px;padding-top:5px}
+.action-button,.primary-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:12px 17px;font-size:11px;font-weight:700;transition:.2s}
+.action-button{border:1px solid var(--border);background:#fff;color:var(--navy)}
+.action-button:hover{transform:translateY(-1px);border-color:var(--sky);background:#f4fafc}
+.print-button i{color:var(--blue)}
+.pdf-button i{color:#d9534f}
+.share-button i{color:var(--sky)}
+.primary-button{background:var(--navy);color:#fff;border:1px solid var(--navy)}
+.primary-button:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-1px)}
+.action-status{padding:10px 13px;border-radius:9px;text-align:center;font-size:10px;margin-top:-5px}
+.action-status.success{background:#effaf6;border:1px solid #ccebdd;color:#087653}
+.action-status.error{background:#fff3f2;border:1px solid #f2d0cd;color:#a94442}
+.loading-state{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;color:var(--muted);font-size:12px}
+.loader{width:42px;height:42px;border:3px solid #dcebef;border-top-color:var(--sky);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-state{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.error-icon{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff3f2;color:#d9534f;font-size:28px;margin-bottom:18px}
+.error-state h1{font-family:Cinzel,serif;color:var(--navy);font-size:30px;margin-bottom:8px}
+.error-state p{color:var(--muted);max-width:520px;margin-bottom:25px;font-size:13px}
+@media(max-width:900px){
+.confirmation-grid{grid-template-columns:1fr}
+.confirmation-sidebar{position:relative;top:auto}
+}
+@media(max-width:650px){
+.confirmation-header{height:66px}
+.header-inner{width:calc(100% - 25px)}
+.header-secure{display:none}
+.confirmation-page{width:calc(100% - 24px);padding:30px 0 50px}
+.confirmation-hero h1{font-size:27px}
+.confirmation-grid{gap:18px}
+.hotel-card{display:block}
+.hotel-image{width:100%;height:210px}
+.hotel-info{padding:20px}
+.details-grid,.guest-details{grid-template-columns:1fr}
+.confirmation-card:not(.hotel-card),.price-card{padding:20px}
+.confirmation-actions{gap:7px}
+.action-button,.primary-button{flex:1;min-width:135px}
+}
+@media(max-width:430px){
+.confirmation-hero h1{font-size:24px}
+.reference-box{width:100%}
+.reference-box strong{font-size:16px}
+.hotel-image{height:180px}
+.confirmation-actions{display:grid;grid-template-columns:1fr 1fr}
+.confirmation-actions .primary-button{grid-column:1/-1}
+.action-button,.primary-button{width:100%;min-width:0}
+}
+@media print{
+@page{size:A4 portrait;margin:8mm}
+html,body{width:100%;height:auto;background:#fff!important;color:#203746!important;font-size:10px}
+body{line-height:1.35}
+.confirmation-header{height:auto;padding:7px 0;background:#fff!important;color:#052d47!important;border-bottom:1px solid #dce9ee}
+.header-inner{width:100%}
+.brand{color:#052d47!important;font-size:14px}
+.brand small{color:#0084a3!important;font-size:7px;margin-top:8px}
+.header-secure{color:#71838e!important;font-size:8px}
+.confirmation-page{width:100%;padding:10px 0 0}
+.loading-state,.error-state,.confirmation-actions,.action-status,.copy-reference,.assistance-card,.secure-card{display:none!important}
+.confirmation-content{display:block!important}
+.confirmation-hero{margin-bottom:10px}
+.success-icon{width:38px;height:38px;font-size:16px;margin:0 auto 7px;box-shadow:none;border:1px solid #ccebdd}
+.confirmation-kicker{font-size:7px;letter-spacing:2px}
+.confirmation-hero h1{font-size:20px;margin:2px 0 3px}
+.confirmation-hero>p{font-size:8px}
+.reference-box{box-shadow:none;margin-top:6px;padding:6px 14px;border-radius:7px;gap:1px}
+.reference-box span{font-size:6px}
+.reference-box strong{font-size:12px;letter-spacing:1px}
+.confirmation-grid{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:10px;align-items:start}
+.confirmation-main{gap:8px}
+.confirmation-card,.price-card{box-shadow:none;border:1px solid #dce9ee;border-radius:7px;break-inside:avoid;page-break-inside:avoid}
+.hotel-image{width:120px;min-height:88px;height:88px}
+.hotel-info{padding:10px}
+.hotel-type{font-size:6px;letter-spacing:1.5px}
+.hotel-info h2{font-size:15px;margin:2px 0 4px}
+.hotel-location{font-size:7px}
+.hotel-rating{gap:4px;margin-top:4px;font-size:7px}
+.confirmation-card:not(.hotel-card),.price-card{padding:10px}
+.card-title{gap:7px;margin-bottom:7px}
+.card-title>i{width:24px;height:24px;border-radius:6px;font-size:9px}
+.card-title h2{font-size:12px}
+.card-title p{font-size:6px}
+.details-grid{gap:6px}
+.detail-item{border-radius:6px;padding:6px}
+.detail-item span{font-size:6px;margin-bottom:2px}
+.detail-item span i{margin-right:3px}
+.detail-item strong{font-size:8px}
+.guest-details{gap:8px}
+.guest-details>div{padding-bottom:6px}
+.guest-details span,.special-request>span{font-size:6px;margin-bottom:2px}
+.guest-details strong{font-size:7px}
+.special-request{margin-top:7px;padding-top:7px}
+.special-request p{font-size:7px;padding:6px;border-radius:6px;line-height:1.35}
+.price-kicker{font-size:6px;letter-spacing:1.5px}
+.price-card h2{font-size:13px;margin:2px 0 8px}
+.price-total{gap:4px;padding-bottom:8px}
+.price-total strong{font-size:19px}
+.price-total span{font-size:7px}
+.price-breakdown{padding:6px 0 1px}
+.price-breakdown div{font-size:7px;padding:4px 0}
+.price-note{gap:5px;padding:6px;margin-top:5px;font-size:6px;line-height:1.35;border-radius:6px}
+.confirmation-sidebar{position:static;display:flex;flex-direction:column;gap:8px}
+}

@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>AQUAREV Travel | Réservation Hôtels</title>
+    <meta
+      name="description"
+      content="Réservez votre hôtel partout dans le monde avec AQUAREV Travel. Hôtels de luxe, séjours, chambres et expériences sélectionnés avec soin."
+    />
+    <meta
+      name="keywords"
+      content="AQUAREV Travel, hôtels, réservation hôtel, hôtel luxe, voyage, séjour, Booking, Algérie"
+    />
+    <link rel="icon" type="image/png" href="../assets/logo/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="hotels.css" />
+  </head>
+  <body>
+    <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+        <img src="../assets/logo/aquarev.png" alt="AQUAREV Travel" />
+        <div class="loader-spinner"></div>
+        <p data-i18n="loader">Préparation de votre expérience...</p>
+      </div>
+    </div>
+
+    <header class="hotel-header" id="hotelHeader">
+      <div class="header-container">
+        <a href="../index.html" class="hotel-logo" aria-label="AQUAREV Travel">
+          <img src="../assets/logo/aquarev.png" alt="AQUAREV Travel" />
+        </a>
+        <nav class="hotel-nav" id="hotelNav">
+          <a href="../index.html"
+            ><i class="fa-solid fa-house"></i
+            ><span data-i18n="home">Accueil</span></a
+          >
+          <a href="../index.html#vols"
+            ><i class="fa-solid fa-plane-departure"></i
+            ><span data-i18n="flights">Vols</span></a
+          >
+          <a href="hotels.html" class="active"
+            ><i class="fa-solid fa-hotel"></i
+            ><span data-i18n="hotels">Hôtels</span></a
+          >
+          <a href="../ferries.html"
+            ><i class="fa-solid fa-ship"></i
+            ><span data-i18n="cruises">Croisières</span></a
+          >
+          <a href="../index.html#reveillon"
+            ><i class="fa-solid fa-champagne-glasses"></i
+            ><span data-i18n="newyear">Réveillon</span></a
+          >
+          <a href="../index.html#contact"
+            ><i class="fa-solid fa-headset"></i
+            ><span data-i18n="contact">Contact</span></a
+          >
+        </nav>
+        <div class="header-actions">
+          <div class="language-selector">
+            <button
+              type="button"
+              class="language-button"
+              id="languageButton"
+              aria-label="Choisir la langue"
+            >
+              <i class="fa-solid fa-earth-americas"></i>
+              <span id="currentLanguageFlag">🇫🇷</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="language-menu" id="languageMenu">
+              <button type="button" data-language="fr">🇫🇷 Français</button>
+              <button type="button" data-language="en">🇬🇧 English</button>
+              <button type="button" data-language="ar">🇩🇿 العربية</button>
+            </div>
+          </div>
+          <a href="../signin.html" class="header-login"
+            ><i class="fa-solid fa-right-to-bracket"></i
+            ><span data-i18n="login">Connexion</span></a
+          >
+          <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hotel-hero">
+        <div class="hero-background"><div class="hero-overlay"></div></div>
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-star"></i
+            ><span data-i18n="experience">EXPÉRIENCE AQUAREV</span
+            ><i class="fa-solid fa-star"></i>
+          </div>
+          <h1 data-i18n-html="heroTitle">
+            Votre prochaine escapade<br /><span>commence ici.</span>
+          </h1>
+          <p data-i18n="heroText">
+            Découvrez et réservez des hôtels d'exception partout dans le monde
+            avec AQUAREV Travel.
+          </p>
+          <div class="hero-trust">
+            <div>
+              <i class="fa-solid fa-earth-americas"></i
+              ><span data-i18n="international"
+                >Destinations internationales</span
+              >
+            </div>
+            <div>
+              <i class="fa-solid fa-shield-halved"></i
+              ><span data-i18n="secureBooking">Réservation sécurisée</span>
+            </div>
+            <div>
+              <i class="fa-solid fa-headset"></i
+              ><span data-i18n="aquarevSupport">Assistance AQUAREV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hotel-search-wrapper">
+          <div class="search-intro">
+            <div>
+              <span class="search-kicker">AQUAREV HOTELS</span>
+              <h2 data-i18n="whereStay">Où souhaitez-vous séjourner ?</h2>
+            </div>
+            <span class="search-note"
+              ><i class="fa-solid fa-circle-info"></i
+              ><span data-i18n="bestOptions"
+                >Les meilleures options pour votre voyage</span
+              ></span
+            >
+          </div>
+
+          <form class="hotel-search-form" id="hotelSearchForm">
+            <div class="search-field destination-field">
+              <label for="destination"
+                ><i class="fa-solid fa-location-dot"></i
+                ><span data-i18n="destination">Destination</span></label
+              >
+              <div class="field-input">
+                <input
+                  type="text"
+                  id="destination"
+                  name="destination"
+                  placeholder="Ville, pays ou hôtel"
+                  data-i18n-placeholder="destinationPlaceholder"
+                  autocomplete="off"
+                />
+                <button type="button" class="clear-field" aria-label="Effacer">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div
+                class="destination-suggestions"
+                id="destinationSuggestions"
+              ></div>
+            </div>
+
+            <div class="search-field date-field">
+              <label for="checkIn"
+                ><i class="fa-regular fa-calendar"></i
+                ><span data-i18n="arrival">Arrivée</span></label
+              >
+              <input type="date" id="checkIn" name="checkIn" />
+              <span class="date-display" id="checkInDisplay" data-i18n="select"
+                >Sélectionner</span
+              >
+            </div>
+
+            <div class="search-field date-field">
+              <label for="checkOut"
+                ><i class="fa-regular fa-calendar-check"></i
+                ><span data-i18n="departure">Départ</span></label
+              >
+              <input type="date" id="checkOut" name="checkOut" />
+              <span class="date-display" id="checkOutDisplay" data-i18n="select"
+                >Sélectionner</span
+              >
+            </div>
+
+            <div class="search-field guests-field">
+              <label
+                ><i class="fa-solid fa-users"></i
+                ><span data-i18n="travelers">Voyageurs</span></label
+              >
+              <button type="button" class="guests-selector" id="guestsSelector">
+                <span id="guestsSummary">2 Adultes · 1 Chambre</span
+                ><i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="guests-panel" id="guestsPanel">
+                <div class="guest-row">
+                  <div>
+                    <strong data-i18n="adults">Adultes</strong
+                    ><small data-i18n="adultsAge">13 ans et plus</small>
+                  </div>
+                  <div class="counter">
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-action="decrease"
+                      data-target="adults"
+                    >
+                      −</button
+                    ><span id="adultsCount">2</span
+                    ><button
+                      type="button"
+                      class="counter-btn"
+                      data-action="increase"
+                      data-target="adults"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div class="guest-row">
+                  <div>
+                    <strong data-i18n="children">Enfants</strong
+                    ><small data-i18n="childrenAge">2 à 12 ans</small>
+                  </div>
+                  <div class="counter">
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-action="decrease"
+                      data-target="children"
+                    >
+                      −</button
+                    ><span id="childrenCount">0</span
+                    ><button
+                      type="button"
+                      class="counter-btn"
+                      data-action="increase"
+                      data-target="children"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div class="guest-row">
+                  <div>
+                    <strong data-i18n="rooms">Chambres</strong
+                    ><small data-i18n="roomNumber">Nombre de chambres</small>
+                  </div>
+                  <div class="counter">
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-action="decrease"
+                      data-target="rooms"
+                    >
+                      −</button
+                    ><span id="roomsCount">1</span
+                    ><button
+                      type="button"
+                      class="counter-btn"
+                      data-action="increase"
+                      data-target="rooms"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="guests-done"
+                  id="guestsDone"
+                  data-i18n="done"
+                >
+                  Terminé
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="hotel-search-button">
+              <i class="fa-solid fa-magnifying-glass"></i
+              ><span data-i18n="search">Rechercher</span>
+            </button>
+          </form>
+
+          <div class="search-assurance">
+            <span
+              ><i class="fa-solid fa-lock"></i
+              ><span data-i18n="secureSearch">Recherche sécurisée</span></span
+            >
+            <span
+              ><i class="fa-solid fa-headset"></i
+              ><span data-i18n="support">Assistance AQUAREV</span></span
+            >
+            <span
+              ><i class="fa-solid fa-globe"></i
+              ><span data-i18n="worldHotels"
+                >Hôtels dans le monde entier</span
+              ></span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-destinations section-container">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker" data-i18n="inspiration"
+              >INSPIRATION</span
+            >
+            <h2 data-i18n="dreamDestinations">
+              Les destinations qui font rêver
+            </h2>
+            <p data-i18n="startJourney">
+              Commencez votre voyage par une destination d'exception.
+            </p>
+          </div>
+          <a href="#hotelResults" class="section-link"
+            ><span data-i18n="seeAllDestinations"
+              >Voir toutes les destinations</span
+            ><i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="destination-grid">
+          <button
+            type="button"
+            class="destination-card destination-paris"
+            data-destination="Paris, France"
+          >
+            <div class="destination-overlay"></div>
+            <div class="destination-content">
+              <span data-i18n="france">France</span>
+              <h3>Paris</h3>
+              <p data-i18n="cityLights">La ville lumière</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </button>
+          <button
+            type="button"
+            class="destination-card destination-istanbul"
+            data-destination="Istanbul, Türkiye"
+          >
+            <div class="destination-overlay"></div>
+            <div class="destination-content">
+              <span data-i18n="turkiye">Türkiye</span>
+              <h3>Istanbul</h3>
+              <p data-i18n="twoContinents">Entre deux continents</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </button>
+          <button
+            type="button"
+            class="destination-card destination-dubai"
+            data-destination="Dubai, UAE"
+          >
+            <div class="destination-overlay"></div>
+            <div class="destination-content">
+              <span data-i18n="uae">Émirats Arabes Unis</span>
+              <h3>Dubai</h3>
+              <p data-i18n="luxuryModernity">Luxe et modernité</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </button>
+          <button
+            type="button"
+            class="destination-card destination-barcelona"
+            data-destination="Barcelona, Espagne"
+          >
+            <div class="destination-overlay"></div>
+            <div class="destination-content">
+              <span data-i18n="spain">Espagne</span>
+              <h3>Barcelone</h3>
+              <p data-i18n="mediterraneanSun">Soleil méditerranéen</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </button>
+          <button
+            type="button"
+            class="destination-card destination-newyork"
+            data-destination="New York, USA"
+          >
+            <div class="destination-overlay"></div>
+            <div class="destination-content">
+              <span data-i18n="usa">États-Unis</span>
+              <h3>New York</h3>
+              <p data-i18n="cityNeverSleeps">La ville qui ne dort jamais</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </button>
+          <button
+            type="button"
+            class="destination-card destination-maldives"
+            data-destination="Maldives"
+          >
+            <div class="destination-overlay"></div>
+            <div class="destination-content">
+              <span data-i18n="indianOcean">Océan Indien</span>
+              <h3>Maldives</h3>
+              <p data-i18n="tropicalEscape">Évasion tropicale</p>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="hotel-results-section section-container"
+        id="hotelResults"
+      >
+        <div class="section-heading results-heading">
+          <div>
+            <span class="section-kicker">AQUAREV HOTELS</span>
+            <h2 data-i18n="ourHotels">Nos possibilités d'hébergement</h2>
+            <p id="resultsDescription" data-i18n="resultsWaiting">
+              Les résultats apparaîtront ici après votre recherche.
+            </p>
+          </div>
+          <div class="results-actions">
+            <button type="button" class="sort-button" id="sortButton">
+              <i class="fa-solid fa-arrow-down-wide-short"></i
+              ><span data-i18n="sort">Trier</span
+              ><i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="results-layout">
+          <aside class="hotel-filters" id="hotelFilters">
+            <div class="filters-header">
+              <div>
+                <span data-i18n="filter">FILTRER</span>
+                <h3 data-i18n="yourStay">Votre séjour</h3>
+              </div>
+              <button
+                type="button"
+                id="closeFilters"
+                aria-label="Fermer les filtres"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <div class="filter-group">
+              <h4 data-i18n="budgetNight">Budget par nuit</h4>
+              <label class="range-label"
+                ><span data-i18n="minimumPrice">Prix minimum</span
+                ><strong id="minPriceValue">0 €</strong></label
+              >
+              <input
+                type="range"
+                id="minPrice"
+                min="0"
+                max="15000"
+                value="0"
+                step="50"
+              />
+              <label class="range-label"
+                ><span data-i18n="maximumPrice">Prix maximum</span
+                ><strong id="maxPriceValue">15 000 €</strong></label
+              >
+              <input
+                type="range"
+                id="maxPrice"
+                min="0"
+                max="15000"
+                value="5000"
+                step="50"
+              />
+            </div>
+
+            <div class="filter-divider"></div>
+            <div class="filter-group">
+              <h4 data-i18n="category">Catégorie</h4>
+              <label class="check-option"
+                ><input type="checkbox" value="5" data-filter="stars" /><span
+                  class="custom-check"
+                ></span
+                ><span data-i18n="fiveStars">5 étoiles</span></label
+              >
+              <label class="check-option"
+                ><input type="checkbox" value="4" data-filter="stars" /><span
+                  class="custom-check"
+                ></span
+                ><span data-i18n="fourStars">4 étoiles</span></label
+              >
+              <label class="check-option"
+                ><input type="checkbox" value="3" data-filter="stars" /><span
+                  class="custom-check"
+                ></span
+                ><span data-i18n="threeStars">3 étoiles</span></label
+              >
+              <label class="check-option"
+                ><input type="checkbox" value="2" data-filter="stars" /><span
+                  class="custom-check"
+                ></span
+                ><span data-i18n="twoStars">2 étoiles</span></label
+              >
+            </div>
+
+            <div class="filter-divider"></div>
+            <div class="filter-group">
+              <h4 data-i18n="propertyType">Type d'établissement</h4>
+              <label class="check-option"
+                ><input type="checkbox" value="hotel" data-filter="type" /><span
+                  class="custom-check"
+                ></span
+                ><span data-i18n="hotelType">Hôtel</span></label
+              >
+              <label class="check-option"
+                ><input
+                  type="checkbox"
+                  value="resort"
+                  data-filter="type"
+                /><span class="custom-check"></span
+                ><span data-i18n="resort">Resort</span></label
+              >
+              <label class="check-option"
+                ><input
+                  type="checkbox"
+                  value="apartment"
+                  data-filter="type"
+                /><span class="custom-check"></span
+                ><span data-i18n="apartment">Appartement</span></label
+              >
+              <label class="check-option"
+                ><input type="checkbox" value="villa" data-filter="type" /><span
+                  class="custom-check"
+                ></span
+                ><span data-i18n="villa">Villa</span></label
+              >
+            </div>
+
+            <div class="filter-divider"></div>
+            <div class="filter-group">
+              <h4 data-i18n="amenities">Équipements</h4>
+              <label class="check-option"
+                ><input
+                  type="checkbox"
+                  value="pool"
+                  data-filter="amenity"
+                /><span class="custom-check"></span
+                ><span data-i18n="pool">Piscine</span></label
+              >
+              <label class="check-option"
+                ><input
+                  type="checkbox"
+                  value="wifi"
+                  data-filter="amenity"
+                /><span class="custom-check"></span
+                ><span data-i18n="freeWifi">Wi-Fi gratuit</span></label
+              >
+              <label class="check-option"
+                ><input
+                  type="checkbox"
+                  value="breakfast"
+                  data-filter="amenity"
+                /><span class="custom-check"></span
+                ><span data-i18n="breakfast">Petit-déjeuner</span></label
+              >
+              <label class="check-option"
+                ><input
+                  type="checkbox"
+                  value="parking"
+                  data-filter="amenity"
+                /><span class="custom-check"></span
+                ><span data-i18n="parking">Parking</span></label
+              >
+            </div>
+
+            <button type="button" class="reset-filters" id="resetFilters">
+              <i class="fa-solid fa-rotate-left"></i
+              ><span data-i18n="resetFilters">Réinitialiser les filtres</span>
+            </button>
+          </aside>
+
+          <div class="hotel-results">
+            <div class="results-toolbar">
+              <button
+                type="button"
+                class="mobile-filter-button"
+                id="mobileFilterButton"
+              >
+                <i class="fa-solid fa-sliders"></i
+                ><span data-i18n="filters">Filtres</span></button
+              ><span id="hotelCount" data-i18n="searchWaiting"
+                >Recherche en attente</span
+              >
+            </div>
+            <div class="hotel-results-grid" id="hotelResultsGrid">
+              <div class="empty-results">
+                <div class="empty-results-icon">
+                  <i class="fa-solid fa-hotel"></i>
+                </div>
+                <h3 data-i18n="nextHotel">Votre prochain hôtel vous attend</h3>
+                <p data-i18n="searchInstruction">
+                  Indiquez votre destination, vos dates et le nombre de
+                  voyageurs pour découvrir les hébergements disponibles.
+                </p>
+                <button
+                  type="button"
+                  class="empty-search-button"
+                  id="emptySearchButton"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i
+                  ><span data-i18n="startSearch">Commencer une recherche</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-aquarev">
+        <div class="section-container">
+          <div class="section-heading centered">
+            <span class="section-kicker" data-i18n="whyAquarev"
+              >POURQUOI AQUAREV ?</span
+            >
+            <h2 data-i18n="travelGoodHands">
+              Votre voyage entre de bonnes mains
+            </h2>
+            <p data-i18n="experienceNeeds">
+              Une expérience pensée autour de vos besoins.
+            </p>
+          </div>
+          <div class="advantages-grid">
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fa-solid fa-earth-europe"></i>
+              </div>
+              <h3 data-i18n="worldwide">Partout dans le monde</h3>
+              <p data-i18n="worldwideText">
+                Recherchez votre hébergement dans les grandes destinations
+                internationales.
+              </p>
+            </div>
+            <div class="advantage-card">
+              <div class="advantage-icon"><i class="fa-solid fa-gem"></i></div>
+              <h3 data-i18n="premiumSelection">Une sélection premium</h3>
+              <p data-i18n="premiumSelectionText">
+                Des établissements et expériences adaptés aux différents styles
+                de voyage.
+              </p>
+            </div>
+            <div class="advantage-card">
+              <div class="advantage-icon">
+                <i class="fa-solid fa-comments"></i>
+              </div>
+              <h3 data-i18n="personalAdvice">Conseil personnalisé</h3>
+              <p data-i18n="personalAdviceText">
+                Notre équipe vous accompagne pour préparer votre séjour avec
+                sérénité.
+              </p>
+            </div>
+            <div class="advantage-card">
+              <div class="advantage-icon"><i class="fa-solid fa-lock"></i></div>
+              <h3 data-i18n="secureProcess">Processus sécurisé</h3>
+              <p data-i18n="secureProcessText">
+                Votre demande et vos informations sont traitées dans un
+                environnement sécurisé.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hotel-cta">
+        <div class="hotel-cta-overlay"></div>
+        <div class="hotel-cta-content">
+          <span class="section-kicker">AQUAREV TRAVEL</span>
+          <h2 data-i18n="readyDestination">
+            Prêt pour votre prochaine destination ?
+          </h2>
+          <p data-i18n="ctaText">
+            Choisissez votre destination et laissez AQUAREV Travel vous
+            accompagner.
+          </p>
+          <a href="#hotelSearchForm" class="cta-button"
+            ><span data-i18n="bookHotel">Rechercher un hôtel</span
+            ><i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="hotel-footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="../index.html"
+            ><img src="../assets/logo/aquarev.png" alt="AQUAREV Travel"
+          /></a>
+          <p>AQUAREV Travel<br />Luxury Travel & Experiences</p>
+          <p class="footer-description" data-i18n="footerDescription">
+            Votre partenaire pour vos voyages, hôtels, vols, croisières, visas,
+            Omra et expériences internationales.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3>AQUAREV Travel</h3>
+          <a href="../index.html" data-i18n="home">Accueil</a>
+          <a href="../index.html#vols" data-i18n="flights">Vols</a>
+          <a href="hotels.html" data-i18n="hotels">Hôtels</a>
+          <a href="../ferries.html" data-i18n="cruises">Croisières</a>
+          <a href="../index.html#reveillon" data-i18n="newyear">Réveillon</a>
+          <a href="../index.html#contact" data-i18n="contact">Contact</a>
+        </div>
+        <div class="footer-column">
+          <h3 data-i18n="services">Services</h3>
+          <a href="../visa-request.html" data-i18n="visas">Visas</a>
+          <a href="../index.html#omra" data-i18n="omra">Omra & Hajj</a>
+          <a href="../index.html#voyages" data-i18n="stays">Séjours</a>
+          <a href="../billetterie" data-i18n="ticketing">Billetterie</a>
+          <a href="#hotelSearchForm" data-i18n="hotelBooking"
+            >Réservation hôtels</a
+          >
+        </div>
+        <div class="footer-column footer-contact">
+          <h3 data-i18n="contactUs">Nous contacter</h3>
+          <a href="mailto:aquarev.travel@gmail.com"
+            ><i class="fa-solid fa-envelope"></i
+            ><span>aquarev.travel@gmail.com</span></a
+          >
+          <a
+            href="https://wa.me/213554958578"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-brands fa-whatsapp"></i
+            ><span>+213 554 958 578</span></a
+          >
+          <a
+            href="https://maps.google.com/?q=04+chemin+allaghan+tazmalt+bejaia+algeria"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-solid fa-location-dot"></i
+            ><span data-i18n="address">Tazmalt, Béjaïa, Algérie</span></a
+          >
+        </div>
+      </div>
+
+      <div class="footer-social-section">
+        <div>
+          <span data-i18n="followAquarev">Suivez AQUAREV Travel</span>
+          <p data-i18n="socialText">
+            Nos actualités, offres et inspirations de voyage.
+          </p>
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://www.facebook.com/share/1ZqcXcKhZb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/aquarevtravel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@aquarev_travel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+          <a
+            href="https://wa.me/213554958578"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+          <a href="mailto:aquarev.travel@gmail.com" aria-label="Email"
+            ><i class="fa-solid fa-envelope"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 AQUAREV Travel —
+          <span data-i18n="rights">Tous droits réservés.</span>
+        </p>
+        <div>
+          <a href="../index.html">AQUAREV Travel</a><span>•</span
+          ><a href="hotels.html" data-i18n="hotelReservation"
+            >Réservation Hôtels</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <div class="cookie-notice" id="cookieNotice">
+      <div>
+        <i class="fa-solid fa-shield-halved"></i
+        ><span data-i18n="cookieText"
+          >Vos données sont traitées de manière sécurisée dans le cadre de votre
+          demande de réservation.</span
+        >
+      </div>
+      <button type="button" id="closeCookieNotice" aria-label="Fermer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        "use strict";
+        const translations = {
+          fr: {
+            loader: "Préparation de votre expérience...",
+            home: "Accueil",
+            flights: "Vols",
+            hotels: "Hôtels",
+            cruises: "Croisières",
+            newyear: "Réveillon",
+            contact: "Contact",
+            login: "Connexion",
+            experience: "EXPÉRIENCE AQUAREV",
+            heroTitle: "Votre prochaine escapade<br><span>commence ici.</span>",
+            heroText:
+              "Découvrez et réservez des hôtels d'exception partout dans le monde avec AQUAREV Travel.",
+            international: "Destinations internationales",
+            secureBooking: "Réservation sécurisée",
+            aquarevSupport: "Assistance AQUAREV",
+            whereStay: "Où souhaitez-vous séjourner ?",
+            bestOptions: "Les meilleures options pour votre voyage",
+            destination: "Destination",
+            destinationPlaceholder: "Ville, pays ou hôtel",
+            arrival: "Arrivée",
+            departure: "Départ",
+            select: "Sélectionner",
+            travelers: "Voyageurs",
+            adults: "Adultes",
+            adultsAge: "13 ans et plus",
+            children: "Enfants",
+            childrenAge: "2 à 12 ans",
+            rooms: "Chambres",
+            roomNumber: "Nombre de chambres",
+            done: "Terminé",
+            search: "Rechercher",
+            secureSearch: "Recherche sécurisée",
+            support: "Assistance AQUAREV",
+            worldHotels: "Hôtels dans le monde entier",
+            inspiration: "INSPIRATION",
+            dreamDestinations: "Les destinations qui font rêver",
+            startJourney:
+              "Commencez votre voyage par une destination d'exception.",
+            seeAllDestinations: "Voir toutes les destinations",
+            france: "France",
+            cityLights: "La ville lumière",
+            turkiye: "Türkiye",
+            twoContinents: "Entre deux continents",
+            uae: "Émirats Arabes Unis",
+            luxuryModernity: "Luxe et modernité",
+            spain: "Espagne",
+            mediterraneanSun: "Soleil méditerranéen",
+            usa: "États-Unis",
+            cityNeverSleeps: "La ville qui ne dort jamais",
+            indianOcean: "Océan Indien",
+            tropicalEscape: "Évasion tropicale",
+            premiumExperience: "EXPÉRIENCE PREMIUM",
+            artTravel: "L'ART DU VOYAGE",
+            moreThanHotel: "Plus qu'un hôtel,<br><span>une expérience.</span>",
+            experienceText:
+              "Chez AQUAREV Travel, nous sélectionnons les meilleures possibilités d'hébergement afin de vous offrir une expérience de voyage élégante, confortable et parfaitement adaptée à vos besoins.",
+            selectedHotels: "Hôtels sélectionnés",
+            selectedHotelsText: "Des établissements adaptés à chaque voyage.",
+            roomsSuites: "Chambres & suites",
+            roomsSuitesText: "Des solutions adaptées à votre séjour.",
+            personalSupport: "Accompagnement AQUAREV",
+            personalSupportText:
+              "Une équipe à votre écoute avant et après votre réservation.",
+            secureReservation: "Réservation sécurisée",
+            secureReservationText:
+              "Vos informations sont traitées avec attention.",
+            ourHotels: "Nos possibilités d'hébergement",
+            resultsWaiting:
+              "Les résultats apparaîtront ici après votre recherche.",
+            sort: "Trier",
+            filter: "FILTRER",
+            yourStay: "Votre séjour",
+            budgetNight: "Budget par nuit",
+            minimumPrice: "Prix minimum",
+            maximumPrice: "Prix maximum",
+            category: "Catégorie",
+            fiveStars: "5 étoiles",
+            fourStars: "4 étoiles",
+            threeStars: "3 étoiles",
+            twoStars: "2 étoiles",
+            propertyType: "Type d'établissement",
+            hotelType: "Hôtel",
+            resort: "Resort",
+            apartment: "Appartement",
+            villa: "Villa",
+            amenities: "Équipements",
+            pool: "Piscine",
+            freeWifi: "Wi-Fi gratuit",
+            breakfast: "Petit-déjeuner",
+            parking: "Parking",
+            resetFilters: "Réinitialiser les filtres",
+            filters: "Filtres",
+            searchWaiting: "Recherche en attente",
+            nextHotel: "Votre prochain hôtel vous attend",
+            searchInstruction:
+              "Indiquez votre destination, vos dates et le nombre de voyageurs pour découvrir les hébergements disponibles.",
+            startSearch: "Commencer une recherche",
+            whyAquarev: "POURQUOI AQUAREV ?",
+            travelGoodHands: "Votre voyage entre de bonnes mains",
+            experienceNeeds: "Une expérience pensée autour de vos besoins.",
+            worldwide: "Partout dans le monde",
+            worldwideText:
+              "Recherchez votre hébergement dans les grandes destinations internationales.",
+            premiumSelection: "Une sélection premium",
+            premiumSelectionText:
+              "Des établissements et expériences adaptés aux différents styles de voyage.",
+            personalAdvice: "Conseil personnalisé",
+            personalAdviceText:
+              "Notre équipe vous accompagne pour préparer votre séjour avec sérénité.",
+            secureProcess: "Processus sécurisé",
+            secureProcessText:
+              "Votre demande et vos informations sont traitées dans un environnement sécurisé.",
+            readyDestination: "Prêt pour votre prochaine destination ?",
+            ctaText:
+              "Choisissez votre destination et laissez AQUAREV Travel vous accompagner.",
+            bookHotel: "Rechercher un hôtel",
+            footerDescription:
+              "Votre partenaire pour vos voyages, hôtels, vols, croisières, visas, Omra et expériences internationales.",
+            services: "Services",
+            visas: "Visas",
+            omra: "Omra & Hajj",
+            stays: "Séjours",
+            ticketing: "Billetterie",
+            hotelBooking: "Réservation hôtels",
+            contactUs: "Nous contacter",
+            address: "Tazmalt, Béjaïa, Algérie",
+            followAquarev: "Suivez AQUAREV Travel",
+            socialText: "Nos actualités, offres et inspirations de voyage.",
+            rights: "Tous droits réservés.",
+            hotelReservation: "Réservation Hôtels",
+          },
+          en: {
+            loader: "Preparing your experience...",
+            home: "Home",
+            flights: "Flights",
+            hotels: "Hotels",
+            cruises: "Cruises",
+            newyear: "New Year's Eve",
+            contact: "Contact",
+            login: "Sign in",
+            experience: "AQUAREV EXPERIENCE",
+            heroTitle: "Your next getaway<br><span>starts here.</span>",
+            heroText:
+              "Discover and book exceptional hotels around the world with AQUAREV Travel.",
+            international: "International destinations",
+            secureBooking: "Secure booking",
+            aquarevSupport: "AQUAREV assistance",
+            whereStay: "Where would you like to stay?",
+            bestOptions: "The best options for your trip",
+            destination: "Destination",
+            destinationPlaceholder: "City, country or hotel",
+            arrival: "Check-in",
+            departure: "Check-out",
+            select: "Select",
+            travelers: "Travelers",
+            adults: "Adults",
+            adultsAge: "13 years and older",
+            children: "Children",
+            childrenAge: "2 to 12 years",
+            rooms: "Rooms",
+            roomNumber: "Number of rooms",
+            done: "Done",
+            search: "Search",
+            secureSearch: "Secure search",
+            support: "AQUAREV assistance",
+            worldHotels: "Hotels worldwide",
+            inspiration: "INSPIRATION",
+            dreamDestinations: "Destinations that inspire",
+            startJourney: "Start your journey with an exceptional destination.",
+            seeAllDestinations: "See all destinations",
+            france: "France",
+            cityLights: "The city of light",
+            turkiye: "Türkiye",
+            twoContinents: "Between two continents",
+            uae: "United Arab Emirates",
+            luxuryModernity: "Luxury and modernity",
+            spain: "Spain",
+            mediterraneanSun: "Mediterranean sunshine",
+            usa: "United States",
+            cityNeverSleeps: "The city that never sleeps",
+            indianOcean: "Indian Ocean",
+            tropicalEscape: "Tropical escape",
+            premiumExperience: "PREMIUM EXPERIENCE",
+            artTravel: "THE ART OF TRAVEL",
+            moreThanHotel: "More than a hotel,<br><span>an experience.</span>",
+            experienceText:
+              "At AQUAREV Travel, we select the best accommodation options to offer you an elegant, comfortable travel experience perfectly adapted to your needs.",
+            selectedHotels: "Selected hotels",
+            selectedHotelsText: "Properties suited to every journey.",
+            roomsSuites: "Rooms & suites",
+            roomsSuitesText: "Solutions adapted to your stay.",
+            personalSupport: "AQUAREV support",
+            personalSupportText:
+              "A team available before and after your booking.",
+            secureReservation: "Secure booking",
+            secureReservationText: "Your information is handled with care.",
+            ourHotels: "Our accommodation options",
+            resultsWaiting: "Results will appear here after your search.",
+            sort: "Sort",
+            filter: "FILTER",
+            yourStay: "Your stay",
+            budgetNight: "Budget per night",
+            minimumPrice: "Minimum price",
+            maximumPrice: "Maximum price",
+            category: "Category",
+            fiveStars: "5 stars",
+            fourStars: "4 stars",
+            threeStars: "3 stars",
+            twoStars: "2 stars",
+            propertyType: "Property type",
+            hotelType: "Hotel",
+            resort: "Resort",
+            apartment: "Apartment",
+            villa: "Villa",
+            amenities: "Amenities",
+            pool: "Swimming pool",
+            freeWifi: "Free Wi-Fi",
+            breakfast: "Breakfast",
+            parking: "Parking",
+            resetFilters: "Reset filters",
+            filters: "Filters",
+            searchWaiting: "Waiting for search",
+            nextHotel: "Your next hotel is waiting",
+            searchInstruction:
+              "Enter your destination, dates and number of travelers to discover available accommodation.",
+            startSearch: "Start a search",
+            whyAquarev: "WHY AQUAREV?",
+            travelGoodHands: "Your journey in good hands",
+            experienceNeeds: "An experience designed around your needs.",
+            worldwide: "Around the world",
+            worldwideText:
+              "Search for accommodation in major international destinations.",
+            premiumSelection: "A premium selection",
+            premiumSelectionText:
+              "Properties and experiences suited to different travel styles.",
+            personalAdvice: "Personalized advice",
+            personalAdviceText:
+              "Our team helps you prepare your stay with peace of mind.",
+            secureProcess: "Secure process",
+            secureProcessText:
+              "Your request and information are handled in a secure environment.",
+            readyDestination: "Ready for your next destination?",
+            ctaText:
+              "Choose your destination and let AQUAREV Travel assist you.",
+            bookHotel: "Search for a hotel",
+            footerDescription:
+              "Your partner for travel, hotels, flights, cruises, visas, Omra and international experiences.",
+            services: "Services",
+            visas: "Visas",
+            omra: "Omra & Hajj",
+            stays: "Stays",
+            ticketing: "Ticketing",
+            hotelBooking: "Hotel booking",
+            contactUs: "Contact us",
+            address: "Tazmalt, Béjaïa, Algeria",
+            followAquarev: "Follow AQUAREV Travel",
+            socialText: "Our news, offers and travel inspiration.",
+            rights: "All rights reserved.",
+            hotelReservation: "Hotel Reservation",
+          },
+          ar: {
+            loader: "جارٍ تحضير تجربتكم...",
+            home: "الرئيسية",
+            flights: "الرحلات الجوية",
+            hotels: "الفنادق",
+            cruises: "الرحلات البحرية",
+            newyear: "رأس السنة",
+            contact: "اتصل بنا",
+            login: "تسجيل الدخول",
+            experience: "تجربة AQUAREV",
+            heroTitle: "رحلتك القادمة<br><span>تبدأ من هنا.</span>",
+            heroText:
+              "اكتشف واحجز فنادق استثنائية حول العالم مع AQUAREV Travel.",
+            international: "وجهات دولية",
+            secureBooking: "حجز آمن",
+            aquarevSupport: "مساعدة AQUAREV",
+            whereStay: "أين ترغب في الإقامة؟",
+            bestOptions: "أفضل الخيارات لرحلتك",
+            destination: "الوجهة",
+            destinationPlaceholder: "المدينة أو الدولة أو الفندق",
+            arrival: "تاريخ الوصول",
+            departure: "تاريخ المغادرة",
+            select: "اختيار",
+            travelers: "المسافرون",
+            adults: "البالغون",
+            adultsAge: "13 سنة فما فوق",
+            children: "الأطفال",
+            childrenAge: "من 2 إلى 12 سنة",
+            rooms: "الغرف",
+            roomNumber: "عدد الغرف",
+            done: "تم",
+            search: "بحث",
+            secureSearch: "بحث آمن",
+            support: "مساعدة AQUAREV",
+            worldHotels: "فنادق حول العالم",
+            inspiration: "إلهام",
+            dreamDestinations: "وجهات تحلمون بها",
+            startJourney: "ابدأ رحلتك بوجهة استثنائية.",
+            seeAllDestinations: "عرض جميع الوجهات",
+            france: "فرنسا",
+            cityLights: "مدينة الأنوار",
+            turkiye: "تركيا",
+            twoContinents: "بين قارتين",
+            uae: "الإمارات العربية المتحدة",
+            luxuryModernity: "الفخامة والحداثة",
+            spain: "إسبانيا",
+            mediterraneanSun: "شمس البحر المتوسط",
+            usa: "الولايات المتحدة",
+            cityNeverSleeps: "المدينة التي لا تنام",
+            indianOcean: "المحيط الهندي",
+            tropicalEscape: "هروب استوائي",
+            premiumExperience: "تجربة فاخرة",
+            artTravel: "فن السفر",
+            moreThanHotel: "أكثر من فندق،<br><span>إنها تجربة.</span>",
+            experienceText:
+              "في AQUAREV Travel نختار أفضل خيارات الإقامة لنقدم لكم تجربة سفر أنيقة ومريحة ومناسبة تماماً لاحتياجاتكم.",
+            selectedHotels: "فنادق مختارة",
+            selectedHotelsText: "مؤسسات مناسبة لكل رحلة.",
+            roomsSuites: "غرف وأجنحة",
+            roomsSuitesText: "حلول مناسبة لإقامتكم.",
+            personalSupport: "مرافقة AQUAREV",
+            personalSupportText: "فريقنا تحت تصرفكم قبل وبعد الحجز.",
+            secureReservation: "حجز آمن",
+            secureReservationText: "نتعامل مع معلوماتكم بكل عناية.",
+            ourHotels: "خيارات الإقامة لدينا",
+            resultsWaiting: "ستظهر النتائج هنا بعد إجراء البحث.",
+            sort: "ترتيب",
+            filter: "تصفية",
+            yourStay: "إقامتكم",
+            budgetNight: "الميزانية لليلة",
+            minimumPrice: "الحد الأدنى للسعر",
+            maximumPrice: "الحد الأقصى للسعر",
+            category: "الفئة",
+            fiveStars: "5 نجوم",
+            fourStars: "4 نجوم",
+            threeStars: "3 نجوم",
+            twoStars: "نجمتان",
+            propertyType: "نوع المؤسسة",
+            hotelType: "فندق",
+            resort: "منتجع",
+            apartment: "شقة",
+            villa: "فيلا",
+            amenities: "المرافق",
+            pool: "مسبح",
+            freeWifi: "واي فاي مجاني",
+            breakfast: "وجبة الإفطار",
+            parking: "موقف سيارات",
+            resetFilters: "إعادة ضبط الفلاتر",
+            filters: "الفلاتر",
+            searchWaiting: "في انتظار البحث",
+            nextHotel: "فندقك القادم بانتظارك",
+            searchInstruction:
+              "أدخل وجهتك وتواريخ السفر وعدد المسافرين لاكتشاف أماكن الإقامة المتاحة.",
+            startSearch: "ابدأ البحث",
+            whyAquarev: "لماذا AQUAREV؟",
+            travelGoodHands: "رحلتكم في أيدٍ أمينة",
+            experienceNeeds: "تجربة مصممة وفق احتياجاتكم.",
+            worldwide: "في جميع أنحاء العالم",
+            worldwideText: "ابحثوا عن إقامتكم في أهم الوجهات الدولية.",
+            premiumSelection: "اختيار فاخر",
+            premiumSelectionText: "فنادق وتجارب مناسبة لمختلف أنماط السفر.",
+            personalAdvice: "استشارة شخصية",
+            personalAdviceText: "فريقنا يساعدكم على إعداد إقامتكم بكل راحة.",
+            secureProcess: "عملية آمنة",
+            secureProcessText: "يتم التعامل مع طلبكم ومعلوماتكم في بيئة آمنة.",
+            readyDestination: "هل أنتم مستعدون لوجهتكم القادمة؟",
+            ctaText: "اختاروا وجهتكم ودعوا AQUAREV Travel ترافقكم.",
+            bookHotel: "البحث عن فندق",
+            footerDescription:
+              "شريككم في السفر والفنادق والرحلات الجوية والرحلات البحرية والتأشيرات والعمرة والتجارب الدولية.",
+            services: "الخدمات",
+            visas: "التأشيرات",
+            omra: "العمرة والحج",
+            stays: "الإقامات",
+            ticketing: "التذاكر",
+            hotelBooking: "حجز الفنادق",
+            contactUs: "اتصلوا بنا",
+            address: "تازمالت، بجاية، الجزائر",
+            followAquarev: "تابعوا AQUAREV Travel",
+            socialText: "آخر أخبارنا وعروضنا وإلهام السفر.",
+            rights: "جميع الحقوق محفوظة.",
+            hotelReservation: "حجز الفنادق",
+          },
+        };
+
+        function applyLanguage(language) {
+          const lang = translations[language] ? language : "fr";
+          document.documentElement.lang = lang;
+          document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+          localStorage.setItem("AQUAREV_LANGUAGE", lang);
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.dataset.i18n;
+            if (translations[lang][key] !== undefined)
+              el.textContent = translations[lang][key];
+          });
+          document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+            const key = el.dataset.i18nHtml;
+            if (translations[lang][key] !== undefined)
+              el.innerHTML = translations[lang][key];
+          });
+          document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+            const key = el.dataset.i18nPlaceholder;
+            if (translations[lang][key] !== undefined)
+              el.placeholder = translations[lang][key];
+          });
+          const flag = document.getElementById("currentLanguageFlag");
+          if (flag)
+            flag.textContent =
+              lang === "ar" ? "🇩🇿" : lang === "en" ? "🇬🇧" : "🇫🇷";
+          const button = document.getElementById("languageButton");
+          if (button)
+            button.setAttribute(
+              "aria-label",
+              lang === "ar"
+                ? "اختيار اللغة"
+                : lang === "en"
+                  ? "Choose language"
+                  : "Choisir la langue",
+            );
+        }
+
+        const savedLanguage = localStorage.getItem("AQUAREV_LANGUAGE") || "fr";
+        applyLanguage(savedLanguage);
+
+        document
+          .querySelectorAll("#languageMenu [data-language]")
+          .forEach((button) => {
+            button.addEventListener("click", function () {
+              applyLanguage(this.dataset.language);
+              document.getElementById("languageMenu")?.classList.remove("open");
+            });
+          });
+      });
+    </script>
+    <script type="module" src="hotels.js"></script>
+  </body>
+</html>

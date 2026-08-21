@@ -558,7 +558,7 @@ line-height:1.5;
 .user-connected{
 display:flex;
 align-items:center;
-gap:8px;
+gap:6px;
 margin-right:25px;
 white-space:nowrap;
 }
@@ -763,11 +763,6 @@ padding:6px 10px;
 }
 }
 
-
-
-
-
-
 .user-connected{
 gap:8px;
 }
@@ -801,6 +796,8 @@ gap:4px;
 .logout-btn i{
 font-size:11px;
 }
+
+
 
 
 
@@ -1353,4 +1350,309 @@ transform:translateX(35px);
 .footer-social a:nth-child(5) {
     background: #000;
     color: #fff;
+}
+
+
+
+
+
+
+
+.role-icon-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+width:34px;
+height:34px;
+border-radius:50%;
+text-decoration:none;
+font-size:15px;
+transition:.25s;
+}
+
+.admin-icon-btn{
+background:#d4af37;
+color:#071a2b;
+}
+
+.admin-icon-btn:hover{
+transform:scale(1.08);
+background:#e6c04a;
+}
+
+.admin-icon-btn{
+background:#00b4d8;
+color:#fff;
+}
+
+.admin-icon-btn:hover{
+transform:scale(1.08);
+background:#48cae4;
+}
+
+
+
+
+
+
+
+
+.user-connected{
+gap:1px!important;
+}
+
+.role-icon-btn{
+flex-shrink:0!important;
+margin:0 2px!important;
+}
+
+.messagerie-btn{
+flex-shrink:0!important;
+margin:0 2px!important;
+}
+
+.logout-btn{
+flex-shrink:0!important;
+margin:0 1px!important;
+}
+
+
+.messagerie-btn{
+padding:1px 2px!important;
+font-size:2px!important;
+gap:3px!important;
+}
+.messagerie-btn i{
+font-size:2px!important;
+}
+
+
+
+
+
+.logout-btn{
+padding:2px 4px!important;
+font-size:5px!important;
+height:20px!important;
+gap:3px!important;
+margin:0!important;
+}
+
+.logout-btn i{
+font-size:5px!important;
+}
+
+
+
+
+
+
+
+
+@media(max-width:768px){
+#user-area{
+transform:none!important;
+}
+
+.user-connected{
+transform:none!important;
+margin:0!important;
+gap:3px!important;
+}
+
+.messagerie-btn,
+.logout-btn,
+.role-icon-btn{
+transform:none!important;
+position:static!important;
+left:auto!important;
+right:auto!important;
+margin:0!important;
+}
+
+.logout-btn{
+padding:2px 4px!important;
+font-size:10px!important;
+height:24px!important;
+min-width:max-content!important;
+}
+
+.logout-btn i{
+font-size:10px!important;
+}
+
+.messagerie-btn{
+padding:3px 6px!important;
+font-size:10px!important;
+height:24px!important;
+min-width:max-content!important;
+}
+}
+
+
+.logout-btn i{
+display:none!important;
+}
+
+
+
+
+
+
+
+
+
+
+@media(max-width:768px){
+#user-area{
+max-width:none!important;
+width:auto!important;
+overflow:visible!important;
+}
+
+.user-connected{
+width:auto!important;
+max-width:none!important;
+overflow:visible!important;
+}
+
+.logout-btn{
+width:auto!important;
+min-width:0!important;
+max-width:none!important;
+overflow:visible!important;
+white-space:nowrap!important;
+padding-left:4px!important;
+padding-right:4px!important;
+}
+
+.logout-btn span{
+display:inline-flex!important;
+white-space:nowrap!important;
+overflow:visible!important;
+width:auto!important;
+max-width:none!important;
+}
+}
+
+.logout-btn{
+font-size:3px!important;
+}
+
+.messagerie-btn{
+font-size:4px!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+.admin-icon-btn{
+display:flex!important;
+align-items:center!important;
+justify-content:center!important;
+width:30px!important;
+height:30px!important;
+min-width:30px!important;
+padding:0!important;
+margin:0!important;
+background:#00b4d8!important;
+color:#fff!important;
+border-radius:50%!important;
+visibility:visible!important;
+opacity:1!important;
+flex-shrink:0!important;
+}
+
+.admin-icon-btn i{
+display:block!important;
+visibility:visible!important;
+opacity:1!important;
+font-size:14px!important;
+color:#fff!important;
+}
+
+
+
+
+.admin-icon-btn,
+.pilot-icon-btn{
+  background:#00b4d8!important;
+  color:#fff!important;
+  border:1px solid #00b4d8!important;
+  box-shadow:0 4px 14px rgba(0,180,216,.25);
+}
+
+.admin-icon-btn:hover,
+.pilot-icon-btn:hover{
+  background:#009fc0!important;
+  color:#fff!important;
+  border-color:#009fc0!important;
+  transform:translateY(-2px);
+  box-shadow:0 7px 18px rgba(0,180,216,.35);
+}
+
+
+
+
+
+.hotel-booking-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:13px 28px;
+background:#00b4d8;
+color:#fff;
+border:1px solid #00b4d8;
+border-radius:8px;
+font-size:15px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 8px 22px rgba(0,180,216,.25);
+transition:all .3s ease;
+}
+.hotel-booking-btn:hover{
+background:#009fc1;
+border-color:#009fc1;
+transform:translateY(-2px);
+box-shadow:0 12px 28px rgba(0,180,216,.35);
+}
+.hotel-booking-btn i{
+font-size:16px;
+}
+
+
+
+
+.flight-booking-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:13px 28px;
+background:#00b4d8;
+color:#fff;
+border:1px solid #00b4d8;
+border-radius:8px;
+font-size:15px;
+font-weight:700;
+text-decoration:none;
+box-shadow:0 8px 22px rgba(0,180,216,.25);
+transition:all .3s ease;
+}
+.flight-booking-btn:hover{
+background:#009fc1;
+border-color:#009fc1;
+transform:translateY(-2px);
+box-shadow:0 12px 28px rgba(0,180,216,.35);
+}
+.flight-booking-btn i{
+font-size:16px;
 }
