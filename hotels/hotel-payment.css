@@ -117,3 +117,18 @@ button,input,select,textarea{font:inherit}
 .hotel-summary img{width:78px;height:65px}
 }
 
+.payment-card-logo{
+width:58px;
+height:36px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+overflow:hidden;
+}
+.payment-card-logo img{
+width:100%;
+height:100%;
+object-fit:contain;
+display:block;
+}

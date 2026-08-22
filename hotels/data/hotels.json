@@ -11,7 +11,7 @@
 "price": 28500,
 "currency": "DZD",
 "featured": true,
-"image": "./assets/images/hotels/(22).jpg",
+"image": "./assets/images/hotels/(10).jpg",
 "services": [
 "wifi",
 "breakfast",
@@ -202,7 +202,7 @@
 "price": 29500,
 "currency": "DZD",
 "featured": false,
-"image": "./assets/images/hotels/(11).jpg",
+"image": "./assets/images/hotels/(1).jpg",
 "services": [
 "wifi",
 "parking"
@@ -220,7 +220,7 @@
 "price": 39500,
 "currency": "DZD",
 "featured": false,
-"image": "./assets/images/hotels/(12).jpg",
+"image": "./assets/images/hotels/(11).jpg",
 "services": [
 "wifi",
 "breakfast",
