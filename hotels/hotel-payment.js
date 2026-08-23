@@ -1,4 +1,3 @@
-
 (function(){
 "use strict";
 const PAYMENT_API_URL="/api/payment/hotel";
@@ -166,22 +165,18 @@ checkIn:booking.checkIn||"",
 checkOut:booking.checkOut||"",
 nights:getNumber(booking.nights,0),
 rooms:getNumber(booking.rooms,1),
-success_url:`${window.location.origin}/payment-success.html`,
+success_url:`${window.location.origin}/hotel-confirmation.html`,
 failure_url:`${window.location.origin}/payment-failed.html`
 })
 });
 const responseText=await response.text();
-
 let data={};
-
 try{
 data=responseText?JSON.parse(responseText):{};
 }catch(error){
 console.error("PAYMENT SERVER RAW RESPONSE:",responseText);
 console.error("PAYMENT SERVER STATUS:",response.status);
-throw new Error(
-`Réponse invalide du serveur de paiement (${response.status}).`
-);
+throw new Error(`Réponse invalide du serveur de paiement (${response.status}).`);
 }
 if(!response.ok||data.success===false){
 throw new Error(data.error||data.message||"Impossible de créer le paiement.");

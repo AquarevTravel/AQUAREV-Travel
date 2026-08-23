@@ -10,7 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Cinzel:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -19,46 +19,56 @@
         margin: 0;
         padding: 0;
       }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         font-family: Poppins, sans-serif;
-        color: #172033;
+        color: #173047;
         min-height: 100vh;
         background:
           radial-gradient(
-            circle at 10% 10%,
+            circle at 8% 8%,
             rgba(0, 180, 216, 0.18),
             transparent 28%
           ),
           radial-gradient(
-            circle at 90% 20%,
-            rgba(0, 119, 182, 0.14),
+            circle at 92% 15%,
+            rgba(72, 202, 228, 0.18),
             transparent 30%
           ),
-          linear-gradient(180deg, #eafaff 0%, #f5fbfd 45%, #eef7fa 100%);
+          linear-gradient(180deg, #e9fbff 0%, #f7fdff 48%, #eaf7fb 100%);
         overflow-x: hidden;
       }
       body:before {
         content: "";
         position: fixed;
-        width: 420px;
-        height: 420px;
+        width: 430px;
+        height: 430px;
         border-radius: 50%;
-        background: rgba(0, 180, 216, 0.08);
-        top: -180px;
+        background: rgba(0, 180, 216, 0.07);
+        top: -190px;
         right: -120px;
-        filter: blur(5px);
+        filter: blur(8px);
         pointer-events: none;
+        z-index: 0;
       }
       body:after {
         content: "";
         position: fixed;
-        width: 360px;
-        height: 360px;
+        width: 380px;
+        height: 380px;
         border-radius: 50%;
-        background: rgba(0, 119, 182, 0.06);
-        bottom: -170px;
-        left: -120px;
+        background: rgba(0, 119, 182, 0.055);
+        bottom: -180px;
+        left: -130px;
+        filter: blur(6px);
         pointer-events: none;
+        z-index: 0;
+      }
+      button,
+      a {
+        font-family: inherit;
       }
       .pilot-header {
         height: 78px;
@@ -69,18 +79,19 @@
         padding: 0 30px;
         box-shadow: 0 5px 25px rgba(0, 59, 92, 0.22);
         position: relative;
-        z-index: 10;
+        z-index: 100;
       }
       .pilot-brand {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 13px;
+        min-width: 0;
       }
       .pilot-brand img {
         width: 48px;
         height: 48px;
         object-fit: contain;
-        filter: drop-shadow(0 4px 10px rgba(0, 180, 216, 0.25));
+        filter: drop-shadow(0 4px 10px rgba(0, 180, 216, 0.28));
       }
       .pilot-title {
         font-family: Cinzel, serif;
@@ -88,11 +99,12 @@
         font-size: 21px;
         font-weight: 700;
         letter-spacing: 1px;
+        white-space: nowrap;
       }
       .pilot-actions {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
       }
       .panel-btn {
         display: flex;
@@ -101,13 +113,24 @@
         gap: 8px;
         text-decoration: none;
         border: 0;
-        padding: 10px 17px;
+        padding: 10px 15px;
         border-radius: 22px;
-        font-family: Poppins, sans-serif;
         font-size: 13px;
         font-weight: 600;
         cursor: pointer;
-        transition: 0.25s;
+        transition: 0.25s ease;
+        white-space: nowrap;
+      }
+      .panel-btn:hover {
+        transform: translateY(-2px);
+      }
+      .home-btn {
+        background: rgba(255, 255, 255, 0.13);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+      }
+      .home-btn:hover {
+        background: rgba(255, 255, 255, 0.22);
       }
       .admin-btn {
         background: #00b4d8;
@@ -116,30 +139,91 @@
       }
       .admin-btn:hover {
         background: #009fc0;
-        transform: translateY(-2px);
         box-shadow: 0 8px 22px rgba(0, 180, 216, 0.38);
       }
       .logout-btn {
-        background: rgba(255, 255, 255, 0.95);
+        background: #fff;
         color: #071a2b;
       }
       .logout-btn:hover {
         background: #e7f8fc;
-        transform: translateY(-2px);
+      }
+      .language-box {
+        position: relative;
+      }
+      .language-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.11);
+        color: #fff;
+        height: 40px;
+        padding: 0 12px;
+        border-radius: 21px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .language-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .language-menu {
+        position: absolute;
+        top: 48px;
+        right: 0;
+        width: 145px;
+        padding: 6px;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 12px 35px rgba(0, 59, 92, 0.2);
+        border: 1px solid rgba(0, 180, 216, 0.12);
+        display: none;
+        z-index: 200;
+      }
+      .language-box.open .language-menu {
+        display: block;
+      }
+      .language-menu button {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        padding: 9px 10px;
+        border-radius: 9px;
+        text-align: left;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        color: #173047;
+      }
+      .language-menu button:hover {
+        background: #e9faff;
+        color: #0077b6;
+      }
+      html[dir="rtl"] .language-menu {
+        right: auto;
+        left: 0;
+      }
+      html[dir="rtl"] .language-menu button {
+        text-align: right;
+        font-family: Cairo, sans-serif;
       }
       .pilot-main {
-        padding: 45px 25px 60px;
+        padding: 38px 25px 60px;
         position: relative;
         z-index: 1;
       }
-      .welcome-card {
-        max-width: 1100px;
+      .dashboard-container {
+        max-width: 1180px;
         margin: auto;
-        background: rgba(255, 255, 255, 0.92);
+      }
+      .welcome-card {
+        background: rgba(255, 255, 255, 0.91);
         border: 1px solid rgba(0, 180, 216, 0.14);
-        border-radius: 24px;
-        padding: 40px;
-        box-shadow: 0 15px 45px rgba(0, 59, 92, 0.1);
+        border-radius: 25px;
+        padding: 34px;
+        box-shadow: 0 15px 45px rgba(0, 59, 92, 0.09);
         position: relative;
         overflow: hidden;
       }
@@ -150,86 +234,387 @@
         left: 0;
         width: 100%;
         height: 5px;
-        background: linear-gradient(90deg, #00b4d8, #0077b6, #00b4d8);
+        background: linear-gradient(90deg, #00b4d8, #48cae4, #0077b6, #00b4d8);
+      }
+      .welcome-top {
+        display: flex;
+        align-items: center;
+        gap: 20px;
       }
       .welcome-icon {
-        width: 62px;
-        height: 62px;
-        border-radius: 18px;
+        width: 66px;
+        height: 66px;
+        border-radius: 19px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: linear-gradient(135deg, #00b4d8, #0077b6);
         color: #fff;
-        font-size: 27px;
-        margin-bottom: 20px;
+        font-size: 28px;
+        flex-shrink: 0;
         box-shadow: 0 10px 25px rgba(0, 119, 182, 0.22);
       }
-      .welcome-card h1 {
+      .welcome-text h1 {
         font-family: Cinzel, serif;
         color: #06344d;
-        font-size: 30px;
-        margin-bottom: 10px;
+        font-size: 28px;
+        margin-bottom: 6px;
       }
-      .welcome-card p {
-        color: #667085;
-        font-size: 15px;
-        line-height: 1.7;
+      .welcome-text p {
+        color: #6b7d89;
+        font-size: 14px;
+        line-height: 1.6;
       }
       .pilot-status {
-        margin-top: 25px;
-        padding: 16px 18px;
-        border-radius: 14px;
+        margin-top: 22px;
+        padding: 13px 16px;
+        border-radius: 13px;
         background: #effcff;
-        border: 1px solid rgba(0, 180, 216, 0.2);
+        border: 1px solid rgba(0, 180, 216, 0.18);
         color: #006b88;
-        font-size: 14px;
+        font-size: 13px;
       }
       .pilot-status i {
-        margin-right: 8px;
+        margin-right: 7px;
         color: #00a6c7;
       }
-      .pilot-cards {
-        max-width: 1100px;
-        margin: 25px auto 0;
+      html[dir="rtl"] .pilot-status i {
+        margin-right: 0;
+        margin-left: 7px;
+      }
+      .section-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 30px 0 15px;
+      }
+      .section-heading h2 {
+        font-family: Cinzel, serif;
+        font-size: 20px;
+        color: #06344d;
+      }
+      .section-heading span {
+        font-size: 11px;
+        color: #7b8c98;
+      }
+      .modules-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
+        gap: 16px;
       }
-      .pilot-card {
-        background: rgba(255, 255, 255, 0.9);
+      .module-card {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        min-height: 105px;
+        background: rgba(255, 255, 255, 0.92);
         border: 1px solid rgba(0, 180, 216, 0.13);
-        border-radius: 20px;
-        padding: 25px;
-        box-shadow: 0 10px 30px rgba(0, 59, 92, 0.07);
-        transition: 0.3s;
+        border-radius: 19px;
+        text-decoration: none;
+        box-shadow: 0 9px 27px rgba(0, 59, 92, 0.065);
+        transition: 0.3s ease;
+        overflow: hidden;
+        cursor: pointer;
       }
-      .pilot-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(0, 180, 216, 0.4);
-        box-shadow: 0 15px 35px rgba(0, 119, 182, 0.13);
+      .module-card:after {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: rgba(72, 202, 228, 0.08);
+        right: -28px;
+        bottom: -38px;
       }
-      .pilot-card-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 15px;
+      .module-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0, 180, 216, 0.38);
+        box-shadow: 0 15px 34px rgba(0, 119, 182, 0.12);
+      }
+      .module-card.active {
+        border-color: #00b4d8;
+        box-shadow: 0 12px 30px rgba(0, 180, 216, 0.18);
+      }
+      .module-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #e9faff;
-        color: #00a4c7;
+        background: linear-gradient(135deg, #e5faff, #d5f5fc);
+        color: #008db5;
         font-size: 21px;
-        margin-bottom: 16px;
+        flex-shrink: 0;
       }
-      .pilot-card h3 {
+      .module-info {
+        position: relative;
+        z-index: 2;
+      }
+      .module-info h3 {
+        font-size: 15px;
         color: #06344d;
-        font-size: 16px;
-        margin-bottom: 7px;
+        margin-bottom: 4px;
       }
-      .pilot-card p {
-        color: #7a8793;
+      .module-info p {
+        font-size: 11px;
+        color: #7b8994;
+        line-height: 1.45;
+      }
+      .module-count {
+        position: absolute;
+        right: 13px;
+        top: 11px;
+        min-width: 25px;
+        height: 25px;
+        padding: 0 7px;
+        border-radius: 13px;
+        background: #e8faff;
+        color: #008db5;
+        font-size: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+      }
+      html[dir="rtl"] .module-count {
+        right: auto;
+        left: 13px;
+      }
+      .finance-section,
+      .activity-section {
+        margin-top: 30px;
+      }
+      .finance-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+      }
+      .finance-card {
+        background: rgba(255, 255, 255, 0.93);
+        border: 1px solid rgba(0, 180, 216, 0.13);
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 9px 27px rgba(0, 59, 92, 0.065);
+        position: relative;
+        overflow: hidden;
+      }
+      .finance-card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #00b4d8, #48cae4);
+      }
+      .finance-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e8faff;
+        color: #008db5;
+        font-size: 17px;
+        margin-bottom: 13px;
+      }
+      .finance-label {
+        font-size: 11px;
+        color: #7b8994;
+        margin-bottom: 5px;
+      }
+      .finance-value {
+        font-size: 21px;
+        font-weight: 700;
+        color: #06344d;
+      }
+      .finance-value small {
+        font-size: 10px;
+        font-weight: 600;
+        color: #758794;
+        margin-left: 3px;
+      }
+      .activity-card {
+        background: rgba(255, 255, 255, 0.93);
+        border: 1px solid rgba(0, 180, 216, 0.13);
+        border-radius: 19px;
+        box-shadow: 0 9px 27px rgba(0, 59, 92, 0.065);
+        overflow: hidden;
+      }
+      .activity-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 17px 20px;
+        border-bottom: 1px solid #e7f4f7;
+      }
+      .activity-filter {
+        border: 1px solid #cfeaf0;
+        background: #f8fdff;
+        color: #31566a;
+        border-radius: 10px;
+        padding: 8px 11px;
+        font-size: 11px;
+        outline: none;
+      }
+      .activity-list {
+        width: 100%;
+        overflow-x: auto;
+      }
+      .activity-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 650px;
+      }
+      .activity-table th {
+        background: #f2fbfd;
+        color: #527083;
+        font-size: 10px;
+        text-align: left;
+        padding: 12px 15px;
+        font-weight: 700;
+      }
+      .activity-table td {
+        padding: 13px 15px;
+        border-top: 1px solid #edf5f7;
+        color: #526a77;
+        font-size: 11px;
+      }
+      .activity-table td:first-child {
+        font-weight: 600;
+        color: #06344d;
+      }
+      .activity-empty {
+        padding: 35px 20px;
+        text-align: center;
+        color: #84939d;
+        font-size: 13px;
+      }
+      .activity-empty i {
+        display: block;
+        font-size: 30px;
+        color: #8ddff0;
+        margin-bottom: 10px;
+      }
+      .module-view {
+        display: none;
+        margin-top: 30px;
+      }
+      .module-view.active {
+        display: block;
+      }
+      .module-header {
+        background: linear-gradient(135deg, #06344d, #0077b6);
+        border-radius: 22px;
+        padding: 25px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        box-shadow: 0 12px 30px rgba(0, 59, 92, 0.15);
+      }
+      .module-header-main {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .module-header-icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.16);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+      }
+      .module-header h2 {
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+      .module-header p {
+        font-size: 11px;
+        opacity: 0.8;
+      }
+      .module-back {
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border-radius: 20px;
+        padding: 9px 14px;
+        cursor: pointer;
+        font-size: 11px;
+      }
+      .module-back:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .module-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 15px;
+      }
+      .module-stat {
+        background: rgba(255, 255, 255, 0.93);
+        border: 1px solid rgba(0, 180, 216, 0.13);
+        border-radius: 17px;
+        padding: 17px;
+        box-shadow: 0 7px 22px rgba(0, 59, 92, 0.06);
+      }
+      .module-stat-label {
+        font-size: 10px;
+        color: #7b8994;
+        margin-bottom: 6px;
+      }
+      .module-stat-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #06344d;
+      }
+      .module-stat-value small {
+        font-size: 9px;
+        color: #7b8994;
+      }
+      .module-data {
+        margin-top: 15px;
+        background: rgba(255, 255, 255, 0.93);
+        border: 1px solid rgba(0, 180, 216, 0.13);
+        border-radius: 19px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 59, 92, 0.06);
+      }
+      .module-data-head {
+        padding: 16px 20px;
+        border-bottom: 1px solid #e7f4f7;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .module-data-head h3 {
+        font-size: 14px;
+        color: #06344d;
+      }
+      .module-data-head span {
+        font-size: 10px;
+        color: #7b8994;
+      }
+      .data-empty {
+        padding: 35px;
+        text-align: center;
+        color: #84939d;
         font-size: 12px;
-        line-height: 1.6;
+      }
+      .data-empty i {
+        font-size: 27px;
+        color: #8ddff0;
+        display: block;
+        margin-bottom: 9px;
       }
       .loading {
         position: fixed;
@@ -241,7 +626,7 @@
         flex-direction: column;
         gap: 13px;
         color: #fff;
-        font-size: 15px;
+        font-size: 14px;
         z-index: 9999;
       }
       .loading i {
@@ -251,70 +636,194 @@
       .hidden {
         display: none !important;
       }
-      @media (max-width: 900px) {
-        .pilot-cards {
+      html[dir="rtl"] body {
+        font-family: Cairo, Poppins, sans-serif;
+      }
+      html[dir="rtl"] .welcome-text h1,
+      html[dir="rtl"] .section-heading h2 {
+        font-family: Cairo, Poppins, sans-serif;
+        font-weight: 800;
+      }
+      html[dir="rtl"] .activity-table th {
+        text-align: right;
+      }
+      @media (max-width: 1000px) {
+        .modules-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .finance-grid,
+        .module-stats {
           grid-template-columns: repeat(2, 1fr);
         }
       }
-      @media (max-width: 700px) {
+      @media (max-width: 760px) {
         .pilot-header {
           height: auto;
-          min-height: 75px;
-          padding: 11px 15px;
-          gap: 10px;
-        }
-        .pilot-title {
-          font-size: 15px;
+          min-height: 72px;
+          padding: 10px 13px;
+          gap: 8px;
         }
         .pilot-brand {
-          gap: 9px;
+          gap: 8px;
         }
         .pilot-brand img {
-          width: 40px;
-          height: 40px;
+          width: 39px;
+          height: 39px;
+        }
+        .pilot-title {
+          font-size: 14px;
+          letter-spacing: 0.5px;
         }
         .pilot-actions {
-          gap: 6px;
+          gap: 5px;
         }
         .panel-btn {
-          padding: 9px 11px;
-          font-size: 12px;
+          width: 40px;
+          height: 40px;
+          padding: 0;
+          border-radius: 50%;
+          font-size: 14px;
         }
         .panel-btn span {
           display: none;
         }
+        .language-btn {
+          width: 40px;
+          height: 40px;
+          padding: 0;
+          border-radius: 50%;
+        }
+        .language-btn span {
+          display: none;
+        }
+        .language-menu {
+          top: 46px;
+        }
         .pilot-main {
-          padding: 25px 15px 40px;
+          padding: 22px 13px 40px;
         }
         .welcome-card {
-          padding: 28px 20px;
+          padding: 25px 18px;
           border-radius: 20px;
+        }
+        .welcome-top {
+          gap: 13px;
         }
         .welcome-icon {
           width: 54px;
           height: 54px;
+          border-radius: 16px;
           font-size: 23px;
         }
-        .welcome-card h1 {
-          font-size: 24px;
+        .welcome-text h1 {
+          font-size: 21px;
         }
-        .welcome-card p {
-          font-size: 13px;
+        .welcome-text p {
+          font-size: 12px;
         }
-        .pilot-cards {
+        .pilot-status {
+          font-size: 11px;
+        }
+        .section-heading {
+          margin-top: 24px;
+        }
+        .section-heading h2 {
+          font-size: 17px;
+        }
+        .modules-grid {
           grid-template-columns: 1fr;
-          gap: 14px;
+          gap: 12px;
         }
-        .pilot-card {
-          padding: 21px;
+        .module-card {
+          min-height: 88px;
+          padding: 16px;
+        }
+        .module-icon {
+          width: 47px;
+          height: 47px;
+          border-radius: 14px;
+          font-size: 19px;
+        }
+        .module-info h3 {
+          font-size: 14px;
+        }
+        .module-info p {
+          font-size: 10px;
+        }
+        .finance-grid,
+        .module-stats {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 11px;
+        }
+        .finance-card,
+        .module-stat {
+          padding: 16px 13px;
+          border-radius: 16px;
+        }
+        .finance-icon {
+          width: 35px;
+          height: 35px;
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+        .finance-label,
+        .module-stat-label {
+          font-size: 9px;
+        }
+        .finance-value,
+        .module-stat-value {
+          font-size: 16px;
+        }
+        .module-header {
+          padding: 19px 15px;
+          border-radius: 18px;
+        }
+        .module-header h2 {
+          font-size: 18px;
+        }
+        .module-header p {
+          font-size: 9px;
+        }
+        .module-header-icon {
+          width: 45px;
+          height: 45px;
+          font-size: 18px;
+        }
+        .module-back {
+          padding: 8px 10px;
+          font-size: 9px;
+        }
+        .activity-toolbar {
+          padding: 13px;
+        }
+        .activity-table th,
+        .activity-table td {
+          padding: 10px 11px;
+        }
+      }
+      @media (max-width: 400px) {
+        .pilot-title {
+          font-size: 12px;
+        }
+        .welcome-text h1 {
+          font-size: 18px;
+        }
+        .finance-grid,
+        .module-stats {
+          grid-template-columns: 1fr 1fr;
         }
       }
     </style>
   </head>
   <body>
     <div id="loading-screen" class="loading">
-      <i class="fa-solid fa-spinner fa-spin"></i>
-      <span>Vérification de votre accès...</span>
+      <i class="fa-solid fa-spinner fa-spin"></i
+      ><span
+        data-fr="Vérification de votre accès..."
+        data-en="Checking your access..."
+        data-ar="جارٍ التحقق من صلاحية الدخول..."
+        >Vérification de votre accès...</span
+      >
     </div>
     <header id="pilot-header" class="pilot-header hidden">
       <div class="pilot-brand">
@@ -322,70 +831,227 @@
         <div class="pilot-title">AQUAREV PILOT</div>
       </div>
       <div class="pilot-actions">
-        <a href="AQUAREVADMIN.html" class="panel-btn admin-btn">
-          <i class="fa-solid fa-shield-halved"></i>
-          <span>ADMIN</span>
-        </a>
+        <a href="index.html" class="panel-btn home-btn" title="Accueil"
+          ><i class="fa-solid fa-house"></i
+          ><span data-fr="Accueil" data-en="Home" data-ar="الرئيسية"
+            >Accueil</span
+          ></a
+        >
+        <div class="language-box" id="language-box">
+          <button type="button" class="language-btn" id="language-btn">
+            <i class="fa-solid fa-globe"></i
+            ><span id="current-language">🇫🇷</span>
+          </button>
+          <div class="language-menu">
+            <button type="button" data-language="fr">🇫🇷 Français</button
+            ><button type="button" data-language="en">🇬🇧 English</button
+            ><button type="button" data-language="ar">🇩🇿 العربية</button>
+          </div>
+        </div>
+        <a
+          href="AQUAREVADMIN.html"
+          class="panel-btn admin-btn"
+          title="Administration"
+          ><i class="fa-solid fa-shield-halved"></i><span>ADMIN</span></a
+        >
         <button id="logout-btn" class="panel-btn logout-btn">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          <span>Déconnexion</span>
+          <i class="fa-solid fa-right-from-bracket"></i
+          ><span data-fr="Déconnexion" data-en="Logout" data-ar="تسجيل الخروج"
+            >Déconnexion</span
+          >
         </button>
       </div>
     </header>
     <main id="pilot-main" class="pilot-main hidden">
-      <section class="welcome-card">
-        <div class="welcome-icon"><i class="fa-solid fa-calculator"></i></div>
-        <h1>AQUAREV PILOT</h1>
-        <p id="pilot-name">
-          Bienvenue dans votre espace de pilotage comptable.
-        </p>
-        <div class="pilot-status">
-          <i class="fa-solid fa-circle-check"></i>
-          Accès pilote confirmé.
-        </div>
-      </section>
-      <section class="pilot-cards">
-        <div class="pilot-card">
-          <div class="pilot-card-icon">
-            <i class="fa-solid fa-file-invoice-dollar"></i>
+      <div class="dashboard-container">
+        <section class="welcome-card">
+          <div class="welcome-top">
+            <div class="welcome-icon"><i class="fa-solid fa-compass"></i></div>
+            <div class="welcome-text">
+              <h1>AQUAREV PILOT</h1>
+              <p id="pilot-name">
+                Bienvenue dans votre espace de pilotage AQUAREV Travel.
+              </p>
+            </div>
           </div>
-          <h3>Comptabilité</h3>
-          <p>
-            Suivi des opérations financières et des commissions AQUAREV Travel.
-          </p>
-        </div>
-        <div class="pilot-card">
-          <div class="pilot-card-icon">
-            <i class="fa-solid fa-chart-line"></i>
+          <div class="pilot-status">
+            <i class="fa-solid fa-circle-check"></i
+            ><span
+              data-fr="Accès pilote confirmé."
+              data-en="Pilot access confirmed."
+              data-ar="تم تأكيد صلاحية دخول الطيار."
+              >Accès pilote confirmé.</span
+            >
           </div>
-          <h3>Suivi financier</h3>
-          <p>Visualisation et contrôle des données financières de l'agence.</p>
+        </section>
+        <div class="section-heading">
+          <h2
+            data-fr="Activités AQUAREV"
+            data-en="AQUAREV Activities"
+            data-ar="أنشطة AQUAREV"
+          >
+            Activités AQUAREV
+          </h2>
+          <span
+            data-fr="Suivi des activités"
+            data-en="Activity monitoring"
+            data-ar="متابعة الأنشطة"
+            >Suivi des activités</span
+          >
         </div>
-        <div class="pilot-card">
-          <div class="pilot-card-icon">
-            <i class="fa-solid fa-plane-departure"></i>
+        <section class="modules-grid" id="modules-grid"></section>
+        <section class="finance-section">
+          <div class="section-heading">
+            <h2
+              data-fr="Situation financière globale"
+              data-en="Global Financial Overview"
+              data-ar="الوضع المالي العام"
+            >
+              Situation financière globale
+            </h2>
+            <span
+              data-fr="Données Firestore"
+              data-en="Firestore data"
+              data-ar="بيانات Firestore"
+              >Données Firestore</span
+            >
           </div>
-          <h3>Programmes</h3>
-          <p>Suivi des programmes touristiques et des offres partenaires.</p>
-        </div>
-        <div class="pilot-card">
-          <div class="pilot-card-icon"><i class="fa-solid fa-receipt"></i></div>
-          <h3>Opérations</h3>
-          <p>Gestion et contrôle des opérations comptables.</p>
-        </div>
-        <div class="pilot-card">
-          <div class="pilot-card-icon">
-            <i class="fa-solid fa-envelope"></i>
+          <div class="finance-grid">
+            <div class="finance-card">
+              <div class="finance-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div
+                class="finance-label"
+                data-fr="Chiffre d'affaires"
+                data-en="Revenue"
+                data-ar="رقم الأعمال"
+              >
+                Chiffre d'affaires
+              </div>
+              <div class="finance-value">
+                <span id="total-revenue">—</span><small>DA</small>
+              </div>
+            </div>
+            <div class="finance-card">
+              <div class="finance-icon">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <div
+                class="finance-label"
+                data-fr="Paiements"
+                data-en="Payments"
+                data-ar="المدفوعات"
+              >
+                Paiements
+              </div>
+              <div class="finance-value">
+                <span id="total-payments">—</span><small>DA</small>
+              </div>
+            </div>
+            <div class="finance-card">
+              <div class="finance-icon">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+              </div>
+              <div
+                class="finance-label"
+                data-fr="Coûts"
+                data-en="Costs"
+                data-ar="التكاليف"
+              >
+                Coûts
+              </div>
+              <div class="finance-value">
+                <span id="total-costs">—</span><small>DA</small>
+              </div>
+            </div>
+            <div class="finance-card">
+              <div class="finance-icon">
+                <i class="fa-solid fa-sack-dollar"></i>
+              </div>
+              <div
+                class="finance-label"
+                data-fr="Bénéfice"
+                data-en="Profit"
+                data-ar="الأرباح"
+              >
+                Bénéfice
+              </div>
+              <div class="finance-value">
+                <span id="total-profit">—</span><small>DA</small>
+              </div>
+            </div>
           </div>
-          <h3>Communications</h3>
-          <p>Accès aux informations et communications professionnelles.</p>
-        </div>
-        <div class="pilot-card">
-          <div class="pilot-card-icon"><i class="fa-solid fa-gear"></i></div>
-          <h3>Paramètres</h3>
-          <p>Configuration de votre espace de pilotage.</p>
-        </div>
-      </section>
+        </section>
+        <section class="activity-section">
+          <div class="section-heading">
+            <h2
+              data-fr="Activités récentes"
+              data-en="Recent Activities"
+              data-ar="الأنشطة الأخيرة"
+            >
+              Activités récentes
+            </h2>
+            <span
+              data-fr="Toutes les opérations"
+              data-en="All operations"
+              data-ar="جميع العمليات"
+              >Toutes les opérations</span
+            >
+          </div>
+          <div class="activity-card">
+            <div class="activity-toolbar">
+              <strong
+                data-fr="Journal des activités"
+                data-en="Activity log"
+                data-ar="سجل الأنشطة"
+                >Journal des activités</strong
+              ><select class="activity-filter" id="activity-filter">
+                <option value="all">Toutes</option>
+                <option value="vols">Vols</option>
+                <option value="hotels">Hôtels</option>
+                <option value="maritime">Maritime</option>
+                <option value="voyages">Voyages</option>
+                <option value="omra">Omra</option>
+                <option value="visas">Visas</option>
+              </select>
+            </div>
+            <div class="activity-list">
+              <table class="activity-table">
+                <thead>
+                  <tr>
+                    <th data-fr="Section" data-en="Section" data-ar="القسم">
+                      Section
+                    </th>
+                    <th
+                      data-fr="Opération"
+                      data-en="Operation"
+                      data-ar="العملية"
+                    >
+                      Opération
+                    </th>
+                    <th
+                      data-fr="Référence"
+                      data-en="Reference"
+                      data-ar="المرجع"
+                    >
+                      Référence
+                    </th>
+                    <th data-fr="Montant" data-en="Amount" data-ar="المبلغ">
+                      Montant
+                    </th>
+                    <th data-fr="Date" data-en="Date" data-ar="التاريخ">
+                      Date
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="activity-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section id="module-views"></section>
+      </div>
     </main>
     <script type="module">
       import { auth, db } from "./firebase/firebase-config.js";
@@ -397,11 +1063,179 @@
         onAuthStateChanged,
         signOut,
       } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-      const loadingScreen = document.getElementById("loading-screen");
-      const pilotHeader = document.getElementById("pilot-header");
-      const pilotMain = document.getElementById("pilot-main");
-      const pilotName = document.getElementById("pilot-name");
-      const logoutBtn = document.getElementById("logout-btn");
+      const loadingScreen = document.getElementById("loading-screen"),
+        pilotHeader = document.getElementById("pilot-header"),
+        pilotMain = document.getElementById("pilot-main"),
+        pilotName = document.getElementById("pilot-name"),
+        logoutBtn = document.getElementById("logout-btn"),
+        languageBox = document.getElementById("language-box"),
+        languageBtn = document.getElementById("language-btn"),
+        currentLanguage = document.getElementById("current-language"),
+        modulesGrid = document.getElementById("modules-grid"),
+        moduleViews = document.getElementById("module-views"),
+        activityBody = document.getElementById("activity-body"),
+        activityFilter = document.getElementById("activity-filter");
+      const translations = {
+        fr: { flag: "🇫🇷", dir: "ltr", name: "Bienvenue, {name}." },
+        en: { flag: "🇬🇧", dir: "ltr", name: "Welcome, {name}." },
+        ar: { flag: "🇩🇿", dir: "rtl", name: "مرحبًا، {name}." },
+      };
+      const modules = [
+        {
+          id: "vols",
+          icon: "fa-plane-departure",
+          fr: "Vols",
+          en: "Flights",
+          ar: "الرحلات الجوية",
+          pfr: "Réservations et opérations aériennes",
+          pen: "Flight bookings and operations",
+          par: "حجوزات وعمليات الرحلات الجوية",
+        },
+        {
+          id: "hotels",
+          icon: "fa-hotel",
+          fr: "Hôtels",
+          en: "Hotels",
+          ar: "الفنادق",
+          pfr: "Réservations, paiements et coûts",
+          pen: "Bookings, payments and costs",
+          par: "الحجوزات والمدفوعات والتكاليف",
+        },
+        {
+          id: "maritime",
+          icon: "fa-ship",
+          fr: "Maritime",
+          en: "Maritime",
+          ar: "النقل البحري",
+          pfr: "Billetterie et opérations maritimes",
+          pen: "Ticketing and maritime operations",
+          par: "التذاكر والعمليات البحرية",
+        },
+        {
+          id: "voyages",
+          icon: "fa-earth-americas",
+          fr: "Voyages",
+          en: "Trips",
+          ar: "الرحلات السياحية",
+          pfr: "Programmes et séjours touristiques",
+          pen: "Travel programs and stays",
+          par: "البرامج والإقامات السياحية",
+        },
+        {
+          id: "omra",
+          icon: "fa-kaaba",
+          fr: "Omra",
+          en: "Umrah",
+          ar: "العمرة",
+          pfr: "Demandes et réservations Omra",
+          pen: "Umrah requests and bookings",
+          par: "طلبات وحجوزات العمرة",
+        },
+        {
+          id: "visas",
+          icon: "fa-passport",
+          fr: "Visas",
+          en: "Visas",
+          ar: "التأشيرات",
+          pfr: "Demandes et traitement des visas",
+          pen: "Visa requests and processing",
+          par: "طلبات ومعالجة التأشيرات",
+        },
+      ];
+      function getCurrentLanguage() {
+        return localStorage.getItem("AQUAREV-language") || "fr";
+      }
+      function applyLanguage(lang) {
+        if (!translations[lang]) lang = "fr";
+        const data = translations[lang];
+        document.documentElement.lang = lang;
+        document.documentElement.dir = data.dir;
+        currentLanguage.textContent = data.flag;
+        document.querySelectorAll("[data-fr]").forEach((el) => {
+          const text = el.getAttribute("data-" + lang);
+          if (text !== null) el.textContent = text;
+        });
+        pilotName.textContent = data.name.replace(
+          "{name}",
+          window.currentPilotName || "AQUAREV PILOT",
+        );
+        localStorage.setItem("AQUAREV-language", lang);
+        renderModules();
+        renderModuleViews();
+        languageBox.classList.remove("open");
+      }
+      function renderModules() {
+        const lang = getCurrentLanguage();
+        modulesGrid.innerHTML = modules
+          .map(
+            (m, i) =>
+              `<a href="#${m.id}" class="module-card" data-module="${m.id}"><span class="module-count" id="count-${m.id}">0</span><div class="module-icon"><i class="fa-solid ${m.icon}"></i></div><div class="module-info"><h3>${m[lang]}</h3><p>${m["p" + lang]}</p></div></a>`,
+          )
+          .join("");
+        document.querySelectorAll(".module-card").forEach((card) =>
+          card.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModule(card.dataset.module);
+          }),
+        );
+      }
+      function renderModuleViews() {
+        const lang = getCurrentLanguage();
+        moduleViews.innerHTML = modules
+          .map(
+            (m) =>
+              `<section class="module-view" id="view-${m.id}"><div class="module-header"><div class="module-header-main"><div class="module-header-icon"><i class="fa-solid ${m.icon}"></i></div><div><h2>${m[lang]}</h2><p>${m["p" + lang]}</p></div></div><button class="module-back" data-back="true"><i class="fa-solid fa-arrow-left"></i> <span>${lang === "ar" ? "العودة" : lang === "en" ? "Back" : "Retour"}</span></button></div><div class="module-stats"><div class="module-stat"><div class="module-stat-label">${lang === "ar" ? "عدد الطلبات" : lang === "en" ? "Requests" : "Demandes"}</div><div class="module-stat-value" id="${m.id}-requests">0</div></div><div class="module-stat"><div class="module-stat-label">${lang === "ar" ? "المدفوعات" : lang === "en" ? "Payments" : "Paiements"}</div><div class="module-stat-value"><span id="${m.id}-payments">0</span> <small>DA</small></div></div><div class="module-stat"><div class="module-stat-label">${lang === "ar" ? "التكاليف" : lang === "en" ? "Costs" : "Coûts"}</div><div class="module-stat-value"><span id="${m.id}-costs">0</span> <small>DA</small></div></div><div class="module-stat"><div class="module-stat-label">${lang === "ar" ? "الأرباح" : lang === "en" ? "Profit" : "Bénéfice"}</div><div class="module-stat-value"><span id="${m.id}-profit">0</span> <small>DA</small></div></div></div><div class="module-data"><div class="module-data-head"><h3>${lang === "ar" ? "العمليات" : lang === "en" ? "Operations" : "Opérations"}</h3><span>${lang === "ar" ? "بيانات Firestore" : lang === "en" ? "Firestore data" : "Données Firestore"}</span></div><div class="data-empty"><i class="fa-solid ${m.icon}"></i><span>${lang === "ar" ? "لا توجد بيانات مسجلة حاليًا. سيتم عرض العمليات الحقيقية هنا بعد الربط مع Firestore." : lang === "en" ? "No data recorded yet. Real operations will appear here after the Firestore connection." : "Aucune donnée enregistrée pour le moment. Les opérations réelles apparaîtront ici après la connexion à Firestore."}</span></div></div></section>`,
+          )
+          .join("");
+        document
+          .querySelectorAll("[data-back]")
+          .forEach((btn) =>
+            btn.addEventListener("click", () => closeModules()),
+          );
+      }
+      function openModule(id) {
+        document
+          .querySelectorAll(".module-card")
+          .forEach((c) =>
+            c.classList.toggle("active", c.dataset.module === id),
+          );
+        document
+          .querySelectorAll(".module-view")
+          .forEach((v) => v.classList.toggle("active", v.id === "view-" + id));
+        const target = document.getElementById("view-" + id);
+        if (target)
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      function closeModules() {
+        document
+          .querySelectorAll(".module-view")
+          .forEach((v) => v.classList.remove("active"));
+        document
+          .querySelectorAll(".module-card")
+          .forEach((c) => c.classList.remove("active"));
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      function renderActivity() {
+        activityBody.innerHTML = "";
+        const empty = document.createElement("tr");
+        empty.innerHTML = `<td colspan="5"><div class="activity-empty"><i class="fa-solid fa-wave-square"></i><span>${getCurrentLanguage() === "ar" ? "ستظهر جميع العمليات الحقيقية هنا بعد الربط مع Firestore." : getCurrentLanguage() === "en" ? "All real operations will appear here after connecting to Firestore." : "Toutes les opérations réelles apparaîtront ici après la connexion à Firestore."}</span></div></td>`;
+        activityBody.appendChild(empty);
+      }
+      languageBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        languageBox.classList.toggle("open");
+      });
+      document
+        .querySelectorAll("[data-language]")
+        .forEach((btn) =>
+          btn.addEventListener("click", () =>
+            applyLanguage(btn.dataset.language),
+          ),
+        );
+      document.addEventListener("click", () =>
+        languageBox.classList.remove("open"),
+      );
+      activityFilter.addEventListener("change", renderActivity);
       onAuthStateChanged(auth, async (user) => {
         if (!user) {
           window.location.href = "signin.html";
@@ -416,7 +1250,9 @@
             return;
           }
           const userData = userSnap.data();
-          let userRoles = Array.isArray(userData.roles) ? userData.roles : [];
+          let userRoles = Array.isArray(userData.roles)
+            ? [...userData.roles]
+            : [];
           if (userData.role && !userRoles.includes(userData.role))
             userRoles.push(userData.role);
           if (!userRoles.includes("pilot")) {
@@ -424,8 +1260,9 @@
             window.location.href = "index.html";
             return;
           }
-          pilotName.textContent =
-            "Bienvenue, " + (userData.name || "AQUAREV PILOT") + ".";
+          window.currentPilotName = userData.name || "AQUAREV PILOT";
+          applyLanguage(getCurrentLanguage());
+          renderActivity();
           loadingScreen.classList.add("hidden");
           pilotHeader.classList.remove("hidden");
           pilotMain.classList.remove("hidden");

@@ -1,4 +1,3 @@
-
 (function(){
 "use strict";
 const HOTEL_DATA_URL="./data/hotels.json";
@@ -36,6 +35,19 @@ const priceCurrency=document.getElementById("priceCurrency");
 const priceCalculation=document.getElementById("priceCalculation");
 const estimatedTotal=document.getElementById("estimatedTotal");
 const confirmButton=document.getElementById("confirmButton");
+let logPilotActivity=null;
+let pilotActivityReady=null;
+async function loadPilotActivityLogger(){
+try{
+const module=await import("./firebase/pilot-activity.js");
+if(typeof module.logPilotActivity==="function"){
+logPilotActivity=module.logPilotActivity;
+}
+}catch(error){
+console.error("PILOT ACTIVITY MODULE ERROR:",error);
+}
+}
+pilotActivityReady=loadPilotActivityLogger();
 function getNumber(value,fallback=0){
 const number=Number(value);
 return Number.isFinite(number)?number:fallback;
@@ -355,6 +367,51 @@ console.error("Impossible d'enregistrer la confirmation:",error);
 }
 return payload;
 }
+async function logHotelBookingActivity(hotel,booking,savedBooking){
+try{
+await pilotActivityReady;
+if(typeof logPilotActivity!=="function"){
+console.warn("PILOT ACTIVITY LOGGER NON DISPONIBLE");
+return null;
+}
+const guestName=`${savedBooking.guest.firstName} ${savedBooking.guest.lastName}`.trim();
+return await logPilotActivity({
+type:"booking",
+section:"hotels",
+action:"booking_created",
+title:"Nouvelle réservation hôtel",
+description:`Réservation ${savedBooking.reference} - ${savedBooking.hotelName} - ${savedBooking.destination} - Client: ${guestName}`,
+referenceId:savedBooking.reference,
+amount:booking.total,
+currency:booking.currency,
+status:"pending_payment",
+userId:"",
+metadata:{
+bookingReference:savedBooking.reference,
+hotelId:savedBooking.hotelId,
+hotelName:savedBooking.hotelName,
+destination:savedBooking.destination,
+checkIn:booking.checkIn,
+checkOut:booking.checkOut,
+nights:booking.nights,
+adults:booking.adults,
+children:booking.children,
+rooms:booking.rooms,
+pricePerNight:booking.pricePerNight,
+guest:{
+firstName:savedBooking.guest.firstName,
+lastName:savedBooking.guest.lastName,
+email:savedBooking.guest.email,
+phone:savedBooking.guest.phone
+},
+specialRequest:savedBooking.specialRequest||""
+}
+});
+}catch(error){
+console.error("HOTEL PILOT ACTIVITY ERROR:",error);
+return null;
+}
+}
 function setButtonLoading(isLoading){
 if(!confirmButton)return;
 if(isLoading){
@@ -368,7 +425,7 @@ confirmButton.innerHTML=confirmButton.dataset.originalHTML;
 }
 }
 }
-function submitBooking(hotel){
+async function submitBooking(hotel){
 hideFormMessage();
 const booking=updateSummary(hotel);
 const validationError=validateBooking(booking);
@@ -377,7 +434,7 @@ showFormMessage(validationError,"error");
 return;
 }
 setButtonLoading(true);
-setTimeout(()=>{
+try{
 const savedBooking=saveBooking(hotel,booking);
 try{
 sessionStorage.setItem(BOOKING_STORAGE_KEY,JSON.stringify({
@@ -387,8 +444,13 @@ paymentPending:false
 }catch(error){
 console.warn("Impossible de mettre à jour la réservation:",error);
 }
+await logHotelBookingActivity(hotel,booking,savedBooking);
 window.location.href="./hotel-payment.html";
-},500);
+}catch(error){
+console.error("HOTEL BOOKING SUBMIT ERROR:",error);
+showFormMessage("Une erreur est survenue lors de l'enregistrement de votre réservation. Veuillez réessayer.","error");
+setButtonLoading(false);
+}
 }
 async function loadHotel(){
 const booking=getBookingData();
