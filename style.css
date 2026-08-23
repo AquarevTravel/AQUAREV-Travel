@@ -1656,3 +1656,285 @@ box-shadow:0 12px 28px rgba(0,180,216,.35);
 .flight-booking-btn i{
 font-size:16px;
 }
+
+
+
+/* ===== HIDE ADMIN & PILOT BUTTONS ON MOBILE ===== */
+
+@media(max-width:768px){
+    .admin-icon-btn,
+    .pilot-icon-btn{
+        display:none!important;
+    }
+}
+
+
+
+/* ===== FINAL MOBILE MENU TOGGLE FIX ===== */
+
+.menu-toggle{
+    display:none!important;
+}
+
+@media(max-width:768px){
+    .menu-toggle{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
+        transform:none!important;
+        position:relative!important;
+        left:auto!important;
+        right:auto!important;
+        margin:0!important;
+        z-index:10002!important;
+        font-size:30px!important;
+        color:#fff!important;
+        flex-shrink:0!important;
+    }
+
+    html[lang="fr"] .menu-toggle,
+    html[lang="en"] .menu-toggle{
+        transform:none!important;
+        left:auto!important;
+        right:auto!important;
+    }
+
+    html[lang="ar"] .menu-toggle,
+    html[dir="rtl"] .menu-toggle,
+    body.rtl .menu-toggle{
+        transform:none!important;
+        left:auto!important;
+        right:auto!important;
+    }
+}
+
+
+@media(max-width:768px){
+    html[lang="fr"] .menu-toggle,
+    html[lang="en"] .menu-toggle{
+        transform:translateX(-50px)!important;
+    }
+
+    html[lang="ar"] .menu-toggle,
+    html[dir="rtl"] .menu-toggle,
+    body.rtl .menu-toggle{
+        transform:translateX(15px)!important;
+    }
+}
+
+
+
+.mobile-panel-float{
+display:flex;
+position:fixed;
+right:12px;
+top:25%;
+transform:translateY(-50%);
+flex-direction:column;
+gap:12px;
+z-index:9998;
+align-items:flex-end;
+}
+
+.mobile-float-btn{
+width:48px;
+height:48px;
+border-radius:24px;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+gap:0;
+text-decoration:none;
+overflow:hidden;
+white-space:nowrap;
+transition:width .3s ease,box-shadow .3s ease,transform .2s ease;
+color:#fff;
+box-shadow:0 6px 20px rgba(0,0,0,.22);
+}
+
+.mobile-float-btn i{
+min-width:48px;
+width:48px;
+height:48px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+flex-shrink:0;
+}
+
+.mobile-float-btn span{
+font-family:Poppins,sans-serif;
+font-size:11px;
+font-weight:600;
+padding-right:15px;
+opacity:0;
+transition:opacity .2s ease;
+pointer-events:none;
+}
+
+.mobile-pilot-btn{
+background:linear-gradient(135deg,#00b4d8,#0077b6);
+}
+
+.mobile-admin-btn{
+background:linear-gradient(135deg,#003b5c,#071a2b);
+}
+
+.mobile-float-btn:active{
+transform:scale(.94);
+}
+
+.mobile-float-btn:hover{
+width:48px;
+}
+
+.mobile-float-btn:hover span{
+opacity:0;
+}
+
+.mobile-float-btn:focus{
+outline:none;
+width:190px;
+}
+
+.mobile-float-btn:focus span{
+opacity:1;
+}
+
+.mobile-float-btn:focus:not(:active){
+width:48px;
+}
+
+.mobile-float-btn:focus:not(:active) span{
+opacity:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== SUPPORT BUTTERFLY ===== */
+
+.support-btn{
+width:90px!important;
+height:90px!important;
+padding:0!important;
+border:0!important;
+background:transparent!important;
+display:flex!important;
+flex-direction:column!important;
+align-items:center!important;
+justify-content:center!important;
+gap:5px!important;
+overflow:visible!important;
+cursor:pointer!important;
+}
+
+.butterfly-icon{
+position:relative;
+width:58px;
+height:46px;
+display:block;
+filter:drop-shadow(0 3px 6px rgba(0,0,0,.25));
+}
+
+.butterfly-wing{
+position:absolute;
+top:4px;
+width:27px;
+height:38px;
+background:linear-gradient(145deg,#00cfff,#009fe3);
+border-radius:80% 20% 70% 30%;
+box-shadow:inset 0 0 8px rgba(255,255,255,.45);
+}
+
+.butterfly-wing-left{
+left:1px;
+transform:rotate(-18deg);
+}
+
+.butterfly-wing-right{
+right:1px;
+transform:rotate(18deg) scaleX(-1);
+}
+
+.butterfly-body{
+position:absolute;
+z-index:3;
+left:25px;
+top:8px;
+width:8px;
+height:34px;
+background:#007fb8;
+border-radius:50%;
+box-shadow:0 0 5px rgba(0,0,0,.25);
+}
+
+.butterfly-antenna{
+position:absolute;
+z-index:4;
+top:2px;
+width:15px;
+height:12px;
+border-top:2px solid #007fb8;
+border-radius:50%;
+}
+
+.butterfly-antenna.left{
+left:17px;
+transform:rotate(-25deg);
+}
+
+.butterfly-antenna.right{
+right:17px;
+transform:rotate(25deg);
+}
+
+.support-btn .support-text{
+display:block!important;
+max-width:90px!important;
+font-size:11px!important;
+font-weight:700!important;
+line-height:1.15!important;
+text-align:center!important;
+white-space:normal!important;
+word-break:normal!important;
+overflow-wrap:break-word!important;
+color:#00b4d8!important;
+text-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+
+@media(max-width:600px){
+.support-btn{
+width:75px!important;
+height:75px!important;
+gap:3px!important;
+}
+
+.butterfly-icon{
+width:48px;
+height:39px;
+transform:scale(.88);
+}
+
+.support-btn .support-text{
+max-width:75px!important;
+font-size:10px!important;
+line-height:1.1!important;
+}
+}
+
+
+/* ===== HIDE ADMIN & PILOT ICONS FROM HEADER ===== */
+
+.user-connected .role-icon-btn{
+display:none!important;
+}

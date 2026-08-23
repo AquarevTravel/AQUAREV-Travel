@@ -568,8 +568,14 @@
     <script src="script.js"></script>
 
     <div class="support-widget">
-      <button class="support-btn">
-        <i class="fa-solid fa-cloud"></i>
+      <button class="support-btn" aria-label="Assistance technique">
+        <span class="butterfly-icon" aria-hidden="true">
+          <span class="butterfly-wing butterfly-wing-left"></span>
+          <span class="butterfly-wing butterfly-wing-right"></span>
+          <span class="butterfly-body"></span>
+          <span class="butterfly-antenna left"></span>
+          <span class="butterfly-antenna right"></span>
+        </span>
 
         <span
           class="support-text"
@@ -580,7 +586,6 @@
           المساعدة التقنية
         </span>
       </button>
-
       <div class="support-menu">
         <a class="kahina" href="tel:0541116245">
           📞
@@ -859,5 +864,25 @@
         }
       });
     </script>
+
+    <div class="mobile-panel-float">
+      <a
+        href="aQuarev-pilot.html"
+        class="mobile-float-btn mobile-pilot-btn"
+        aria-label="PILOTE DE COMPTABILITÉ"
+      >
+        <i class="fa-solid fa-calculator"></i>
+        <span>PILOTE DE COMPTABILITÉ</span>
+      </a>
+
+      <a
+        href="aQuarev-admin.html"
+        class="mobile-float-btn mobile-admin-btn"
+        aria-label="ADMIN"
+      >
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>ADMIN</span>
+      </a>
+    </div>
   </body>
 </html>
