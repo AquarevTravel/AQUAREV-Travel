@@ -126,11 +126,25 @@ const elements=document.querySelectorAll("[data-fr]");
 
 elements.forEach(element=>{
 
+if(element.classList.contains("hero-title")){
+if(language==="fr")element.innerHTML='Voyager avec <span>AQUAREV Travel</span>';
+if(language==="en")element.innerHTML='Travel with <span>AQUAREV Travel</span>';
+if(language==="ar")element.innerHTML='سافر مع <span>AQUAREV Travel</span>';
+return;
+}
+
 if(language==="fr")element.textContent=element.getAttribute("data-fr");
 if(language==="en")element.textContent=element.getAttribute("data-en");
 if(language==="ar")element.textContent=element.getAttribute("data-ar");
 
 });
+
+
+
+
+
+
+
 
 
 if(language==="ar"){

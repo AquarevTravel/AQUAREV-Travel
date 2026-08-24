@@ -1938,3 +1938,76 @@ line-height:1.1!important;
 .user-connected .role-icon-btn{
 display:none!important;
 }
+
+
+
+
+
+@media(max-width:768px){
+.hero-content{
+width:100%!important;
+max-width:100%!important;
+display:flex!important;
+flex-direction:column!important;
+align-items:center!important;
+}
+.hero-services{
+display:grid!important;
+grid-template-columns:repeat(3,minmax(0,1fr))!important;
+width:calc(100% - 30px)!important;
+max-width:370px!important;
+margin:25px auto 0!important;
+padding:0!important;
+position:relative!important;
+left:0!important;
+right:0!important;
+transform:none!important;
+}
+}
+
+@media(max-width:768px){
+.hero-services{
+    transform:translateX(0)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+}
+}
+
+
+
+
+@media(max-width:768px){
+.hero-content h2{
+font-size:32px!important;
+line-height:1.2!important;
+max-width:350px!important;
+white-space:normal!important;
+
+}
+}
+.hero-content h2 span{
+color:#81d3e4!important;
+}
+
+@media(max-width:768px){
+.hero-title span{
+  white-space:nowrap!important;
+  position:relative;
+  left:20px;
+}
+}
+
+
+.hero-services a i,
+.hero-services .visa-btn i{
+  color:#00B4D8!important;
+}
+
+#signin-popup,
+#signup-popup{
+  display:none;
+}
+
+
+
+
