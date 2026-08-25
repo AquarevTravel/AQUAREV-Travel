@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="UTF-8" />
@@ -14,12 +15,559 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
+    <style>
+      /* =========================================================
+   AQUAREV VISA CATEGORY TABS
+   ========================================================= */
+      .visa-category-tabs {
+        width: 100%;
+        max-width: 1050px;
+        margin: 28px auto 34px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        position: relative;
+        z-index: 5;
+      }
+
+      .visa-category {
+        position: relative;
+        min-height: 112px;
+        border: 1px solid rgba(212, 175, 55, 0.28);
+        border-radius: 22px;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        cursor: pointer;
+        overflow: hidden;
+        font-family: "Poppins", "Cairo", sans-serif;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.98),
+          rgba(235, 250, 253, 0.96)
+        );
+        color: #003b5c;
+        box-shadow:
+          0 12px 30px rgba(0, 59, 92, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        transition: all 0.35s ease;
+      }
+
+      .visa-category::before {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: rgba(0, 180, 216, 0.08);
+        top: -100px;
+        right: -60px;
+        transition: 0.4s ease;
+      }
+
+      .visa-category::after {
+        content: "";
+        position: absolute;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background: rgba(212, 175, 55, 0.08);
+        bottom: -70px;
+        left: -40px;
+        transition: 0.4s ease;
+      }
+
+      .visa-category:hover {
+        transform: translateY(-5px);
+        border-color: rgba(212, 175, 55, 0.65);
+        box-shadow:
+          0 18px 38px rgba(0, 59, 92, 0.16),
+          0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+      }
+
+      .visa-category:hover::before {
+        transform: scale(1.35);
+      }
+
+      .visa-category:hover::after {
+        transform: scale(1.25);
+      }
+
+      .visa-category.active {
+        background: linear-gradient(
+          135deg,
+          #003b5c 0%,
+          #006b89 52%,
+          #00a9c7 100%
+        );
+        color: #fff;
+        border-color: #d4af37;
+        box-shadow:
+          0 18px 38px rgba(0, 59, 92, 0.25),
+          0 0 0 1px rgba(212, 175, 55, 0.28) inset;
+        transform: translateY(-3px);
+      }
+
+      .visa-category.active::before {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .visa-category.active::after {
+        background: rgba(212, 175, 55, 0.14);
+      }
+
+      .visa-category-circle {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #008eaf;
+        background: linear-gradient(145deg, #fff, #e8f9fc);
+        box-shadow:
+          0 7px 16px rgba(0, 59, 92, 0.12),
+          inset 0 1px 0 #fff;
+        position: relative;
+        z-index: 2;
+        transition: 0.35s ease;
+      }
+
+      .visa-category.active .visa-category-circle {
+        color: #d4af37;
+        background: rgba(255, 255, 255, 0.13);
+        box-shadow:
+          0 7px 18px rgba(0, 0, 0, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+
+      .visa-category > span:last-child {
+        position: relative;
+        z-index: 2;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+
+      .visa-category-content {
+        width: 100%;
+        animation: visaCategoryFade 0.45s ease;
+      }
+
+      .visa-category-content[hidden] {
+        display: none !important;
+      }
+
+      @keyframes visaCategoryFade {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================================
+   BUSINESS / E-VISA CONTENT
+   ========================================================= */
+      .aquarev-independent-category {
+        width: 100%;
+        max-width: 1050px;
+        margin: 0 auto 35px;
+        padding: 0;
+      }
+
+      .aquarev-category-hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 26px;
+        padding: 34px 32px;
+        margin-bottom: 24px;
+        background: linear-gradient(
+          135deg,
+          #003b5c 0%,
+          #006d8b 48%,
+          #00b4d8 100%
+        );
+        color: #fff;
+        box-shadow: 0 18px 42px rgba(0, 59, 92, 0.2);
+        border: 1px solid rgba(212, 175, 55, 0.45);
+      }
+
+      .aquarev-category-hero::before {
+        content: "";
+        position: absolute;
+        width: 270px;
+        height: 270px;
+        border-radius: 50%;
+        right: -90px;
+        top: -150px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .aquarev-category-hero::after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        left: -80px;
+        bottom: -110px;
+        background: rgba(212, 175, 55, 0.1);
+      }
+
+      .aquarev-category-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+
+      .aquarev-category-icon {
+        width: 68px;
+        height: 68px;
+        margin: 0 auto 15px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: #d4af37;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+      }
+
+      .aquarev-category-hero h2 {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+
+      .aquarev-category-hero p {
+        max-width: 700px;
+        margin: 10px auto 0;
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .aquarev-independent-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 17px;
+        margin-bottom: 25px;
+      }
+
+      .aquarev-independent-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 185px;
+        padding: 23px 20px;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #fff, #f3fbfd);
+        border: 1px solid rgba(0, 59, 92, 0.1);
+        box-shadow: 0 11px 28px rgba(0, 59, 92, 0.09);
+        transition: 0.35s ease;
+      }
+
+      .aquarev-independent-card::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        right: -48px;
+        top: -48px;
+        background: rgba(0, 180, 216, 0.07);
+      }
+
+      .aquarev-independent-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(212, 175, 55, 0.55);
+        box-shadow: 0 17px 34px rgba(0, 59, 92, 0.14);
+      }
+
+      .aquarev-independent-card-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        font-size: 20px;
+        color: #fff;
+        background: linear-gradient(135deg, #003b5c, #00a6c7);
+        box-shadow: 0 8px 18px rgba(0, 59, 92, 0.16);
+      }
+
+      .aquarev-independent-card h3 {
+        position: relative;
+        z-index: 2;
+        margin: 0 0 7px;
+        font-size: 15px;
+        font-weight: 800;
+        color: #003b5c;
+      }
+
+      .aquarev-independent-card p {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.65;
+        color: #637780;
+      }
+
+      .aquarev-requirements-box {
+        padding: 25px;
+        border-radius: 22px;
+        background: linear-gradient(145deg, #fff, #f7fbfd);
+        border: 1px solid rgba(212, 175, 55, 0.28);
+        box-shadow: 0 13px 30px rgba(0, 59, 92, 0.09);
+      }
+
+      .aquarev-requirements-title {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        margin-bottom: 18px;
+      }
+
+      .aquarev-requirements-title i {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #003b5c, #00a6c7);
+        color: #fff;
+      }
+
+      .aquarev-requirements-title h3 {
+        margin: 0;
+        color: #003b5c;
+        font-size: 19px;
+        font-weight: 800;
+      }
+
+      .aquarev-requirements-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 22px;
+      }
+
+      .aquarev-requirement {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding: 11px 4px;
+        border-bottom: 1px solid rgba(0, 59, 92, 0.08);
+        color: #173746;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .aquarev-requirement-number {
+        width: 27px;
+        min-width: 27px;
+        height: 27px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 175, 55, 0.12);
+        color: #a17d18;
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      .aquarev-info-banner {
+        margin-top: 20px;
+        padding: 18px 20px;
+        border-radius: 17px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 180, 216, 0.08),
+          rgba(212, 175, 55, 0.08)
+        );
+        border: 1px solid rgba(0, 180, 216, 0.16);
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .aquarev-info-banner i {
+        font-size: 22px;
+        color: #00a6c7;
+      }
+
+      .aquarev-info-banner p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.6;
+        color: #536b75;
+      }
+
+      .aquarev-category-action {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .aquarev-category-action button {
+        border: 1px solid rgba(212, 175, 55, 0.75);
+        border-radius: 14px;
+        padding: 14px 27px;
+        background: linear-gradient(135deg, #003b5c, #006f8d, #00a6c7);
+        color: #fff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(0, 59, 92, 0.18);
+        transition: 0.3s ease;
+      }
+
+      .aquarev-category-action button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(0, 59, 92, 0.24);
+      }
+
+      /* =========================================================
+   MOBILE
+   ========================================================= */
+      @media (max-width: 800px) {
+        .visa-category-tabs {
+          grid-template-columns: 1fr;
+          gap: 11px;
+          margin: 20px auto 27px;
+        }
+
+        .visa-category {
+          min-height: 82px;
+          padding: 14px 17px;
+          border-radius: 18px;
+        }
+
+        .visa-category-circle {
+          width: 44px;
+          height: 44px;
+          min-width: 44px;
+          border-radius: 13px;
+          font-size: 18px;
+        }
+
+        .visa-category > span:last-child {
+          font-size: 12px;
+        }
+
+        .aquarev-independent-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .aquarev-requirements-list {
+          grid-template-columns: 1fr;
+        }
+
+        .aquarev-category-hero {
+          padding: 27px 20px;
+          border-radius: 21px;
+        }
+
+        .aquarev-category-hero h2 {
+          font-size: 21px;
+        }
+
+        .aquarev-category-hero p {
+          font-size: 12px;
+        }
+
+        .aquarev-requirements-box {
+          padding: 19px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .visa-category {
+          justify-content: flex-start;
+        }
+
+        .aquarev-independent-card {
+          min-height: auto;
+        }
+
+        .aquarev-info-banner {
+          align-items: flex-start;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <div class="visa-page">
       <div class="logo">
         <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
       </div>
+
+      <!-- =========================================================
+     MAIN VISA CATEGORY TABS
+     ========================================================= -->
+
+      <div class="visa-category-tabs">
+        <button
+          type="button"
+          class="visa-category active"
+          data-category="schengen"
+        >
+          <span class="visa-category-circle">
+            <i class="fa-solid fa-earth-europe"></i>
+          </span>
+          <span
+            data-fr="ESPACE SCHENGEN"
+            data-en="SCHENGEN AREA"
+            data-ar="فضاء شنغن"
+            >ESPACE SCHENGEN</span
+          >
+        </button>
+
+        <button type="button" class="visa-category" data-category="business">
+          <span class="visa-category-circle">
+            <i class="fa-solid fa-briefcase"></i>
+          </span>
+          <span
+            data-fr="VISAS AFFAIRES"
+            data-en="BUSINESS VISAS"
+            data-ar="تأشيرات الأعمال"
+            >VISAS AFFAIRES</span
+          >
+        </button>
+
+        <button type="button" class="visa-category" data-category="evisa">
+          <span class="visa-category-circle">
+            <i class="fa-solid fa-passport"></i>
+          </span>
+          <span
+            data-fr="E-VISAS"
+            data-en="E-VISAS"
+            data-ar="التأشيرات الإلكترونية"
+            >E-VISAS</span
+          >
+        </button>
+      </div>
+
+      <!-- =========================================================
+     LANGUAGE
+     ========================================================= -->
 
       <div class="language-selector">
         <button
@@ -30,13 +578,16 @@
         >
           <i class="fa-solid fa-globe"></i>
         </button>
+
         <div class="language-menu" id="languageMenu">
           <button type="button" onclick="changeLanguage('fr')">
             🇫🇷 <span>Français</span>
           </button>
+
           <button type="button" onclick="changeLanguage('en')">
             🇬🇧 <span>English</span>
           </button>
+
           <button type="button" onclick="changeLanguage('ar')">
             🇩🇿 <span>العربية</span>
           </button>
@@ -50,6 +601,7 @@
       >
         DEMANDE DE VISA
       </h1>
+
       <p
         class="subtitle"
         data-fr="Remplissez votre demande de visa avec AQUAREV Travel"
@@ -58,691 +610,1249 @@
       >
         Remplissez votre demande de visa avec AQUAREV Travel
       </p>
-      <form id="visaForm" enctype="multipart/form-data">
-        <div id="visaPage1" class="visa-form-page active-page">
-          <div class="section-title">
-            <i class="fa-solid fa-earth-americas"></i>
-            <span
-              data-fr="Pays de destination"
-              data-en="Destination Country"
-              data-ar="دولة الوجهة"
-              >Pays de destination</span
-            >
-          </div>
-          <div class="country-selector">
-            <button
-              type="button"
-              class="country-btn"
-              id="countryButton"
-              data-fr="🌍 Choisir le pays de destination"
-              data-en="🌍 Choose destination country"
-              data-ar="🌍 اختر دولة الوجهة"
-            >
-              🌍 Choisir le pays de destination
-            </button>
-            <div id="countryPopup" class="country-popup">
-              <div class="country-search">
-                <i class="fa-solid fa-search"></i>
+
+      <!-- =========================================================
+     SCHENGEN
+     ========================================================= -->
+
+      <div
+        id="visaCategorySchengen"
+        class="visa-category-content active-content"
+      >
+        <form id="visaForm" enctype="multipart/form-data">
+          <div id="visaPage1" class="visa-form-page active-page">
+            <div class="section-title">
+              <i class="fa-solid fa-earth-americas"></i>
+              <span
+                data-fr="Pays de destination"
+                data-en="Destination Country"
+                data-ar="دولة الوجهة"
+              >
+                Pays de destination
+              </span>
+            </div>
+
+            <div class="country-selector">
+              <button
+                type="button"
+                class="country-btn"
+                id="countryButton"
+                data-fr="🌍 Choisir le pays de destination"
+                data-en="🌍 Choose destination country"
+                data-ar="🌍 اختر دولة الوجهة"
+              >
+                🌍 Choisir le pays de destination
+              </button>
+
+              <div id="countryPopup" class="country-popup">
+                <div class="country-search">
+                  <i class="fa-solid fa-search"></i>
+
+                  <input
+                    id="countrySearch"
+                    type="text"
+                    placeholder="Rechercher une destination"
+                    data-fr-placeholder="Rechercher une destination"
+                    data-en-placeholder="Search destination"
+                    data-ar-placeholder="البحث عن دولة"
+                  />
+                </div>
+
+                <div class="country-list">
+                  <div class="country-item" data-country="France">
+                    🇫🇷 France
+                  </div>
+                  <div class="country-item" data-country="Italie">
+                    🇮🇹 Italie
+                  </div>
+                  <div class="country-item" data-country="Espagne">
+                    🇪🇸 Espagne
+                  </div>
+                  <div class="country-item" data-country="Allemagne">
+                    🇩🇪 Allemagne
+                  </div>
+                  <div class="country-item" data-country="Belgique">
+                    🇧🇪 Belgique
+                  </div>
+                  <div class="country-item" data-country="Pays-Bas">
+                    🇳🇱 Pays-Bas
+                  </div>
+                  <div class="country-item" data-country="Suisse">
+                    🇨🇭 Suisse
+                  </div>
+                  <div class="country-item" data-country="Autriche">
+                    🇦🇹 Autriche
+                  </div>
+                  <div class="country-item" data-country="Portugal">
+                    🇵🇹 Portugal
+                  </div>
+                  <div class="country-item" data-country="Grèce">🇬🇷 Grèce</div>
+                  <div class="country-item" data-country="Royaume-Uni">
+                    🇬🇧 Royaume-Uni
+                  </div>
+                  <div class="country-item" data-country="Irlande">
+                    🇮🇪 Irlande
+                  </div>
+                  <div class="country-item" data-country="Norvège">
+                    🇳🇴 Norvège
+                  </div>
+                  <div class="country-item" data-country="Suède">🇸🇪 Suède</div>
+                  <div class="country-item" data-country="Danemark">
+                    🇩🇰 Danemark
+                  </div>
+                  <div class="country-item" data-country="Finlande">
+                    🇫🇮 Finlande
+                  </div>
+                  <div class="country-item" data-country="Pologne">
+                    🇵🇱 Pologne
+                  </div>
+                  <div class="country-item" data-country="Hongrie">
+                    🇭🇺 Hongrie
+                  </div>
+                  <div class="country-item" data-country="Roumanie">
+                    🇷🇴 Roumanie
+                  </div>
+                  <div class="country-item" data-country="Croatie">
+                    🇭🇷 Croatie
+                  </div>
+                  <div class="country-item" data-country="Tchéquie">
+                    🇨🇿 République Tchèque
+                  </div>
+                  <div class="country-item" data-country="Slovénie">
+                    🇸🇮 Slovénie
+                  </div>
+                  <div class="country-item" data-country="Slovaquie">
+                    🇸🇰 Slovaquie
+                  </div>
+                  <div class="country-item" data-country="Bulgarie">
+                    🇧🇬 Bulgarie
+                  </div>
+                  <div class="country-item" data-country="Serbie">
+                    🇷🇸 Serbie
+                  </div>
+                  <div class="country-item" data-country="Turquie">
+                    🇹🇷 Turquie
+                  </div>
+                  <div class="country-item" data-country="Canada">
+                    🇨🇦 Canada
+                  </div>
+                  <div class="country-item" data-country="USA">
+                    🇺🇸 États-Unis
+                  </div>
+                  <div class="country-item" data-country="Australie">
+                    🇦🇺 Australie
+                  </div>
+                  <div class="country-item" data-country="Nouvelle-Zélande">
+                    🇳🇿 Nouvelle-Zélande
+                  </div>
+                  <div class="country-item" data-country="Japon">🇯🇵 Japon</div>
+                  <div class="country-item" data-country="Chine">🇨🇳 Chine</div>
+                  <div class="country-item" data-country="Corée du Sud">
+                    🇰🇷 Corée du Sud
+                  </div>
+                  <div class="country-item" data-country="Inde">🇮🇳 Inde</div>
+                  <div class="country-item" data-country="Émirats Arabes Unis">
+                    🇦🇪 Émirats Arabes Unis
+                  </div>
+                  <div class="country-item" data-country="Arabie Saoudite">
+                    🇸🇦 Arabie Saoudite
+                  </div>
+                  <div class="country-item" data-country="Qatar">🇶🇦 Qatar</div>
+                  <div class="country-item" data-country="Égypte">
+                    🇪🇬 Égypte
+                  </div>
+                  <div class="country-item" data-country="Maroc">🇲🇦 Maroc</div>
+                  <div class="country-item" data-country="Tunisie">
+                    🇹🇳 Tunisie
+                  </div>
+                  <div class="country-item" data-country="Afrique du Sud">
+                    🇿🇦 Afrique du Sud
+                  </div>
+                  <div class="country-item" data-country="Brésil">
+                    🇧🇷 Brésil
+                  </div>
+                  <div class="country-item" data-country="Mexique">
+                    🇲🇽 Mexique
+                  </div>
+                  <div class="country-item" data-country="Argentine">
+                    🇦🇷 Argentine
+                  </div>
+                  <div class="country-item" data-country="Singapour">
+                    🇸🇬 Singapour
+                  </div>
+                  <div class="country-item" data-country="Malaisie">
+                    🇲🇾 Malaisie
+                  </div>
+                  <div class="country-item" data-country="Thaïlande">
+                    🇹🇭 Thaïlande
+                  </div>
+                  <div class="country-item" data-country="Indonésie">
+                    🇮🇩 Indonésie
+                  </div>
+                  <div class="country-item" data-country="Vietnam">
+                    🇻🇳 Vietnam
+                  </div>
+                </div>
+
                 <input
-                  id="countrySearch"
+                  id="manualCountry"
                   type="text"
-                  placeholder="Rechercher une destination"
-                  data-fr-placeholder="Rechercher une destination"
-                  data-en-placeholder="Search destination"
-                  data-ar-placeholder="البحث عن دولة"
+                  placeholder="Autre pays / écrire manuellement"
+                  data-fr-placeholder="Autre pays / écrire manuellement"
+                  data-en-placeholder="Other country / write manually"
+                  data-ar-placeholder="دولة أخرى / اكتب يدويا"
                 />
               </div>
-              <div class="country-list">
-                <div class="country-item" data-country="France">🇫🇷 France</div>
-                <div class="country-item" data-country="Italie">🇮🇹 Italie</div>
-                <div class="country-item" data-country="Espagne">
-                  🇪🇸 Espagne
-                </div>
-                <div class="country-item" data-country="Allemagne">
-                  🇩🇪 Allemagne
-                </div>
-                <div class="country-item" data-country="Belgique">
-                  🇧🇪 Belgique
-                </div>
-                <div class="country-item" data-country="Pays-Bas">
-                  🇳🇱 Pays-Bas
-                </div>
-                <div class="country-item" data-country="Suisse">🇨🇭 Suisse</div>
-                <div class="country-item" data-country="Autriche">
-                  🇦🇹 Autriche
-                </div>
-                <div class="country-item" data-country="Portugal">
-                  🇵🇹 Portugal
-                </div>
-                <div class="country-item" data-country="Grèce">🇬🇷 Grèce</div>
-                <div class="country-item" data-country="Royaume-Uni">
-                  🇬🇧 Royaume-Uni
-                </div>
-                <div class="country-item" data-country="Irlande">
-                  🇮🇪 Irlande
-                </div>
-                <div class="country-item" data-country="Norvège">
-                  🇳🇴 Norvège
-                </div>
-                <div class="country-item" data-country="Suède">🇸🇪 Suède</div>
-                <div class="country-item" data-country="Danemark">
-                  🇩🇰 Danemark
-                </div>
-                <div class="country-item" data-country="Finlande">
-                  🇫🇮 Finlande
-                </div>
-                <div class="country-item" data-country="Pologne">
-                  🇵🇱 Pologne
-                </div>
-                <div class="country-item" data-country="Hongrie">
-                  🇭🇺 Hongrie
-                </div>
-                <div class="country-item" data-country="Roumanie">
-                  🇷🇴 Roumanie
-                </div>
-                <div class="country-item" data-country="Croatie">
-                  🇭🇷 Croatie
-                </div>
-                <div class="country-item" data-country="Tchéquie">
-                  🇨🇿 République Tchèque
-                </div>
-                <div class="country-item" data-country="Slovénie">
-                  🇸🇮 Slovénie
-                </div>
-                <div class="country-item" data-country="Slovaquie">
-                  🇸🇰 Slovaquie
-                </div>
-                <div class="country-item" data-country="Bulgarie">
-                  🇧🇬 Bulgarie
-                </div>
-                <div class="country-item" data-country="Serbie">🇷🇸 Serbie</div>
-                <div class="country-item" data-country="Turquie">
-                  🇹🇷 Turquie
-                </div>
-                <div class="country-item" data-country="Canada">🇨🇦 Canada</div>
-                <div class="country-item" data-country="USA">🇺🇸 États-Unis</div>
-                <div class="country-item" data-country="Australie">
-                  🇦🇺 Australie
-                </div>
-                <div class="country-item" data-country="Nouvelle-Zélande">
-                  🇳🇿 Nouvelle-Zélande
-                </div>
-                <div class="country-item" data-country="Japon">🇯🇵 Japon</div>
-                <div class="country-item" data-country="Chine">🇨🇳 Chine</div>
-                <div class="country-item" data-country="Corée du Sud">
-                  🇰🇷 Corée du Sud
-                </div>
-                <div class="country-item" data-country="Inde">🇮🇳 Inde</div>
-                <div class="country-item" data-country="Émirats Arabes Unis">
-                  🇦🇪 Émirats Arabes Unis
-                </div>
-                <div class="country-item" data-country="Arabie Saoudite">
-                  🇸🇦 Arabie Saoudite
-                </div>
-                <div class="country-item" data-country="Qatar">🇶🇦 Qatar</div>
-                <div class="country-item" data-country="Égypte">🇪🇬 Égypte</div>
-                <div class="country-item" data-country="Maroc">🇲🇦 Maroc</div>
-                <div class="country-item" data-country="Tunisie">
-                  🇹🇳 Tunisie
-                </div>
-                <div class="country-item" data-country="Afrique du Sud">
-                  🇿🇦 Afrique du Sud
-                </div>
-                <div class="country-item" data-country="Brésil">🇧🇷 Brésil</div>
-                <div class="country-item" data-country="Mexique">
-                  🇲🇽 Mexique
-                </div>
-                <div class="country-item" data-country="Argentine">
-                  🇦🇷 Argentine
-                </div>
-                <div class="country-item" data-country="Singapour">
-                  🇸🇬 Singapour
-                </div>
-                <div class="country-item" data-country="Malaisie">
-                  🇲🇾 Malaisie
-                </div>
-                <div class="country-item" data-country="Thaïlande">
-                  🇹🇭 Thaïlande
-                </div>
-                <div class="country-item" data-country="Indonésie">
-                  🇮🇩 Indonésie
-                </div>
-                <div class="country-item" data-country="Vietnam">
-                  🇻🇳 Vietnam
+
+              <input type="hidden" id="selectedCountry" name="destination" />
+            </div>
+
+            <div class="section-title">
+              <i class="fa-solid fa-user"></i>
+              <span
+                data-fr="Informations personnelles du voyageur"
+                data-en="Traveler Personal Information"
+                data-ar="المعلومات الشخصية للمسافر"
+              >
+                Informations personnelles du voyageur
+              </span>
+            </div>
+
+            <div class="form-grid">
+              <div class="input-box">
+                <label>
+                  <span data-fr="Nom" data-en="Last name" data-ar="اللقب"
+                    >Nom</span
+                  >
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-user"></i>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="Nom"
+                  placeholder="Nom"
+                  data-fr-placeholder="Nom"
+                  data-en-placeholder="Last name"
+                  data-ar-placeholder="اللقب"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span data-fr="Prénom" data-en="First name" data-ar="الاسم"
+                    >Prénom</span
+                  >
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-user"></i>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="Prénom"
+                  placeholder="Prénom"
+                  data-fr-placeholder="Prénom"
+                  data-en-placeholder="First name"
+                  data-ar-placeholder="الاسم"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Date de naissance"
+                    data-en="Date of birth"
+                    data-ar="تاريخ الميلاد"
+                  >
+                    Date de naissance
+                  </span>
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-calendar-days"></i>
+                <input
+                  type="date"
+                  id="birthDate"
+                  name="Date de naissance"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Lieu de naissance"
+                    data-en="Place of birth"
+                    data-ar="مكان الميلاد"
+                  >
+                    Lieu de naissance
+                  </span>
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-location-dot"></i>
+                <input
+                  type="text"
+                  id="birthPlace"
+                  name="Lieu de naissance"
+                  placeholder="Lieu de naissance"
+                  data-fr-placeholder="Lieu de naissance"
+                  data-en-placeholder="Place of birth"
+                  data-ar-placeholder="مكان الميلاد"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Nom du père"
+                    data-en="Father's name"
+                    data-ar="اسم الأب"
+                  >
+                    Nom du père
+                  </span>
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-user"></i>
+                <input
+                  type="text"
+                  id="fatherName"
+                  name="Nom du père"
+                  placeholder="Nom du père"
+                  data-fr-placeholder="Nom du père"
+                  data-en-placeholder="Father's name"
+                  data-ar-placeholder="اسم الأب"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Nom et prénom de la mère"
+                    data-en="Mother's full name"
+                    data-ar="اسم ولقب الأم"
+                  >
+                    Nom et prénom de la mère
+                  </span>
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-user"></i>
+                <input
+                  type="text"
+                  id="motherName"
+                  name="Nom complet de la mère"
+                  placeholder="Nom et prénom de la mère"
+                  data-fr-placeholder="Nom et prénom de la mère"
+                  data-en-placeholder="Mother's full name"
+                  data-ar-placeholder="اسم ولقب الأم"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Numéro de téléphone"
+                    data-en="Phone number"
+                    data-ar="رقم الهاتف"
+                  >
+                    Numéro de téléphone
+                  </span>
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-phone"></i>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="Téléphone"
+                  placeholder="Numéro de téléphone"
+                  data-fr-placeholder="Numéro de téléphone"
+                  data-en-placeholder="Phone number"
+                  data-ar-placeholder="رقم الهاتف"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Adresse e-mail"
+                    data-en="Email address"
+                    data-ar="البريد الإلكتروني"
+                  >
+                    Adresse e-mail
+                  </span>
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-envelope"></i>
+                <input
+                  type="email"
+                  id="email"
+                  name="Adresse e-mail"
+                  placeholder="Adresse e-mail"
+                  data-fr-placeholder="Adresse e-mail"
+                  data-en-placeholder="Email address"
+                  data-ar-placeholder="البريد الإلكتروني"
+                  required
+                />
+              </div>
+
+              <div class="input-box full">
+                <label>
+                  <span
+                    data-fr="Adresse complète"
+                    data-en="Full address"
+                    data-ar="العنوان الكامل"
+                  >
+                    Adresse complète
+                  </span>
+                  <span class="required">*</span>
+                </label>
+                <i class="fa-solid fa-location-dot"></i>
+                <textarea
+                  id="address"
+                  name="Adresse complète"
+                  placeholder="Adresse complète"
+                  data-fr-placeholder="Adresse complète"
+                  data-en-placeholder="Full address"
+                  data-ar-placeholder="العنوان الكامل"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="section-title">
+              <i class="fa-solid fa-passport"></i>
+              <span
+                data-fr="Type de visa demandé"
+                data-en="Visa Type"
+                data-ar="نوع التأشيرة المطلوبة"
+              >
+                Type de visa demandé
+              </span>
+            </div>
+
+            <select id="visaType" name="visaType" required>
+              <option
+                value=""
+                data-fr="Choisir le type de visa"
+                data-en="Choose visa type"
+                data-ar="اختر نوع التأشيرة"
+              >
+                Choisir le type de visa
+              </option>
+
+              <option value="tourism">🌴 Visa touristique</option>
+              <option value="business">💼 Visa affaires</option>
+              <option value="study">🎓 Visa études</option>
+              <option value="work">🏢 Visa travail</option>
+              <option value="family">👨‍👩‍👧 Visa visite familiale</option>
+            </select>
+
+            <div id="visaDocumentsInfo" class="visa-documents-info">
+              <div class="visa-info-header">
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+                  <h3 id="visaInfoTitle">Documents requis</h3>
+
+                  <p id="visaInfoSubtitle">
+                    Sélectionnez un type de visa pour afficher les principales
+                    pièces demandées.
+                  </p>
                 </div>
               </div>
-              <input
-                id="manualCountry"
-                type="text"
-                placeholder="Autre pays / écrire manuellement"
-                data-fr-placeholder="Autre pays / écrire manuellement"
-                data-en-placeholder="Other country / write manually"
-                data-ar-placeholder="دولة أخرى / اكتب يدويا"
-              />
+
+              <div id="visaDocumentsList" class="visa-documents-list"></div>
             </div>
-            <input type="hidden" id="selectedCountry" name="destination" />
+
+            <div class="section-title">
+              <i class="fa-solid fa-id-card"></i>
+              <span
+                data-fr="Informations passeport"
+                data-en="Passport Information"
+                data-ar="معلومات جواز السفر"
+              >
+                Informations passeport
+              </span>
+            </div>
+
+            <div class="form-grid">
+              <div class="input-box full">
+                <label>
+                  <span
+                    data-fr="Numéro de passeport"
+                    data-en="Passport Number"
+                    data-ar="رقم جواز السفر"
+                  >
+                    Numéro de passeport
+                  </span>
+                  <span class="required">*</span>
+                </label>
+
+                <i class="fa-solid fa-passport"></i>
+
+                <input
+                  type="text"
+                  id="passportNumber"
+                  name="Passport Number"
+                  placeholder="Numéro de passeport"
+                  data-fr-placeholder="Numéro de passeport"
+                  data-en-placeholder="Passport Number"
+                  data-ar-placeholder="رقم جواز السفر"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Date de délivrance"
+                    data-en="Issue date"
+                    data-ar="تاريخ الإصدار"
+                  >
+                    Date de délivrance
+                  </span>
+                  <span class="required">*</span>
+                </label>
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <input
+                  type="date"
+                  id="passportIssueDate"
+                  name="Date délivrance passeport"
+                  required
+                />
+              </div>
+
+              <div class="input-box">
+                <label>
+                  <span
+                    data-fr="Date d'expiration"
+                    data-en="Expiry date"
+                    data-ar="تاريخ انتهاء الصلاحية"
+                  >
+                    Date d'expiration
+                  </span>
+                  <span class="required">*</span>
+                </label>
+
+                <i class="fa-solid fa-calendar-xmark"></i>
+
+                <input
+                  type="date"
+                  id="passportExpiryDate"
+                  name="Date expiration passeport"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="section-title">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <span
+                data-fr="Historique des visas"
+                data-en="Visa History"
+                data-ar="تاريخ التأشيرات"
+              >
+                Historique des visas
+              </span>
+            </div>
+
+            <div class="form-grid">
+              <div class="input-box full">
+                <label>
+                  <span
+                    data-fr="Avez-vous déjà obtenu un visa ?"
+                    data-en="Have you obtained a visa before?"
+                    data-ar="هل حصلت سابقا على تأشيرة؟"
+                  >
+                    Avez-vous déjà obtenu un visa ?
+                  </span>
+                  <span class="required">*</span>
+                </label>
+
+                <i class="fa-solid fa-passport"></i>
+
+                <select id="previousVisa" name="Historique visa" required>
+                  <option
+                    value=""
+                    data-fr="Choisir une réponse"
+                    data-en="Choose an answer"
+                    data-ar="اختر الإجابة"
+                  >
+                    Choisir une réponse
+                  </option>
+
+                  <option value="yes" data-fr="Oui" data-en="Yes" data-ar="نعم">
+                    Oui
+                  </option>
+                  <option value="no" data-fr="Non" data-en="No" data-ar="لا">
+                    Non
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="section-title">
+              <i class="fa-solid fa-briefcase"></i>
+              <span
+                data-fr="Activité professionnelle"
+                data-en="Professional Activity"
+                data-ar="النشاط المهني"
+              >
+                Activité professionnelle
+              </span>
+            </div>
+
+            <select id="activityType" name="activityType" required>
+              <option
+                value=""
+                data-fr="Choisir votre activité"
+                data-en="Choose your activity"
+                data-ar="اختر نشاطك"
+              >
+                Choisir votre activité
+              </option>
+
+              <option value="commerce">👔 Commerçant</option>
+              <option value="employee">🏛️ Fonctionnaire d'état</option>
+              <option value="free">🛠️ Activité professionnelle libre</option>
+              <option value="other">➕ Autre</option>
+            </select>
+
+            <div id="otherActivityBox" class="dynamic-section">
+              <div class="input-box full">
+                <label>
+                  <span
+                    data-fr="Précisez votre activité"
+                    data-en="Specify your activity"
+                    data-ar="حدد نشاطك"
+                  >
+                    Précisez votre activité
+                  </span>
+                </label>
+
+                <i class="fa-solid fa-pen"></i>
+
+                <input
+                  type="text"
+                  id="otherActivity"
+                  name="Autre activité"
+                  placeholder="Votre activité"
+                  data-fr-placeholder="Votre activité"
+                  data-en-placeholder="Your activity"
+                  data-ar-placeholder="نشاطك"
+                />
+              </div>
+            </div>
+
+            <div class="section-title">
+              <i class="fa-solid fa-house"></i>
+              <span
+                data-fr="Situation de résidence"
+                data-en="Residence Information"
+                data-ar="معلومات الإقامة"
+              >
+                Situation de résidence
+              </span>
+            </div>
+
+            <select id="residenceType" name="residenceType" required>
+              <option
+                value=""
+                data-fr="Choisir votre situation de résidence"
+                data-en="Choose your residence"
+                data-ar="اختر وضعية الإقامة"
+              >
+                Choisir votre situation de résidence
+              </option>
+
+              <option value="algeria">🇩🇿 Résident en Algérie</option>
+              <option value="abroad">🌍 Résident à l'étranger</option>
+            </select>
+
+            <div id="residenceDetails" class="dynamic-section">
+              <div id="algeriaResidence" class="input-box full">
+                <label>
+                  <span
+                    data-fr="Adresse en Algérie"
+                    data-en="Address in Algeria"
+                    data-ar="العنوان في الجزائر"
+                  >
+                    Adresse en Algérie
+                  </span>
+                </label>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <textarea
+                  id="algeriaAddress"
+                  name="Adresse Algérie"
+                  placeholder="Adresse en Algérie"
+                  data-fr-placeholder="Adresse en Algérie"
+                  data-en-placeholder="Address in Algeria"
+                  data-ar-placeholder="العنوان في الجزائر"
+                ></textarea>
+              </div>
+
+              <div id="abroadResidence" class="input-box full">
+                <label>
+                  <span
+                    data-fr="Adresse à l'étranger"
+                    data-en="Address abroad"
+                    data-ar="العنوان في الخارج"
+                  >
+                    Adresse à l'étranger
+                  </span>
+                </label>
+
+                <i class="fa-solid fa-globe"></i>
+
+                <textarea
+                  id="abroadAddress"
+                  name="Adresse étranger"
+                  placeholder="Adresse à l'étranger"
+                  data-fr-placeholder="Adresse à l'étranger"
+                  data-en-placeholder="Address abroad"
+                  data-ar-placeholder="العنوان في الخارج"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="next-area">
+              <button type="button" id="nextPageBtn" class="next-btn">
+                <span data-fr="SUIVANT" data-en="NEXT" data-ar="التالي">
+                  SUIVANT
+                </span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
           </div>
-          <div class="section-title">
-            <i class="fa-solid fa-user"></i>
-            <span
-              data-fr="Informations personnelles du voyageur"
-              data-en="Traveler Personal Information"
-              data-ar="المعلومات الشخصية للمسافر"
-              >Informations personnelles du voyageur</span
-            >
+
+          <div id="visaPage2" class="visa-form-page">
+            <div class="page-heading">
+              <div class="page-number">02</div>
+            </div>
+
+            <div class="upload-grid">
+              <div class="file-box upload-card">
+                <div class="upload-icon">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Document 01</h3>
+                <input type="file" name="documents" />
+              </div>
+
+              <div class="file-box upload-card">
+                <div class="upload-icon">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Document 02</h3>
+                <input type="file" name="documents" />
+              </div>
+
+              <div class="file-box upload-card">
+                <div class="upload-icon">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Document 03</h3>
+                <input type="file" name="documents" />
+              </div>
+
+              <div class="file-box upload-card">
+                <div class="upload-icon">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Document 04</h3>
+                <input type="file" name="documents" />
+              </div>
+
+              <div class="file-box upload-card full">
+                <div class="upload-icon">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Document 05</h3>
+                <input type="file" name="documents" />
+              </div>
+            </div>
+
+            <div class="page-navigation">
+              <button type="button" id="backPageBtn" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+
+                <span data-fr="RETOUR" data-en="BACK" data-ar="رجوع">
+                  RETOUR
+                </span>
+              </button>
+
+              <button class="submit-btn" type="submit">
+                <i class="fa-solid fa-paper-plane"></i>
+
+                <span
+                  data-fr="ENVOYER LA DEMANDE"
+                  data-en="SEND APPLICATION"
+                  data-ar="إرسال الطلب"
+                >
+                  ENVOYER LA DEMANDE
+                </span>
+              </button>
+            </div>
           </div>
-          <div class="form-grid">
-            <div class="input-box">
-              <label
-                ><span data-fr="Nom" data-en="Last name" data-ar="اللقب"
-                  >Nom</span
-                ><span class="required">*</span></label
+        </form>
+      </div>
+
+      <!-- =========================================================
+     BUSINESS VISA
+     ========================================================= -->
+
+      <div id="visaCategoryBusiness" class="visa-category-content" hidden>
+        <div class="aquarev-independent-category">
+          <div class="aquarev-category-hero">
+            <div class="aquarev-category-hero-content">
+              <div class="aquarev-category-icon">
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+
+              <h2
+                data-fr="VISAS AFFAIRES"
+                data-en="BUSINESS VISAS"
+                data-ar="تأشيرات الأعمال"
               >
-              <i class="fa-solid fa-user"></i>
-              <input
-                type="text"
-                id="lastName"
-                name="Nom"
-                placeholder="Nom"
-                data-fr-placeholder="Nom"
-                data-en-placeholder="Last name"
-                data-ar-placeholder="اللقب"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label
-                ><span data-fr="Prénom" data-en="First name" data-ar="الاسم"
-                  >Prénom</span
-                ><span class="required">*</span></label
+                VISAS AFFAIRES
+              </h2>
+
+              <p
+                data-fr="Accompagnement professionnel pour vos déplacements d'affaires, rendez-vous, conférences et missions internationales."
+                data-en="Professional assistance for business trips, meetings, conferences and international assignments."
+                data-ar="مرافقة احترافية لرحلات الأعمال والاجتماعات والمؤتمرات والمهام الدولية."
               >
-              <i class="fa-solid fa-user"></i>
-              <input
-                type="text"
-                id="firstName"
-                name="Prénom"
-                placeholder="Prénom"
-                data-fr-placeholder="Prénom"
-                data-en-placeholder="First name"
-                data-ar-placeholder="الاسم"
-                required
-              />
+                Accompagnement professionnel pour vos déplacements d'affaires,
+                rendez-vous, conférences et missions internationales.
+              </p>
             </div>
-            <div class="input-box">
-              <label
-                ><span
-                  data-fr="Date de naissance"
-                  data-en="Date of birth"
-                  data-ar="تاريخ الميلاد"
-                  >Date de naissance</span
-                ><span class="required">*</span></label
+          </div>
+
+          <div class="aquarev-independent-grid">
+            <div class="aquarev-independent-card">
+              <div class="aquarev-independent-card-icon">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+
+              <h3
+                data-fr="Déplacements professionnels"
+                data-en="Business travel"
+                data-ar="رحلات العمل"
               >
-              <i class="fa-solid fa-calendar-days"></i>
-              <input
-                type="date"
-                id="birthDate"
-                name="Date de naissance"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label
-                ><span
-                  data-fr="Lieu de naissance"
-                  data-en="Place of birth"
-                  data-ar="مكان الميلاد"
-                  >Lieu de naissance</span
-                ><span class="required">*</span></label
+                Déplacements professionnels
+              </h3>
+
+              <p
+                data-fr="Préparez votre dossier pour vos missions, rendez-vous professionnels et déplacements internationaux."
+                data-en="Prepare your application for missions, professional meetings and international travel."
+                data-ar="جهّز ملفك للمهام والاجتماعات المهنية والتنقلات الدولية."
               >
-              <i class="fa-solid fa-location-dot"></i>
-              <input
-                type="text"
-                id="birthPlace"
-                name="Lieu de naissance"
-                placeholder="Lieu de naissance"
-                data-fr-placeholder="Lieu de naissance"
-                data-en-placeholder="Place of birth"
-                data-ar-placeholder="مكان الميلاد"
-                required
-              />
+                Préparez votre dossier pour vos missions, rendez-vous
+                professionnels et déplacements internationaux.
+              </p>
             </div>
-            <div class="input-box">
-              <label
-                ><span
-                  data-fr="Nom du père"
-                  data-en="Father's name"
-                  data-ar="اسم الأب"
-                  >Nom du père</span
-                ><span class="required">*</span></label
+
+            <div class="aquarev-independent-card">
+              <div class="aquarev-independent-card-icon">
+                <i class="fa-solid fa-building"></i>
+              </div>
+
+              <h3
+                data-fr="Missions & entreprises"
+                data-en="Corporate missions"
+                data-ar="مهام الشركات"
               >
-              <i class="fa-solid fa-user"></i>
-              <input
-                type="text"
-                id="fatherName"
-                name="Nom du père"
-                placeholder="Nom du père"
-                data-fr-placeholder="Nom du père"
-                data-en-placeholder="Father's name"
-                data-ar-placeholder="اسم الأب"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label
-                ><span
-                  data-fr="Nom et prénom de la mère"
-                  data-en="Mother's full name"
-                  data-ar="اسم ولقب الأم"
-                  >Nom et prénom de la mère</span
-                ><span class="required">*</span></label
+                Missions & entreprises
+              </h3>
+
+              <p
+                data-fr="Une préparation adaptée aux besoins des entrepreneurs, salariés et représentants d'entreprises."
+                data-en="A tailored preparation for entrepreneurs, employees and company representatives."
+                data-ar="تحضير مخصص لأصحاب الشركات والموظفين وممثلي المؤسسات."
               >
-              <i class="fa-solid fa-user"></i>
-              <input
-                type="text"
-                id="motherName"
-                name="Nom complet de la mère"
-                placeholder="Nom et prénom de la mère"
-                data-fr-placeholder="Nom et prénom de la mère"
-                data-en-placeholder="Mother's full name"
-                data-ar-placeholder="اسم ولقب الأم"
-                required
-              />
+                Une préparation adaptée aux besoins des entrepreneurs, salariés
+                et représentants d'entreprises.
+              </p>
             </div>
-            <div class="input-box">
-              <label
-                ><span
-                  data-fr="Numéro de téléphone"
-                  data-en="Phone number"
-                  data-ar="رقم الهاتف"
-                  >Numéro de téléphone</span
-                ><span class="required">*</span></label
+
+            <div class="aquarev-independent-card">
+              <div class="aquarev-independent-card-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+              </div>
+
+              <h3
+                data-fr="Rendez-vous & conférences"
+                data-en="Meetings & conferences"
+                data-ar="الاجتماعات والمؤتمرات"
               >
-              <i class="fa-solid fa-phone"></i>
-              <input
-                type="tel"
-                id="phone"
-                name="Téléphone"
-                placeholder="Numéro de téléphone"
-                data-fr-placeholder="Numéro de téléphone"
-                data-en-placeholder="Phone number"
-                data-ar-placeholder="رقم الهاتف"
-                required
-              />
+                Rendez-vous & conférences
+              </h3>
+
+              <p
+                data-fr="Assistance pour organiser votre dossier en fonction de l'objet et de la durée de votre déplacement."
+                data-en="Assistance in preparing your application according to the purpose and duration of your trip."
+                data-ar="مساعدة في إعداد ملفك حسب سبب ومدة رحلتك."
+              >
+                Assistance pour organiser votre dossier en fonction de l'objet
+                et de la durée de votre déplacement.
+              </p>
             </div>
-            <div class="input-box">
-              <label
-                ><span
+          </div>
+
+          <div class="aquarev-requirements-box">
+            <div class="aquarev-requirements-title">
+              <i class="fa-solid fa-folder-open"></i>
+
+              <h3
+                data-fr="Principaux documents"
+                data-en="Main documents"
+                data-ar="الوثائق الأساسية"
+              >
+                Principaux documents
+              </h3>
+            </div>
+
+            <div class="aquarev-requirements-list">
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">01</span>
+                <span
+                  data-fr="Passeport valide"
+                  data-en="Valid passport"
+                  data-ar="جواز سفر ساري المفعول"
+                >
+                  Passeport valide
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">02</span>
+                <span
+                  data-fr="Invitation professionnelle"
+                  data-en="Business invitation"
+                  data-ar="دعوة مهنية"
+                >
+                  Invitation professionnelle
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">03</span>
+                <span
+                  data-fr="Documents de l'entreprise"
+                  data-en="Company documents"
+                  data-ar="وثائق الشركة"
+                >
+                  Documents de l'entreprise
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">04</span>
+                <span
+                  data-fr="Justificatif professionnel"
+                  data-en="Proof of professional status"
+                  data-ar="إثبات الوضعية المهنية"
+                >
+                  Justificatif professionnel
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">05</span>
+                <span
+                  data-fr="Justificatifs financiers"
+                  data-en="Financial documents"
+                  data-ar="الوثائق المالية"
+                >
+                  Justificatifs financiers
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">06</span>
+                <span
+                  data-fr="Réservation de voyage"
+                  data-en="Travel reservation"
+                  data-ar="حجز السفر"
+                >
+                  Réservation de voyage
+                </span>
+              </div>
+            </div>
+
+            <div class="aquarev-info-banner">
+              <i class="fa-solid fa-circle-info"></i>
+
+              <p
+                data-fr="Les documents exacts peuvent varier selon le pays de destination, le motif du voyage et votre situation professionnelle."
+                data-en="Exact requirements may vary depending on the destination country, purpose of travel and your professional situation."
+                data-ar="قد تختلف الوثائق المطلوبة حسب دولة الوجهة وسبب السفر ووضعيتك المهنية."
+              >
+                Les documents exacts peuvent varier selon le pays de
+                destination, le motif du voyage et votre situation
+                professionnelle.
+              </p>
+            </div>
+
+            <div class="aquarev-category-action">
+              <button
+                type="button"
+                onclick="switchVisaCategory('schengen')"
+                data-fr="Commencer ma demande"
+                data-en="Start my application"
+                data-ar="ابدأ طلبي"
+              >
+                Commencer ma demande
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+     E-VISA
+     ========================================================= -->
+
+      <div id="visaCategoryEvisa" class="visa-category-content" hidden>
+        <div class="aquarev-independent-category">
+          <div class="aquarev-category-hero">
+            <div class="aquarev-category-hero-content">
+              <div class="aquarev-category-icon">
+                <i class="fa-solid fa-passport"></i>
+              </div>
+
+              <h2
+                data-fr="E-VISAS"
+                data-en="E-VISAS"
+                data-ar="التأشيرات الإلكترونية"
+              >
+                E-VISAS
+              </h2>
+
+              <p
+                data-fr="Découvrez une solution moderne et pratique pour les destinations proposant une demande de visa électronique."
+                data-en="Discover a modern and convenient solution for destinations offering electronic visa applications."
+                data-ar="اكتشف حلاً عصرياً وعملياً للدول التي توفر طلب التأشيرة الإلكترونية."
+              >
+                Découvrez une solution moderne et pratique pour les destinations
+                proposant une demande de visa électronique.
+              </p>
+            </div>
+          </div>
+
+          <div class="aquarev-independent-grid">
+            <div class="aquarev-independent-card">
+              <div class="aquarev-independent-card-icon">
+                <i class="fa-solid fa-laptop"></i>
+              </div>
+
+              <h3
+                data-fr="Demande en ligne"
+                data-en="Online application"
+                data-ar="طلب عبر الإنترنت"
+              >
+                Demande en ligne
+              </h3>
+
+              <p
+                data-fr="Préparez vos informations et documents nécessaires pour effectuer votre demande électronique."
+                data-en="Prepare your information and required documents for your electronic application."
+                data-ar="جهّز معلوماتك والوثائق المطلوبة لإتمام طلبك الإلكتروني."
+              >
+                Préparez vos informations et documents nécessaires pour
+                effectuer votre demande électronique.
+              </p>
+            </div>
+
+            <div class="aquarev-independent-card">
+              <div class="aquarev-independent-card-icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+
+              <h3
+                data-fr="Procédure simplifiée"
+                data-en="Simplified process"
+                data-ar="إجراءات مبسطة"
+              >
+                Procédure simplifiée
+              </h3>
+
+              <p
+                data-fr="Une procédure pensée pour faciliter la préparation de votre dossier et gagner du temps."
+                data-en="A process designed to simplify your application and save time."
+                data-ar="إجراءات مصممة لتسهيل تحضير ملفك وتوفير الوقت."
+              >
+                Une procédure pensée pour faciliter la préparation de votre
+                dossier et gagner du temps.
+              </p>
+            </div>
+
+            <div class="aquarev-independent-card">
+              <div class="aquarev-independent-card-icon">
+                <i class="fa-solid fa-envelope-circle-check"></i>
+              </div>
+
+              <h3
+                data-fr="Réception électronique"
+                data-en="Electronic delivery"
+                data-ar="الاستلام الإلكتروني"
+              >
+                Réception électronique
+              </h3>
+
+              <p
+                data-fr="Selon la destination, le document ou l'autorisation peut être délivré directement sous format électronique."
+                data-en="Depending on the destination, the document or authorization may be issued electronically."
+                data-ar="حسب الدولة، يمكن إصدار الوثيقة أو التصريح مباشرة بصيغة إلكترونية."
+              >
+                Selon la destination, le document ou l'autorisation peut être
+                délivré directement sous format électronique.
+              </p>
+            </div>
+          </div>
+
+          <div class="aquarev-requirements-box">
+            <div class="aquarev-requirements-title">
+              <i class="fa-solid fa-list-check"></i>
+
+              <h3
+                data-fr="Informations généralement nécessaires"
+                data-en="Information generally required"
+                data-ar="المعلومات المطلوبة عادة"
+              >
+                Informations généralement nécessaires
+              </h3>
+            </div>
+
+            <div class="aquarev-requirements-list">
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">01</span>
+                <span
+                  data-fr="Passeport valide"
+                  data-en="Valid passport"
+                  data-ar="جواز سفر ساري المفعول"
+                >
+                  Passeport valide
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">02</span>
+                <span
+                  data-fr="Photo d'identité"
+                  data-en="Passport photo"
+                  data-ar="صورة شخصية"
+                >
+                  Photo d'identité
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">03</span>
+                <span
                   data-fr="Adresse e-mail"
                   data-en="Email address"
                   data-ar="البريد الإلكتروني"
-                  >Adresse e-mail</span
-                ><span class="required">*</span></label
-              >
-              <i class="fa-solid fa-envelope"></i>
-              <input
-                type="email"
-                id="email"
-                name="Adresse e-mail"
-                placeholder="Adresse e-mail"
-                data-fr-placeholder="Adresse e-mail"
-                data-en-placeholder="Email address"
-                data-ar-placeholder="البريد الإلكتروني"
-                required
-              />
-            </div>
-            <div class="input-box full">
-              <label
-                ><span
-                  data-fr="Adresse complète"
-                  data-en="Full address"
-                  data-ar="العنوان الكامل"
-                  >Adresse complète</span
-                ><span class="required">*</span></label
-              >
-              <i class="fa-solid fa-location-dot"></i>
-              <textarea
-                id="address"
-                name="Adresse complète"
-                placeholder="Adresse complète"
-                data-fr-placeholder="Adresse complète"
-                data-en-placeholder="Full address"
-                data-ar-placeholder="العنوان الكامل"
-                required
-              ></textarea>
-            </div>
-          </div>
-          <div class="section-title">
-            <i class="fa-solid fa-passport"></i>
-            <span
-              data-fr="Type de visa demandé"
-              data-en="Visa Type"
-              data-ar="نوع التأشيرة المطلوبة"
-              >Type de visa demandé</span
-            >
-          </div>
-          <select id="visaType" name="visaType" required>
-            <option
-              value=""
-              data-fr="Choisir le type de visa"
-              data-en="Choose visa type"
-              data-ar="اختر نوع التأشيرة"
-            >
-              Choisir le type de visa
-            </option>
-            <option value="tourism">🌴 Visa touristique</option>
-            <option value="business">💼 Visa affaires</option>
-            <option value="study">🎓 Visa études</option>
-            <option value="work">🏢 Visa travail</option>
-            <option value="family">👨‍👩‍👧 Visa visite familiale</option>
-          </select>
-          <div id="visaDocumentsInfo" class="visa-documents-info">
-            <div class="visa-info-header">
-              <i class="fa-solid fa-circle-info"></i>
-              <div>
-                <h3 id="visaInfoTitle">Documents requis</h3>
-                <p id="visaInfoSubtitle">
-                  Sélectionnez un type de visa pour afficher les principales
-                  pièces demandées.
-                </p>
-              </div>
-            </div>
-            <div id="visaDocumentsList" class="visa-documents-list"></div>
-          </div>
-          <div class="section-title">
-            <i class="fa-solid fa-id-card"></i>
-            <span
-              data-fr="Informations passeport"
-              data-en="Passport Information"
-              data-ar="معلومات جواز السفر"
-              >Informations passeport</span
-            >
-          </div>
-          <div class="form-grid">
-            <div class="input-box full">
-              <label
-                ><span
-                  data-fr="Numéro de passeport"
-                  data-en="Passport Number"
-                  data-ar="رقم جواز السفر"
-                  >Numéro de passeport</span
-                ><span class="required">*</span></label
-              >
-              <i class="fa-solid fa-passport"></i>
-              <input
-                type="text"
-                id="passportNumber"
-                name="Passport Number"
-                placeholder="Numéro de passeport"
-                data-fr-placeholder="Numéro de passeport"
-                data-en-placeholder="Passport Number"
-                data-ar-placeholder="رقم جواز السفر"
-                required
-                autocomplete="off"
-              />
-            </div>
-            <div class="input-box">
-              <label
-                ><span
-                  data-fr="Date de délivrance"
-                  data-en="Issue date"
-                  data-ar="تاريخ الإصدار"
-                  >Date de délivrance</span
-                ><span class="required">*</span></label
-              >
-              <i class="fa-solid fa-calendar-days"></i>
-              <input
-                type="date"
-                id="passportIssueDate"
-                name="Date délivrance passeport"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label
-                ><span
-                  data-fr="Date d'expiration"
-                  data-en="Expiry date"
-                  data-ar="تاريخ انتهاء الصلاحية"
-                  >Date d'expiration</span
-                ><span class="required">*</span></label
-              >
-              <i class="fa-solid fa-calendar-xmark"></i>
-              <input
-                type="date"
-                id="passportExpiryDate"
-                name="Date expiration passeport"
-                required
-              />
-            </div>
-          </div>
-          <div class="section-title">
-            <i class="fa-solid fa-clock-rotate-left"></i>
-            <span
-              data-fr="Historique des visas"
-              data-en="Visa History"
-              data-ar="تاريخ التأشيرات"
-              >Historique des visas</span
-            >
-          </div>
-          <div class="form-grid">
-            <div class="input-box full">
-              <label
-                ><span
-                  data-fr="Avez-vous déjà obtenu un visa ?"
-                  data-en="Have you obtained a visa before?"
-                  data-ar="هل حصلت سابقا على تأشيرة؟"
-                  >Avez-vous déjà obtenu un visa ?</span
-                ><span class="required">*</span></label
-              >
-              <i class="fa-solid fa-passport"></i>
-              <select id="previousVisa" name="Historique visa" required>
-                <option
-                  value=""
-                  data-fr="Choisir une réponse"
-                  data-en="Choose an answer"
-                  data-ar="اختر الإجابة"
                 >
-                  Choisir une réponse
-                </option>
-                <option value="yes" data-fr="Oui" data-en="Yes" data-ar="نعم">
-                  Oui
-                </option>
-                <option value="no" data-fr="Non" data-en="No" data-ar="لا">
-                  Non
-                </option>
-              </select>
+                  Adresse e-mail
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">04</span>
+                <span
+                  data-fr="Informations du voyage"
+                  data-en="Travel information"
+                  data-ar="معلومات الرحلة"
+                >
+                  Informations du voyage
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">05</span>
+                <span
+                  data-fr="Adresse de séjour"
+                  data-en="Accommodation address"
+                  data-ar="عنوان الإقامة"
+                >
+                  Adresse de séjour
+                </span>
+              </div>
+
+              <div class="aquarev-requirement">
+                <span class="aquarev-requirement-number">06</span>
+                <span
+                  data-fr="Justificatifs selon la destination"
+                  data-en="Destination-specific documents"
+                  data-ar="وثائق حسب الوجهة"
+                >
+                  Justificatifs selon la destination
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="section-title">
-            <i class="fa-solid fa-briefcase"></i>
-            <span
-              data-fr="Activité professionnelle"
-              data-en="Professional Activity"
-              data-ar="النشاط المهني"
-              >Activité professionnelle</span
-            >
-          </div>
-          <select id="activityType" name="activityType" required>
-            <option
-              value=""
-              data-fr="Choisir votre activité"
-              data-en="Choose your activity"
-              data-ar="اختر نشاطك"
-            >
-              Choisir votre activité
-            </option>
-            <option value="commerce">👔 Commerçant</option>
-            <option value="employee">🏛️ Fonctionnaire d'état</option>
-            <option value="free">🛠️ Activité professionnelle libre</option>
-            <option value="other">➕ Autre</option>
-          </select>
-          <div id="otherActivityBox" class="dynamic-section">
-            <div class="input-box full">
-              <label
-                ><span
-                  data-fr="Précisez votre activité"
-                  data-en="Specify your activity"
-                  data-ar="حدد نشاطك"
-                  >Précisez votre activité</span
-                ></label
-              >
-              <i class="fa-solid fa-pen"></i>
-              <input
-                type="text"
-                id="otherActivity"
-                name="Autre activité"
-                placeholder="Votre activité"
-                data-fr-placeholder="Votre activité"
-                data-en-placeholder="Your activity"
-                data-ar-placeholder="نشاطك"
-              />
-            </div>
-          </div>
-          <div class="section-title">
-            <i class="fa-solid fa-house"></i>
-            <span
-              data-fr="Situation de résidence"
-              data-en="Residence Information"
-              data-ar="معلومات الإقامة"
-              >Situation de résidence</span
-            >
-          </div>
-          <select id="residenceType" name="residenceType" required>
-            <option
-              value=""
-              data-fr="Choisir votre situation de résidence"
-              data-en="Choose your residence"
-              data-ar="اختر وضعية الإقامة"
-            >
-              Choisir votre situation de résidence
-            </option>
-            <option value="algeria">🇩🇿 Résident en Algérie</option>
-            <option value="abroad">🌍 Résident à l'étranger</option>
-          </select>
-          <div id="residenceDetails" class="dynamic-section">
-            <div id="algeriaResidence" class="input-box full">
-              <label
-                ><span
-                  data-fr="Adresse en Algérie"
-                  data-en="Address in Algeria"
-                  data-ar="العنوان في الجزائر"
-                  >Adresse en Algérie</span
-                ></label
-              >
-              <i class="fa-solid fa-location-dot"></i>
-              <textarea
-                id="algeriaAddress"
-                name="Adresse Algérie"
-                placeholder="Adresse en Algérie"
-                data-fr-placeholder="Adresse en Algérie"
-                data-en-placeholder="Address in Algeria"
-                data-ar-placeholder="العنوان في الجزائر"
-              ></textarea>
-            </div>
-            <div id="abroadResidence" class="input-box full">
-              <label
-                ><span
-                  data-fr="Adresse à l'étranger"
-                  data-en="Address abroad"
-                  data-ar="العنوان في الخارج"
-                  >Adresse à l'étranger</span
-                ></label
-              >
+
+            <div class="aquarev-info-banner">
               <i class="fa-solid fa-globe"></i>
-              <textarea
-                id="abroadAddress"
-                name="Adresse étranger"
-                placeholder="Adresse à l'étranger"
-                data-fr-placeholder="Adresse à l'étranger"
-                data-en-placeholder="Address abroad"
-                data-ar-placeholder="العنوان في الخارج"
-              ></textarea>
-            </div>
-          </div>
-          <div class="next-area">
-            <button type="button" id="nextPageBtn" class="next-btn">
-              <span data-fr="SUIVANT" data-en="NEXT" data-ar="التالي"
-                >SUIVANT</span
+
+              <p
+                data-fr="Les conditions, frais, délais et documents varient selon le pays. AQUAREV Travel vous accompagne dans la préparation de votre dossier."
+                data-en="Requirements, fees, processing times and documents vary by country. AQUAREV Travel assists you in preparing your application."
+                data-ar="تختلف الشروط والرسوم والمدة والوثائق حسب الدولة. تساعدك AQUAREV Travel في تحضير ملفك."
               >
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
+                Les conditions, frais, délais et documents varient selon le
+                pays. AQUAREV Travel vous accompagne dans la préparation de
+                votre dossier.
+              </p>
+            </div>
+
+            <div class="aquarev-category-action">
+              <button
+                type="button"
+                onclick="switchVisaCategory('schengen')"
+                data-fr="Choisir une destination"
+                data-en="Choose a destination"
+                data-ar="اختر وجهة"
+              >
+                Choisir une destination
+              </button>
+            </div>
           </div>
         </div>
-        <div id="visaPage2" class="visa-form-page">
-          <div class="page-heading">
-            <div class="page-number">02</div>
-          </div>
+      </div>
 
-          <div class="upload-grid">
-            <div class="file-box upload-card">
-              <div class="upload-icon">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
-              <h3>Document 01</h3>
-              <input type="file" name="documents" />
-            </div>
-            <div class="file-box upload-card">
-              <div class="upload-icon">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
-              <h3>Document 02</h3>
-              <input type="file" name="documents" />
-            </div>
-            <div class="file-box upload-card">
-              <div class="upload-icon">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
-              <h3>Document 03</h3>
-              <input type="file" name="documents" />
-            </div>
-            <div class="file-box upload-card">
-              <div class="upload-icon">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
-              <h3>Document 04</h3>
-              <input type="file" name="documents" />
-            </div>
-            <div class="file-box upload-card full">
-              <div class="upload-icon">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
-              <h3>Document 05</h3>
-              <input type="file" name="documents" />
-            </div>
-          </div>
-
-          <div class="page-navigation">
-            <button type="button" id="backPageBtn" class="back-btn">
-              <i class="fa-solid fa-arrow-left"></i>
-              <span data-fr="RETOUR" data-en="BACK" data-ar="رجوع">RETOUR</span>
-            </button>
-            <button class="submit-btn" type="submit">
-              <i class="fa-solid fa-paper-plane"></i>
-              <span
-                data-fr="ENVOYER LA DEMANDE"
-                data-en="SEND APPLICATION"
-                data-ar="إرسال الطلب"
-                >ENVOYER LA DEMANDE</span
-              >
-            </button>
-          </div>
-        </div>
-      </form>
       <a
         href="index.html"
         class="back-home"
         data-fr="← Retour AQUAREV Travel"
         data-en="← Back to AQUAREV Travel"
         data-ar="← العودة إلى أكواريف ترافل"
-        >← Retour AQUAREV Travel</a
       >
+        ← Retour AQUAREV Travel
+      </a>
     </div>
+
+    <!-- =========================================================
+     FOOTER
+     ========================================================= -->
 
     <footer class="visa-luxury-footer">
       <div class="visa-footer-container">
         <div class="visa-footer-brand">
           <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+
           <h3>AQUAREV <span>Travel</span></h3>
+
           <p
             data-fr="Luxury Travel & Experiences"
             data-en="Luxury Travel & Experiences"
@@ -759,39 +1869,46 @@
 
           <a href="mailto:AQUAREV.travel@gmail.com">
             <i class="fa-solid fa-envelope"></i>
+
             <span
               data-fr="Contactez-nous"
               data-en="Contact us"
               data-ar="اتصل بنا"
-              >contacez-nous</span
             >
+              Contactez-nous
+            </span>
           </a>
 
           <a href="tel:002130554958578">
             <i class="fa-solid fa-phone"></i>
-            <span data-fr="Appelez-nous" data-en="Call us" data-ar="اتصل بنا"
-              >Appelez-nous</span
-            >
+
+            <span data-fr="Appelez-nous" data-en="Call us" data-ar="اتصل بنا">
+              Appelez-nous
+            </span>
           </a>
 
           <a href="https://wa.me/213541116245" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
-            <span data-fr="WhatsApp" data-en="WhatsApp" data-ar="واتساب"
-              >WhatsApp</span
-            >
+
+            <span data-fr="WhatsApp" data-en="WhatsApp" data-ar="واتساب">
+              WhatsApp
+            </span>
           </a>
+
           <a
             href="https://maps.google.com/?q=04+chemin+allaghan+tazmalt+bejaia+algeria"
             target="_blank"
             aria-label="Location"
           >
             <i class="fa-solid fa-location-dot"></i>
+
             <span
               data-fr="Notre adresse"
               data-en="Our location"
               data-ar="موقعنا"
-              >Notre adresse</span
             >
+              Notre adresse
+            </span>
           </a>
         </div>
 
@@ -830,14 +1947,19 @@
 
       <div class="visa-footer-bottom">
         <p>
-          <span data-fr="© 2026" data-en="© 2026" data-ar="© 2026">© 2026</span>
+          <span data-fr="© 2026" data-en="© 2026" data-ar="© 2026">
+            © 2026
+          </span>
+
           <strong>AQUAREV Travel</strong>
+
           <span
             data-fr="— Tous droits réservés."
             data-en="— All rights reserved."
             data-ar="— جميع الحقوق محفوظة."
-            >— Tous droits réservés.</span
           >
+            — Tous droits réservés.
+          </span>
         </p>
 
         <p
@@ -849,6 +1971,60 @@
         </p>
       </div>
     </footer>
+
     <script src="visa-script.js"></script>
+
+    <script>
+      /* =========================================================
+   AQUAREV VISA CATEGORY SWITCHER
+   ========================================================= */
+
+      (function () {
+        const categoryButtons = document.querySelectorAll(".visa-category");
+        const categoryContents = {
+          schengen: document.getElementById("visaCategorySchengen"),
+          business: document.getElementById("visaCategoryBusiness"),
+          evisa: document.getElementById("visaCategoryEvisa"),
+        };
+
+        window.switchVisaCategory = function (category) {
+          if (!categoryContents[category]) return;
+
+          categoryButtons.forEach((button) => {
+            button.classList.toggle(
+              "active",
+              button.dataset.category === category,
+            );
+          });
+
+          Object.keys(categoryContents).forEach((key) => {
+            const content = categoryContents[key];
+
+            if (key === category) {
+              content.hidden = false;
+              content.classList.add("active-content");
+            } else {
+              content.hidden = true;
+              content.classList.remove("active-content");
+            }
+          });
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        };
+
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const category = this.dataset.category;
+
+            switchVisaCategory(category);
+          });
+        });
+
+        switchVisaCategory("schengen");
+      })();
+    </script>
   </body>
 </html>

@@ -1412,3 +1412,204 @@ input,select,textarea{font-size:12px!important}
 .aquarev-page2-file-box{height:72px!important;min-height:72px!important}
 #aquarevServicesButton{font-size:11px!important}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   AQUAREV VISA — LUXURY SUMMER TABS
+   ========================================= */
+
+.visa-category-tabs{
+width:100%;
+display:flex;
+align-items:stretch;
+justify-content:center;
+gap:12px;
+margin:18px auto 28px;
+position:relative;
+z-index:5;
+}
+
+.visa-category-tab{
+flex:1;
+min-width:0;
+height:58px;
+padding:0 16px;
+border:1px solid rgba(0,180,216,.28);
+border-radius:16px;
+background:linear-gradient(145deg,#ffffff 0%,#f3fcff 55%,#e9faff 100%);
+color:#063b5c;
+font-family:"Poppins","Cairo",sans-serif;
+font-size:13px;
+font-weight:800;
+letter-spacing:.3px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+box-shadow:
+0 8px 22px rgba(3,43,67,.08),
+inset 0 1px 0 rgba(255,255,255,.9);
+transition:all .3s ease;
+}
+
+.visa-category-tab:before{
+content:"";
+position:absolute;
+width:100px;
+height:100px;
+border-radius:50%;
+background:rgba(0,180,216,.08);
+right:-40px;
+top:-50px;
+transition:.4s ease;
+pointer-events:none;
+}
+
+.visa-category-tab:after{
+content:"";
+position:absolute;
+left:12%;
+right:12%;
+bottom:0;
+height:2px;
+border-radius:10px;
+background:linear-gradient(
+90deg,
+transparent,
+#00b4d8,
+#90e0ef,
+#00b4d8,
+transparent
+);
+opacity:0;
+transition:.3s ease;
+}
+
+.visa-category-tab:hover{
+transform:translateY(-3px);
+border-color:#00b4d8;
+color:#0077b6;
+box-shadow:
+0 14px 30px rgba(0,180,216,.16),
+inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+.visa-category-tab:hover:before{
+transform:scale(1.5);
+}
+
+.visa-category-tab:hover:after{
+opacity:1;
+}
+
+.visa-category-tab.active{
+background:linear-gradient(
+135deg,
+#063b5c 0%,
+#0077b6 48%,
+#00b4d8 100%
+);
+border-color:#00b4d8;
+color:#ffffff;
+box-shadow:
+0 14px 32px rgba(0,119,182,.25),
+inset 0 1px 0 rgba(255,255,255,.18);
+transform:translateY(-2px);
+}
+
+.visa-category-tab.active:before{
+background:rgba(255,255,255,.10);
+}
+
+.visa-category-tab.active:after{
+opacity:1;
+background:linear-gradient(
+90deg,
+transparent,
+#90e0ef,
+#ffffff,
+#90e0ef,
+transparent
+);
+}
+
+.visa-category-tab i{
+margin-right:8px;
+font-size:15px;
+color:#00b4d8;
+transition:.3s ease;
+}
+
+.visa-category-tab.active i{
+color:#ffffff;
+}
+
+body[dir="rtl"] .visa-category-tab i{
+margin-right:0;
+margin-left:8px;
+}
+
+@media(max-width:700px){
+.visa-category-tabs{
+width:100%;
+gap:6px;
+margin:14px auto 22px;
+}
+
+.visa-category-tab{
+height:50px;
+padding:0 5px;
+border-radius:12px;
+font-size:9.5px;
+letter-spacing:0;
+white-space:nowrap;
+}
+
+.visa-category-tab i{
+font-size:11px;
+margin-right:4px;
+}
+
+body[dir="rtl"] .visa-category-tab i{
+margin-right:0;
+margin-left:4px;
+}
+}
+
+@media(max-width:400px){
+.visa-category-tabs{
+gap:4px;
+margin-top:12px;
+}
+
+.visa-category-tab{
+height:46px;
+padding:0 3px;
+border-radius:10px;
+font-size:8px;
+}
+
+.visa-category-tab i{
+font-size:10px;
+margin-right:3px;
+}
+
+body[dir="rtl"] .visa-category-tab i{
+margin-right:0;
+margin-left:3px;
+}
+}
