@@ -2188,8 +2188,11 @@ html[dir="rtl"] .visa-services-cloud-wrapper{
 justify-content:flex-end;
 }
 
-@media(max-width:768px){
-html[lang="fr"] body:not(.logged-in) .menu-toggle{
-transform:translateX(50px)!important;
+@media(max-width:700px){
+.visa-services-cloud{
+position:absolute;
+top:82px;
+right:15px;
+z-index:40;
 }
 }
