@@ -2187,3 +2187,9 @@ justify-content:flex-start;
 html[dir="rtl"] .visa-services-cloud-wrapper{
 justify-content:flex-end;
 }
+
+@media(max-width:768px){
+html[lang="fr"] body:not(.logged-in) .menu-toggle{
+transform:translateX(50px)!important;
+}
+}

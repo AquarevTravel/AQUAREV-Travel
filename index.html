@@ -4,42 +4,33 @@
     <link rel="icon" type="image/png" href="../assets/logo/favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-
     <title>AQUAREV Travel | Voyages - Vols - Hôtels - Omra</title>
-
     <meta
       name="description"
       content="AQUAREV Travel agence de voyages spécialisée dans les vols, hôtels, croisières, séjours et Omra"
     />
-
     <link rel="icon" href="assets/logo/aquarev.png" />
     <link rel="stylesheet" href="style.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
-
   <body>
     <header class="header">
       <div class="logo">
         <img src="assets/logo/aquarev.png" alt="AQUAREV Travel Logo" />
       </div>
-
       <nav class="navbar">
         <ul>
           <li>
@@ -47,7 +38,6 @@
               >Accueil</a
             >
           </li>
-
           <li>
             <a
               href="#vols"
@@ -57,7 +47,6 @@
               >Vols</a
             >
           </li>
-
           <li>
             <a
               href="#hotels"
@@ -67,7 +56,6 @@
               >Hôtels</a
             >
           </li>
-
           <li>
             <a
               href="#croisieres"
@@ -77,7 +65,6 @@
               >Croisières</a
             >
           </li>
-
           <li>
             <a
               href="#reveillon"
@@ -87,7 +74,6 @@
               >Réveillon</a
             >
           </li>
-
           <li>
             <a
               href="#footer"
@@ -99,50 +85,51 @@
           </li>
         </ul>
       </nav>
-
       <div class="language-header">
         <button class="language-globe" aria-label="Language">
           <i class="fa-solid fa-earth-americas"></i>
-
           <span class="current-language">🇫🇷</span>
         </button>
-
         <div class="language-menu">
           <button onclick="changeLanguage('fr')">🇫🇷 Français</button>
-
           <button onclick="changeLanguage('en')">🇬🇧 English</button>
-
           <button onclick="changeLanguage('ar')">🇩🇿 العربية</button>
         </div>
       </div>
-
       <div id="user-area" style="visibility: hidden">
         <a href="signin.html" class="auth-btn signin-btn" id="login-link">
           <i class="fa-solid fa-right-to-bracket"></i>
-
-          <span> Connexion </span>
+          <span>Connexion</span>
         </a>
-
         <a href="signup.html" class="auth-btn signup-btn" id="signup-link">
           <i class="fa-solid fa-user-plus"></i>
-
-          <span> Inscription </span>
+          <span>Inscription</span>
         </a>
       </div>
-
       <div class="menu-toggle">
         <i class="fa-solid fa-bars"></i>
       </div>
     </header>
-
     <section id="home" class="hero">
       <video autoplay muted loop playsinline class="hero-video">
         <source src="assets/videos/hero.mp4" type="video/mp4" />
       </video>
-
       <div class="hero-overlay"></div>
-
       <div class="hero-content">
+        <div class="visa-services-cloud-wrapper">
+          <a href="visas-affaires.html" class="visa-services-cloud">
+            <span class="cloud-bolt">
+              <i class="fa-solid fa-bolt"></i>
+            </span>
+            <span
+              class="visa-cloud-text"
+              data-fr="NOS SERVICES DE VISAS"
+              data-en="OUR VISA SERVICES"
+              data-ar="خدمات التأشيرات"
+              >NOS SERVICES DE VISAS</span
+            >
+          </a>
+        </div>
         <h2
           class="hero-title"
           data-fr="Voyager avec AQUAREV Travel"
@@ -151,28 +138,24 @@
         >
           Voyager avec <span>AQUAREV Travel</span>
         </h2>
-
         <div class="hero-services">
           <div class="visa-container">
             <a href="#visas" class="visa-btn">
               <i class="fa-solid fa-passport"></i>
-
-              <span data-fr="Visas" data-en="Visas" data-ar="التأشيرات">
-                Visas
-              </span>
+              <span data-fr="Visas" data-en="Visas" data-ar="التأشيرات"
+                >Visas</span
+              >
             </a>
-
             <div
               class="visa-tooltip"
               onclick="window.location.href = 'visa-request.html'"
-              data-fr="RENDEZ-VOUS POUR traitement dossier de  VISA"
-              data-en="APPOINTMENT FOR  VISA APPLICATION  PROCESSING"
+              data-fr="RENDEZ-VOUS POUR traitement dossier de VISA"
+              data-en="APPOINTMENT FOR VISA APPLICATION PROCESSING"
               data-ar="موعد لمعالجة ملف طلب التأشيرة"
             >
               RENDEZ-VOUS POUR traitement dossier de VISA
             </div>
           </div>
-
           <a href="/billetterie">
             <i class="fa-solid fa-plane-departure"></i>
             <span data-fr="Billetterie" data-en="Ticketing" data-ar="التذاكر"
@@ -185,12 +168,10 @@
               >Séjours</span
             >
           </a>
-
           <a href="#omra">
             <i class="fa-solid fa-kaaba"></i>
             <span data-fr="Omra" data-en="Omra" data-ar="العمرة">Omra</span>
           </a>
-
           <a href="#hotels">
             <i class="fa-solid fa-hotel"></i>
             <span
@@ -200,27 +181,24 @@
               >Hôtels Luxe</span
             >
           </a>
-
           <a href="#croisieres">
             <i class="fa-solid fa-ship"></i>
             <span
               data-fr="Réservation Maritime"
               data-en="Cruises"
               data-ar="الرحلات البحرية"
+              >Réservation Maritime</span
             >
-              Réservation Maritime
-            </span></a
-          >
+          </a>
         </div>
-
         <a href="#vols" class="hero-btn">
           <span
             data-fr="Réserver maintenant"
             data-en="Book now"
             data-ar="احجز الآن"
+            >Réserver maintenant</span
           >
-            Réserver maintenant </span
-          ><i class="fa-solid fa-arrow-right"></i>
+          <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </section>
@@ -229,7 +207,6 @@
         <h2 data-fr="Nos Services" data-en="Our Services" data-ar="خدماتنا">
           Nos Services
         </h2>
-
         <p
           data-fr="Réservez votre voyage avec AQUAREV Travel"
           data-en="Book your trip with AQUAREV Travel"
@@ -238,14 +215,12 @@
           Réservez votre voyage avec AQUAREV Travel
         </p>
       </div>
-
       <section id="vols" class="service-card">
         <div class="service-video">
           <video autoplay muted loop playsinline>
             <source src="assets/videos/flights.mp4" type="video/mp4" />
           </video>
         </div>
-
         <div class="service-content">
           <h3
             data-fr="Réservation des vols"
@@ -254,7 +229,6 @@
           >
             Réservation des vols
           </h3>
-
           <p
             data-fr="Trouvez les meilleurs vols internationaux aux meilleurs prix."
             data-en="Find the best international flights at the best prices."
@@ -262,21 +236,18 @@
           >
             Trouvez les meilleurs vols internationaux aux meilleurs prix.
           </p>
-
           <a href="/billetterie" class="flight-booking-btn">
             <i class="fa-solid fa-plane"></i>
             Réserver un vol
           </a>
         </div>
       </section>
-
       <section id="hotels" class="service-card reverse">
         <div class="service-video">
           <video autoplay muted loop playsinline>
             <source src="assets/videos/hotels.mp4" type="video/mp4" />
           </video>
         </div>
-
         <div class="service-content">
           <h3
             data-fr="Réservation des hôtels"
@@ -285,7 +256,6 @@
           >
             Réservation des hôtels
           </h3>
-
           <p
             data-fr="Des hôtels de luxe partout dans le monde."
             data-en="Luxury hotels around the world."
@@ -293,26 +263,22 @@
           >
             Des hôtels de luxe partout dans le monde.
           </p>
-
           <a href="hotels/hotels.html" class="hotel-booking-btn">
             <i class="fa-solid fa-hotel"></i>
             Réserver hôtel
           </a>
         </div>
       </section>
-
       <section id="croisieres" class="service-card">
         <div class="service-video">
           <video autoplay muted loop playsinline>
             <source src="assets/videos/cruises.mp4" type="video/mp4" />
           </video>
         </div>
-
         <div class="service-content">
           <h3 data-fr="Croisières" data-en="Cruises" data-ar="الرحلات البحرية">
             Croisières
           </h3>
-
           <p
             data-fr="Découvrez des croisières inoubliables."
             data-en="Discover unforgettable cruises."
@@ -320,21 +286,18 @@
           >
             Découvrez des croisières inoubliables.
           </p>
-
           <a href="ferries.html" class="cruise-luxury-btn">
             <i class="fa-solid fa-ship"></i>
             Réservation Maritime
           </a>
         </div>
       </section>
-
       <section id="reveillon" class="service-card reverse">
         <div class="service-video">
           <video autoplay muted loop playsinline>
             <source src="assets/videos/reveillon.mp4" type="video/mp4" />
           </video>
         </div>
-
         <div class="service-content">
           <h3
             data-fr="Voyages Réveillon"
@@ -343,7 +306,6 @@
           >
             Voyages Réveillon
           </h3>
-
           <p
             data-fr="Célébrez la nouvelle année dans les plus belles destinations."
             data-en="Celebrate the New Year in amazing destinations."
@@ -351,10 +313,8 @@
           >
             Célébrez la nouvelle année dans les plus belles destinations.
           </p>
-
           <button>
             <i class="fa-solid fa-champagne-glasses"></i>
-
             Découvrir
           </button>
         </div>
@@ -365,7 +325,6 @@
             <source src="assets/videos/travel.mp4" type="video/mp4" />
           </video>
         </div>
-
         <div class="service-content">
           <h3
             data-fr="Voyages Divers"
@@ -374,7 +333,6 @@
           >
             Voyages Divers
           </h3>
-
           <p
             data-fr="Des séjours adaptés à tous vos rêves de voyage."
             data-en="Travel packages designed for your dreams."
@@ -382,22 +340,18 @@
           >
             Des séjours adaptés à tous vos rêves de voyage.
           </p>
-
           <button>
             <i class="fa-solid fa-earth-americas"></i>
-
             Voir les offres
           </button>
         </div>
       </section>
-
       <section id="omra" class="service-card reverse">
         <div class="service-video">
           <video autoplay muted loop playsinline>
             <source src="assets/videos/omra.mp4" type="video/mp4" />
           </video>
         </div>
-
         <div class="service-content">
           <h3
             data-fr="Omra & Hajj"
@@ -406,7 +360,6 @@
           >
             Omra & Hajj
           </h3>
-
           <p
             data-fr="Organisez votre Omra et Hajj avec une équipe professionnelle."
             data-en="Organize your Umrah and Hajj with our professional team."
@@ -414,22 +367,18 @@
           >
             Organisez votre Omra et Hajj avec une équipe professionnelle.
           </p>
-
           <button>
             <i class="fa-solid fa-kaaba"></i>
-
             Réserver Omra
           </button>
         </div>
       </section>
     </section>
-
     <section id="contact" class="contact-section">
       <div class="contact-container">
         <h2 data-fr="Contactez Nous" data-en="Contact Us" data-ar="اتصل بنا">
           Contactez Nous
         </h2>
-
         <p
           data-fr="Notre équipe AQUAREV Travel est à votre disposition."
           data-en="Our AQUAREV Travel team is available for you."
@@ -437,60 +386,45 @@
         >
           Notre équipe AQUAREV Travel est à votre disposition.
         </p>
-
         <div class="contact-info">
           <div class="contact-box">
             <a href="mailto:aquarev.travel@gmail.com">
               <i class="fa-solid fa-envelope"></i>
-
               <h4>Email</h4>
-
               <p>aquarev.travel@gmail.com</p>
             </a>
           </div>
-
           <div class="contact-box">
             <a href="https://wa.me/213554958578" target="_blank">
               <i class="fa-brands fa-whatsapp"></i>
-
               <h4>WhatsApp</h4>
-
               <p>+213554958578</p>
             </a>
           </div>
-
           <div class="contact-box">
             <a
               href="https://maps.google.com/?q=04+chemin+allaghan+tazmalt+bejaia+algeria"
               target="_blank"
             >
               <i class="fa-solid fa-location-dot"></i>
-
               <h4>Adresse</h4>
-
               <p>Tazmalt Béjaia</p>
             </a>
           </div>
-
           <div class="contact-box">
             <a
               href="https://www.facebook.com/share/1ZqcXcKhZb/"
               target="_blank"
             >
               <i class="fa-brands fa-facebook-f"></i>
-
               <h4>Facebook</h4>
-
               <p>AQUAREV Travel</p>
             </a>
           </div>
-
           <div class="contact-box">
             <a href="https://www.instagram.com/aquarevtravel" target="_blank">
               <i class="fa-brands fa-instagram"></i>
-
               <h4>Instagram</h4>
-
               <p>@aquarevtravel</p>
             </a>
           </div>
@@ -500,14 +434,11 @@
     <footer id="footer" class="footer">
       <div class="footer-content">
         <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
-
         <p>© 2026 AQUAREV Travel - Tous droits réservés</p>
-
         <div class="footer-social">
           <a href="mailto:aquarev.travel@gmail.com" aria-label="Email">
             <i class="fa-solid fa-envelope"></i>
           </a>
-
           <a
             href="https://wa.me/213554958578"
             target="_blank"
@@ -515,7 +446,6 @@
           >
             <i class="fa-brands fa-whatsapp"></i>
           </a>
-
           <a
             href="https://www.facebook.com/share/1ZqcXcKhZb/"
             target="_blank"
@@ -523,7 +453,6 @@
           >
             <i class="fa-brands fa-facebook"></i>
           </a>
-
           <a
             href="https://www.instagram.com/aquarevtravel"
             target="_blank"
@@ -531,7 +460,6 @@
           >
             <i class="fa-brands fa-instagram"></i>
           </a>
-
           <a
             href="https://www.tiktok.com/@aquarev_travel"
             target="_blank"
@@ -540,7 +468,6 @@
           >
             <i class="fa-brands fa-tiktok"></i>
           </a>
-
           <a
             href="https://maps.google.com/?q=04+chemin+allaghan+tazmalt+bejaia+algeria"
             target="_blank"
@@ -551,23 +478,19 @@
         </div>
       </div>
     </footer>
-
     <div id="signin-popup" class="popup">
       <div class="popup-content">
         <span class="close" onclick="closeSignin()">&times;</span>
         <iframe id="signin-frame"></iframe>
       </div>
     </div>
-
     <div id="signup-popup" class="popup">
       <div class="popup-content">
         <span class="close" onclick="closeSignup()">&times;</span>
         <iframe id="signup-frame"></iframe>
       </div>
     </div>
-
     <script src="script.js"></script>
-
     <div class="support-widget">
       <button class="support-btn" aria-label="Assistance technique">
         <span class="butterfly-icon" aria-hidden="true">
@@ -577,34 +500,31 @@
           <span class="butterfly-antenna left"></span>
           <span class="butterfly-antenna right"></span>
         </span>
-
         <span
           class="support-text"
           data-fr="Assistance technique"
           data-en="Technical Support"
           data-ar="المساعدة التقنية"
+          >المساعدة التقنية</span
         >
-          المساعدة التقنية
-        </span>
       </button>
       <div class="support-menu">
-        <a class="kahina" href="tel:0541116245">
-          📞
-          <span data-fr="Kahina" data-en="Kahina" data-ar="كهينة"> كهينة </span>
-        </a>
-
-        <a class="khadija" href="tel:0554958578">
-          📞
-          <span data-fr="Khadija" data-en="Khadija" data-ar="خديجة">
-            خديجة
-          </span>
-        </a>
-
-        <a class="khadija" href="tel:0541116245">
-          📞
-          <span data-fr="LAMIA" data-en="LAMIA" data-ar="لامية"> Lamia </span>
-        </a>
-
+        <a class="kahina" href="tel:0541116245"
+          >📞
+          <span data-fr="Kahina" data-en="Kahina" data-ar="كهينة"
+            >كهينة</span
+          ></a
+        >
+        <a class="khadija" href="tel:0554958578"
+          >📞
+          <span data-fr="Khadija" data-en="Khadija" data-ar="خديجة"
+            >خديجة</span
+          ></a
+        >
+        <a class="khadija" href="tel:0541116245"
+          >📞
+          <span data-fr="LAMIA" data-en="LAMIA" data-ar="لامية">Lamia</span></a
+        >
         <a class="whatsapp" href="https://wa.me/213541116245" target="_blank">
           <i class="fa-brands fa-whatsapp"></i>
           WhatsApp
@@ -617,7 +537,6 @@
           <i class="fa-brands fa-facebook"></i>
           Facebook
         </a>
-
         <a
           class="instagram"
           href="https://www.instagram.com/aquarevtravel"
@@ -626,7 +545,6 @@
           <i class="fa-brands fa-instagram"></i>
           Instagram
         </a>
-
         <a
           href="https://www.tiktok.com/@aquarev_travel"
           target="_blank"
@@ -635,22 +553,19 @@
         >
           <i class="fa-brands fa-tiktok"></i>
         </a>
-
         <a class="email" href="mailto:AQUAREV.travel@gmail.com">
           <i class="fa-solid fa-envelope"></i>
-          <span data-fr="Email" data-en="Email" data-ar="البريد الإلكتروني">
-            Email
-          </span>
+          <span data-fr="Email" data-en="Email" data-ar="البريد الإلكتروني"
+            >Email</span
+          >
         </a>
       </div>
     </div>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const supportWidget = document.querySelector(".support-widget");
         const supportBtn = document.querySelector(".support-btn");
         let closeTimer;
-
         if (supportWidget && supportBtn) {
           function openCloud() {
             supportWidget.classList.add("open");
@@ -659,44 +574,32 @@
               supportWidget.classList.remove("open");
             }, 4000);
           }
-
           function keepOpen() {
             clearTimeout(closeTimer);
           }
-
           function closeCloud() {
             supportWidget.classList.remove("open");
           }
-
           supportBtn.addEventListener("click", function (e) {
             e.preventDefault();
             e.stopPropagation();
             openCloud();
           });
-
-          /* الحاسوب */
           supportWidget.addEventListener("mouseenter", function () {
             openCloud();
             keepOpen();
           });
-
           supportWidget.addEventListener("mouseleave", function () {
             closeTimer = setTimeout(function () {
               closeCloud();
             }, 4000);
           });
-
-          /* يمنع الإغلاق عند الضغط داخل القائمة */
           supportWidget.addEventListener("click", function (e) {
             e.stopPropagation();
           });
-
-          /* إغلاق عند الضغط خارجها */
           document.addEventListener("click", function () {
             closeCloud();
           });
-
-          /* دعم اللمس للهاتف */
           supportBtn.addEventListener(
             "touchstart",
             function (e) {
@@ -708,116 +611,76 @@
         }
       });
     </script>
-
     <script type="module">
       import { auth, db } from "./firebase/firebase-config.js";
       import {
         doc,
         getDoc,
       } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
       import {
         onAuthStateChanged,
         signOut,
       } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
-
       onAuthStateChanged(auth, async (user) => {
         console.log("AUTH USER:", user);
-
         const userArea = document.getElementById("user-area");
         const mobilePanelFloat = document.getElementById("mobilePanelFloat");
-
-        if (mobilePanelFloat) {
-          mobilePanelFloat.style.display =
-            user &&
-            user.email &&
-            user.email.toLowerCase() === "agence.aquarev.travel@gmail.com"
-              ? "flex"
-              : "none";
-        }
         const loginLink = document.getElementById("login-link");
         const signupLink = document.getElementById("signup-link");
-
+        const isAquarevAgencyAccount = !!(
+          user &&
+          user.email &&
+          user.email.toLowerCase() === "agence.aquarev.travel@gmail.com"
+        );
+        if (mobilePanelFloat) {
+          mobilePanelFloat.style.display = isAquarevAgencyAccount
+            ? "flex"
+            : "none";
+        }
         if (user) {
           userArea.style.visibility = "visible";
           console.log("USER CONNECTED:", user.email);
-
           let userName = "Client";
           let userRole = "client";
-
           const userDoc = await getDoc(doc(db, "users", user.uid));
-
           if (userDoc.exists()) {
             const userData = userDoc.data();
-
             userName = userData.name || "Client";
             userRole = userData.role || "client";
-
-            if (
-              user.email &&
-              user.email.toLowerCase() === "agence.aquarev.travel@gmail.com"
-            ) {
+            if (isAquarevAgencyAccount) {
               userName = "ADMIN";
               userRole = "admin";
             }
-
             console.log("FIRESTORE USER DATA:", userData);
             console.log("USER ROLE:", userRole);
             console.log("DISPLAY NAME:", userName);
           }
           let roleButtons = "";
-
-          const isAquarevAgencyAccount =
-            user.email &&
-            user.email.toLowerCase() === "agence.aquarev.travel@gmail.com";
-
           if (isAquarevAgencyAccount) {
             roleButtons = `
-    <a href="aQuarev-admin.html" class="role-icon-btn admin-icon-btn" title="Administration" aria-label="Administration">
-      <i class="fa-solid fa-shield-halved"></i>
-    </a>
-    <a href="aQuarev-pilot.html" class="role-icon-btn pilot-icon-btn" title="Pilote de comptabilité" aria-label="Pilote de comptabilité">
-      <i class="fa-solid fa-calculator"></i>
-    </a>
-  `;
+<a href="aQuarev-admin.html" class="role-icon-btn admin-icon-btn" title="Administration" aria-label="Administration">
+<i class="fa-solid fa-shield-halved"></i>
+</a>
+<a href="aQuarev-pilot.html" class="role-icon-btn pilot-icon-btn" title="Pilote de comptabilité" aria-label="Pilote de comptabilité">
+<i class="fa-solid fa-calculator"></i>
+</a>
+`;
           }
-
           userArea.innerHTML = `
-
-      <div class="user-connected">
-
-      <i class="fa-solid fa-user"></i>
-
-      <span>
-      ${userName}
-      </span>
-
-      ${roleButtons}
-
-      <a href="portal/" class="messagerie-btn">
-      <i class="fa-solid fa-comments"></i>
-      <span
-      data-fr="Messagerie"
-      data-en="Messaging"
-      data-ar="الرسائل">
-      Messagerie
-      </span>
-      </a>
-
-      <button id="logout-btn" class="logout-btn">
-      <i class="fa-solid fa-right-from-bracket"></i>
-      <span
-      data-fr="Déconnexion"
-      data-en="Logout"
-      data-ar="تسجيل الخروج">
-      Déconnexion
-      </span>
-      </button>
-
-      </div>
-
-      `;
-
+<div class="user-connected">
+<i class="fa-solid fa-user"></i>
+<span>${userName}</span>
+${roleButtons}
+<a href="portal/" class="messagerie-btn">
+<i class="fa-solid fa-comments"></i>
+<span data-fr="Messagerie" data-en="Messaging" data-ar="الرسائل">Messagerie</span>
+</a>
+<button id="logout-btn" class="logout-btn">
+<i class="fa-solid fa-right-from-bracket"></i>
+<span data-fr="Déconnexion" data-en="Logout" data-ar="تسجيل الخروج">Déconnexion</span>
+</button>
+</div>
+`;
           if (localStorage.getItem("AQUAREV-language")) {
             changeLanguage(localStorage.getItem("AQUAREV-language"));
           }
@@ -825,45 +688,26 @@
             .getElementById("logout-btn")
             .addEventListener("click", async () => {
               await signOut(auth);
-
               window.location.reload();
             });
         } else {
           userArea.style.visibility = "visible";
-
           userArea.innerHTML = `
-
-      <a href="signin.html" class="auth-btn signin-btn">
-
-      <i class="fa-solid fa-right-to-bracket"></i>
-
-      <span
-      data-fr="Connexion"
-      data-en="Sign in"
-      data-ar="تسجيل الدخول">
-      Connexion
-      </span>
-      </a>
-
-      <a href="signup.html" class="auth-btn signup-btn">
-
-      <i class="fa-solid fa-user-plus"></i>
-
-      <span
-      data-fr="Inscription"
-      data-en="Sign up"
-      data-ar="التسجيل">
-      Inscription
-      </span>
-      </a>
-      `;
+<a href="signin.html" class="auth-btn signin-btn">
+<i class="fa-solid fa-right-to-bracket"></i>
+<span data-fr="Connexion" data-en="Sign in" data-ar="تسجيل الدخول">Connexion</span>
+</a>
+<a href="signup.html" class="auth-btn signup-btn">
+<i class="fa-solid fa-user-plus"></i>
+<span data-fr="Inscription" data-en="Sign up" data-ar="التسجيل">Inscription</span>
+</a>
+`;
           if (localStorage.getItem("AQUAREV-language")) {
             changeLanguage(localStorage.getItem("AQUAREV-language"));
           }
         }
       });
     </script>
-
     <div class="mobile-panel-float" id="mobilePanelFloat" style="display: none">
       <a
         href="aQuarev-pilot.html"
@@ -873,7 +717,6 @@
         <i class="fa-solid fa-calculator"></i>
         <span>PILOTE DE COMPTABILITÉ</span>
       </a>
-
       <a
         href="aQuarev-admin.html"
         class="mobile-float-btn mobile-admin-btn"
