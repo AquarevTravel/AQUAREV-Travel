@@ -725,6 +725,16 @@
         console.log("AUTH USER:", user);
 
         const userArea = document.getElementById("user-area");
+        const mobilePanelFloat = document.getElementById("mobilePanelFloat");
+
+        if (mobilePanelFloat) {
+          mobilePanelFloat.style.display =
+            user &&
+            user.email &&
+            user.email.toLowerCase() === "agence.aquarev.travel@gmail.com"
+              ? "flex"
+              : "none";
+        }
         const loginLink = document.getElementById("login-link");
         const signupLink = document.getElementById("signup-link");
 
@@ -757,33 +767,21 @@
           }
           let roleButtons = "";
 
-          let userRoles = [];
+          const isAquarevAgencyAccount =
+            user.email &&
+            user.email.toLowerCase() === "agence.aquarev.travel@gmail.com";
 
-          if (userDoc.exists()) {
-            const userData = userDoc.data();
-
-            if (Array.isArray(userData.roles)) {
-              userRoles = userData.roles;
-            } else if (userData.role) {
-              userRoles = [userData.role];
-            }
-          }
-
-          if (userRoles.includes("admin")) {
-            roleButtons += `
+          if (isAquarevAgencyAccount) {
+            roleButtons = `
     <a href="aQuarev-admin.html" class="role-icon-btn admin-icon-btn" title="Administration" aria-label="Administration">
       <i class="fa-solid fa-shield-halved"></i>
     </a>
-  `;
-          }
-
-          if (userRoles.includes("pilot")) {
-            roleButtons += `
     <a href="aQuarev-pilot.html" class="role-icon-btn pilot-icon-btn" title="Pilote de comptabilité" aria-label="Pilote de comptabilité">
       <i class="fa-solid fa-calculator"></i>
     </a>
   `;
           }
+
           userArea.innerHTML = `
 
       <div class="user-connected">
@@ -866,7 +864,7 @@
       });
     </script>
 
-    <div class="mobile-panel-float">
+    <div class="mobile-panel-float" id="mobilePanelFloat" style="display: none">
       <a
         href="aQuarev-pilot.html"
         class="mobile-float-btn mobile-pilot-btn"

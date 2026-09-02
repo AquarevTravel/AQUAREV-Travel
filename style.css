@@ -2011,3 +2011,179 @@ color:#81d3e4!important;
 
 
 
+
+
+
+.visa-services-cloud{
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+min-width:220px;
+padding:14px 23px;
+border-radius:50px;
+background:linear-gradient(135deg,rgba(0,180,216,.95),rgba(0,59,92,.96));
+border:1px solid rgba(144,224,239,.9);
+color:#fff;
+text-decoration:none;
+box-shadow:0 0 12px rgba(0,180,216,.65),0 0 30px rgba(0,180,216,.35);
+animation:visaCloudLightning 1.35s infinite;
+overflow:hidden;
+z-index:2;
+margin-right:auto;
+margin-left:0;
+}
+
+.visa-services-cloud:before,
+.visa-services-cloud:after{
+content:"";
+position:absolute;
+border-radius:50%;
+pointer-events:none;
+}
+
+.visa-services-cloud:before{
+width:85px;
+height:45px;
+left:15px;
+top:-18px;
+background:rgba(255,255,255,.15);
+filter:blur(2px);
+}
+
+.visa-services-cloud:after{
+width:100px;
+height:50px;
+right:5px;
+bottom:-22px;
+background:rgba(255,255,255,.12);
+filter:blur(2px);
+}
+
+.cloud-bolt{
+position:relative;
+z-index:2;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:22px;
+animation:visaBoltFlash .7s infinite;
+}
+
+.visa-cloud-text{
+position:relative;
+z-index:2;
+font-weight:700;
+font-size:13px;
+letter-spacing:.8px;
+text-align:center;
+white-space:nowrap;
+}
+
+@keyframes visaCloudLightning{
+0%,100%{
+box-shadow:0 0 10px rgba(0,180,216,.5),0 0 22px rgba(0,180,216,.2);
+transform:scale(1);
+}
+20%{
+box-shadow:0 0 15px rgba(255,0,0,.8),0 0 35px rgba(255,0,0,.45);
+}
+35%{
+box-shadow:0 0 22px rgba(255,215,0,1),0 0 48px rgba(255,193,7,.7);
+transform:scale(1.025);
+}
+45%{
+box-shadow:0 0 28px rgba(255,255,255,1),0 0 55px rgba(255,215,0,.9);
+transform:scale(1.03);
+}
+50%{
+box-shadow:0 0 5px rgba(255,255,255,1),0 0 18px rgba(255,0,0,.9);
+transform:scale(1);
+}
+60%{
+box-shadow:0 0 25px rgba(0,255,70,1),0 0 55px rgba(0,200,60,.7);
+}
+75%{
+box-shadow:0 0 18px rgba(255,0,0,.9),0 0 42px rgba(255,0,0,.55);
+}
+85%{
+box-shadow:0 0 24px rgba(255,215,0,1),0 0 50px rgba(255,193,7,.7);
+}
+}
+
+@keyframes visaBoltFlash{
+0%,100%{
+opacity:.75;
+transform:scale(1);
+color:#fff;
+}
+20%{
+opacity:1;
+color:#ff3030;
+transform:scale(1.12);
+}
+35%{
+opacity:1;
+color:#ffd700;
+transform:scale(1.2) rotate(-4deg);
+}
+45%{
+opacity:1;
+color:#fff;
+transform:scale(1.28) rotate(3deg);
+}
+50%{
+opacity:.45;
+color:#ff3030;
+transform:scale(.95);
+}
+60%{
+opacity:1;
+color:#20e060;
+transform:scale(1.2) rotate(-3deg);
+}
+75%{
+opacity:1;
+color:#ff3030;
+transform:scale(1.12);
+}
+85%{
+opacity:1;
+color:#ffd700;
+transform:scale(1.18);
+}
+}
+
+html[dir="rtl"] .visa-services-cloud{
+direction:rtl;
+margin-left:auto;
+margin-right:0;
+}
+
+html[dir="ltr"] .visa-services-cloud{
+margin-left:0;
+margin-right:auto;
+}
+
+@media(max-width:700px){
+.visa-services-cloud{
+min-width:190px;
+padding:12px 17px;
+}
+.visa-cloud-text{
+font-size:11px;
+letter-spacing:.4px;
+}
+}
+
+.visa-services-cloud-wrapper{
+width:100%;
+display:flex;
+justify-content:flex-start;
+}
+
+html[dir="rtl"] .visa-services-cloud-wrapper{
+justify-content:flex-end;
+}

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>AQUAREV Travel | Visas Affaires</title>
+    <meta
+      name="description"
+      content="AQUAREV Travel - Services de visas affaires UK, Canada et Chine."
+    />
+    <link rel="icon" type="image/png" href="assets/logo/aquarev.png" />
+    <link rel="stylesheet" href="visas-affaires.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Cinzel:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="visa-header">
+      <div class="visa-logo">
+        <a href="index.html">
+          <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+        </a>
+      </div>
+
+      <div class="visa-language">
+        <button class="language-button" id="languageButton" type="button">
+          <i class="fa-solid fa-earth-americas"></i>
+          <span id="currentLanguage">🇫🇷</span>
+        </button>
+
+        <div class="language-menu" id="languageMenu">
+          <button type="button" data-language="fr">🇫🇷 Français</button>
+          <button type="button" data-language="en">🇬🇧 English</button>
+          <button type="button" data-language="ar">🇩🇿 العربية</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="visa-hero">
+        <div class="sea-decoration sea-decoration-one"></div>
+        <div class="sea-decoration sea-decoration-two"></div>
+        <div class="wave wave-one"></div>
+        <div class="wave wave-two"></div>
+
+        <div class="visa-hero-content">
+          <div class="visa-icon">
+            <i class="fa-solid fa-passport"></i>
+          </div>
+
+          <h1
+            data-fr="VISAS AFFAIRES"
+            data-en="BUSINESS VISAS"
+            data-ar="تأشيرات الأعمال"
+          >
+            VISAS AFFAIRES
+          </h1>
+
+          <p
+            data-fr="Découvrez nos services d'accompagnement pour vos démarches de visas professionnels, touristiques et familiaux."
+            data-en="Discover our assistance services for professional, tourist and family visa applications."
+            data-ar="اكتشفوا خدماتنا للمساعدة في إجراءات تأشيرات الأعمال والسياحة والزيارة العائلية."
+          >
+            Découvrez nos services d'accompagnement pour vos démarches de visas
+            professionnels, touristiques et familiaux.
+          </p>
+        </div>
+      </section>
+
+      <section class="country-section">
+        <div class="section-heading">
+          <span class="heading-line"></span>
+          <h2
+            data-fr="CHOISISSEZ VOTRE DESTINATION"
+            data-en="CHOOSE YOUR DESTINATION"
+            data-ar="اختر وجهتك"
+          >
+            CHOISISSEZ VOTRE DESTINATION
+          </h2>
+          <span class="heading-line"></span>
+        </div>
+
+        <div class="country-navigation">
+          <button class="country-card active" data-country="uk" type="button">
+            <span class="country-flag">🇬🇧</span>
+            <span class="country-name">UK</span>
+            <small
+              data-fr="Royaume-Uni"
+              data-en="United Kingdom"
+              data-ar="المملكة المتحدة"
+              >Royaume-Uni</small
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <button class="country-card" data-country="canada" type="button">
+            <span class="country-flag">🇨🇦</span>
+            <span class="country-name">CANADA</span>
+            <small data-fr="Canada" data-en="Canada" data-ar="كندا"
+              >Canada</small
+            >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <button class="country-card" data-country="chine" type="button">
+            <span class="country-flag">🇨🇳</span>
+            <span class="country-name">CHINE</span>
+            <small data-fr="Chine" data-en="China" data-ar="الصين">Chine</small>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="country-arrow">
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </section>
+
+      <section class="visa-offer-section">
+        <div class="offer-container">
+          <div class="offer-header">
+            <span class="offer-country" id="offerCountry">🇬🇧 UK</span>
+            <h2 id="offerTitle">
+              OFFRE DÉMARCHE VISA UK TOURISTIQUE, AFFAIRE ET VISITE FAMILIALE
+            </h2>
+            <p id="offerDescription">
+              Accompagnement professionnel pour vos démarches de visa UK.
+            </p>
+          </div>
+
+          <div class="services-box">
+            <div class="box-heading">
+              <i class="fa-solid fa-compass"></i>
+              <h3
+                data-fr="NOS SERVICES"
+                data-en="OUR SERVICES"
+                data-ar="خدماتنا"
+              >
+                NOS SERVICES
+              </h3>
+            </div>
+            <div class="service-list" id="serviceList"></div>
+          </div>
+
+          <div class="dossier-box">
+            <div class="dossier-title">
+              <i class="fa-solid fa-folder-open"></i>
+              <h3 data-fr="DOSSIER" data-en="APPLICATION FILE" data-ar="الملف">
+                DOSSIER
+              </h3>
+            </div>
+
+            <p
+              class="dossier-intro"
+              data-fr="Sélectionnez votre situation professionnelle pour afficher les documents correspondants."
+              data-en="Select your professional status to display the corresponding documents."
+              data-ar="اختر وضعيتك المهنية لعرض الوثائق المطلوبة الخاصة بها."
+            >
+              Sélectionnez votre situation professionnelle pour afficher les
+              documents correspondants.
+            </p>
+
+            <div class="profile-grid" id="profileGrid"></div>
+
+            <div class="documents-panel" id="documentsPanel">
+              <div class="documents-panel-header">
+                <div>
+                  <span
+                    class="selected-profile-label"
+                    id="selectedProfileLabel"
+                  ></span>
+                  <h4 id="documentsTitle"></h4>
+                </div>
+                <i class="fa-solid fa-file-lines"></i>
+              </div>
+
+              <div class="documents-list" id="documentsList"></div>
+            </div>
+          </div>
+
+          <div class="offer-price" id="offerPrice"></div>
+          
+          </div>
+        </div>
+      </section>
+
+      <section class="visa-note">
+        <i class="fa-solid fa-circle-info"></i>
+        <p
+          data-fr="Les informations et documents présentés correspondent aux prestations proposées par AQUAREV Travel. Les exigences peuvent varier selon le profil du demandeur et les autorités compétentes."
+          data-en="The information and documents presented correspond to the services offered by AQUAREV Travel. Requirements may vary depending on the applicant's profile and the relevant authorities."
+          data-ar="المعلومات والوثائق المعروضة تتعلق بالخدمات التي تقدمها AQUAREV Travel، وقد تختلف المتطلبات حسب ملف مقدم الطلب والجهات المختصة."
+        >
+          Les informations et documents présentés correspondent aux prestations
+          proposées par AQUAREV Travel. Les exigences peuvent varier selon le
+          profil du demandeur et les autorités compétentes.
+        </p>
+      </section>
+    </main>
+
+    <footer class="visa-footer">
+      <div class="footer-logo">
+        <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+      </div>
+
+      <div class="footer-content">
+        <h3>AQUAREV Travel</h3>
+        <p>Luxury Travel &amp; Experiences</p>
+
+        <div class="footer-links">
+          <a href="index.html">
+            <i class="fa-solid fa-house"></i>
+            <span data-fr="Accueil" data-en="Home" data-ar="الرئيسية"
+              >Accueil</span
+            >
+          </a>
+        </div>
+
+        <div class="footer-social">
+          <a href="mailto:aquarev.travel@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a
+            href="https://wa.me/213554958578"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/share/1ZqcXcKhZb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/aquarevtravel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+
+        <p class="copyright">
+          © 2026 <strong>AQUAREV Travel</strong> — Tous droits réservés
+        </p>
+      </div>
+    </footer>
+
+    <script src="visas-affaires.js"></script>
+  </body>
+</html>
