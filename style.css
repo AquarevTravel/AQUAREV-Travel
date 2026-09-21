@@ -2196,3 +2196,145 @@ right:15px;
 z-index:40;
 }
 }
+
+
+
+
+
+
+
+/* PROGRAMMES TOURISTIQUES - VERT CLAIR */
+.programs-icon-btn,
+.mobile-programs-btn{
+background:#8fd694!important;
+color:#1f5a31!important;
+border-color:#8fd694!important;
+}
+
+.programs-icon-btn:hover,
+.mobile-programs-btn:hover{
+background:#7fc985!important;
+color:#174d2a!important;
+border-color:#7fc985!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.role-icon-btn{
+position:relative;
+}
+
+.role-tooltip{
+position:absolute;
+left:50%;
+top:calc(100% + 9px);
+transform:translateX(-50%) translateY(-4px);
+background:#063b5c;
+color:#fff;
+padding:7px 11px;
+border-radius:8px;
+font-family:Poppins,Cairo,sans-serif;
+font-size:10px;
+font-weight:700;
+white-space:nowrap;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+transition:.2s ease;
+z-index:3000;
+box-shadow:0 7px 18px rgba(0,0,0,.18);
+}
+
+.role-tooltip:before{
+content:"";
+position:absolute;
+left:50%;
+top:-5px;
+transform:translateX(-50%) rotate(45deg);
+width:10px;
+height:10px;
+background:#063b5c;
+}
+
+.role-icon-btn:hover .role-tooltip{
+opacity:1;
+visibility:visible;
+transform:translateX(-50%) translateY(0);
+}
+
+[dir="rtl"] .role-tooltip{
+font-family:Cairo,Poppins,sans-serif;
+}
+
+@media(max-width:900px){
+.role-tooltip{
+display:none!important;
+}
+}
+
+
+
+@media (min-width:901px){
+.admin-icon-btn,
+.pilot-icon-btn,
+.programs-icon-btn{
+position:relative!important;
+top:30px!important;
+}
+}
+
+
+
+@media (min-width:901px){
+.header{
+height:62px!important;
+min-height:62px!important;
+padding-top:1px!important;
+padding-bottom:1px!important;
+}
+
+.header .logo img{
+height:49px!important;
+width:auto!important;
+}
+
+.header .navbar a{
+padding-top:3px!important;
+padding-bottom:3px!important;
+}
+
+.header .language-globe{
+padding:3px!important;
+}
+
+.header .user-connected{
+min-height:34px!important;
+}
+}
+
+
+
+
+
+
+
+@media(max-width:768px){
+html[lang="fr"] .menu-toggle,
+html[lang="en"] .menu-toggle{
+transform:translateX(2px)!important;
+}
+}

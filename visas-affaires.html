@@ -89,7 +89,27 @@
 
         <div class="country-navigation">
           <button class="country-card active" data-country="uk" type="button">
-            <span class="country-flag">🇬🇧</span>
+            <span class="country-flag">
+              <svg
+                viewBox="0 0 60 40"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <rect width="60" height="40" fill="#012169" />
+                <path
+                  d="M0 0L60 40M60 0L0 40"
+                  stroke="#fff"
+                  stroke-width="10"
+                />
+                <path
+                  d="M0 0L60 40M60 0L0 40"
+                  stroke="#C8102E"
+                  stroke-width="5"
+                />
+                <path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="16" />
+                <path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="9" />
+              </svg>
+            </span>
             <span class="country-name">UK</span>
             <small
               data-fr="Royaume-Uni"
@@ -101,7 +121,21 @@
           </button>
 
           <button class="country-card" data-country="canada" type="button">
-            <span class="country-flag">🇨🇦</span>
+            <span class="country-flag">
+              <svg
+                viewBox="0 0 60 40"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <rect width="60" height="40" fill="#fff" />
+                <rect width="15" height="40" fill="#d52b1e" />
+                <rect x="45" width="15" height="40" fill="#d52b1e" />
+                <path
+                  d="M30 7l2.2 7 5.2-2.2-2.2 5.2 5.5 2-6 2.2 1.2 7.8-6-4.3-6 4.3 1.2-7.8-6-2.2 5.5-2-2.2-5.2 5.2 2.2z"
+                  fill="#d52b1e"
+                />
+              </svg>
+            </span>
             <span class="country-name">CANADA</span>
             <small data-fr="Canada" data-en="Canada" data-ar="كندا"
               >Canada</small
@@ -110,7 +144,19 @@
           </button>
 
           <button class="country-card" data-country="chine" type="button">
-            <span class="country-flag">🇨🇳</span>
+            <span class="country-flag">
+              <svg
+                viewBox="0 0 60 40"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <rect width="60" height="40" fill="#de2910" />
+                <path
+                  d="M10 5l1.8 5.5h5.8l-4.7 3.4 1.8 5.6-4.7-3.5-4.7 3.5 1.8-5.6-4.7-3.4h5.8z"
+                  fill="#ffde00"
+                />
+              </svg>
+            </span>
             <span class="country-name">CHINE</span>
             <small data-fr="Chine" data-en="China" data-ar="الصين">Chine</small>
             <i class="fa-solid fa-chevron-right"></i>
@@ -185,8 +231,6 @@
           </div>
 
           <div class="offer-price" id="offerPrice"></div>
-          
-          </div>
         </div>
       </section>
 

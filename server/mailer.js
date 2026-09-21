@@ -152,13 +152,75 @@ attachment:attachments
 console.log("EMAIL BILLET ENVOYE",result);
 return result;
 }
+async function sendVoyageReservationMail(data){
+console.log("====================================");
+console.log("NOUVELLE RESERVATION VOYAGE");
+console.log("RESERVATION:",data.reservationReference);
+console.log("Envoi réservation voyage via Brevo API...");
+const customer=data.customer||{};
+const passport=data.passport||{};
+const program=data.program||{};
+const result=await brevo.transactionalEmails.sendTransacEmail({
+sender:{
+name:"AQUAREV Travel",
+email:process.env.SENDER_EMAIL
+},
+to:[
+{
+email:"agence.aquarev.travel@gmail.com",
+name:"AQUAREV Travel"
+}
+],
+subject:`Nouvelle réservation voyage - ${data.reservationReference||"AQUAREV Travel"}`,
+textContent:`AQUAREV Travel
+Nouvelle demande de réservation programme touristique.
 
+Référence de réservation : ${data.reservationReference||"-"}
 
+Informations programme:
 
+Programme : ${data.programTitle||program.title||"-"}
+Pays : ${data.country||program.country||"-"}
+Ville : ${data.city||program.city||"-"}
+Date de départ : ${data.departureDate||program.departureDate||"-"}
+Date de retour : ${data.returnDate||program.returnDate||"-"}
+Hôtel : ${data.hotel||program.hotel||"-"}
+Prix : ${data.price||"-"} ${data.currency||"DZD"}
 
+Informations client:
+
+Nom : ${customer.lastName||"-"}
+Prénom : ${customer.firstName||"-"}
+Date de naissance : ${customer.dateOfBirth||"-"}
+Lieu de naissance : ${customer.placeOfBirth||"-"}
+Téléphone : ${customer.phone||"-"}
+Email : ${customer.email||"-"}
+
+Informations passeport:
+
+Numéro passeport : ${passport.number||"-"}
+Date d'émission : ${passport.issueDate||"-"}
+Date d'expiration : ${passport.expiryDate||"-"}
+
+Paiement:
+
+Statut du paiement : ${data.paymentStatus||"pending"}
+
+Documents:
+
+Passeport : ${data.passportImage?.url||data.passportImage?.fileUrl||"-"}
+Justificatif de paiement : ${data.paymentReceipt?.url||data.paymentReceipt?.fileUrl||"Non fourni"}
+
+Statut de la réservation : ${data.status||"pending"}
+
+AQUAREV Travel`
+});
+console.log("EMAIL RESERVATION VOYAGE ENVOYE",result);
+return result;
+}
 async function sendPartnerMail(email,pdfPath,request){
 try{
-    console.log("PARTNER MAIL TEST START");
+console.log("PARTNER MAIL TEST START");
 console.log("EMAIL:",email);
 console.log("PDF:",pdfPath);
 console.log("REQUEST:",request.id);
@@ -212,5 +274,6 @@ module.exports={
 sendMail,
 sendNewUserMail,
 sendFlightMail,
+sendVoyageReservationMail,
 sendPartnerMail
 };

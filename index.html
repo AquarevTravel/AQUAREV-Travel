@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr" dir="ltr">
   <head>
-    <link rel="icon" type="image/png" href="../assets/logo/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/logo/favicon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>AQUAREV Travel | Voyages - Vols - Hôtels - Omra</title>
@@ -25,6 +25,35 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .travel-programs-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        background: #00b4d8;
+        color: #fff;
+        border: 1px solid #00b4d8;
+        border-radius: 24px;
+        padding: 11px 22px;
+        min-height: 44px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.25s ease;
+        box-shadow: 0 6px 16px rgba(0, 180, 216, 0.18);
+      }
+      .travel-programs-btn:hover {
+        background: #0077b6;
+        border-color: #0077b6;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 9px 20px rgba(0, 119, 182, 0.25);
+      }
+      .travel-programs-btn i {
+        font-size: 15px;
+      }
+    </style>
   </head>
   <body>
     <header class="header">
@@ -110,6 +139,7 @@
         <i class="fa-solid fa-bars"></i>
       </div>
     </header>
+
     <section id="home" class="hero">
       <video autoplay muted loop playsinline class="hero-video">
         <source src="assets/videos/hero.mp4" type="video/mp4" />
@@ -123,10 +153,11 @@
             </span>
             <span
               class="visa-cloud-text"
-              data-fr="NOS SERVICES DE VISAS"
-              data-en="OUR VISA SERVICES"
-              data-ar="خدمات التأشيرات"
-              >NOS SERVICES DE VISAS</span
+              data-fr="NOS OFFRES DE VISAS"
+              data-en="OUR VISA OFFERS"
+              data-ar="عروض التأشيرات"
+              >NOS OFFRES DE VISAS</span
+            >
             >
           </a>
         </div>
@@ -162,12 +193,17 @@
               >Billetterie</span
             >
           </a>
+
           <a href="#voyages">
             <i class="fa-solid fa-earth-americas"></i>
-            <span data-fr="Séjours" data-en="Stays" data-ar="الإقامات"
-              >Séjours</span
+            <span
+              data-fr="Voyages organisés"
+              data-en="Organized Trips"
+              data-ar="الرحلات المنظمة"
+              >Voyages organisés</span
             >
           </a>
+
           <a href="#omra">
             <i class="fa-solid fa-kaaba"></i>
             <span data-fr="Omra" data-en="Omra" data-ar="العمرة">Omra</span>
@@ -202,6 +238,7 @@
         </a>
       </div>
     </section>
+
     <section class="booking-services">
       <div class="section-title">
         <h2 data-fr="Nos Services" data-en="Our Services" data-ar="خدماتنا">
@@ -215,6 +252,7 @@
           Réservez votre voyage avec AQUAREV Travel
         </p>
       </div>
+
       <section id="vols" class="service-card">
         <div class="service-video">
           <video autoplay muted loop playsinline>
@@ -242,6 +280,7 @@
           </a>
         </div>
       </section>
+
       <section id="hotels" class="service-card reverse">
         <div class="service-video">
           <video autoplay muted loop playsinline>
@@ -269,6 +308,7 @@
           </a>
         </div>
       </section>
+
       <section id="croisieres" class="service-card">
         <div class="service-video">
           <video autoplay muted loop playsinline>
@@ -292,6 +332,7 @@
           </a>
         </div>
       </section>
+
       <section id="reveillon" class="service-card reverse">
         <div class="service-video">
           <video autoplay muted loop playsinline>
@@ -319,6 +360,7 @@
           </button>
         </div>
       </section>
+
       <section id="voyages" class="service-card">
         <div class="service-video">
           <video autoplay muted loop playsinline>
@@ -327,23 +369,28 @@
         </div>
         <div class="service-content">
           <h3
-            data-fr="Voyages Divers"
-            data-en="Travel Packages"
-            data-ar="رحلات متنوعة"
+            data-fr="Voyages organisés"
+            data-en="Organized Trips"
+            data-ar="الرحلات المنظمة"
           >
-            Voyages Divers
+            Voyages organisés
           </h3>
           <p
-            data-fr="Des séjours adaptés à tous vos rêves de voyage."
-            data-en="Travel packages designed for your dreams."
-            data-ar="برامج سياحية تناسب جميع رغباتكم."
+            data-fr="Des voyages organisés adaptés à tous vos rêves de voyage."
+            data-en="Organized trips designed for your travel dreams."
+            data-ar="رحلات منظمة تناسب جميع رغباتكم."
           >
-            Des séjours adaptés à tous vos rêves de voyage.
+            Des voyages organisés adaptés à tous vos rêves de voyage.
           </p>
-          <button>
+          <a href="voyages-programmes.html" class="travel-programs-btn">
             <i class="fa-solid fa-earth-americas"></i>
-            Voir les offres
-          </button>
+            <span
+              data-fr="Voir les offres"
+              data-en="View offers"
+              data-ar="عرض البرامج"
+              >Voir les offres</span
+            >
+          </a>
         </div>
       </section>
       <section id="omra" class="service-card reverse">
@@ -374,6 +421,7 @@
         </div>
       </section>
     </section>
+
     <section id="contact" class="contact-section">
       <div class="contact-container">
         <h2 data-fr="Contactez Nous" data-en="Contact Us" data-ar="اتصل بنا">
@@ -431,6 +479,7 @@
         </div>
       </div>
     </section>
+
     <footer id="footer" class="footer">
       <div class="footer-content">
         <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
@@ -478,19 +527,23 @@
         </div>
       </div>
     </footer>
+
     <div id="signin-popup" class="popup">
       <div class="popup-content">
         <span class="close" onclick="closeSignin()">&times;</span>
         <iframe id="signin-frame"></iframe>
       </div>
     </div>
+
     <div id="signup-popup" class="popup">
       <div class="popup-content">
         <span class="close" onclick="closeSignup()">&times;</span>
         <iframe id="signup-frame"></iframe>
       </div>
     </div>
+
     <script src="script.js"></script>
+
     <div class="support-widget">
       <button class="support-btn" aria-label="Assistance technique">
         <span class="butterfly-icon" aria-hidden="true">
@@ -561,6 +614,7 @@
         </a>
       </div>
     </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const supportWidget = document.querySelector(".support-widget");
@@ -611,6 +665,7 @@
         }
       });
     </script>
+
     <script type="module">
       import { auth, db } from "./firebase/firebase-config.js";
       import {
@@ -621,51 +676,70 @@
         onAuthStateChanged,
         signOut,
       } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
       onAuthStateChanged(auth, async (user) => {
         console.log("AUTH USER:", user);
+
         const userArea = document.getElementById("user-area");
         const mobilePanelFloat = document.getElementById("mobilePanelFloat");
-        const loginLink = document.getElementById("login-link");
-        const signupLink = document.getElementById("signup-link");
+
         const isAquarevAgencyAccount = !!(
           user &&
           user.email &&
           user.email.toLowerCase() === "agence.aquarev.travel@gmail.com"
         );
+
         if (mobilePanelFloat) {
           mobilePanelFloat.style.display = isAquarevAgencyAccount
             ? "flex"
             : "none";
         }
+
         if (user) {
           userArea.style.visibility = "visible";
+
           console.log("USER CONNECTED:", user.email);
+
           let userName = "Client";
           let userRole = "client";
+
           const userDoc = await getDoc(doc(db, "users", user.uid));
+
           if (userDoc.exists()) {
             const userData = userDoc.data();
+
             userName = userData.name || "Client";
             userRole = userData.role || "client";
+
             if (isAquarevAgencyAccount) {
               userName = "ADMIN";
               userRole = "admin";
             }
+
             console.log("FIRESTORE USER DATA:", userData);
             console.log("USER ROLE:", userRole);
             console.log("DISPLAY NAME:", userName);
           }
+
           let roleButtons = "";
+
           if (isAquarevAgencyAccount) {
             roleButtons = `
 <a href="aQuarev-admin.html" class="role-icon-btn admin-icon-btn" title="Administration" aria-label="Administration">
 <i class="fa-solid fa-shield-halved"></i>
+<span class="role-tooltip" data-fr="ADMINISTRATION" data-en="ADMINISTRATION" data-ar="الإدارة">ADMINISTRATION</span>
 </a>
 <a href="aQuarev-pilot.html" class="role-icon-btn pilot-icon-btn" title="Pilote de comptabilité" aria-label="Pilote de comptabilité">
 <i class="fa-solid fa-calculator"></i>
+<span class="role-tooltip" data-fr="PILOTE DE COMPTABILITÉ" data-en="ACCOUNTING PILOT" data-ar="مسؤول المحاسبة">PILOTE DE COMPTABILITÉ</span>
+</a>
+<a href="voyages-organises.html" class="role-icon-btn programs-icon-btn" title="Programmes touristiques" aria-label="Programmes touristiques">
+<i class="fa-solid fa-earth-americas"></i>
+<span class="role-tooltip" data-fr="PROGRAMMES TOURISTIQUES" data-en="TOURIST PROGRAMS" data-ar="البرامج السياحية">PROGRAMMES TOURISTIQUES</span>
 </a>
 `;
           }
+
           userArea.innerHTML = `
 <div class="user-connected">
 <i class="fa-solid fa-user"></i>
@@ -681,9 +755,11 @@ ${roleButtons}
 </button>
 </div>
 `;
+
           if (localStorage.getItem("AQUAREV-language")) {
             changeLanguage(localStorage.getItem("AQUAREV-language"));
           }
+
           document
             .getElementById("logout-btn")
             .addEventListener("click", async () => {
@@ -692,6 +768,7 @@ ${roleButtons}
             });
         } else {
           userArea.style.visibility = "visible";
+
           userArea.innerHTML = `
 <a href="signin.html" class="auth-btn signin-btn">
 <i class="fa-solid fa-right-to-bracket"></i>
@@ -702,12 +779,14 @@ ${roleButtons}
 <span data-fr="Inscription" data-en="Sign up" data-ar="التسجيل">Inscription</span>
 </a>
 `;
+
           if (localStorage.getItem("AQUAREV-language")) {
             changeLanguage(localStorage.getItem("AQUAREV-language"));
           }
         }
       });
     </script>
+
     <div class="mobile-panel-float" id="mobilePanelFloat" style="display: none">
       <a
         href="aQuarev-pilot.html"
@@ -724,6 +803,14 @@ ${roleButtons}
       >
         <i class="fa-solid fa-shield-halved"></i>
         <span>ADMIN</span>
+      </a>
+      <a
+        href="voyages-organises.html"
+        class="mobile-float-btn mobile-programs-btn"
+        aria-label="PROGRAMMES TOURISTIQUES"
+      >
+        <i class="fa-solid fa-earth-americas"></i>
+        <span>PROGRAMMES TOURISTIQUES</span>
       </a>
     </div>
   </body>

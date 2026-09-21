@@ -14,6 +14,7 @@
     "@getbrevo/brevo": "^6.0.2",
     "@google/genai": "^2.17.0",
     "@google/generative-ai": "^0.24.1",
+    "@imagekit/nodejs": "^7.12.1",
     "axios": "^1.19.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",

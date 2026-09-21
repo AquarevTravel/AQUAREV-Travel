@@ -914,6 +914,12 @@ en:"🇬🇧",
 ar:"🇩🇿"
 };
 
+const countryFlags={
+uk:"🇬🇧",
+canada:"🇨🇦",
+chine:"🇨🇳"
+};
+
 function text(value){
 if(typeof value==="string") return value;
 return value[currentLanguage]||value.fr||"";
@@ -938,7 +944,37 @@ selectedProfile=null;
 
 const data=visaData[country];
 
-offerCountry.textContent=data.country;
+const countryNames={
+uk:{
+fr:"UK",
+en:"UK",
+ar:"المملكة المتحدة"
+},
+canada:{
+fr:"CANADA",
+en:"CANADA",
+ar:"كندا"
+},
+chine:{
+fr:"CHINE",
+en:"CHINA",
+ar:"الصين"
+}
+};
+
+const countrySvgs={
+uk:`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="10"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="5"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="16"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="9"/></svg>`,
+canada:`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="40" fill="#fff"/><rect width="15" height="40" fill="#d52b1e"/><rect x="45" width="15" height="40" fill="#d52b1e"/><path d="M30 7l2.2 7 5.2-2.2-2.2 5.2 5.5 2-6 2.2 1.2 7.8-6-4.3-6 4.3 1.2-7.8-6-2.2 5.5-2-2.2-5.2 5.2 2.2z" fill="#d52b1e"/></svg>`,
+chine:`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="40" fill="#de2910"/><path d="M10 5l1.8 5.5h5.8l-4.7 3.4 1.8 5.6-4.7-3.5-4.7 3.5 1.8-5.6-4.7-3.4h5.8z" fill="#ffde00"/></svg>`
+};
+
+const name=countryNames[country]?.[currentLanguage]||countryNames[country]?.fr||country;
+
+offerCountry.innerHTML=`
+<span class="offer-country-flag">${countrySvgs[country]||""}</span>
+<span class="offer-country-name">${name}</span>
+`;
+
 offerTitle.textContent=text(data.title);
 offerDescription.textContent=text(data.description);
 
