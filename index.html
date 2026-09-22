@@ -25,7 +25,6 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-
     <style>
       .travel-programs-btn {
         display: inline-flex;
@@ -158,7 +157,6 @@
               data-ar="عروض التأشيرات"
               >NOS OFFRES DE VISAS</span
             >
-            >
           </a>
         </div>
         <h2
@@ -193,7 +191,6 @@
               >Billetterie</span
             >
           </a>
-
           <a href="#voyages">
             <i class="fa-solid fa-earth-americas"></i>
             <span
@@ -203,7 +200,6 @@
               >Voyages organisés</span
             >
           </a>
-
           <a href="#omra">
             <i class="fa-solid fa-kaaba"></i>
             <span data-fr="Omra" data-en="Omra" data-ar="العمرة">Omra</span>
@@ -393,6 +389,7 @@
           </a>
         </div>
       </section>
+
       <section id="omra" class="service-card reverse">
         <div class="service-video">
           <video autoplay muted loop playsinline>
@@ -414,9 +411,19 @@
           >
             Organisez votre Omra et Hajj avec une équipe professionnelle.
           </p>
-          <button>
+
+          <button
+            type="button"
+            class="omra-reserve-btn"
+            onclick="window.location.href = 'omra-programmes.html'"
+          >
             <i class="fa-solid fa-kaaba"></i>
-            Réserver Omra
+            <span
+              data-fr="Réserver Omra"
+              data-en="Reserve Umrah"
+              data-ar="حجز العمرة"
+              >Réserver Omra</span
+            >
           </button>
         </div>
       </section>
@@ -737,6 +744,10 @@
 <i class="fa-solid fa-earth-americas"></i>
 <span class="role-tooltip" data-fr="PROGRAMMES TOURISTIQUES" data-en="TOURIST PROGRAMS" data-ar="البرامج السياحية">PROGRAMMES TOURISTIQUES</span>
 </a>
+<a href="omra-hajj.html" class="role-icon-btn hajj-omra-icon-btn" title="Hajj & Omra" aria-label="Hajj & Omra">
+<img src="assets/images/kaaba.png" alt="Kaaba">
+<span class="role-tooltip" data-fr="HAJJ & OMRA" data-en="HAJJ & UMRAH" data-ar="الحج والعمرة">HAJJ & OMRA</span>
+</a>
 `;
           }
 
@@ -811,6 +822,14 @@ ${roleButtons}
       >
         <i class="fa-solid fa-earth-americas"></i>
         <span>PROGRAMMES TOURISTIQUES</span>
+      </a>
+      <a
+        href="omra-hajj.html"
+        class="mobile-float-btn mobile-hajj-omra-btn"
+        aria-label="HAJJ & OMRA"
+      >
+        <img src="assets/images/kaaba.png" alt="Kaaba" />
+        <span>HAJJ & OMRA</span>
       </a>
     </div>
   </body>

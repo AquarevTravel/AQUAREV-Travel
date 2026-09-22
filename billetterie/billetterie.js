@@ -91,8 +91,8 @@ ar:"إرسال الطلب"
 },
 success:{
 fr:"Votre demande a été envoyée avec succès",
-en:"Your request has been sent successfully",
-ar:"تم إرسال طلبك بنجاح"
+en:"Your flight request has been sent successfully",
+ar:"تم إرسال طلب رحلتك بنجاح"
 },
 error:{
 fr:"Une erreur est survenue",

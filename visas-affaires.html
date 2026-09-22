@@ -3,248 +3,451 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>AQUAREV Travel | Visas Affaires</title>
     <meta
       name="description"
-      content="AQUAREV Travel - Services de visas affaires UK, Canada et Chine."
+      content="AQUAREV Travel - Services de visas et E-VISAS B2B"
     />
-    <link rel="icon" type="image/png" href="assets/logo/aquarev.png" />
-    <link rel="stylesheet" href="visas-affaires.css" />
+    <link rel="icon" type="image/png" href="assets/logo/favicon.png" />
+    <title>AQUAREV Travel | Visas & E-VISAS B2B</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Cinzel:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="visas-affaires.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
   <body>
     <header class="visa-header">
-      <div class="visa-logo">
-        <a href="index.html">
-          <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
-        </a>
-      </div>
-
+      <a href="/" class="visa-logo" aria-label="AQUAREV Travel">
+        <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+      </a>
       <div class="visa-language">
         <button class="language-button" id="languageButton" type="button">
-          <i class="fa-solid fa-earth-americas"></i>
-          <span id="currentLanguage">🇫🇷</span>
+          <i class="fa-solid fa-globe"></i>
+          <span id="currentLanguage">FR</span>
+          <i class="fa-solid fa-chevron-down"></i>
         </button>
-
         <div class="language-menu" id="languageMenu">
-          <button type="button" data-language="fr">🇫🇷 Français</button>
-          <button type="button" data-language="en">🇬🇧 English</button>
-          <button type="button" data-language="ar">🇩🇿 العربية</button>
+          <button type="button" data-lang="fr">🇫🇷 Français</button>
+          <button type="button" data-lang="en">🇬🇧 English</button>
+          <button type="button" data-lang="ar">🇩🇿 العربية</button>
         </div>
       </div>
     </header>
 
-    <main>
-      <section class="visa-hero">
-        <div class="sea-decoration sea-decoration-one"></div>
-        <div class="sea-decoration sea-decoration-two"></div>
-        <div class="wave wave-one"></div>
-        <div class="wave wave-two"></div>
-
-        <div class="visa-hero-content">
-          <div class="visa-icon">
-            <i class="fa-solid fa-passport"></i>
-          </div>
-
-          <h1
-            data-fr="VISAS AFFAIRES"
-            data-en="BUSINESS VISAS"
-            data-ar="تأشيرات الأعمال"
-          >
-            VISAS AFFAIRES
-          </h1>
-
-          <p
-            data-fr="Découvrez nos services d'accompagnement pour vos démarches de visas professionnels, touristiques et familiaux."
-            data-en="Discover our assistance services for professional, tourist and family visa applications."
-            data-ar="اكتشفوا خدماتنا للمساعدة في إجراءات تأشيرات الأعمال والسياحة والزيارة العائلية."
-          >
-            Découvrez nos services d'accompagnement pour vos démarches de visas
-            professionnels, touristiques et familiaux.
-          </p>
+    <section class="visa-service-selector" id="visaServiceSelector">
+      <div class="selector-background selector-background-one"></div>
+      <div class="selector-background selector-background-two"></div>
+      <div class="selector-wave selector-wave-one"></div>
+      <div class="selector-wave selector-wave-two"></div>
+      <div class="selector-content">
+        <div class="selector-brand">
+          <span></span>
+          <i class="fa-solid fa-passport"></i>
+          <span></span>
         </div>
-      </section>
+        <h1 data-fr="NOS SERVICES" data-en="OUR SERVICES" data-ar="خدماتنا">
+          NOS SERVICES
+        </h1>
+        <p
+          data-fr="Choisissez votre service et consultez les offres directement sur cette page."
+          data-en="Choose your service and view the offers directly on this page."
+          data-ar="اختر الخدمة واطلع على العروض مباشرة في هذه الصفحة."
+        >
+          Choisissez votre service et consultez les offres directement sur cette
+          page.
+        </p>
 
-      <section class="country-section">
-        <div class="section-heading">
-          <span class="heading-line"></span>
-          <h2
-            data-fr="CHOISISSEZ VOTRE DESTINATION"
-            data-en="CHOOSE YOUR DESTINATION"
-            data-ar="اختر وجهتك"
+        <div class="luxury-circles">
+          <button
+            class="luxury-circle visa-circle"
+            id="visaCircleButton"
+            type="button"
           >
-            CHOISISSEZ VOTRE DESTINATION
-          </h2>
-          <span class="heading-line"></span>
-        </div>
-
-        <div class="country-navigation">
-          <button class="country-card active" data-country="uk" type="button">
-            <span class="country-flag">
-              <svg
-                viewBox="0 0 60 40"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+            <span class="circle-glow"></span>
+            <span class="circle-ring circle-ring-one"></span>
+            <span class="circle-ring circle-ring-two"></span>
+            <span class="circle-inner">
+              <span class="circle-icon"
+                ><i class="fa-solid fa-passport"></i
+              ></span>
+              <span
+                class="circle-small"
+                data-fr="SERVICE VISA"
+                data-en="VISA SERVICE"
+                data-ar="خدمة التأشيرات"
+                >SERVICE VISA</span
               >
-                <rect width="60" height="40" fill="#012169" />
-                <path
-                  d="M0 0L60 40M60 0L0 40"
-                  stroke="#fff"
-                  stroke-width="10"
-                />
-                <path
-                  d="M0 0L60 40M60 0L0 40"
-                  stroke="#C8102E"
-                  stroke-width="5"
-                />
-                <path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="16" />
-                <path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="9" />
-              </svg>
+              <strong
+                data-fr="NOS OFFRES DE VISA"
+                data-en="OUR VISA OFFERS"
+                data-ar="عروض التأشيرات"
+                >NOS OFFRES DE VISA</strong
+              >
+              <span
+                class="circle-description"
+                data-fr="UK • Canada • Chine"
+                data-en="UK • Canada • China"
+                data-ar="المملكة المتحدة • كندا • الصين"
+                >UK • Canada • Chine</span
+              >
+              <span class="circle-action"
+                ><i class="fa-solid fa-arrow-down"></i
+              ></span>
             </span>
-            <span class="country-name">UK</span>
-            <small
-              data-fr="Royaume-Uni"
-              data-en="United Kingdom"
-              data-ar="المملكة المتحدة"
-              >Royaume-Uni</small
+          </button>
+
+          <button
+            class="luxury-circle future-circle"
+            id="futureCircleButton"
+            type="button"
+          >
+            <span class="circle-glow"></span>
+            <span class="circle-ring circle-ring-one"></span>
+            <span class="circle-ring circle-ring-two"></span>
+            <span class="circle-inner">
+              <span class="circle-icon"
+                ><i class="fa-solid fa-earth-americas"></i
+              ></span>
+              <span
+                class="circle-small"
+                data-fr="SERVICE B2B"
+                data-en="B2B SERVICE"
+                data-ar="خدمة B2B"
+                >SERVICE B2B</span
+              >
+              <strong
+                data-fr="VISAS & E-VISAS B2B"
+                data-en="VISAS & E-VISAS B2B"
+                data-ar="التأشيرات و E-VISAS B2B"
+                >VISAS & E-VISAS B2B</strong
+              >
+              <span
+                class="circle-description"
+                data-fr="Plusieurs destinations • Procédures B2B"
+                data-en="Multiple destinations • B2B procedures"
+                data-ar="عدة وجهات • إجراءات B2B"
+                >Plusieurs destinations • Procédures B2B</span
+              >
+              <span class="circle-action"
+                ><i class="fa-solid fa-arrow-down"></i
+              ></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <main id="visaMainContent" class="visa-main-content">
+      <section id="visaOffersPanel" class="visa-content-panel">
+        <section class="country-section">
+          <div class="section-heading">
+            <span class="heading-line"></span>
+            <h2
+              data-fr="CHOISISSEZ VOTRE DESTINATION"
+              data-en="CHOOSE YOUR DESTINATION"
+              data-ar="اختر وجهتك"
             >
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-
-          <button class="country-card" data-country="canada" type="button">
-            <span class="country-flag">
-              <svg
-                viewBox="0 0 60 40"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <rect width="60" height="40" fill="#fff" />
-                <rect width="15" height="40" fill="#d52b1e" />
-                <rect x="45" width="15" height="40" fill="#d52b1e" />
-                <path
-                  d="M30 7l2.2 7 5.2-2.2-2.2 5.2 5.5 2-6 2.2 1.2 7.8-6-4.3-6 4.3 1.2-7.8-6-2.2 5.5-2-2.2-5.2 5.2 2.2z"
-                  fill="#d52b1e"
-                />
-              </svg>
-            </span>
-            <span class="country-name">CANADA</span>
-            <small data-fr="Canada" data-en="Canada" data-ar="كندا"
-              >Canada</small
-            >
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-
-          <button class="country-card" data-country="chine" type="button">
-            <span class="country-flag">
-              <svg
-                viewBox="0 0 60 40"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <rect width="60" height="40" fill="#de2910" />
-                <path
-                  d="M10 5l1.8 5.5h5.8l-4.7 3.4 1.8 5.6-4.7-3.5-4.7 3.5 1.8-5.6-4.7-3.4h5.8z"
-                  fill="#ffde00"
-                />
-              </svg>
-            </span>
-            <span class="country-name">CHINE</span>
-            <small data-fr="Chine" data-en="China" data-ar="الصين">Chine</small>
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <div class="country-arrow">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-      </section>
-
-      <section class="visa-offer-section">
-        <div class="offer-container">
-          <div class="offer-header">
-            <span class="offer-country" id="offerCountry">🇬🇧 UK</span>
-            <h2 id="offerTitle">
-              OFFRE DÉMARCHE VISA UK TOURISTIQUE, AFFAIRE ET VISITE FAMILIALE
+              CHOISISSEZ VOTRE DESTINATION
             </h2>
-            <p id="offerDescription">
-              Accompagnement professionnel pour vos démarches de visa UK.
-            </p>
+            <span class="heading-line"></span>
           </div>
 
-          <div class="services-box">
-            <div class="box-heading">
-              <i class="fa-solid fa-compass"></i>
-              <h3
-                data-fr="NOS SERVICES"
-                data-en="OUR SERVICES"
-                data-ar="خدماتنا"
+          <div class="country-navigation">
+            <button class="country-card active" data-country="uk" type="button">
+              <span class="country-flag">
+                <svg
+                  width="58"
+                  height="39"
+                  viewBox="0 0 60 40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-label="United Kingdom"
+                  role="img"
+                >
+                  <rect width="60" height="40" fill="#012169" />
+                  <path
+                    d="M0 0L60 40M60 0L0 40"
+                    stroke="#fff"
+                    stroke-width="9"
+                  />
+                  <path
+                    d="M0 0L60 40M60 0L0 40"
+                    stroke="#C8102E"
+                    stroke-width="4"
+                  />
+                  <path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="14" />
+                  <path
+                    d="M30 0V40M0 20H60"
+                    stroke="#C8102E"
+                    stroke-width="8"
+                  />
+                </svg>
+              </span>
+              <span class="country-name">UK</span>
+              <small
+                data-fr="Royaume-Uni"
+                data-en="United Kingdom"
+                data-ar="المملكة المتحدة"
+                >Royaume-Uni</small
               >
-                NOS SERVICES
-              </h3>
-            </div>
-            <div class="service-list" id="serviceList"></div>
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <button class="country-card" data-country="canada" type="button">
+              <span class="country-flag">
+                <svg
+                  width="58"
+                  height="39"
+                  viewBox="0 0 60 40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-label="Canada"
+                  role="img"
+                >
+                  <rect width="60" height="40" fill="#fff" />
+                  <rect width="15" height="40" fill="#D80621" />
+                  <rect x="45" width="15" height="40" fill="#D80621" />
+                  <path
+                    d="M30 7L32.5 15L39.5 13L36.5 19L41.5 23L34.5 24L35.5 32L30 28L24.5 32L25.5 24L18.5 23L23.5 19L20.5 13L27.5 15Z"
+                    fill="#D80621"
+                  />
+                </svg>
+              </span>
+              <span class="country-name">CANADA</span>
+              <small data-fr="Canada" data-en="Canada" data-ar="كندا"
+                >Canada</small
+              >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <button class="country-card" data-country="chine" type="button">
+              <span class="country-flag">
+                <svg
+                  width="58"
+                  height="39"
+                  viewBox="0 0 60 40"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-label="China"
+                  role="img"
+                >
+                  <rect width="60" height="40" fill="#DE2910" />
+                  <path
+                    d="M12 5L13.8 10.5H19.6L14.9 13.9L16.7 19.4L12 16L7.3 19.4L9.1 13.9L4.4 10.5H10.2Z"
+                    fill="#FFDE00"
+                  />
+                </svg>
+              </span>
+              <span
+                class="country-name"
+                data-fr="CHINE"
+                data-en="CHINA"
+                data-ar="الصين"
+                >CHINE</span
+              >
+              <small data-fr="Chine" data-en="China" data-ar="الصين"
+                >Chine</small
+              >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
+        </section>
 
-          <div class="dossier-box">
-            <div class="dossier-title">
-              <i class="fa-solid fa-folder-open"></i>
-              <h3 data-fr="DOSSIER" data-en="APPLICATION FILE" data-ar="الملف">
-                DOSSIER
-              </h3>
+        <section class="visa-offer-section">
+          <div class="offer-container">
+            <div class="offer-header">
+              <div class="offer-country" id="offerCountry"></div>
+              <h2 id="offerTitle"></h2>
+              <p id="offerDescription"></p>
             </div>
 
-            <p
-              class="dossier-intro"
-              data-fr="Sélectionnez votre situation professionnelle pour afficher les documents correspondants."
-              data-en="Select your professional status to display the corresponding documents."
-              data-ar="اختر وضعيتك المهنية لعرض الوثائق المطلوبة الخاصة بها."
-            >
-              Sélectionnez votre situation professionnelle pour afficher les
-              documents correspondants.
-            </p>
+            <div class="services-box">
+              <div class="box-heading">
+                <i class="fa-solid fa-list-check"></i>
+                <h3
+                  data-fr="SERVICES INCLUS"
+                  data-en="INCLUDED SERVICES"
+                  data-ar="الخدمات المشمولة"
+                >
+                  SERVICES INCLUS
+                </h3>
+              </div>
+              <div class="service-list" id="serviceList"></div>
+            </div>
 
-            <div class="profile-grid" id="profileGrid"></div>
-
-            <div class="documents-panel" id="documentsPanel">
-              <div class="documents-panel-header">
-                <div>
-                  <span
-                    class="selected-profile-label"
-                    id="selectedProfileLabel"
-                  ></span>
-                  <h4 id="documentsTitle"></h4>
-                </div>
-                <i class="fa-solid fa-file-lines"></i>
+            <div class="dossier-box">
+              <div class="dossier-title">
+                <i class="fa-solid fa-folder-open"></i>
+                <h3
+                  data-fr="DOSSIER PAR PROFIL"
+                  data-en="DOCUMENTS BY PROFILE"
+                  data-ar="الملف حسب الحالة"
+                >
+                  DOSSIER PAR PROFIL
+                </h3>
               </div>
 
-              <div class="documents-list" id="documentsList"></div>
-            </div>
-          </div>
+              <p
+                class="dossier-intro"
+                data-fr="Sélectionnez votre profil pour afficher les documents nécessaires."
+                data-en="Select your profile to display the required documents."
+                data-ar="اختر حالتك لعرض الوثائق المطلوبة."
+              >
+                Sélectionnez votre profil pour afficher les documents
+                nécessaires.
+              </p>
 
-          <div class="offer-price" id="offerPrice"></div>
+              <div class="profile-grid" id="profileGrid"></div>
+
+              <div class="documents-panel" id="documentsPanel">
+                <div class="documents-panel-header">
+                  <div>
+                    <span
+                      class="selected-profile-label"
+                      id="selectedProfileLabel"
+                    ></span>
+                    <h4 id="documentsTitle"></h4>
+                  </div>
+                  <i class="fa-solid fa-file-circle-check"></i>
+                </div>
+                <div class="documents-list" id="documentsList"></div>
+              </div>
+            </div>
+
+            <div class="offer-price" id="offerPrice"></div>
+          </div>
+        </section>
+
+        <div class="visa-note">
+          <i class="fa-solid fa-circle-info"></i>
+          <div
+            data-fr="Les délais et conditions peuvent varier selon le dossier, la nationalité, les disponibilités des autorités et les procédures consulaires."
+            data-en="Processing times and conditions may vary depending on the application, nationality, authority availability and consular procedures."
+            data-ar="يمكن أن تختلف الآجال والشروط حسب الملف والجنسية وتوفر السلطات والإجراءات القنصلية."
+          >
+            Les délais et conditions peuvent varier selon le dossier, la
+            nationalité, les disponibilités des autorités et les procédures
+            consulaires.
+          </div>
         </div>
       </section>
 
-      <section class="visa-note">
-        <i class="fa-solid fa-circle-info"></i>
-        <p
-          data-fr="Les informations et documents présentés correspondent aux prestations proposées par AQUAREV Travel. Les exigences peuvent varier selon le profil du demandeur et les autorités compétentes."
-          data-en="The information and documents presented correspond to the services offered by AQUAREV Travel. Requirements may vary depending on the applicant's profile and the relevant authorities."
-          data-ar="المعلومات والوثائق المعروضة تتعلق بالخدمات التي تقدمها AQUAREV Travel، وقد تختلف المتطلبات حسب ملف مقدم الطلب والجهات المختصة."
-        >
-          Les informations et documents présentés correspondent aux prestations
-          proposées par AQUAREV Travel. Les exigences peuvent varier selon le
-          profil du demandeur et les autorités compétentes.
-        </p>
+      <section id="evisaPanel" class="evisa-content-panel">
+        <section class="evisa-country-section">
+          <div class="section-heading">
+            <span class="heading-line"></span>
+            <h2
+              data-fr="CHOISISSEZ VOTRE DESTINATION"
+              data-en="CHOOSE YOUR DESTINATION"
+              data-ar="اختر وجهتك"
+            >
+              CHOISISSEZ VOTRE DESTINATION
+            </h2>
+            <span class="heading-line"></span>
+          </div>
+
+          <div class="evisa-carousel">
+            <button
+              class="evisa-arrow"
+              id="evisaPrev"
+              type="button"
+              aria-label="Previous country"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="evisa-country-viewport" id="evisaCountryViewport">
+              <div class="evisa-country-track" id="evisaCountryTrack"></div>
+            </div>
+
+            <button
+              class="evisa-arrow"
+              id="evisaNext"
+              type="button"
+              aria-label="Next country"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="evisa-selected-country">
+            <div class="evisa-selected-flag" id="evisaSelectedFlag"></div>
+            <div>
+              <span
+                class="evisa-selected-label"
+                data-fr="DESTINATION SÉLECTIONNÉE"
+                data-en="SELECTED DESTINATION"
+                data-ar="الوجهة المختارة"
+                >DESTINATION SÉLECTIONNÉE</span
+              >
+              <h2 id="evisaSelectedCountry">Arabie Saoudite</h2>
+            </div>
+          </div>
+        </section>
+
+        <section class="evisa-offers-section">
+          <div class="evisa-offers-container">
+            <div class="evisa-offers-heading">
+              <i class="fa-solid fa-file-signature"></i>
+              <div>
+                <h2
+                  data-fr="DÉTAILS DES SERVICES"
+                  data-en="SERVICE DETAILS"
+                  data-ar="تفاصيل الخدمات"
+                >
+                  DÉTAILS DES SERVICES
+                </h2>
+                <p
+                  data-fr="Chaque destination présente ses différentes formules de visa et les documents disponibles."
+                  data-en="Each destination shows its available visa options and required documents."
+                  data-ar="كل وجهة تعرض خيارات التأشيرة والوثائق المطلوبة."
+                >
+                  Chaque destination présente ses différentes formules de visa
+                  et les documents disponibles.
+                </p>
+              </div>
+            </div>
+
+            <div id="evisaOffers" class="evisa-offers"></div>
+          </div>
+
+          <div class="evisa-global-notes" id="evisaGlobalNotes">
+            <div>
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <span
+                data-fr="LES FRAIS DE VISA NE SONT PAS REMBOURSABLES EN CAS DE REFUS."
+                data-en="VISA FEES ARE NON-REFUNDABLE IN CASE OF REFUSAL."
+                data-ar="رسوم التأشيرة غير قابلة للاسترداد في حالة الرفض."
+                >LES FRAIS DE VISA NE SONT PAS REMBOURSABLES EN CAS DE
+                REFUS.</span
+              >
+            </div>
+
+            <div>
+              <i class="fa-solid fa-clock"></i>
+              <span
+                data-fr="LE DÉLAI DE TRAITEMENT NE COMPREND PAS LES WEEKENDS."
+                data-en="PROCESSING TIME DOES NOT INCLUDE WEEKENDS."
+                data-ar="مدة معالجة الملف لا تشمل عطلة نهاية الأسبوع."
+                >LE DÉLAI DE TRAITEMENT NE COMPREND PAS LES WEEKENDS.</span
+              >
+            </div>
+
+            <div>
+              <i class="fa-solid fa-building"></i>
+              <span
+                data-fr="L’AGENCE N’EST PAS RESPONSABLE DU DÉLAI DE TRAITEMENT DES DOSSIERS."
+                data-en="THE AGENCY IS NOT RESPONSIBLE FOR THE PROCESSING TIME OF APPLICATIONS."
+                data-ar="الوكالة غير مسؤولة عن مدة معالجة الملفات."
+                >L’AGENCE N’EST PAS RESPONSABLE DU DÉLAI DE TRAITEMENT DES
+                DOSSIERS.</span
+              >
+            </div>
+          </div>
+        </section>
       </section>
     </main>
 
@@ -255,50 +458,45 @@
 
       <div class="footer-content">
         <h3>AQUAREV Travel</h3>
-        <p>Luxury Travel &amp; Experiences</p>
+        <p>Carrefour Allaghen Tazmalt Bejaia</p>
 
         <div class="footer-links">
-          <a href="index.html">
-            <i class="fa-solid fa-house"></i>
-            <span data-fr="Accueil" data-en="Home" data-ar="الرئيسية"
-              >Accueil</span
-            >
+          <a href="mailto:aquarev.travel@gmail.com">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+          <a href="tel:0541116245">
+            <i class="fa-solid fa-phone"></i> 0541116245
+          </a>
+          <a href="tel:0554958578">
+            <i class="fa-solid fa-phone"></i> 0554958578
           </a>
         </div>
 
         <div class="footer-social">
-          <a href="mailto:aquarev.travel@gmail.com" aria-label="Email">
-            <i class="fa-solid fa-envelope"></i>
-          </a>
           <a
-            href="https://wa.me/213554958578"
+            href="https://www.facebook.com/aquarevtravel"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
+            rel="noopener"
           >
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <a
-            href="https://www.facebook.com/share/1ZqcXcKhZb/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-facebook-f"></i>
           </a>
           <a
             href="https://www.instagram.com/aquarevtravel"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
+            rel="noopener"
           >
             <i class="fa-brands fa-instagram"></i>
           </a>
+          <a
+            href="https://www.tiktok.com/@aquarev_travel"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
         </div>
 
-        <p class="copyright">
-          © 2026 <strong>AQUAREV Travel</strong> — Tous droits réservés
-        </p>
+        <p class="copyright">© AQUAREV Travel - Tous droits réservés</p>
       </div>
     </footer>
 

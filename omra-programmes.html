@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AQUAREV Travel - Programmes Omra et Hajj"
+    />
+    <title>AQUAREV Travel | Omra & Hajj</title>
+    <link rel="icon" type="image/png" href="assets/logo/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="omra-programmes.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="AQUAREV Travel">
+          <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+          <span>AQUAREV <b>TRAVEL</b></span>
+        </a>
+        <nav class="main-nav">
+          <a
+            href="index.html#home"
+            data-fr="Accueil"
+            data-en="Home"
+            data-ar="الرئيسية"
+            >Accueil</a
+          >
+          <a
+            href="index.html#vols"
+            data-fr="Vols"
+            data-en="Flights"
+            data-ar="الرحلات"
+            >Vols</a
+          >
+          <a
+            href="index.html#hotels"
+            data-fr="Hôtels"
+            data-en="Hotels"
+            data-ar="الفنادق"
+            >Hôtels</a
+          >
+          <a
+            href="index.html#croisieres"
+            data-fr="Croisières"
+            data-en="Cruises"
+            data-ar="الرحلات البحرية"
+            >Croisières</a
+          >
+          <a
+            href="index.html#contact"
+            data-fr="Contact"
+            data-en="Contact"
+            data-ar="اتصل بنا"
+            >Contact</a
+          >
+        </nav>
+        <div class="header-actions">
+          <div class="language-switcher">
+            <button type="button" class="language-btn" data-lang="fr">
+              FR
+            </button>
+            <button type="button" class="language-btn" data-lang="en">
+              EN
+            </button>
+            <button type="button" class="language-btn" data-lang="ar">
+              AR
+            </button>
+          </div>
+          <a href="index.html#contact" class="header-contact"
+            ><i class="fa-solid fa-phone"></i
+            ><span data-fr="Contact" data-en="Contact" data-ar="اتصل بنا"
+              >Contact</span
+            ></a
+          >
+          <button
+            type="button"
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobileNav">
+        <a
+          href="index.html#home"
+          data-fr="Accueil"
+          data-en="Home"
+          data-ar="الرئيسية"
+          >Accueil</a
+        >
+        <a
+          href="index.html#vols"
+          data-fr="Vols"
+          data-en="Flights"
+          data-ar="الرحلات"
+          >Vols</a
+        >
+        <a
+          href="index.html#hotels"
+          data-fr="Hôtels"
+          data-en="Hotels"
+          data-ar="الفنادق"
+          >Hôtels</a
+        >
+        <a
+          href="index.html#croisieres"
+          data-fr="Croisières"
+          data-en="Cruises"
+          data-ar="الرحلات البحرية"
+          >Croisières</a
+        >
+        <a
+          href="index.html#contact"
+          data-fr="Contact"
+          data-en="Contact"
+          data-ar="اتصل بنا"
+          >Contact</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <section class="programs-section">
+        <div class="section-heading">
+          <div class="section-kicker">
+            <i class="fa-solid fa-kaaba"></i
+            ><span
+              data-fr="Omra & Hajj"
+              data-en="Umrah & Hajj"
+              data-ar="العمرة والحج"
+              >Omra & Hajj</span
+            >
+          </div>
+          <h2
+            data-fr="Programmes Omra & Hajj"
+            data-en="Umrah & Hajj Programs"
+            data-ar="برامج العمرة والحج"
+          >
+            Programmes Omra & Hajj
+          </h2>
+          <p
+            data-fr="Découvrez nos programmes de Omra et Hajj, leurs dates, hôtels, vols et prestations."
+            data-en="Discover our Umrah and Hajj programs, dates, hotels, flights and services."
+            data-ar="اكتشف برامج العمرة والحج، تواريخها وفنادقها ورحلاتها وخدماتها."
+          >
+            Découvrez nos programmes de Omra et Hajj, leurs dates, hôtels, vols
+            et prestations.
+          </p>
+        </div>
+        <div class="programs-status" id="programsStatus"></div>
+        <div class="programs-grid" id="programsGrid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" /><span
+              >AQUAREV <b>TRAVEL</b></span
+            >
+          </div>
+          <p
+            data-fr="Votre agence de voyage pour des expériences exceptionnelles."
+            data-en="Your travel agency for exceptional experiences."
+            data-ar="وكالتكم للسفر من أجل تجارب استثنائية."
+          >
+            Votre agence de voyage pour des expériences exceptionnelles.
+          </p>
+        </div>
+        <div class="footer-column">
+          <h3
+            data-fr="AQUAREV Travel"
+            data-en="AQUAREV Travel"
+            data-ar="AQUAREV Travel"
+          >
+            AQUAREV Travel
+          </h3>
+          <a href="index.html#home"
+            ><i class="fa-solid fa-house"></i
+            ><span data-fr="Accueil" data-en="Home" data-ar="الرئيسية"
+              >Accueil</span
+            ></a
+          >
+          <a href="index.html#contact"
+            ><i class="fa-solid fa-envelope"></i
+            ><span data-fr="Contact" data-en="Contact" data-ar="اتصل بنا"
+              >Contact</span
+            ></a
+          >
+        </div>
+        <div class="footer-column">
+          <h3 data-fr="Contact" data-en="Contact" data-ar="اتصل بنا">
+            Contact
+          </h3>
+          <a href="mailto:aquarev.travel@gmail.com"
+            ><i class="fa-solid fa-envelope"></i
+            ><span>aquarev.travel@gmail.com</span></a
+          >
+          <a href="https://wa.me/213541116245" target="_blank" rel="noopener"
+            ><i class="fa-brands fa-whatsapp"></i><span>0541 11 62 45</span></a
+          >
+          <a href="https://wa.me/213554958578" target="_blank" rel="noopener"
+            ><i class="fa-brands fa-whatsapp"></i><span>0554 95 85 78</span></a
+          >
+        </div>
+        <div class="footer-column">
+          <h3 data-fr="Suivez-nous" data-en="Follow us" data-ar="تابعونا">
+            Suivez-nous
+          </h3>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/aquarevtravel"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/aquarevtravel"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.tiktok.com/@aquarev_travel"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a
+              href="https://wa.me/213541116245"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="currentYear"></span> AQUAREV Travel</span>
+        <span
+          data-fr="Tous droits réservés."
+          data-en="All rights reserved."
+          data-ar="جميع الحقوق محفوظة."
+          >Tous droits réservés.</span
+        >
+      </div>
+    </footer>
+
+    <button
+      type="button"
+      class="back-top"
+      id="backTop"
+      aria-label="Back to top"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script type="module" src="omra-programmes.js"></script>
+  </body>
+</html>

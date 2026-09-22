@@ -1,3 +1,4 @@
+
 import {db,auth} from "./firebase/firebase-config.js";
 import {collection,getDocs,query,where,doc,deleteDoc} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
@@ -46,7 +47,7 @@ kg:"kg",
 viewPhotos:"Voir les photos",
 viewVideos:"Voir les vidéos",
 viewProgram:"Voir le programme",
-downloadPdf:"Voir le programme PDF",
+downloadPdf:"Télécharger le programme",
 reserve:"Réserver",
 noPhotos:"Aucune photo",
 noVideos:"Aucune vidéo",
@@ -89,7 +90,7 @@ kg:"kg",
 viewPhotos:"View photos",
 viewVideos:"View videos",
 viewProgram:"View program",
-downloadPdf:"View itinerary PDF",
+downloadPdf:"Download program",
 reserve:"Reserve",
 noPhotos:"No photos",
 noVideos:"No video",
@@ -102,7 +103,7 @@ published:"Available",
 deleteProgram:"Delete program",
 deleteConfirm:"Do you really want to delete this program?",
 deleteSuccess:"Program deleted successfully.",
-deleteError:"Unable to delete this program."
+deleteError:"Unable to delete program."
 },
 ar:{
 loading:"جاري تحميل البرامج...",
@@ -132,7 +133,7 @@ kg:"كغ",
 viewPhotos:"عرض الصور",
 viewVideos:"عرض الفيديوهات",
 viewProgram:"الإطلاع على البرنامج",
-downloadPdf:"عرض برنامج الرحلة PDF",
+downloadPdf:"تحميل البرنامج",
 reserve:"حجز",
 noPhotos:"لا توجد صور",
 noVideos:"لا يوجد فيديو",
@@ -143,7 +144,7 @@ contact:"تواصل مع الوكالة",
 days:"الإقامة",
 published:"متاح",
 deleteProgram:"حذف البرنامج",
-deleteConfirm:"هل تريد حقًا حذف هذا البرنامج ؟",
+deleteConfirm:"هل تريد حقًا حذف البرنامج ؟",
 deleteSuccess:"تم حذف البرنامج بنجاح.",
 deleteError:"تعذر حذف البرنامج."
 }
@@ -227,12 +228,8 @@ return null;
 
 function normalizePdf(pdf){
 if(!pdf)return null;
-if(typeof pdf==="string"){
-return{url:pdf,name:"program.pdf"};
-}
-if(typeof pdf==="object"&&pdf.url){
-return{url:pdf.url,name:pdf.name||pdf.originalName||"program.pdf"};
-}
+if(typeof pdf==="string")return{url:pdf,name:"program.pdf"};
+if(typeof pdf==="object"&&pdf.url)return{url:pdf.url,name:pdf.name||pdf.originalName||"program.pdf"};
 return null;
 }
 
@@ -300,9 +297,12 @@ ${dates.map(date=>`<span>${escapeHTML(formatDate(date))}</span>`).join("")}
 
 function optimizeImageUrl(url){
 if(!url)return"";
+
 const imageUrl=String(url);
+
 if(!imageUrl.includes("ik.imagekit.io"))return imageUrl;
 if(imageUrl.includes("/tr:"))return imageUrl;
+
 return imageUrl.replace("https://ik.imagekit.io/cqpxvyh61/","https://ik.imagekit.io/cqpxvyh61/tr:w-1200,q-80,fo-auto/");
 }
 
@@ -377,6 +377,55 @@ alert(getTranslation("deleteError"));
 return button;
 }
 
+async function downloadPdfFile(url,fileName,button){
+if(!url)return;
+
+const originalText=button?.innerHTML||"";
+
+if(button){
+button.disabled=true;
+button.innerHTML=`<i class="fa-solid fa-circle-notch fa-spin"></i>${escapeHTML(getTranslation("downloadPdf"))}`;
+}
+
+try{
+const response=await fetch(url,{mode:"cors",credentials:"omit"});
+
+if(!response.ok)throw new Error(`HTTP ${response.status}`);
+
+const blob=await response.blob();
+const blobUrl=URL.createObjectURL(blob);
+
+const link=document.createElement("a");
+link.href=blobUrl;
+link.download=fileName||"programme.pdf";
+link.style.display="none";
+
+document.body.appendChild(link);
+link.click();
+link.remove();
+
+setTimeout(()=>URL.revokeObjectURL(blobUrl),1000);
+}catch(error){
+console.warn("PDF DIRECT DOWNLOAD ERROR:",error);
+
+const link=document.createElement("a");
+link.href=url;
+link.download=fileName||"programme.pdf";
+link.target="_blank";
+link.rel="noopener";
+link.style.display="none";
+
+document.body.appendChild(link);
+link.click();
+link.remove();
+}finally{
+if(button){
+button.disabled=false;
+button.innerHTML=originalText;
+}
+}
+}
+
 function createProgramCard(program){
 const images=normalizeMedia(program.images);
 const videos=normalizeMedia(program.videos);
@@ -403,7 +452,6 @@ ${createMedia(program)}
 <div class="program-body">
 <h3 class="program-title">${escapeHTML(city||country||getTranslation("program"))}</h3>
 <div class="program-subtitle"><i class="fa-solid fa-earth-europe"></i><span>${escapeHTML(country||"AQUAREV Travel")}</span>${nights!==""?`<span>• ${nights} ${getTranslation("days")}</span>`:""}</div>
-
 <div class="info-grid">
 ${createInfoItem("fa-calendar-days",getTranslation("departure"),departure)}
 ${createInfoItem("fa-calendar-check",getTranslation("returnDate"),returnDate)}
@@ -414,27 +462,21 @@ ${flightTypeHTML(program.flightType)}
 ${guideHTML(program.tourGuide)}
 ${baggageHTML(program)}
 </div>
-
 ${departureDates.length>1?additionalDatesHTML(program):""}
 ${description?`<p class="program-description">${escapeHTML(description)}</p>`:""}
-
 <div class="hotel-box">
 <div class="hotel-name"><i class="fa-solid fa-hotel"></i><span>${escapeHTML(hotel||"—")}</span></div>
 ${starsHTML(stars)}
 ${address?`<div class="hotel-address"><i class="fa-solid fa-location-dot"></i>${escapeHTML(address)}</div>`:""}
-
 <div class="price-box">
 <div><div class="price-label">${escapeHTML(getTranslation("price"))}</div><div class="price"><span class="price-from">${escapeHTML(getTranslation("priceFrom"))}</span> ${price}</div></div>
 <div class="currency">${escapeHTML(program.currency||"DZD")}</div>
 </div>
-
 <div class="program-primary-actions">
 <a href="voyage-programme.html?id=${encodeURIComponent(program.id)}" class="card-btn program-view-btn" data-program-id="${escapeHTML(program.id)}"><i class="fa-solid fa-file-lines"></i>${escapeHTML(getTranslation("viewProgram"))}</a>
 <a href="voyage-reservation.html?id=${encodeURIComponent(program.id)}" class="card-btn secondary program-reserve-btn" data-program-id="${escapeHTML(program.id)}"><i class="fa-solid fa-calendar-check"></i>${escapeHTML(getTranslation("reserve"))}</a>
 </div>
-
-${pdf?`<div class="program-pdf-action"><a href="${escapeHTML(pdf.url)}" class="card-btn pdf-btn" target="_blank" rel="noopener" download="${escapeHTML(pdf.name||"programme.pdf")}"><i class="fa-solid fa-file-pdf"></i>${escapeHTML(getTranslation("downloadPdf"))}</a></div>`:""}
-
+${pdf?`<div class="program-pdf-action"><a href="${escapeHTML(pdf.url)}" class="card-btn pdf-btn" data-pdf-url="${escapeHTML(pdf.url)}" data-pdf-name="${escapeHTML(pdf.name||"programme.pdf")}"><i class="fa-solid fa-download"></i>${escapeHTML(getTranslation("downloadPdf"))}</a></div>`:""}
 <div class="card-actions">
 ${images.length?`<button type="button" class="card-btn photo-btn"><i class="fa-solid fa-images"></i>${escapeHTML(getTranslation("viewPhotos"))}</button>`:`<button type="button" class="card-btn secondary" disabled><i class="fa-solid fa-image"></i>${escapeHTML(getTranslation("noPhotos"))}</button>`}
 ${videos.length?`<button type="button" class="card-btn secondary video-btn"><i class="fa-solid fa-video"></i>${escapeHTML(getTranslation("viewVideos"))}</button>`:""}
@@ -451,9 +493,22 @@ if(media)media.appendChild(deleteButton);
 
 const photoButton=card.querySelector(".photo-btn");
 const videoButton=card.querySelector(".video-btn");
+const pdfButton=card.querySelector(".pdf-btn");
 
 if(photoButton)photoButton.addEventListener("click",()=>openGallery(images));
 if(videoButton)videoButton.addEventListener("click",()=>openVideo(videos));
+
+if(pdfButton){
+pdfButton.addEventListener("click",event=>{
+event.preventDefault();
+event.stopPropagation();
+
+const url=pdfButton.dataset.pdfUrl;
+const fileName=pdfButton.dataset.pdfName||"programme.pdf";
+
+downloadPdfFile(url,fileName,pdfButton);
+});
+}
 
 const cardImage=card.querySelector(".program-media img");
 
@@ -499,6 +554,7 @@ const programs=[];
 snapshot.forEach(documentSnapshot=>{
 const data=documentSnapshot.data();
 if(data.status==="deleted")return;
+if(data.programType==="omra_hajj")return;
 programs.push({id:documentSnapshot.id,...data});
 });
 

@@ -2338,3 +2338,50 @@ html[lang="en"] .menu-toggle{
 transform:translateX(2px)!important;
 }
 }
+
+
+
+/* ===== RESERVER OMRA - SKY BLUE ===== */
+.omra-reserve-btn{
+    background:#00b4d8!important;
+    color:#fff!important;
+    border-color:#00b4d8!important;
+    box-shadow:0 10px 30px rgba(0,180,216,.35);
+}
+
+.omra-reserve-btn:hover{
+    background:#009fc1!important;
+    border-color:#009fc1!important;
+    color:#fff!important;
+    box-shadow:0 15px 40px rgba(0,180,216,.5);
+    transform:translateY(-3px);
+}
+
+
+
+
+
+
+.hajj-omra-icon-btn img{
+  width:78px;
+  height:78px;
+  object-fit:contain;
+  display:block;
+  transform:translateX(-4px);
+}
+
+.mobile-hajj-omra-btn img{
+  width:78px;
+  height:78px;
+  object-fit:contain;
+  display:block;
+  transform:translateX(-4px);
+}
+
+html[dir="rtl"] .hajj-omra-icon-btn img{
+  transform:translateX(4px);
+}
+
+html[dir="rtl"] .mobile-hajj-omra-btn img{
+  transform:translateX(4px);
+}

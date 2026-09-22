@@ -1,5 +1,5 @@
-import {db} from "./firebase/firebase-config.js";
-import {doc,getDoc} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import{db}from"./firebase/firebase-config.js";
+import{doc,getDoc}from"https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 const COLLECTION_NAME="organizedTrips";
 const loading=document.getElementById("programLoading");
@@ -62,7 +62,8 @@ address:"Adresse de l'hôtel",
 price:"Prix",
 photos:"photos",
 videos:"vidéos",
-imageAlt:"Photo du programme"
+imageAlt:"Photo du programme",
+downloadProgram:"Télécharger le programme"
 },
 en:{
 loading:"Loading program...",
@@ -78,7 +79,8 @@ address:"Hotel address",
 price:"Price",
 photos:"photos",
 videos:"videos",
-imageAlt:"Program photo"
+imageAlt:"Program photo",
+downloadProgram:"Download program"
 },
 ar:{
 loading:"جاري تحميل البرنامج...",
@@ -94,7 +96,8 @@ address:"عنوان الفندق",
 price:"السعر",
 photos:"صور",
 videos:"فيديوهات",
-imageAlt:"صورة البرنامج"
+imageAlt:"صورة البرنامج",
+downloadProgram:"تحميل البرنامج"
 }
 };
 
@@ -199,6 +202,7 @@ document.querySelectorAll(".language-btn").forEach(button=>{
 button.classList.toggle("active",button.dataset.lang===currentLanguage);
 });
 localStorage.setItem("AQUAREV-language",currentLanguage);
+if(pdfProgramButton&&!pdfProgramButton.hidden)updatePdfButtonText();
 if(currentProgram)renderProgram(currentProgram);
 }
 
@@ -327,6 +331,59 @@ videosSection.hidden=false;
 videosSection.style.display="block";
 }
 
+function updatePdfButtonText(){
+if(!pdfProgramButton)return;
+pdfProgramButton.innerHTML=`<i class="fa-solid fa-download"></i>${escapeHTML(t("downloadProgram"))}`;
+}
+
+async function downloadProgramFile(url,fileName){
+if(!url)return;
+
+const originalHTML=pdfProgramButton.innerHTML;
+pdfProgramButton.disabled=true;
+pdfProgramButton.classList.add("downloading");
+pdfProgramButton.innerHTML=`<i class="fa-solid fa-circle-notch fa-spin"></i>${escapeHTML(t("downloadProgram"))}`;
+
+try{
+const response=await fetch(url,{mode:"cors",credentials:"omit"});
+if(!response.ok)throw new Error(`HTTP ${response.status}`);
+
+const blob=await response.blob();
+
+if(!blob.size)throw new Error("Empty PDF file");
+
+const blobUrl=URL.createObjectURL(blob);
+const link=document.createElement("a");
+
+link.href=blobUrl;
+link.download=fileName||"programme.pdf";
+link.style.display="none";
+
+document.body.appendChild(link);
+link.click();
+link.remove();
+
+setTimeout(()=>URL.revokeObjectURL(blobUrl),1000);
+}catch(error){
+console.warn("DIRECT PROGRAM DOWNLOAD FAILED:",error);
+
+const fallback=document.createElement("a");
+fallback.href=url;
+fallback.download=fileName||"programme.pdf";
+fallback.rel="noopener";
+fallback.style.display="none";
+
+document.body.appendChild(fallback);
+fallback.click();
+fallback.remove();
+}finally{
+pdfProgramButton.disabled=false;
+pdfProgramButton.classList.remove("downloading");
+pdfProgramButton.innerHTML=originalHTML;
+updatePdfButtonText();
+}
+}
+
 function renderPdf(pdf){
 if(!pdfProgramBox||!pdfProgramButton)return;
 
@@ -334,13 +391,26 @@ if(!pdf||!pdf.url){
 pdfProgramBox.hidden=true;
 pdfProgramBox.style.display="none";
 pdfProgramButton.removeAttribute("href");
+pdfProgramButton.removeAttribute("target");
+pdfProgramButton.removeAttribute("download");
+pdfProgramButton.onclick=null;
 return;
 }
 
-pdfProgramButton.href=pdf.url;
-pdfProgramButton.target="_blank";
+pdfProgramButton.removeAttribute("href");
+pdfProgramButton.removeAttribute("target");
+pdfProgramButton.removeAttribute("download");
 pdfProgramButton.rel="noopener";
-pdfProgramButton.setAttribute("aria-label",pdf.name||"Programme PDF");
+pdfProgramButton.setAttribute("aria-label",t("downloadProgram"));
+pdfProgramButton.type="button";
+
+updatePdfButtonText();
+
+pdfProgramButton.onclick=event=>{
+event.preventDefault();
+event.stopPropagation();
+downloadProgramFile(pdf.url,pdf.name||"programme.pdf");
+};
 
 pdfProgramBox.hidden=false;
 pdfProgramBox.style.display="flex";

@@ -1,897 +1,147 @@
 const visaData={
 uk:{
-country:"🇬🇧 UK",
-title:{
-fr:"OFFRE DÉMARCHE VISA UK TOURISTIQUE, AFFAIRE ET VISITE FAMILIALE",
-en:"UK TOURIST, BUSINESS AND FAMILY VISIT VISA SERVICE",
-ar:"خدمة إجراءات تأشيرة المملكة المتحدة للسياحة والأعمال والزيارة العائلية"
-},
-description:{
-fr:"Accompagnement professionnel pour vos démarches de visa UK.",
-en:"Professional assistance for your UK visa application.",
-ar:"مرافقة مهنية في إجراءات طلب تأشيرة المملكة المتحدة."
-},
+country:"UK",
+title:{fr:"OFFRE DÉMARCHE VISA UK TOURISTIQUE, AFFAIRE ET VISITE FAMILIALE",en:"UK TOURIST, BUSINESS AND FAMILY VISIT VISA SERVICE",ar:"خدمة إجراءات تأشيرة المملكة المتحدة للسياحة والأعمال والزيارة العائلية"},
+description:{fr:"Accompagnement professionnel pour vos démarches de visa UK.",en:"Professional assistance for your UK visa application.",ar:"مرافقة احترافية لإجراءات تأشيرة المملكة المتحدة."},
 services:[
-{
-fr:"CRÉATION BOÎTE E-MAIL.",
-en:"EMAIL ACCOUNT CREATION.",
-ar:"إنشاء بريد إلكتروني."
-},
-{
-fr:"REMPLISSAGE DE L'APPLICATION ET FORMULAIRE.",
-en:"APPLICATION AND FORM COMPLETION.",
-ar:"ملء الطلب والاستمارة."
-},
-{
-fr:"LETTRE EXPLICATIVE.",
-en:"EXPLANATORY LETTER.",
-ar:"رسالة توضيحية."
-},
-{
-fr:"PLAN DE VOYAGE.",
-en:"TRAVEL PLAN.",
-ar:"خطة السفر."
-},
-{
-fr:"PAIEMENT EN LIGNE FRAIS DE VISA (ADT ET CHD).",
-en:"ONLINE PAYMENT OF VISA FEES (ADULT AND CHILD).",
-ar:"الدفع الإلكتروني لرسوم التأشيرة (بالغ وطفل)."
-},
-{
-fr:"PRISE DE RENDEZ-VOUS POUR L'EMPREINTE.",
-en:"BIOMETRIC APPOINTMENT BOOKING.",
-ar:"حجز موعد لأخذ البصمات."
-},
-{
-fr:"POUR LES RDV ASSISTE UNE SOMME DOIT ÊTRE PAYÉE EN LIGNE AVEC LA CARTE DAHABIA.",
-en:"FOR ASSISTED APPOINTMENTS, AN AMOUNT MUST BE PAID ONLINE WITH THE DAHABIA CARD.",
-ar:"بالنسبة للمواعيد المساعدة، يجب دفع مبلغ عبر الإنترنت باستخدام بطاقة الذهبية."
-},
-{
-fr:"TOUT FRAIS INCLUS 65000 DZA.",
-en:"ALL FEES INCLUDED: 65,000 DZD.",
-ar:"جميع المصاريف مشمولة: 65000 دج."
-}
+{fr:"Création de l'adresse e-mail dédiée au dossier.",en:"Creation of the dedicated email address for the application.",ar:"إنشاء البريد الإلكتروني الخاص بالملف."},
+{fr:"Remplissage du formulaire de demande de visa.",en:"Completion of the visa application form.",ar:"ملء استمارة طلب التأشيرة."},
+{fr:"Préparation de la lettre explicative.",en:"Preparation of the explanatory letter.",ar:"إعداد رسالة التوضيح."},
+{fr:"Préparation du plan de voyage.",en:"Preparation of the travel plan.",ar:"إعداد برنامج الرحلة."},
+{fr:"Paiement en ligne des frais de visa.",en:"Online payment of visa fees.",ar:"دفع رسوم التأشيرة إلكترونيا."},
+{fr:"Prise de rendez-vous biométrique.",en:"Biometric appointment booking.",ar:"حجز موعد البصمة."},
+{fr:"Assistance au rendez-vous avec Dahabia.",en:"Assistance for the appointment with Dahabia.",ar:"المساعدة في موعد البصمة مع الذهبية."}
 ],
-price:{
-fr:"TOUT FRAIS INCLUS : 65 000 DZD",
-en:"ALL FEES INCLUDED: 65,000 DZD",
-ar:"جميع المصاريف مشمولة: 65000 دج"
-},
+price:{fr:"Tous frais compris : 65 000 DZD",en:"All fees included: 65,000 DZD",ar:"جميع الرسوم: 65,000 دج"},
 profiles:{
-commercant:{
-icon:"fa-store",
-name:{fr:"Commerçant",en:"Business Owner",ar:"تاجر"},
-documents:{
-fr:[
-"Passeport",
-"01 Photo",
-"Formulaire",
-"Assurance de Voyage",
-"Télex (fait par l’agence)",
-"Réservation d’hôtel (faite par l’agence)",
-"Lettre explicative (faite par l’agence)",
-"Plan du voyage (fait par l’agence)",
-"Invitation de l’hôte (le cas d’une invitation)",
-"Contrat de location de l’hôte (le cas d’une invitation)",
-"Passeport ou Carte de séjour de l’hôte (le cas d’une invitation)",
-"Relevé bancaire et fiches de paie de l’hôte (le cas d’une invitation)",
-"Extrait de naissance + Fiche familiale + Acte de mariage en Français",
-"Registre de Commerce original et traduit",
-"Mise à jour CASNOS",
-"C20 mentionnant le chiffre d’affaire",
-"Extrait drôle",
-"Compte Dinars Banque ou CCP (personnel et commercial)",
-"Relevé compte DZD et Euro 6 mois",
-"Attestation de solde DZD, EURO"
-],
-en:[
-"Passport",
-"01 Photo",
-"Form",
-"Travel Insurance",
-"Telex prepared by the agency",
-"Hotel reservation prepared by the agency",
-"Explanatory letter prepared by the agency",
-"Travel plan prepared by the agency",
-"Host invitation (if applicable)",
-"Host rental agreement (if applicable)",
-"Host passport or residence card (if applicable)",
-"Host bank statement and payslips (if applicable)",
-"Birth certificate + Family record + Marriage certificate in French",
-"Original and translated Trade Register",
-"CNSAS update",
-"C20 showing turnover",
-"Business extract",
-"Personal and business Dinar bank or CCP account",
-"6-month DZD and Euro bank statements",
-"DZD and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"تيليكس من إعداد الوكالة",
-"حجز الفندق من إعداد الوكالة",
-"الرسالة التوضيحية من إعداد الوكالة",
-"خطة السفر من إعداد الوكالة",
-"دعوة المضيف في حالة وجود دعوة",
-"عقد إيجار المضيف في حالة وجود دعوة",
-"جواز سفر المضيف أو بطاقة إقامته في حالة وجود دعوة",
-"كشف حساب المضيف وكشوف الرواتب في حالة وجود دعوة",
-"شهادة الميلاد + الدفتر العائلي + عقد الزواج باللغة الفرنسية",
-"السجل التجاري الأصلي والمترجم",
-"تحديث CASNOS",
-"وثيقة C20 التي توضح رقم الأعمال",
-"مستخرج النشاط",
-"حساب بنكي أو CCP بالدينار شخصي وتجاري",
-"كشف حساب بالدينار واليورو لمدة 6 أشهر",
-"شهادة رصيد بالدينار واليورو"
-]
-}
+commercant:{label:{fr:"Commerçant",en:"Business owner",ar:"تاجر"},docs:{fr:["Registre de commerce","Attestation d'activité","Relevés bancaires","Justificatifs financiers"],en:["Commercial register","Business activity certificate","Bank statements","Financial supporting documents"],ar:["السجل التجاري","شهادة النشاط","كشوف الحساب البنكي","الوثائق المالية"]}},
+salarie:{label:{fr:"Salarié",en:"Employee",ar:"موظف"},docs:{fr:["Attestation de travail","3 dernières fiches de paie","Relevés bancaires","Autorisation de congé"],en:["Employment certificate","Last 3 payslips","Bank statements","Leave authorization"],ar:["شهادة العمل","آخر 3 كشوف راتب","كشوف الحساب البنكي","رخصة العطلة"]}},
+etudiant:{label:{fr:"Étudiant",en:"Student",ar:"طالب"},docs:{fr:["Certificat de scolarité","Justificatifs du financement","Relevés bancaires du garant","Pièces d'identité"],en:["Student certificate","Proof of funding","Sponsor bank statements","Identity documents"],ar:["شهادة مدرسية","إثبات التمويل","كشوف حساب الكفيل","وثائق الهوية"]}},
+retraite:{label:{fr:"Retraité",en:"Retired",ar:"متقاعد"},docs:{fr:["Attestation de retraite","Relevés bancaires","Justificatifs de revenus","Pièces d'identité"],en:["Retirement certificate","Bank statements","Proof of income","Identity documents"],ar:["شهادة التقاعد","كشوف الحساب البنكي","إثبات الدخل","وثائق الهوية"]}},
+profession:{label:{fr:"Profession libérale",en:"Self-employed",ar:"مهنة حرة"},docs:{fr:["Justificatifs de profession","Documents fiscaux","Relevés bancaires","Pièces professionnelles"],en:["Professional proof","Tax documents","Bank statements","Professional documents"],ar:["إثبات المهنة","الوثائق الجبائية","كشوف الحساب البنكي","الوثائق المهنية"]}},
+agriculteur:{label:{fr:"Agriculteur",en:"Farmer",ar:"فلاح"},docs:{fr:["Justificatif d'activité agricole","Documents de propriété ou exploitation","Relevés bancaires","Justificatifs de revenus"],en:["Agricultural activity proof","Property or farming documents","Bank statements","Proof of income"],ar:["إثبات النشاط الفلاحي","وثائق الملكية أو الاستغلال","كشوف الحساب البنكي","إثبات الدخل"]}}
 },
-salarie:{
-icon:"fa-briefcase",
-name:{fr:"Salarié",en:"Employee",ar:"موظف"},
-documents:{
-fr:[
-"Passeport",
-"01 Photo",
-"Formulaire",
-"Assurance de Voyage",
-"Télex (fait par l’agence)",
-"Réservation d’hôtel (faite par l’agence)",
-"Lettre explicative (faite par l’agence)",
-"Plan du voyage (fait par l’agence)",
-"Invitation de l’hôte (le cas d’une invitation)",
-"Contrat de location de l’hôte (le cas d’une invitation)",
-"Passeport ou Carte de séjour de l’hôte (le cas d’une invitation)",
-"Relevé bancaire et fiches de paie de l’hôte (le cas d’une invitation)",
-"Extrait de naissance + Fiche familiale + Acte de mariage en Français",
-"Attestation de travail",
-"03 dernières Fiches de Paie",
-"Attestation Affiliation CNAS",
-"Relevé compte DZD et Euro 6 mois",
-"Titre de Congé",
-"Attestation de solde",
-"Relevé des émoluments"
-],
-en:[
-"Passport",
-"01 Photo",
-"Form",
-"Travel Insurance",
-"Telex prepared by the agency",
-"Hotel reservation prepared by the agency",
-"Explanatory letter prepared by the agency",
-"Travel plan prepared by the agency",
-"Host invitation (if applicable)",
-"Host rental agreement (if applicable)",
-"Host passport or residence card (if applicable)",
-"Host bank statement and payslips (if applicable)",
-"Birth certificate + Family record + Marriage certificate in French",
-"Employment certificate",
-"Last 3 payslips",
-"CNAS affiliation certificate",
-"6-month DZD and Euro bank statements",
-"Leave certificate",
-"Balance certificate",
-"Salary statement"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"تيليكس من إعداد الوكالة",
-"حجز الفندق من إعداد الوكالة",
-"الرسالة التوضيحية من إعداد الوكالة",
-"خطة السفر من إعداد الوكالة",
-"دعوة المضيف في حالة وجود دعوة",
-"عقد إيجار المضيف في حالة وجود دعوة",
-"جواز سفر المضيف أو بطاقة إقامته في حالة وجود دعوة",
-"كشف حساب المضيف وكشوف الرواتب في حالة وجود دعوة",
-"شهادة الميلاد + الدفتر العائلي + عقد الزواج باللغة الفرنسية",
-"شهادة العمل",
-"آخر 3 كشوفات للراتب",
-"شهادة الانتساب إلى CNAS",
-"كشف حساب بالدينار واليورو لمدة 6 أشهر",
-"شهادة العطلة",
-"شهادة الرصيد",
-"كشف الأجور"
-]
-}
+additional:{fr:["Passeport valide","Photo d'identité","Justificatifs de voyage"],en:["Valid passport","Passport photo","Travel supporting documents"],ar:["جواز سفر ساري","صورة شخصية","وثائق السفر"]}
 },
-etudiant:{
-icon:"fa-graduation-cap",
-name:{fr:"Étudiant",en:"Student",ar:"طالب"},
-documents:{
-fr:[
-"Passeport",
-"01 Photo",
-"Formulaire",
-"Assurance de Voyage",
-"Certificat de Scolarité",
-"Fiche Familiale en Français",
-"Acte de Naissance en Français",
-"Compte Euro et compte Dinar (06 mois garant)",
-"Attestation de retrait devise (garant)",
-"Attestation de solde DZD et Euro (garant)",
-"Déclaration du garant"
-],
-en:[
-"Passport",
-"01 Photo",
-"Form",
-"Travel Insurance",
-"School certificate",
-"Family record in French",
-"Birth certificate in French",
-"Euro and Dinar account (6 months - guarantor)",
-"Foreign currency withdrawal certificate (guarantor)",
-"DZD and Euro balance certificate (guarantor)",
-"Guarantor declaration"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"شهادة مدرسية",
-"الدفتر العائلي باللغة الفرنسية",
-"شهادة الميلاد باللغة الفرنسية",
-"حساب باليورو وحساب بالدينار لمدة 6 أشهر للضامن",
-"شهادة سحب العملة للضامن",
-"شهادة رصيد بالدينار واليورو للضامن",
-"تصريح الضامن"
-]
-}
-},
-retraite:{
-icon:"fa-person-cane",
-name:{fr:"Retraité",en:"Retired",ar:"متقاعد"},
-documents:{
-fr:[
-"Passeport",
-"01 Photo",
-"Formulaire",
-"Assurance de Voyage",
-"Attestation de Revenue CNR",
-"Compte Dinars Banque ou CCP (06 mois)",
-"Compte Euro (06 mois)",
-"Attestation de solde Dinars Euro"
-],
-en:[
-"Passport",
-"01 Photo",
-"Form",
-"Travel Insurance",
-"CNR income certificate",
-"Dinar bank or CCP account (6 months)",
-"Euro account (6 months)",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"شهادة دخل CNR",
-"حساب بنكي بالدينار أو CCP لمدة 6 أشهر",
-"حساب باليورو لمدة 6 أشهر",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-},
-profession:{
-icon:"fa-user-tie",
-name:{fr:"Profession Libérale",en:"Self-Employed Professional",ar:"مهنة حرة"},
-documents:{
-fr:[
-"Passeport",
-"01 Photo",
-"Formulaire",
-"Assurance de Voyage",
-"Agrément d’exploitation",
-"Mise à jour CASNOS",
-"C20 mentionnant le chiffre d’affaire",
-"Historique compte Dinars et Euro (personnel et commercial)",
-"Attestation de solde Dinars et Euro"
-],
-en:[
-"Passport",
-"01 Photo",
-"Form",
-"Travel Insurance",
-"Operating licence",
-"CNSAS update",
-"C20 showing turnover",
-"Dinar and Euro account history (personal and business)",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"اعتماد الاستغلال",
-"تحديث CASNOS",
-"وثيقة C20 التي توضح رقم الأعمال",
-"كشف تاريخ الحساب بالدينار واليورو شخصي وتجاري",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-},
-agriculteur:{
-icon:"fa-tractor",
-name:{fr:"Agriculteur",en:"Farmer",ar:"فلاح"},
-documents:{
-fr:[
-"Passeport",
-"01 Photo",
-"Formulaire",
-"Assurance de Voyage",
-"Carte d’agriculteur",
-"Fiche Signalétique",
-"Compte Dinars Euro Banque",
-"Mise à jour CASNOS",
-"Attestation de solde Dinars et Euro"
-],
-en:[
-"Passport",
-"01 Photo",
-"Form",
-"Travel Insurance",
-"Farmer card",
-"Identification sheet",
-"Dinar and Euro bank account",
-"CNSAS update",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"بطاقة الفلاح",
-"بطاقة المعلومات",
-"حساب بنكي بالدينار واليورو",
-"تحديث CASNOS",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-}
-},
-additional:{
-fr:[
-"Bien Immobilier original et traduit en ANGLAIS (Maison, Terrain, ...)",
-"Carte d’immatriculation auto (original et traduit en ANGLAIS)",
-"Copie des anciens Visas (Schengen, USA, Angleterre, Canada)"
-],
-en:[
-"Original property documents translated into ENGLISH (House, Land, ...)",
-"Vehicle registration card, original and translated into ENGLISH",
-"Copies of previous visas (Schengen, USA, England, Canada)"
-],
-ar:[
-"وثائق الملكية العقارية الأصلية والمترجمة إلى الإنجليزية (منزل، أرض، ...)",
-"بطاقة تسجيل السيارة الأصلية والمترجمة إلى الإنجليزية",
-"نسخ من التأشيرات السابقة (شنغن، الولايات المتحدة، إنجلترا، كندا)"
-]
-}
-},
-
 canada:{
-country:"🇨🇦 CANADA",
-title:{
-fr:"OFFRE DÉMARCHE VISA CANADA TOURISTIQUE, AFFAIRE ET VISITE FAMILIALE",
-en:"CANADA TOURIST, BUSINESS AND FAMILY VISIT VISA SERVICE",
-ar:"خدمة إجراءات تأشيرة كندا للسياحة والأعمال والزيارة العائلية"
-},
-description:{
-fr:"Accompagnement professionnel pour vos démarches de visa Canada.",
-en:"Professional assistance for your Canadian visa application.",
-ar:"مرافقة مهنية في إجراءات طلب تأشيرة كندا."
-},
+country:"CANADA",
+title:{fr:"OFFRE DÉMARCHE VISA CANADA TOURISTIQUE",en:"CANADA TOURIST VISA SERVICE",ar:"خدمة إجراءات تأشيرة كندا السياحية"},
+description:{fr:"Accompagnement complet pour la préparation et la soumission de votre dossier Canada.",en:"Complete assistance with the preparation and submission of your Canada application.",ar:"مرافقة كاملة لإعداد وإيداع ملف تأشيرة كندا."},
 services:[
-{fr:"CRÉATION COMPTE CLEGC.",en:"GCKey ACCOUNT CREATION.",ar:"إنشاء حساب GCKey."},
-{fr:"REMPLISSAGE LES FORMULAIRES (IMM5257F / IMM5257B / IMM5645F).",en:"FORM COMPLETION (IMM5257F / IMM5257B / IMM5645F).",ar:"ملء الاستمارات (IMM5257F / IMM5257B / IMM5645F)."},
-{fr:"RÉSERVATION BILLET (TELEX).",en:"TICKET RESERVATION (TELEX).",ar:"حجز تذكرة (تيليكس)."},
-{fr:"LETTRE EXPLICATIVE.",en:"EXPLANATORY LETTER.",ar:"رسالة توضيحية."},
-{fr:"PLAN DE VOYAGE.",en:"TRAVEL PLAN.",ar:"خطة السفر."},
-{fr:"VOUCHER.",en:"VOUCHER.",ar:"قسيمة الحجز."},
-{fr:"TRAITEMENT DE DOSSIER.",en:"APPLICATION FILE PROCESSING.",ar:"معالجة الملف."},
-{fr:"SOUMETTRE LE DOSSIER EN LIGNE.",en:"ONLINE APPLICATION SUBMISSION.",ar:"إيداع الملف عبر الإنترنت."},
-{fr:"PAIEMENT EN LIGNE FRAIS DE VISA.",en:"ONLINE VISA FEE PAYMENT.",ar:"الدفع الإلكتروني لرسوم التأشيرة."},
-{fr:"PRISE DE RENDEZ-VOUS POUR L’EMPREINTE.",en:"BIOMETRIC APPOINTMENT BOOKING.",ar:"حجز موعد لأخذ البصمات."},
-{fr:"PAIEMENT EN LIGNE FRAIS DE BIOMÉTRIE (EMPREINTE).",en:"ONLINE BIOMETRIC FEE PAYMENT.",ar:"الدفع الإلكتروني لرسوم القياسات الحيوية (البصمة)."},
-{fr:"TOUT FRAIS INCLUS 51000 DZD (ADT).",en:"ALL FEES INCLUDED: 51,000 DZD (ADULT).",ar:"جميع المصاريف مشمولة: 51000 دج (بالغ)."},
-{fr:"TOUT FRAIS INCLUS 36000 DZD (CHD).",en:"ALL FEES INCLUDED: 36,000 DZD (CHILD).",ar:"جميع المصاريف مشمولة: 36000 دج (طفل)."}
+{fr:"Création du compte GCKey.",en:"GCKey account creation.",ar:"إنشاء حساب GCKey."},
+{fr:"Remplissage des formulaires IMM5257F / IMM5645F.",en:"Completion of IMM5257F / IMM5645F forms.",ar:"ملء استمارات IMM5257F / IMM5645F."},
+{fr:"Réservation du billet.",en:"Flight reservation.",ar:"حجز تذكرة الطيران."},
+{fr:"Préparation de la lettre explicative.",en:"Preparation of the explanatory letter.",ar:"إعداد رسالة التوضيح."},
+{fr:"Préparation du plan de voyage.",en:"Preparation of the travel plan.",ar:"إعداد برنامج الرحلة."},
+{fr:"Préparation du voucher hôtel.",en:"Hotel voucher preparation.",ar:"إعداد حجز الفندق."},
+{fr:"Traitement et préparation du dossier.",en:"Application preparation and processing.",ar:"معالجة وتحضير الملف."},
+{fr:"Soumission en ligne.",en:"Online submission.",ar:"الإيداع الإلكتروني."},
+{fr:"Paiement des frais de visa en ligne.",en:"Online visa fee payment.",ar:"دفع رسوم التأشيرة إلكترونيا."},
+{fr:"Prise de rendez-vous biométrique.",en:"Biometric appointment booking.",ar:"حجز موعد البصمة."},
+{fr:"Frais biométriques.",en:"Biometric fees.",ar:"رسوم البصمة."}
 ],
-price:{
-fr:"TOUT FRAIS INCLUS : 51 000 DZD (ADT) — 36 000 DZD (CHD)",
-en:"ALL FEES INCLUDED: 51,000 DZD (ADULT) — 36,000 DZD (CHILD)",
-ar:"جميع المصاريف مشمولة: 51000 دج (بالغ) — 36000 دج (طفل)"
-},
+price:{fr:"Adulte : 51 000 DZD • Enfant : 36 000 DZD",en:"Adult: 51,000 DZD • Child: 36,000 DZD",ar:"بالغ: 51,000 دج • طفل: 36,000 دج"},
 profiles:{
-commercant:{
-icon:"fa-store",
-name:{fr:"Commerçant",en:"Business Owner",ar:"تاجر"},
-documents:{
-fr:[
-"Passeport",
-"01 Photos",
-"Formulaire",
-"Assurance de Voyage",
-"Télex (fait par l’agence)",
-"Réservation d’hôtel (faite par l’agence)",
-"Lettre explicative (faite par l’agence)",
-"Plan du voyage (fait par l’agence)",
-"Invitation de l’hôte (le cas d’une invitation)",
-"Contrat de location de l’hôte (le cas d’une invitation)",
-"Passeport ou Carte de séjour de l’hôte (le cas d’une invitation)",
-"Relevé bancaire et fiches de paie de l’hôte (le cas d’une invitation)",
-"Extrait de naissance + Fiche familiale + Acte de mariage en Français",
-"Registre de Commerce original et traduit",
-"Mise à jour CASNOS",
-"C20 mentionnant le chiffre d’affaire",
-"Extrait drôle",
-"Compte Dinars Banque ou CCP (personnel et commercial)",
-"Relevé compte DZD et Euro 6 mois",
-"Attestation de solde DZD, EURO"
-],
-en:[
-"Passport",
-"01 Photos",
-"Form",
-"Travel Insurance",
-"Telex prepared by the agency",
-"Hotel reservation prepared by the agency",
-"Explanatory letter prepared by the agency",
-"Travel plan prepared by the agency",
-"Host invitation (if applicable)",
-"Host rental agreement (if applicable)",
-"Host passport or residence card (if applicable)",
-"Host bank statement and payslips (if applicable)",
-"Birth certificate + Family record + Marriage certificate in French",
-"Original and translated Trade Register",
-"CNSAS update",
-"C20 showing turnover",
-"Business extract",
-"Personal and business Dinar bank or CCP account",
-"6-month DZD and Euro bank statements",
-"DZD and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"تيليكس من إعداد الوكالة",
-"حجز الفندق من إعداد الوكالة",
-"الرسالة التوضيحية من إعداد الوكالة",
-"خطة السفر من إعداد الوكالة",
-"دعوة المضيف في حالة وجود دعوة",
-"عقد إيجار المضيف في حالة وجود دعوة",
-"جواز سفر المضيف أو بطاقة إقامته في حالة وجود دعوة",
-"كشف حساب المضيف وكشوف الرواتب في حالة وجود دعوة",
-"شهادة الميلاد + الدفتر العائلي + عقد الزواج باللغة الفرنسية",
-"السجل التجاري الأصلي والمترجم",
-"تحديث CASNOS",
-"وثيقة C20 التي توضح رقم الأعمال",
-"مستخرج النشاط",
-"حساب بنكي أو CCP بالدينار شخصي وتجاري",
-"كشف حساب بالدينار واليورو لمدة 6 أشهر",
-"شهادة رصيد بالدينار واليورو"
-]
-}
+commercant:{label:{fr:"Commerçant",en:"Business owner",ar:"تاجر"},docs:{fr:["Registre de commerce","Attestation d'activité","Relevés bancaires","Justificatifs financiers"],en:["Commercial register","Business activity certificate","Bank statements","Financial supporting documents"],ar:["السجل التجاري","شهادة النشاط","كشوف الحساب البنكي","الوثائق المالية"]}},
+salarie:{label:{fr:"Salarié",en:"Employee",ar:"موظف"},docs:{fr:["Attestation de travail","3 dernières fiches de paie","Relevés bancaires","Autorisation de congé"],en:["Employment certificate","Last 3 payslips","Bank statements","Leave authorization"],ar:["شهادة العمل","آخر 3 كشوف راتب","كشوف الحساب البنكي","رخصة العطلة"]}},
+etudiant:{label:{fr:"Étudiant",en:"Student",ar:"طالب"},docs:{fr:["Certificat de scolarité","Justificatifs du financement","Relevés bancaires du garant","Pièces d'identité"],en:["Student certificate","Proof of funding","Sponsor bank statements","Identity documents"],ar:["شهادة مدرسية","إثبات التمويل","كشوف حساب الكفيل","وثائق الهوية"]}},
+retraite:{label:{fr:"Retraité",en:"Retired",ar:"متقاعد"},docs:{fr:["Attestation de retraite","Relevés bancaires","Justificatifs de revenus"],en:["Retirement certificate","Bank statements","Proof of income"],ar:["شهادة التقاعد","كشوف الحساب البنكي","إثبات الدخل"]}},
+profession:{label:{fr:"Profession libérale",en:"Self-employed",ar:"مهنة حرة"},docs:{fr:["Justificatifs de profession","Documents fiscaux","Relevés bancaires","Pièces professionnelles"],en:["Professional proof","Tax documents","Bank statements","Professional documents"],ar:["إثبات المهنة","الوثائق الجبائية","كشوف الحساب البنكي","الوثائق المهنية"]}},
+agriculteur:{label:{fr:"Agriculteur",en:"Farmer",ar:"فلاح"},docs:{fr:["Justificatif d'activité agricole","Documents de propriété ou exploitation","Relevés bancaires","Justificatifs de revenus"],en:["Agricultural activity proof","Property or farming documents","Bank statements","Proof of income"],ar:["إثبات النشاط الفلاحي","وثائق الملكية أو الاستغلال","كشوف الحساب البنكي","إثبات الدخل"]}}
 },
-salarie:{
-icon:"fa-briefcase",
-name:{fr:"Salarié",en:"Employee",ar:"موظف"},
-documents:{
-fr:[
-"Passeport",
-"01 Photos",
-"Formulaire",
-"Assurance de Voyage",
-"Attestation de travail",
-"03 dernières Fiches de Paie",
-"Attestation Affiliation CNAS",
-"Relevé compte DZD et Euro 6 mois",
-"Titre de Congé",
-"Attestation de solde",
-"Relevé des émoluments"
-],
-en:[
-"Passport",
-"01 Photos",
-"Form",
-"Travel Insurance",
-"Employment certificate",
-"Last 3 payslips",
-"CNAS affiliation certificate",
-"6-month DZD and Euro bank statements",
-"Leave certificate",
-"Balance certificate",
-"Salary statement"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"شهادة العمل",
-"آخر 3 كشوفات للراتب",
-"شهادة الانتساب إلى CNAS",
-"كشف حساب بالدينار واليورو لمدة 6 أشهر",
-"شهادة العطلة",
-"شهادة الرصيد",
-"كشف الأجور"
-]
-}
+additional:{fr:["Passeport valide","Photo d'identité","Justificatifs de voyage"],en:["Valid passport","Passport photo","Travel supporting documents"],ar:["جواز سفر ساري","صورة شخصية","وثائق السفر"]}
 },
-etudiant:{
-icon:"fa-graduation-cap",
-name:{fr:"Étudiant",en:"Student",ar:"طالب"},
-documents:{
-fr:[
-"Passeport",
-"01 Photos",
-"Formulaire",
-"Assurance de Voyage",
-"Certificat de Scolarité",
-"Fiche Familiale en Français",
-"Acte de Naissance en Français",
-"Compte Euro compte Dinar (06 mois garant)",
-"Attestation de retrait devise (garant)",
-"Attestation de solde DZD et Euro (garant)",
-"Déclaration du garant"
-],
-en:[
-"Passport",
-"01 Photos",
-"Form",
-"Travel Insurance",
-"School certificate",
-"Family record in French",
-"Birth certificate in French",
-"Euro and Dinar accounts (6 months - guarantor)",
-"Foreign currency withdrawal certificate (guarantor)",
-"DZD and Euro balance certificate (guarantor)",
-"Guarantor declaration"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"شهادة مدرسية",
-"الدفتر العائلي باللغة الفرنسية",
-"شهادة الميلاد باللغة الفرنسية",
-"حساب باليورو وحساب بالدينار لمدة 6 أشهر للضامن",
-"شهادة سحب العملة للضامن",
-"شهادة رصيد بالدينار واليورو للضامن",
-"تصريح الضامن"
-]
-}
-},
-retraite:{
-icon:"fa-person-cane",
-name:{fr:"Retraité",en:"Retired",ar:"متقاعد"},
-documents:{
-fr:[
-"Passeport",
-"01 Photos",
-"Formulaire",
-"Assurance de Voyage",
-"Attestation de Revenue CNR",
-"Compte Dinars Banque ou CCP (06 mois)",
-"Compte Euro (06 mois)",
-"Attestation de solde Dinars Euro"
-],
-en:[
-"Passport",
-"01 Photos",
-"Form",
-"Travel Insurance",
-"CNR income certificate",
-"Dinar bank or CCP account (6 months)",
-"Euro account (6 months)",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة واحدة",
-"الاستمارة",
-"تأمين السفر",
-"شهادة دخل CNR",
-"حساب بنكي بالدينار أو CCP لمدة 6 أشهر",
-"حساب باليورو لمدة 6 أشهر",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-},
-profession:{
-icon:"fa-user-tie",
-name:{fr:"Profession Libérale",en:"Self-Employed Professional",ar:"مهنة حرة"},
-documents:{
-fr:[
-"Agrément d’exploitation",
-"Mise à jour CASNOS",
-"C20 mentionnant le chiffre d’affaire",
-"Historique compte Dinars et Euro (personnel et commercial)",
-"Attestation de solde Dinars et Euro"
-],
-en:[
-"Operating licence",
-"CNSAS update",
-"C20 showing turnover",
-"Dinar and Euro account history (personal and business)",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"اعتماد الاستغلال",
-"تحديث CASNOS",
-"وثيقة C20 التي توضح رقم الأعمال",
-"كشف تاريخ الحساب بالدينار واليورو شخصي وتجاري",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-},
-agriculteur:{
-icon:"fa-tractor",
-name:{fr:"Agriculteur",en:"Farmer",ar:"فلاح"},
-documents:{
-fr:[
-"Carte d’agriculteur",
-"Fiche Signalétique",
-"Compte Dinars Euro Banque",
-"Mise à jour CASNOS",
-"Attestation de solde Dinars et Euro"
-],
-en:[
-"Farmer card",
-"Identification sheet",
-"Dinar and Euro bank account",
-"CNSAS update",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"بطاقة الفلاح",
-"بطاقة المعلومات",
-"حساب بنكي بالدينار واليورو",
-"تحديث CASNOS",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-}
-},
-additional:{
-fr:[
-"Bien Immobilier original et traduit en Français (Maison, Terrain, ....)",
-"Carte d’immatriculation auto (original et traduit en français)",
-"Copie des anciens Visas (Schengen, Usa, Angleterre, Canada)"
-],
-en:[
-"Original property document translated into French (House, Land, ...)",
-"Vehicle registration card, original and translated into French",
-"Copies of previous visas (Schengen, USA, England, Canada)"
-],
-ar:[
-"وثيقة الملكية العقارية الأصلية والمترجمة إلى الفرنسية (منزل، أرض، ...)",
-"بطاقة تسجيل السيارة الأصلية والمترجمة إلى الفرنسية",
-"نسخ من التأشيرات السابقة (شنغن، الولايات المتحدة، إنجلترا، كندا)"
-]
-}
-},
-
 chine:{
-country:"🇨🇳 CHINE",
-title:{
-fr:"OFFRE DÉMARCHE VISA LA CHINE TOURISTIQUE / AFFAIRE",
-en:"CHINA TOURIST / BUSINESS VISA SERVICE",
-ar:"خدمة إجراءات تأشيرة الصين للسياحة والأعمال"
-},
-description:{
-fr:"Accompagnement professionnel pour vos démarches de visa Chine.",
-en:"Professional assistance for your Chinese visa application.",
-ar:"مرافقة مهنية في إجراءات طلب تأشيرة الصين."
-},
+country:"CHINE",
+title:{fr:"OFFRE DÉMARCHE VISA CHINE",en:"CHINA VISA SERVICE",ar:"خدمة إجراءات تأشيرة الصين"},
+description:{fr:"Préparation et accompagnement pour les démarches de visa Chine.",en:"Preparation and assistance for China visa procedures.",ar:"تحضير ومرافقة لإجراءات تأشيرة الصين."},
 services:[
-{fr:"RÉSERVATION BILLET (TELEX).",en:"TICKET RESERVATION (TELEX).",ar:"حجز تذكرة (تيليكس)."},
-{fr:"VOUCHER (PRÉRÉSERVATION D’HÔTEL).",en:"VOUCHER (HOTEL PRE-RESERVATION).",ar:"قسيمة حجز (حجز فندق مبدئي)."},
-{fr:"ASSURANCE VOYAGE.",en:"TRAVEL INSURANCE.",ar:"تأمين السفر."},
-{fr:"TRAITEMENT DE DOSSIER.",en:"APPLICATION FILE PROCESSING.",ar:"معالجة الملف."},
-{fr:"PRISE DE RENDEZ-VOUS POUR LE DÉPÔT VISA.",en:"VISA APPLICATION APPOINTMENT BOOKING.",ar:"حجز موعد لإيداع طلب التأشيرة."},
-{fr:"INVITATION (AFFAIRE).",en:"BUSINESS INVITATION.",ar:"دعوة مهنية."},
-{fr:"TOUT FRAIS INCLUS 18000 DZD (ADT).",en:"ALL FEES INCLUDED: 18,000 DZD (ADULT).",ar:"جميع المصاريف مشمولة: 18000 دج (بالغ)."},
-{fr:"RENOUVELLEMENT À 12000 DZD.",en:"RENEWAL: 12,000 DZD.",ar:"التجديد: 12000 دج."}
+{fr:"Réservation du billet.",en:"Flight reservation.",ar:"حجز تذكرة الطيران."},
+{fr:"Voucher hôtel.",en:"Hotel voucher.",ar:"حجز الفندق."},
+{fr:"Assurance voyage.",en:"Travel insurance.",ar:"تأمين السفر."},
+{fr:"Traitement et préparation du dossier.",en:"Application preparation and processing.",ar:"معالجة وتحضير الملف."},
+{fr:"Prise de rendez-vous visa.",en:"Visa appointment booking.",ar:"حجز موعد التأشيرة."},
+{fr:"Invitation business.",en:"Business invitation.",ar:"دعوة تجارية."}
 ],
-price:{
-fr:"TOUT FRAIS INCLUS : 18 000 DZD (ADT) — RENOUVELLEMENT : 12 000 DZD",
-en:"ALL FEES INCLUDED: 18,000 DZD (ADULT) — RENEWAL: 12,000 DZD",
-ar:"جميع المصاريف مشمولة: 18000 دج (بالغ) — التجديد: 12000 دج"
-},
+price:{fr:"Visa : 18 000 DZD adulte • Renouvellement : 12 000 DZD",en:"Visa: 18,000 DZD adult • Renewal: 12,000 DZD",ar:"التأشيرة: 18,000 دج للبالغ • التجديد: 12,000 دج"},
 profiles:{
-commercant:{
-icon:"fa-store",
-name:{fr:"Commerçant",en:"Business Owner",ar:"تاجر"},
-documents:{
-fr:[
-"Passeport",
-"PHOTO 5/5",
-"Casier judiciaire",
-"Adresse domicile",
-"Numéro de téléphone",
-"Acte de naissance",
-"Registre de Commerce original et traduit",
-"Relevé compte DZD et Euro 6 mois",
-"Attestation de solde DZD, EURO"
-],
-en:[
-"Passport",
-"5/5 PHOTO",
-"Criminal record",
-"Home address",
-"Telephone number",
-"Birth certificate",
-"Original and translated Trade Register",
-"6-month DZD and Euro bank statements",
-"DZD and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة 5/5",
-"صحيفة السوابق العدلية",
-"عنوان السكن",
-"رقم الهاتف",
-"شهادة الميلاد",
-"السجل التجاري الأصلي والمترجم",
-"كشف حساب بالدينار واليورو لمدة 6 أشهر",
-"شهادة رصيد بالدينار واليورو"
-]
-}
+commercant:{label:{fr:"Commerçant",en:"Business owner",ar:"تاجر"},docs:{fr:["Registre de commerce","Attestation d'activité","Relevés bancaires"],en:["Commercial register","Business activity certificate","Bank statements"],ar:["السجل التجاري","شهادة النشاط","كشوف الحساب البنكي"]}},
+salarie:{label:{fr:"Salarié",en:"Employee",ar:"موظف"},docs:{fr:["Attestation de travail","Fiches de paie","Relevés bancaires"],en:["Employment certificate","Payslips","Bank statements"],ar:["شهادة العمل","كشوف الراتب","كشوف الحساب البنكي"]}},
+retraite:{label:{fr:"Retraité",en:"Retired",ar:"متقاعد"},docs:{fr:["Attestation de retraite","Relevés bancaires","Justificatifs de revenus"],en:["Retirement certificate","Bank statements","Proof of income"],ar:["شهادة التقاعد","كشوف الحساب البنكي","إثبات الدخل"]}},
+agriculteur:{label:{fr:"Agriculteur",en:"Farmer",ar:"فلاح"},docs:{fr:["Justificatif d'activité agricole","Relevés bancaires","Justificatifs de revenus"],en:["Agricultural activity proof","Bank statements","Proof of income"],ar:["إثبات النشاط الفلاحي","كشوف الحساب البنكي","إثبات الدخل"]}}
 },
-salarie:{
-icon:"fa-briefcase",
-name:{fr:"Salarié",en:"Employee",ar:"موظف"},
-documents:{
-fr:[
-"Passeport",
-"PHOTO 5/5",
-"Casier judiciaire",
-"Adresse domicile",
-"Numéro de téléphone",
-"Acte de naissance",
-"Attestation de travail",
-"03 dernières Fiches de Paie",
-"Relevé compte DZD et Euro 6 mois",
-"Attestation de solde EURO"
-],
-en:[
-"Passport",
-"5/5 PHOTO",
-"Criminal record",
-"Home address",
-"Telephone number",
-"Birth certificate",
-"Employment certificate",
-"Last 3 payslips",
-"6-month DZD and Euro bank statements",
-"Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة 5/5",
-"صحيفة السوابق العدلية",
-"عنوان السكن",
-"رقم الهاتف",
-"شهادة الميلاد",
-"شهادة العمل",
-"آخر 3 كشوفات للراتب",
-"كشف حساب بالدينار واليورو لمدة 6 أشهر",
-"شهادة رصيد باليورو"
-]
-}
-},
-retraite:{
-icon:"fa-person-cane",
-name:{fr:"Retraité",en:"Retired",ar:"متقاعد"},
-documents:{
-fr:[
-"Passeport",
-"PHOTO 5/5",
-"Casier judiciaire",
-"Adresse domicile",
-"Numéro de téléphone",
-"Acte de naissance",
-"Attestation de Revenue CNR",
-"Compte Dinars Banque ou CCP (06 mois)",
-"Compte Euro (06 mois)",
-"Attestation de solde Dinars Euro"
-],
-en:[
-"Passport",
-"5/5 PHOTO",
-"Criminal record",
-"Home address",
-"Telephone number",
-"Birth certificate",
-"CNR income certificate",
-"Dinar bank or CCP account (6 months)",
-"Euro account (6 months)",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة 5/5",
-"صحيفة السوابق العدلية",
-"عنوان السكن",
-"رقم الهاتف",
-"شهادة الميلاد",
-"شهادة دخل CNR",
-"حساب بنكي بالدينار أو CCP لمدة 6 أشهر",
-"حساب باليورو لمدة 6 أشهر",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-},
-agriculteur:{
-icon:"fa-tractor",
-name:{fr:"Agriculteur",en:"Farmer",ar:"فلاح"},
-documents:{
-fr:[
-"Passeport",
-"PHOTO 5/5",
-"Casier judiciaire",
-"Adresse domicile",
-"Numéro de téléphone",
-"Acte de naissance",
-"Carte d’agriculteur",
-"Fiche Signalétique",
-"Compte Dinars Euro Banque (06 mois)",
-"Attestation de solde Dinars et Euro"
-],
-en:[
-"Passport",
-"5/5 PHOTO",
-"Criminal record",
-"Home address",
-"Telephone number",
-"Birth certificate",
-"Farmer card",
-"Identification sheet",
-"Dinar and Euro bank account (6 months)",
-"Dinar and Euro balance certificate"
-],
-ar:[
-"جواز السفر",
-"صورة 5/5",
-"صحيفة السوابق العدلية",
-"عنوان السكن",
-"رقم الهاتف",
-"شهادة الميلاد",
-"بطاقة الفلاح",
-"بطاقة المعلومات",
-"حساب بنكي بالدينار واليورو لمدة 6 أشهر",
-"شهادة رصيد بالدينار واليورو"
-]
-}
-}
-},
-additional:{
-fr:[],
-en:[],
-ar:[]
-}
+additional:{fr:[],en:[],ar:[]}
 }
 };
+
+const evisaData=[
+{id:"saudi",name:{fr:"Arabie Saoudite",en:"Saudi Arabia",ar:"المملكة العربية السعودية"},offers:[
+{type:{fr:"E-VISA TOURISTIQUE",en:"TOURIST E-VISA",ar:"تأشيرة إلكترونية سياحية"},price:"40 000 DA",dossier:{fr:"Passeport scan, photo + VISA SCHENGEN/UK/USA OU RESIDENCE PAYS DU GOLF",en:"Passport scan, photo + valid SCHENGEN/UK/USA VISA OR RESIDENCE IN A GULF COUNTRY",ar:"نسخة ممسوحة من جواز السفر، صورة + تأشيرة شنغن/المملكة المتحدة/الولايات المتحدة أو إقامة في إحدى دول الخليج"},delai:{fr:"Selon disponibilité. Avec VISA SCHENGEN/UK/USA ou résidence des pays du Golfe : 72H.",en:"Subject to availability. With a SCHENGEN/UK/USA VISA or Gulf country residence: 72H.",ar:"حسب التوفر. مع تأشيرة شنغن/المملكة المتحدة/الولايات المتحدة أو إقامة في دول الخليج: 72 ساعة."}},
+{type:{fr:"OMRA • 1 AN MULTIPLE",en:"UMRAH • 1 YEAR MULTIPLE",ar:"عمرة • سنة واحدة متعددة"},price:"89 000 DA",dossier:{fr:"Scan passeport",en:"Passport scan",ar:"نسخة ممسوحة من جواز السفر"},delai:{fr:"180 jours",en:"180 days",ar:"180 يوما"}}]},
+{id:"azerbaijan",name:{fr:"Azerbaïdjan",en:"Azerbaijan",ar:"أذربيجان"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"15 000 DA",dossier:{fr:"Scan passeport, scan photo",en:"Passport scan, photo scan",ar:"نسخة ممسوحة من جواز السفر، نسخة ممسوحة من الصورة"},delai:{fr:"06 jours ouvrables",en:"6 business days",ar:"6 أيام عمل"}},
+{type:{fr:"30 JOURS EXPRESS",en:"30-DAY EXPRESS",ar:"30 يوما مستعجل"},price:"29 000 DA",dossier:{fr:"Scan passeport, scan photo",en:"Passport scan, photo scan",ar:"نسخة ممسوحة من جواز السفر، نسخة ممسوحة من الصورة"},delai:{fr:"5H",en:"5 hours",ar:"5 ساعات"}}]},
+{id:"jordan",name:{fr:"Jordanie",en:"Jordan",ar:"الأردن"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"3 500 DA",dossier:{fr:"Passeport",en:"Passport",ar:"جواز السفر"},delai:{fr:"24 H",en:"24 hours",ar:"24 ساعة"}},
+{type:{fr:"30 JOURS STICKER",en:"30-DAY STICKER VISA",ar:"تأشيرة ملصق لمدة 30 يوما"},price:"9 000 DA",dossier:{fr:"Passeport",en:"Passport",ar:"جواز السفر"},delai:{fr:"5 jours ouvrables",en:"5 business days",ar:"5 أيام عمل"}}]},
+{id:"armenia",name:{fr:"Arménie",en:"Armenia",ar:"أرمينيا"},offers:[
+{type:{fr:"21 JOURS E-VISA",en:"21-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 21 يوما"},price:"8 000 DA",dossier:{fr:"Passeport, photo, assurance de voyages",en:"Passport, photo, travel insurance",ar:"جواز السفر، صورة، تأمين السفر"},delai:{fr:"5 jours ouvrables",en:"5 business days",ar:"5 أيام عمل"}},
+{type:{fr:"120 JOURS E-VISA",en:"120-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 120 يوما"},price:"23 000 DA",dossier:{fr:"",en:"",ar:""},delai:{fr:"",en:"",ar:""}}]},
+{id:"uzbekistan",name:{fr:"Ouzbékistan",en:"Uzbekistan",ar:"أوزبكستان"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"13 000 DA",dossier:{fr:"Passeport, photo",en:"Passport, photo",ar:"جواز السفر، صورة"},delai:{fr:"5 jours ouvrables",en:"5 business days",ar:"5 أيام عمل"}}]},
+{id:"turkey",name:{fr:"Turquie",en:"Turkey",ar:"تركيا"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"16 500 DA",dossier:{fr:"Passeport, visa Schengen/UK/USA valide",en:"Passport, valid Schengen/UK/USA visa",ar:"جواز السفر، تأشيرة شنغن/المملكة المتحدة/الولايات المتحدة سارية المفعول"},delai:{fr:"24 H ouvrables",en:"24 business hours",ar:"24 ساعة عمل"}}]},
+{id:"tanzania",name:{fr:"Tanzanie",en:"Tanzania",ar:"تنزانيا"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"21 000 DA",dossier:{fr:"Relevé de compte 03 mois, scan passeport, photo",en:"3-month bank statement, passport scan, photo",ar:"كشف حساب بنكي لمدة 3 أشهر، نسخة ممسوحة من جواز السفر، صورة"},delai:{fr:"7 jours ouvrables",en:"7 business days",ar:"7 أيام عمل"}}]},
+{id:"kenya",name:{fr:"Kenya",en:"Kenya",ar:"كينيا"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"22 000 DA",dossier:{fr:"Scan passeport, photo, attestation de travail/RC, relevé de compte bancaire (1000 euro)",en:"Passport scan, photo, employment certificate/commercial register, bank statement (€1,000)",ar:"نسخة ممسوحة من جواز السفر، صورة، شهادة عمل/سجل تجاري، كشف حساب بنكي (1000 يورو)"},delai:{fr:"8 jours ouvrables",en:"8 business days",ar:"8 أيام عمل"}},
+{type:{fr:"30 JOURS MLT E-VISA",en:"30-DAY MULTIPLE E-VISA",ar:"تأشيرة إلكترونية متعددة لمدة 30 يوما"},price:"39 000 DA",dossier:{fr:"",en:"",ar:""},delai:{fr:"",en:"",ar:""}}]},
+{id:"ethiopia",name:{fr:"Éthiopie",en:"Ethiopia",ar:"إثيوبيا"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"29 000 DA",dossier:{fr:"Scan passeport, photo",en:"Passport scan, photo",ar:"نسخة ممسوحة من جواز السفر، صورة"},delai:{fr:"06 jours ouvrables",en:"6 business days",ar:"6 أيام عمل"}},
+{type:{fr:"30 JOURS MLT E-VISA",en:"30-DAY MULTIPLE E-VISA",ar:"تأشيرة إلكترونية متعددة لمدة 30 يوما"},price:"61 000 DA",dossier:{fr:"",en:"",ar:""},delai:{fr:"",en:"",ar:""}}]},
+{id:"singapore",name:{fr:"Singapour",en:"Singapore",ar:"سنغافورة"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"29 000 DA",dossier:{fr:"Passeport, photo",en:"Passport, photo",ar:"جواز السفر، صورة"},delai:{fr:"",en:"",ar:""}}]},
+{id:"pakistan",name:{fr:"Pakistan",en:"Pakistan",ar:"باكستان"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"12 000 DA",dossier:{fr:"Scan passeport, photo, tout l’info sur le client",en:"Passport scan, photo, all client information",ar:"نسخة ممسوحة من جواز السفر، صورة، جميع معلومات العميل"},delai:{fr:"10 jours ouvrables",en:"10 business days",ar:"10 أيام عمل"}}]},
+{id:"indonesia",name:{fr:"Indonésie",en:"Indonesia",ar:"إندونيسيا"},offers:[
+{type:{fr:"60 JOURS STICKER",en:"60-DAY STICKER VISA",ar:"تأشيرة ملصق لمدة 60 يوما"},price:"35 000 DA",dossier:{fr:"Passeport original, 02 photos, relevé de compte euro (+2000 euro)",en:"Original passport, 2 photos, euro bank statement (+€2,000)",ar:"جواز السفر الأصلي، صورتان، كشف حساب باليورو (+2000 يورو)"},delai:{fr:"05 jours ouvrables",en:"5 business days",ar:"5 أيام عمل"}}]},
+{id:"thailand",name:{fr:"Thaïlande",en:"Thailand",ar:"تايلاند"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"21 000 DA",dossier:{fr:"Scan passeport, num de téléphone, résidence en fr, attestation de travail/RC, relevé bancaire 3 mois",en:"Passport scan, phone number, residence certificate in French, employment certificate/commercial register, 3-month bank statement",ar:"نسخة ممسوحة من جواز السفر، رقم الهاتف، شهادة إقامة بالفرنسية، شهادة عمل/سجل تجاري، كشف حساب بنكي لمدة 3 أشهر"},delai:{fr:"30 jours ouvrables",en:"30 business days",ar:"30 يوم عمل"}}]},
+{id:"cambodia",name:{fr:"Cambodge",en:"Cambodia",ar:"كمبوديا"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"18 000 DA",dossier:{fr:"Scan passeport, num de téléphone, attestation de travail/RC",en:"Passport scan, phone number, employment certificate/commercial register",ar:"نسخة ممسوحة من جواز السفر، رقم الهاتف، شهادة عمل/سجل تجاري"},delai:{fr:"10 jours ouvrables",en:"10 business days",ar:"10 أيام عمل"}}]},
+{id:"egypt",name:{fr:"Égypte",en:"Egypt",ar:"مصر"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"4 500 DA",dossier:{fr:"Billet d’avion confirmé Caire, passeport",en:"Confirmed flight ticket to Cairo, passport",ar:"تذكرة طيران مؤكدة إلى القاهرة، جواز السفر"},delai:{fr:"3 jours ouvrables",en:"3 business days",ar:"3 أيام عمل"}},
+{type:{fr:"5 ANS MULTIPLE",en:"5-YEAR MULTIPLE",ar:"5 سنوات متعددة"},price:"165 000 DA",dossier:{fr:"Attestation de travail/registre de commerce; passeports; 02 photos; 03 derniers fiches de paie / relevé des 03 derniers mois pour non salariés",en:"Employment certificate/commercial register; passports; 2 photos; last 3 payslips / last 3 months' bank statement for non-employees",ar:"شهادة عمل/سجل تجاري؛ جوازات السفر؛ صورتان؛ آخر 3 كشوف راتب / كشف حساب آخر 3 أشهر لغير الأجراء"},delai:{fr:"20 jours ouvrables",en:"20 business days",ar:"20 يوم عمل"}}]},
+{id:"cotedivoire",name:{fr:"Côte d’Ivoire",en:"Ivory Coast",ar:"ساحل العاج"},offers:[
+{type:{fr:"E-VISA",en:"E-VISA",ar:"تأشيرة إلكترونية"},price:"32 000 DA",dossier:{fr:"Scan passeport, scan photo, réservation d’hôtel, relevé (2500 euro ou plus)",en:"Passport scan, photo scan, hotel reservation, bank statement (€2,500 or more)",ar:"نسخة ممسوحة من جواز السفر، نسخة ممسوحة من الصورة، حجز فندق، كشف حساب (2500 يورو أو أكثر)"},delai:{fr:"15 jours ouvrables",en:"15 business days",ar:"15 يوم عمل"}}]},
+{id:"vietnam",name:{fr:"Vietnam",en:"Vietnam",ar:"فيتنام"},offers:[
+{type:{fr:"30 JOURS E-VISA",en:"30-DAY E-VISA",ar:"تأشيرة إلكترونية لمدة 30 يوما"},price:"18 000 DA",dossier:{fr:"Scan passeport, photo, tout l’info sur le client",en:"Passport scan, photo, all client information",ar:"نسخة ممسوحة من جواز السفر، صورة، جميع معلومات العميل"},delai:{fr:"10 jours ouvrables",en:"10 business days",ar:"10 أيام عمل"}},
+{type:{fr:"30 JOURS MLT E-VISA",en:"30-DAY MULTIPLE E-VISA",ar:"تأشيرة إلكترونية متعددة لمدة 30 يوما"},price:"28 000 DA",dossier:{fr:"",en:"",ar:""},delai:{fr:"",en:"",ar:""}},
+{type:{fr:"EXPRESS",en:"EXPRESS",ar:"مستعجل"},price:"45 000 DA",dossier:{fr:"",en:"",ar:""},delai:{fr:"",en:"",ar:""}}]},
+{id:"oman",name:{fr:"Oman",en:"Oman",ar:"عُمان"},offers:[
+{type:{fr:"10 JOURS",en:"10 DAYS",ar:"10 أيام"},price:"16 500 DA",dossier:{fr:"Scan passeport, photo",en:"Passport scan, photo",ar:"نسخة ممسوحة من جواز السفر، صورة"},delai:{fr:"10 jours ouvrables",en:"10 business days",ar:"10 أيام عمل"}},
+{type:{fr:"10 JOURS EXPRESS",en:"10 DAYS EXPRESS",ar:"10 أيام مستعجل"},price:"33 500 DA",dossier:{fr:"Scan passeport, photo",en:"Passport scan, photo",ar:"نسخة ممسوحة من جواز السفر، صورة"},delai:{fr:"24H",en:"24 hours",ar:"24 ساعة"}},
+{type:{fr:"30 JOURS",en:"30 DAYS",ar:"30 يوما"},price:"23 500 DA",dossier:{fr:"Scan passeport, photo",en:"Passport scan, photo",ar:"نسخة ممسوحة من جواز السفر، صورة"},delai:{fr:"10 jours ouvrables",en:"10 business days",ar:"10 أيام عمل"}},
+{type:{fr:"30 JOURS EXPRESS",en:"30 DAYS EXPRESS",ar:"30 يوما مستعجل"},price:"36 000 DA",dossier:{fr:"Scan passeport, photo",en:"Passport scan, photo",ar:"نسخة ممسوحة من جواز السفر، صورة"},delai:{fr:"24H",en:"24 hours",ar:"24 ساعة"}},
+{type:{fr:"PROLONGATION 01",en:"EXTENSION 01",ar:"تمديد 01"},price:"40 000 DA",dossier:{fr:"Visa en cours",en:"Current visa",ar:"التأشيرة الحالية"},delai:{fr:"Demande avant expiration",en:"Apply before expiration",ar:"الطلب قبل انتهاء الصلاحية"}},
+{type:{fr:"PROLONGATION 02",en:"EXTENSION 02",ar:"تمديد 02"},price:"43 000 DA",dossier:{fr:"Prolongation 01 en cours",en:"Extension 01 currently valid",ar:"التمديد 01 ساري المفعول"},delai:{fr:"Demande avant expiration",en:"Apply before expiration",ar:"الطلب قبل انتهاء الصلاحية"}},
+{type:{fr:"PROLONGATION 03",en:"EXTENSION 03",ar:"تمديد 03"},price:"65 000 DA",dossier:{fr:"Prolongation 02 en cours",en:"Extension 02 currently valid",ar:"التمديد 02 ساري المفعول"},delai:{fr:"Demande avant expiration",en:"Apply before expiration",ar:"الطلب قبل انتهاء الصلاحية"}},
+{type:{fr:"PROLONGATION 04",en:"EXTENSION 04",ar:"تمديد 04"},price:"65 000 DA",dossier:{fr:"Prolongation 03 en cours",en:"Extension 03 currently valid",ar:"التمديد 03 ساري المفعول"},delai:{fr:"Demande avant expiration",en:"Apply before expiration",ar:"الطلب قبل انتهاء الصلاحية"}},
+{type:{fr:"30 JOURS",en:"30 DAYS",ar:"30 يوما"},price:"16 000 DA",dossier:{fr:"Scan passeport, scan photo",en:"Passport scan, photo scan",ar:"نسخة ممسوحة من جواز السفر، نسخة ممسوحة من الصورة"},delai:{fr:"3 jours ouvrables",en:"3 business days",ar:"3 أيام عمل"}}]},
+{id:"qatar",name:{fr:"Qatar",en:"Qatar",ar:"قطر"},offers:[
+{type:{fr:"RESIDENCE 1 AN HOMME",en:"1-YEAR MALE RESIDENCE",ar:"إقامة سنة واحدة للرجال"},price:"11 000 DA",dossier:{fr:"Scan passeport, scan photo",en:"Passport scan, photo scan",ar:"نسخة ممسوحة من جواز السفر، نسخة ممسوحة من الصورة"},delai:{fr:"10 jours ouvrables",en:"10 business days",ar:"10 أيام عمل"}},
+{type:{fr:"RESIDENCE 1 AN FEMME",en:"1-YEAR FEMALE RESIDENCE",ar:"إقامة سنة واحدة للنساء"},price:"150 000 DA",dossier:{fr:"Scan passeport, scan photo",en:"Passport scan, photo scan",ar:"نسخة ممسوحة من جواز السفر، نسخة ممسوحة من الصورة"},delai:{fr:"10 jours ouvrables",en:"10 business days",ar:"10 أيام عمل"}},
+{type:{fr:"VISA AVEC INVITATION OFFICIELLE",en:"VISA WITH OFFICIAL INVITATION",ar:"تأشيرة بدعوة رسمية"},price:"12 000 DA",dossier:{fr:"Passeport original, photo, attestation de travail ou RC, relevé bancaire 3000 euro, casier judiciaire",en:"Original passport, photo, employment certificate or commercial register, €3,000 bank statement, criminal record",ar:"جواز السفر الأصلي، صورة، شهادة عمل أو سجل تجاري، كشف حساب بنكي بقيمة 3000 يورو، صحيفة السوابق القضائية"},delai:{fr:"8 jours ouvrables",en:"8 business days",ar:"8 أيام عمل"}}]},
+{id:"cuba",name:{fr:"Cuba",en:"Cuba",ar:"كوبا"},offers:[
+{type:{fr:"30/90 JOURS E-VISA",en:"30/90-DAY E-VISA",ar:"تأشيرة إلكترونية 30/90 يوما"},price:"3 500 DA + 8 000 DA paiement par le client",dossier:{fr:"Scan passeport, scan photo, numéro de Tel",en:"Passport scan, photo scan, phone number",ar:"نسخة ممسوحة من جواز السفر، نسخة ممسوحة من الصورة، رقم الهاتف"},delai:{fr:"3 jours ouvrables",en:"3 business days",ar:"3 أيام عمل"}}]},
+{id:"japan",name:{fr:"Japon",en:"Japan",ar:"اليابان"},offers:[
+{type:{fr:"STICKER",en:"STICKER VISA",ar:"تأشيرة ملصق"},price:"19 000 DA",dossier:{fr:"Passeport; une photo d'identité; justificatif professionnel; justificatifs relatifs aux frais de voyages; justificatif de revenu; relevé compte bancaire des trois derniers mois peut être remplacé par bulletins de paye des trois derniers mois; attestation d’affiliation CNAS ou CASNON",en:"Passport; one passport photo; proof of employment/professional status; proof of travel expenses; proof of income; bank statement for the last three months, which may be replaced by payslips for the last three months; CNAS or CASNON affiliation certificate",ar:"جواز السفر؛ صورة شخصية؛ إثبات مهني؛ إثبات مصاريف السفر؛ إثبات الدخل؛ كشف الحساب البنكي للأشهر الثلاثة الأخيرة ويمكن استبداله بكشوف الراتب للأشهر الثلاثة الأخيرة؛ شهادة الانتساب إلى CNAS أو CASNOS"},delai:{fr:"",en:"",ar:""}}]}
+];
 
 let currentCountry="uk";
 let currentLanguage=localStorage.getItem("AQUAREV-language")||"fr";
 let selectedProfile=null;
+let currentEvisaIndex=0;
 
 const countryCards=document.querySelectorAll(".country-card");
 const offerCountry=document.getElementById("offerCountry");
@@ -907,184 +157,286 @@ const offerPrice=document.getElementById("offerPrice");
 const languageButton=document.getElementById("languageButton");
 const languageMenu=document.getElementById("languageMenu");
 const currentLanguageElement=document.getElementById("currentLanguage");
+const selector=document.getElementById("visaServiceSelector");
+const mainContent=document.getElementById("visaMainContent");
+const visaCircle=document.getElementById("visaCircleButton");
+const futureCircle=document.getElementById("futureCircleButton");
+const visaOffersPanel=document.getElementById("visaOffersPanel");
+const evisaPanel=document.getElementById("evisaPanel");
+const evisaTrack=document.getElementById("evisaCountryTrack");
+const evisaPrev=document.getElementById("evisaPrev");
+const evisaNext=document.getElementById("evisaNext");
+const evisaSelectedFlag=document.getElementById("evisaSelectedFlag");
+const evisaSelectedCountry=document.getElementById("evisaSelectedCountry");
+const evisaOffers=document.getElementById("evisaOffers");
 
-const languageFlags={
-fr:"🇫🇷",
-en:"🇬🇧",
-ar:"🇩🇿"
+const profileIcons={
+commercant:"fa-store",
+salarie:"fa-briefcase",
+etudiant:"fa-graduation-cap",
+retraite:"fa-user-clock",
+profession:"fa-user-tie",
+agriculteur:"fa-tractor"
 };
 
-const countryFlags={
-uk:"🇬🇧",
-canada:"🇨🇦",
-chine:"🇨🇳"
+const labels={
+fr:{destination:"Destination",type:"Type de visa",price:"Prix",dossier:"Dossier / Documents",delai:"Délais",service:"Service",details:"Détails",noData:"Information non précisée dans l'offre fournie."},
+en:{destination:"Destination",type:"Visa type",price:"Price",dossier:"File / Documents",delai:"Processing time",service:"Service",details:"Details",noData:"Information not specified in the supplied offer."},
+ar:{destination:"الوجهة",type:"نوع التأشيرة",price:"السعر",dossier:"الملف / الوثائق",delai:"الآجال",service:"الخدمة",details:"التفاصيل",noData:"المعلومة غير محددة في العرض المقدم."}
 };
+
+const mainFlagIds={
+uk:"gb",
+canada:"ca",
+chine:"cn"
+};
+
+function flagSvg(id,active=false){
+const w=active?58:42;
+const h=Math.round(w*2/3);
+const common=`class="flag-svg" width="${w}" height="${h}" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true"`;
+const flags={
+gb:`<rect width="60" height="40" fill="#012169"/><path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="9"/><path d="M0 0 60 40M60 0 0 40" stroke="#c8102e" stroke-width="4"/><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="14"/><path d="M30 0v40M0 20h60" stroke="#c8102e" stroke-width="8"/>`,
+ca:`<rect width="60" height="40" fill="#fff"/><rect width="15" height="40" fill="#d80621"/><rect x="45" width="15" height="40" fill="#d80621"/><path d="M30 7l2.5 8 7-2-3 6 5 4-7 1 1 8-5.5-4-5.5 4 1-8-7-1 5-4-3-6 7 2z" fill="#d80621"/>`,
+cn:`<rect width="60" height="40" fill="#de2910"/><path d="M12 5l1.8 5.5h5.8l-4.7 3.4 1.8 5.5-4.7-3.4-4.7 3.4 1.8-5.5-4.7-3.4h5.8z" fill="#ffde00"/>`,
+saudi:`<rect width="60" height="40" fill="#006c35"/><path d="M12 20h27" stroke="#fff" stroke-width="2.5"/><path d="M20 25h25" stroke="#fff" stroke-width="1.7"/><path d="M39 27l8-2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>`,
+azerbaijan:`<rect width="60" height="13.34" fill="#00b5e2"/><rect y="13.33" width="60" height="13.34" fill="#ef3340"/><rect y="26.66" width="60" height="13.34" fill="#509e2f"/><circle cx="30" cy="20" r="5" fill="#fff"/><circle cx="32" cy="20" r="4" fill="#ef3340"/>`,
+jordan:`<rect width="60" height="13.33" fill="#000"/><rect y="13.33" width="60" height="13.34" fill="#fff"/><rect y="26.66" width="60" height="13.34" fill="#007a3d"/><path d="M0 0 27 20 0 40z" fill="#ce1126"/><circle cx="11" cy="20" r="2.3" fill="#fff"/>`,
+armenia:`<rect width="60" height="13.34" fill="#d90012"/><rect y="13.33" width="60" height="13.34" fill="#0033a0"/><rect y="26.66" width="60" height="13.34" fill="#f2a800"/>`,
+uzbekistan:`<rect width="60" height="12" fill="#0099b5"/><rect y="12" width="60" height="16" fill="#fff"/><rect y="28" width="60" height="12" fill="#1eb53a"/><path d="M0 11h60M0 29h60" stroke="#ce1126" stroke-width="1.5"/><circle cx="10" cy="7" r="3" fill="#fff"/>`,
+turkey:`<rect width="60" height="40" fill="#e30a17"/><circle cx="25" cy="20" r="8" fill="#fff"/><circle cx="28" cy="20" r="6.5" fill="#e30a17"/><path d="M35 20l7 2.3-4.3-5.8v7z" fill="#fff"/>`,
+tanzania:`<path d="M0 0h60v40H0z" fill="#1eb53a"/><path d="M0 0 60 40M60 0 0 40" stroke="#fcd116" stroke-width="11"/><path d="M0 0 60 40M60 0 0 40" stroke="#000" stroke-width="6"/><path d="M0 0 60 40M60 0 0 40" stroke="#00a3dd" stroke-width="2.5"/>`,
+kenya:`<rect width="60" height="40" fill="#006b3f"/><rect y="0" width="60" height="13" fill="#000"/><rect y="27" width="60" height="13" fill="#bb0000"/><path d="M25 5l10 15-10 15-10-15z" fill="#fff"/><path d="M25 7l7 13-7 13-7-13z" fill="#bb0000"/>`,
+ethiopia:`<rect width="60" height="13.33" fill="#078930"/><rect y="13.33" width="60" height="13.34" fill="#fcd116"/><rect y="26.66" width="60" height="13.34" fill="#da121a"/><circle cx="30" cy="20" r="7" fill="#0f47af"/><path d="M30 14l1.7 4.2 4.5.2-3.5 2.8 1.2 4.3-3.9-2.4-3.9 2.4 1.2-4.3-3.5-2.8 4.5-.2z" fill="#fcd116"/>`,
+singapore:`<rect width="60" height="20" fill="#ed2939"/><rect y="20" width="60" height="20" fill="#fff"/><circle cx="14" cy="10" r="6" fill="#fff"/><circle cx="17" cy="10" r="5" fill="#ed2939"/><circle cx="25" cy="5" r="1.2" fill="#fff"/><circle cx="29" cy="7" r="1.2" fill="#fff"/><circle cx="31" cy="11" r="1.2" fill="#fff"/><circle cx="29" cy="15" r="1.2" fill="#fff"/><circle cx="25" cy="17" r="1.2" fill="#fff"/>`,
+pakistan:`<rect width="60" height="40" fill="#115740"/><rect width="15" height="40" fill="#fff"/><circle cx="32" cy="20" r="8" fill="#fff"/><circle cx="36" cy="17" r="7" fill="#115740"/><path d="M40 12l2 5 5 .2-4 3 1.3 5-4.3-3-4.3 3 1.3-5-4-3 5-.2z" fill="#fff"/>`,
+indonesia:`<rect width="60" height="20" fill="#ce1126"/><rect y="20" width="60" height="20" fill="#fff"/>`,
+thailand:`<rect width="60" height="40" fill="#a51931"/><rect y="6" width="60" height="28" fill="#fff"/><rect y="12" width="60" height="16" fill="#2d2a4a"/>`,
+cambodia:`<rect width="60" height="40" fill="#032ea1"/><rect y="8" width="60" height="24" fill="#e00025"/><rect x="21" y="13" width="18" height="14" fill="#fff"/><path d="M23 24h14v-8h-2v5h-2v-7h-2v7h-2v-5h-2v5h-4z" fill="#032ea1"/>`,
+egypt:`<rect width="60" height="13.33" fill="#ce1126"/><rect y="13.33" width="60" height="13.34" fill="#fff"/><rect y="26.66" width="60" height="13.34" fill="#000"/><circle cx="30" cy="20" r="4" fill="#c09300"/>`,
+cotedivoire:`<rect width="20" height="40" fill="#f77f00"/><rect x="20" width="20" height="40" fill="#fff"/><rect x="40" width="20" height="40" fill="#009e49"/>`,
+vietnam:`<rect width="60" height="40" fill="#da251d"/><path d="M30 7l3.2 9.5h10l-8 5.8 3 9.5-8.2-5.8-8.2 5.8 3-9.5-8-5.8h10z" fill="#ff0"/>`,
+oman:`<rect width="60" height="13.33" fill="#fff"/><rect y="13.33" width="60" height="13.34" fill="#da291c"/><rect y="26.66" width="60" height="13.34" fill="#239e46"/><rect width="15" height="40" fill="#da291c"/><path d="M7 8h5v24H7z" fill="#fff"/>`,
+qatar:`<rect width="60" height="40" fill="#8a1538"/><path d="M0 0h22l4 4-4 4 4 4-4 4 4 4-4 4 4 4-4 4 4 4H0z" fill="#fff"/>`,
+cuba:`<rect width="60" height="40" fill="#fff"/><rect y="0" width="60" height="8" fill="#002a8f"/><rect y="16" width="60" height="8" fill="#002a8f"/><rect y="32" width="60" height="8" fill="#002a8f"/><path d="M0 0v40l28-20z" fill="#cf142b"/><path d="M10 14l1.8 4h4.3l-3.4 2.5 1.3 4-3.5-2.4-3.5 2.4 1.3-4-3.4-2.5h4.3z" fill="#fff"/>`,
+japan:`<rect width="60" height="40" fill="#fff"/><circle cx="30" cy="20" r="10" fill="#bc002d"/>`
+};
+return`<svg ${common}>${flags[id]||`<rect width="60" height="40" fill="#ddd"/>`}</svg>`;
+}
 
 function text(value){
-if(typeof value==="string") return value;
-return value[currentLanguage]||value.fr||"";
+if(typeof value==="string")return value;
+return value?.[currentLanguage]||value?.fr||"";
 }
 
 function applyLanguage(){
 document.documentElement.lang=currentLanguage;
 document.documentElement.dir=currentLanguage==="ar"?"rtl":"ltr";
-currentLanguageElement.textContent=languageFlags[currentLanguage];
-
-document.querySelectorAll("[data-fr]").forEach(element=>{
-const value=element.dataset[currentLanguage];
-if(value!==undefined) element.textContent=value;
+document.querySelectorAll("[data-fr]").forEach(el=>{
+const value=el.getAttribute("data-"+currentLanguage);
+if(value!==null)el.textContent=value;
 });
-
-renderCountry(currentCountry);
+if(currentLanguageElement)currentLanguageElement.textContent=currentLanguage.toUpperCase();
+renderCountry(currentCountry,false);
+renderEvisaCountry(false);
 }
 
-function renderCountry(country){
+function renderCountry(country,scroll=true){
+const data=visaData[country];
+if(!data)return;
 currentCountry=country;
 selectedProfile=null;
+countryCards.forEach(card=>card.classList.toggle("active",card.dataset.country===country));
 
-const data=visaData[country];
-
-const countryNames={
-uk:{
-fr:"UK",
-en:"UK",
-ar:"المملكة المتحدة"
-},
-canada:{
-fr:"CANADA",
-en:"CANADA",
-ar:"كندا"
-},
-chine:{
-fr:"CHINE",
-en:"CHINA",
-ar:"الصين"
+if(offerCountry){
+offerCountry.innerHTML=`<span class="main-flag">${flagSvg(mainFlagIds[country]||"gb",true)}</span><span>${data.country}</span>`;
 }
-};
 
-const countrySvgs={
-uk:`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="10"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="5"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="16"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="9"/></svg>`,
-canada:`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="40" fill="#fff"/><rect width="15" height="40" fill="#d52b1e"/><rect x="45" width="15" height="40" fill="#d52b1e"/><path d="M30 7l2.2 7 5.2-2.2-2.2 5.2 5.5 2-6 2.2 1.2 7.8-6-4.3-6 4.3 1.2-7.8-6-2.2 5.5-2-2.2-5.2 5.2 2.2z" fill="#d52b1e"/></svg>`,
-chine:`<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="60" height="40" fill="#de2910"/><path d="M10 5l1.8 5.5h5.8l-4.7 3.4 1.8 5.6-4.7-3.5-4.7 3.5 1.8-5.6-4.7-3.4h5.8z" fill="#ffde00"/></svg>`
-};
+if(offerTitle)offerTitle.textContent=text(data.title);
+if(offerDescription)offerDescription.textContent=text(data.description);
 
-const name=countryNames[country]?.[currentLanguage]||countryNames[country]?.fr||country;
-
-offerCountry.innerHTML=`
-<span class="offer-country-flag">${countrySvgs[country]||""}</span>
-<span class="offer-country-name">${name}</span>
-`;
-
-offerTitle.textContent=text(data.title);
-offerDescription.textContent=text(data.description);
-
-serviceList.innerHTML="";
-
-data.services.forEach((service,index)=>{
-const item=document.createElement("div");
-item.className="service-item";
-item.innerHTML=`
+if(serviceList){
+serviceList.innerHTML=data.services.map((service,index)=>`
+<div class="service-item">
 <span class="service-number">${String(index+1).padStart(2,"0")}</span>
 <p>${text(service)}</p>
-`;
-serviceList.appendChild(item);
-});
+</div>`).join("");
+}
 
-profileGrid.innerHTML="";
-
-Object.entries(data.profiles).forEach(([key,profile])=>{
-const button=document.createElement("button");
-button.type="button";
-button.className="profile-card";
-button.dataset.profile=key;
-button.innerHTML=`
-<i class="fa-solid ${profile.icon}"></i>
-<span>${text(profile.name)}</span>
-`;
-button.addEventListener("click",()=>{
-selectProfile(key,button);
-});
-profileGrid.appendChild(button);
-});
-
-offerPrice.innerHTML=text(data.price);
-
-documentsPanel.classList.remove("open");
-documentsTitle.textContent="";
-selectedProfileLabel.textContent="";
-documentsList.innerHTML="";
-
-countryCards.forEach(card=>{
-card.classList.toggle("active",card.dataset.country===country);
-});
-
-window.scrollTo({
-top:document.querySelector(".visa-offer-section").offsetTop-20,
-behavior:"smooth"
+if(profileGrid){
+profileGrid.innerHTML=Object.entries(data.profiles).map(([key,profile])=>`
+<button class="profile-card" type="button" data-profile="${key}">
+<i class="fa-solid ${profileIcons[key]||"fa-file"}"></i>
+<span>${text(profile.label)}</span>
+</button>`).join("");
+profileGrid.querySelectorAll(".profile-card").forEach(button=>{
+button.addEventListener("click",()=>selectProfile(button.dataset.profile));
 });
 }
 
-function selectProfile(profileKey,button){
+if(documentsPanel)documentsPanel.classList.remove("open");
+if(documentsList)documentsList.innerHTML="";
+if(documentsTitle)documentsTitle.textContent="";
+if(selectedProfileLabel)selectedProfileLabel.textContent="";
+if(offerPrice)offerPrice.textContent=text(data.price);
+
+if(scroll){
+const section=document.querySelector(".visa-offer-section");
+if(section)section.scrollIntoView({behavior:"smooth",block:"start"});
+}
+}
+
+function selectProfile(profileKey){
 const data=visaData[currentCountry];
-const profile=data.profiles[profileKey];
-
-document.querySelectorAll(".profile-card").forEach(card=>{
-card.classList.remove("selected");
-});
-
-button.classList.add("selected");
-
+const profile=data?.profiles?.[profileKey];
+if(!profile)return;
 selectedProfile=profileKey;
 
-selectedProfileLabel.textContent=text(profile.name);
-documentsTitle.textContent=currentLanguage==="fr"?"DOCUMENTS À FOURNIR":currentLanguage==="en"?"REQUIRED DOCUMENTS":"الوثائق المطلوبة";
-
-documentsList.innerHTML="";
-
-profile.documents[currentLanguage].forEach(documentText=>{
-const item=document.createElement("div");
-item.className="document-item";
-item.innerHTML=`
-<i class="fa-solid fa-check"></i>
-<span>${documentText}</span>
-`;
-documentsList.appendChild(item);
+profileGrid.querySelectorAll(".profile-card").forEach(button=>{
+button.classList.toggle("selected",button.dataset.profile===profileKey);
 });
 
 documentsPanel.classList.add("open");
+selectedProfileLabel.textContent=text(profile.label);
+documentsTitle.textContent=text(profile.label);
 
-setTimeout(()=>{
-documentsPanel.scrollIntoView({
-behavior:"smooth",
-block:"nearest"
-});
-},80);
+let docs=[...(profile.docs?.[currentLanguage]||profile.docs?.fr||[])];
+const additional=data.additional?.[currentLanguage]||data.additional?.fr||[];
+if(additional.length)docs=[...docs,...additional];
+
+documentsList.innerHTML=docs.map(doc=>`
+<div class="document-item">
+<i class="fa-solid fa-check"></i>
+<span>${doc}</span>
+</div>`).join("");
 }
 
-countryCards.forEach(card=>{
-card.addEventListener("click",()=>{
-renderCountry(card.dataset.country);
-});
-});
+function showPanel(panel){
+mainContent.classList.add("visa-main-visible");
+visaOffersPanel.classList.toggle("active",panel==="visa");
+evisaPanel.classList.toggle("active",panel==="evisa");
+if(panel==="visa")renderCountry(currentCountry,false);
+if(panel==="evisa")renderEvisaCountry(false);
+const top=mainContent.getBoundingClientRect().top+window.scrollY-12;
+window.scrollTo({top,behavior:"smooth"});
+}
 
+function createEvisaCountryItems(){
+if(!evisaTrack)return;
+evisaTrack.innerHTML=evisaData.map((country,index)=>`
+<button class="evisa-country-item${index===currentEvisaIndex?" active":""}" type="button" data-evisa-index="${index}">
+<span class="flag">${flagSvg(country.id,index===currentEvisaIndex)}</span>
+<span class="name">${text(country.name)}</span>
+</button>`).join("");
+
+evisaTrack.querySelectorAll(".evisa-country-item").forEach(button=>{
+button.addEventListener("click",()=>{
+currentEvisaIndex=Number(button.dataset.evisaIndex);
+renderEvisaCountry(true);
+});
+});
+}
+
+function renderEvisaCountry(scroll=true){
+const country=evisaData[currentEvisaIndex];
+if(!country)return;
+
+createEvisaCountryItems();
+
+if(evisaSelectedFlag)evisaSelectedFlag.innerHTML=flagSvg(country.id,true);
+if(evisaSelectedCountry)evisaSelectedCountry.textContent=text(country.name);
+
+if(evisaOffers){
+evisaOffers.innerHTML=country.offers.map(offer=>`
+<article class="evisa-offer-card">
+<div class="evisa-offer-top">
+<div class="evisa-offer-cell">
+<span class="evisa-label">${labels[currentLanguage].destination}</span>
+<span class="evisa-value">${text(country.name)}</span>
+</div>
+<div class="evisa-offer-cell">
+<span class="evisa-label">${labels[currentLanguage].type}</span>
+<span class="evisa-value">${text(offer.type)}</span>
+</div>
+<div class="evisa-offer-cell">
+<span class="evisa-label">${labels[currentLanguage].price}</span>
+<span class="evisa-value">${offer.price}</span>
+</div>
+<div class="evisa-offer-cell">
+<span class="evisa-label">${labels[currentLanguage].delai}</span>
+<span class="evisa-value">${text(offer.delai)||labels[currentLanguage].noData}</span>
+</div>
+</div>
+<div class="evisa-offer-body">
+<div class="evisa-detail">
+<h4>${labels[currentLanguage].dossier}</h4>
+<p>${text(offer.dossier)||labels[currentLanguage].noData}</p>
+</div>
+<div class="evisa-detail">
+<h4>${labels[currentLanguage].service}</h4>
+<p>${text(offer.type)}</p>
+</div>
+</div>
+</article>`).join("");
+}
+
+requestAnimationFrame(()=>{
+const active=evisaTrack?.querySelector(".evisa-country-item.active");
+if(active)active.scrollIntoView({behavior:scroll?"smooth":"auto",inline:"center",block:"nearest"});
+});
+}
+
+function moveEvisa(direction){
+currentEvisaIndex+=direction;
+if(currentEvisaIndex<0)currentEvisaIndex=evisaData.length-1;
+if(currentEvisaIndex>=evisaData.length)currentEvisaIndex=0;
+renderEvisaCountry(true);
+}
+
+if(visaCircle){
+visaCircle.addEventListener("click",()=>showPanel("visa"));
+}
+
+if(futureCircle){
+futureCircle.addEventListener("click",()=>{
+futureCircle.classList.add("future-clicked");
+showPanel("evisa");
+setTimeout(()=>futureCircle.classList.remove("future-clicked"),450);
+});
+}
+
+if(countryCards.length){
+countryCards.forEach(card=>{
+card.addEventListener("click",()=>renderCountry(card.dataset.country,true));
+});
+}
+
+if(evisaPrev)evisaPrev.addEventListener("click",()=>moveEvisa(-1));
+if(evisaNext)evisaNext.addEventListener("click",()=>moveEvisa(1));
+
+if(languageButton){
 languageButton.addEventListener("click",event=>{
 event.stopPropagation();
-languageMenu.classList.toggle("open");
+languageMenu?.classList.toggle("open");
 });
+}
 
-languageMenu.querySelectorAll("button").forEach(button=>{
+if(languageMenu){
+languageMenu.querySelectorAll("[data-lang]").forEach(button=>{
 button.addEventListener("click",()=>{
-currentLanguage=button.dataset.language;
+currentLanguage=button.dataset.lang;
 localStorage.setItem("AQUAREV-language",currentLanguage);
 languageMenu.classList.remove("open");
 applyLanguage();
 });
 });
+}
 
 document.addEventListener("click",event=>{
-if(!languageMenu.contains(event.target)&&!languageButton.contains(event.target)){
+if(languageMenu&&!languageMenu.contains(event.target)&&languageButton&&!languageButton.contains(event.target)){
 languageMenu.classList.remove("open");
 }
 });
 
 applyLanguage();
+renderEvisaCountry(false);

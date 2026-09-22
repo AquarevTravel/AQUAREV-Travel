@@ -1,4 +1,5 @@
 const path=require("path");
+const fs=require("fs");
 require("dotenv").config({
 path:path.join(__dirname,"../.env")
 });
@@ -36,6 +37,7 @@ const cors=require("cors");
 const upload=require("./upload");
 const generatePDF=require("./pdfGenerator");
 const generateFlightPDF=require("./flightPdfGenerator");
+const generateVoyageReservationPDF=require("./voyageReservationPdfGenerator");
 const {sendMail,sendNewUserMail,sendFlightMail,sendVoyageReservationMail,sendPartnerMail}=require("./mailer");
 const app=express();
 app.use(cors());
@@ -232,14 +234,67 @@ success:false,
 message:"Reservation data missing"
 });
 }
-console.log("==============================");
+
+console.log("====================================");
 console.log("Nouvelle réservation programme touristique");
-console.log(data);
-await sendVoyageReservationMail(data);
+console.log("REFERENCE:",data.reservationReference);
+console.log("PROGRAMME:",data.programTitle);
+console.log("CLIENT:",data.customer);
+console.log("PASSEPORT:",data.passport);
+
+let pdfPath=null;
+
+try{
+console.log("GENERATION VOYAGE RESERVATION PDF...");
+pdfPath=await generateVoyageReservationPDF(data);
+
+console.log("PDF GENERATOR RETURN:",pdfPath);
+
+if(pdfPath){
+let resolvedPdfPath=pdfPath;
+
+if(!path.isAbsolute(resolvedPdfPath)){
+const rootCandidate=path.resolve(__dirname,"..",resolvedPdfPath);
+const serverCandidate=path.resolve(__dirname,resolvedPdfPath);
+
+if(fs.existsSync(rootCandidate)){
+resolvedPdfPath=rootCandidate;
+}else if(fs.existsSync(serverCandidate)){
+resolvedPdfPath=serverCandidate;
+}else{
+resolvedPdfPath=rootCandidate;
+}
+}
+
+pdfPath=resolvedPdfPath;
+
+console.log("VOYAGE RESERVATION PDF PATH:",pdfPath);
+console.log("VOYAGE RESERVATION PDF EXISTS:",fs.existsSync(pdfPath));
+
+if(fs.existsSync(pdfPath)){
+const pdfStats=fs.statSync(pdfPath);
+console.log("VOYAGE RESERVATION PDF SIZE:",pdfStats.size,"bytes");
+}else{
+console.error("VOYAGE RESERVATION PDF NOT FOUND:",pdfPath);
+}
+}else{
+console.error("VOYAGE RESERVATION PDF PATH IS EMPTY");
+}
+}catch(error){
+console.error("VOYAGE RESERVATION PDF GENERATION ERROR:",error);
+}
+
+console.log("SEND VOYAGE RESERVATION EMAIL");
+console.log("PDF PATH SENT TO MAILER:",pdfPath);
+
+await sendVoyageReservationMail(data,pdfPath);
+
 console.log("VOYAGE RESERVATION EMAIL SENT");
+
 res.json({
 success:true,
-message:"Reservation email sent successfully"
+message:"Reservation email sent successfully",
+pdfPath:pdfPath
 });
 }catch(error){
 console.error("VOYAGE RESERVATION EMAIL ERROR:",error);

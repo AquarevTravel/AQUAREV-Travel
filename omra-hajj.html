@@ -1,0 +1,1395 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>AQUAREV Travel | Programmes Omra & Hajj</title>
+    <link rel="icon" type="image/png" href="assets/logo/favicon.png" />
+    <link rel="stylesheet" href="omra-hajj.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+    <div class="page-overlay"></div>
+
+    <header class="top-header">
+      <a href="index.html" class="brand">
+        <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+        <div>
+          <strong>AQUAREV</strong>
+          <span>TRAVEL</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="language-btn active" data-lang="fr">FR</button>
+        <button class="language-btn" data-lang="en">EN</button>
+        <button class="language-btn" data-lang="ar">AR</button>
+        <a href="index.html" class="back-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span data-fr="Retour" data-en="Back" data-ar="العودة">Retour</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <section class="page-heading">
+        <div class="heading-icon">
+          <i class="fa-solid fa-kaaba"></i>
+        </div>
+        <div>
+          <span
+            class="eyebrow"
+            data-fr="ESPACE AGENCE"
+            data-en="AGENCY SPACE"
+            data-ar="فضاء الوكالة"
+            >ESPACE AGENCE</span
+          >
+          <h1
+            data-fr="Programmes Omra & Hajj"
+            data-en="Umrah & Hajj Programs"
+            data-ar="برامج العمرة والحج"
+          >
+            Programmes Omra & Hajj
+          </h1>
+          <p
+            data-fr="Créez et publiez vos programmes de voyages spirituels pour vos clients."
+            data-en="Create and publish your spiritual travel programs for your clients."
+            data-ar="أنشئ وانشر برامج رحلات العمرة والحج لعملائكم."
+          >
+            Créez et publiez vos programmes de voyages spirituels pour vos
+            clients.
+          </p>
+        </div>
+      </section>
+
+      <div id="authMessage" class="auth-message hidden">
+        <i class="fa-solid fa-lock"></i>
+        <div>
+          <strong
+            data-fr="Accès réservé à l'agence"
+            data-en="Agency access only"
+            data-ar="الدخول مخصص للوكالة"
+            >Accès réservé à l'agence</strong
+          >
+          <p
+            data-fr="Veuillez vous connecter avec le compte AQUAREV autorisé."
+            data-en="Please sign in with the authorized AQUAREV account."
+            data-ar="يرجى تسجيل الدخول بحساب AQUAREV المصرح به."
+          >
+            Veuillez vous connecter avec le compte AQUAREV autorisé.
+          </p>
+        </div>
+      </div>
+
+      <section id="programPanel" class="program-panel hidden">
+        <div class="panel-top">
+          <div>
+            <div class="panel-symbol">
+              <i class="fa-solid fa-kaaba"></i>
+            </div>
+            <h2
+              data-fr="Nouveau programme Omra & Hajj"
+              data-en="New Umrah & Hajj Program"
+              data-ar="برنامج عمرة وحج جديد"
+            >
+              Nouveau programme Omra & Hajj
+            </h2>
+            <p
+              data-fr="Remplissez les informations du voyage puis envoyez le programme."
+              data-en="Fill in the trip information and submit the program."
+              data-ar="املأ معلومات الرحلة ثم أرسل البرنامج."
+            >
+              Remplissez les informations du voyage puis envoyez le programme.
+            </p>
+          </div>
+          <div class="agency-badge">
+            <i class="fa-solid fa-circle-check"></i>
+            <span
+              data-fr="Agence autorisée"
+              data-en="Authorized agency"
+              data-ar="وكالة مصرح لها"
+              >Agence autorisée</span
+            >
+          </div>
+        </div>
+
+        <form id="travelProgramForm" novalidate>
+          <div class="section-title">
+            <span>01</span>
+            <h3
+              data-fr="Type de pèlerinage"
+              data-en="Pilgrimage type"
+              data-ar="نوع الرحلة"
+            >
+              Type de pèlerinage
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="programCategory">
+                <i class="fa-solid fa-kaaba"></i>
+                <span
+                  data-fr="Type de programme"
+                  data-en="Program type"
+                  data-ar="نوع البرنامج"
+                  >Type de programme</span
+                >
+              </label>
+              <select id="programCategory" name="programCategory" required>
+                <option
+                  value=""
+                  data-fr="Choisir"
+                  data-en="Choose"
+                  data-ar="اختر"
+                >
+                  Choisir
+                </option>
+                <option
+                  value="omra"
+                  data-fr="Omra"
+                  data-en="Umrah"
+                  data-ar="العمرة"
+                >
+                  Omra
+                </option>
+                <option
+                  value="hajj"
+                  data-fr="Hajj"
+                  data-en="Hajj"
+                  data-ar="الحج"
+                >
+                  Hajj
+                </option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="packageType">
+                <i class="fa-solid fa-box-open"></i>
+                <span
+                  data-fr="Type de formule"
+                  data-en="Package type"
+                  data-ar="نوع الباقة"
+                  >Type de formule</span
+                >
+              </label>
+              <select id="packageType" name="packageType">
+                <option
+                  value=""
+                  data-fr="Non précisée"
+                  data-en="Not specified"
+                  data-ar="غير محددة"
+                >
+                  Non précisée
+                </option>
+                <option
+                  value="economy"
+                  data-fr="Économique"
+                  data-en="Economy"
+                  data-ar="اقتصادية"
+                >
+                  Économique
+                </option>
+                <option
+                  value="standard"
+                  data-fr="Standard"
+                  data-en="Standard"
+                  data-ar="عادية"
+                >
+                  Standard
+                </option>
+                <option
+                  value="premium"
+                  data-fr="Premium"
+                  data-en="Premium"
+                  data-ar="مميزة"
+                >
+                  Premium
+                </option>
+                <option value="vip" data-fr="VIP" data-en="VIP" data-ar="VIP">
+                  VIP
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>02</span>
+            <h3
+              data-fr="Dates du voyage"
+              data-en="Travel dates"
+              data-ar="تواريخ الرحلة"
+            >
+              Dates du voyage
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="departureDate">
+                <i class="fa-regular fa-calendar"></i>
+                <span
+                  data-fr="Date de départ principale"
+                  data-en="Main departure date"
+                  data-ar="تاريخ الذهاب الرئيسي"
+                  >Date de départ principale</span
+                >
+              </label>
+              <input
+                id="departureDate"
+                name="departureDate"
+                type="date"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="returnDate">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span
+                  data-fr="Date de retour"
+                  data-en="Return date"
+                  data-ar="تاريخ العودة"
+                  >Date de retour</span
+                >
+              </label>
+              <input id="returnDate" name="returnDate" type="date" required />
+            </div>
+          </div>
+
+          <div class="field multi-date-field">
+            <label>
+              <i class="fa-solid fa-calendar-plus"></i>
+              <span
+                data-fr="Autres dates de départ"
+                data-en="Other departure dates"
+                data-ar="تواريخ ذهاب أخرى"
+                >Autres dates de départ</span
+              >
+            </label>
+            <p
+              class="field-help"
+              data-fr="Ajoutez toutes les autres dates de départ disponibles pour ce programme."
+              data-en="Add all other available departure dates for this program."
+              data-ar="أضف جميع تواريخ الذهاب الأخرى المتاحة لهذا البرنامج."
+            >
+              Ajoutez toutes les autres dates de départ disponibles pour ce
+              programme.
+            </p>
+            <div id="departureDatesList" class="dynamic-date-list"></div>
+            <button
+              type="button"
+              id="addDepartureDateBtn"
+              class="add-field-btn"
+            >
+              <i class="fa-solid fa-plus"></i>
+              <span
+                data-fr="Ajouter une date de départ"
+                data-en="Add departure date"
+                data-ar="إضافة تاريخ ذهاب"
+                >Ajouter une date de départ</span
+              >
+            </button>
+          </div>
+
+          <div class="section-title">
+            <span>03</span>
+            <h3
+              data-fr="Destination spirituelle"
+              data-en="Spiritual destination"
+              data-ar="الوجهة"
+            >
+              Destination spirituelle
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="country">
+                <i class="fa-solid fa-earth-europe"></i>
+                <span data-fr="Pays" data-en="Country" data-ar="الدولة"
+                  >Pays</span
+                >
+              </label>
+              <input
+                id="country"
+                name="country"
+                type="text"
+                value="Arabie Saoudite"
+                autocomplete="off"
+                data-placeholder-fr="Ex : Arabie Saoudite"
+                data-placeholder-en="Ex: Saudi Arabia"
+                data-placeholder-ar="مثال: المملكة العربية السعودية"
+                placeholder="Ex : Arabie Saoudite"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="city">
+                <i class="fa-solid fa-mosque"></i>
+                <span
+                  data-fr="Ville principale"
+                  data-en="Main city"
+                  data-ar="المدينة الرئيسية"
+                  >Ville principale</span
+                >
+              </label>
+              <input
+                id="city"
+                name="city"
+                type="text"
+                autocomplete="off"
+                placeholder="Ex : La Mecque"
+                data-placeholder-fr="Ex : La Mecque"
+                data-placeholder-en="Ex: Mecca"
+                data-placeholder-ar="مثال: مكة المكرمة"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="secondCity">
+                <i class="fa-solid fa-mosque"></i>
+                <span
+                  data-fr="Deuxième ville"
+                  data-en="Second city"
+                  data-ar="المدينة الثانية"
+                  >Deuxième ville</span
+                >
+              </label>
+              <input
+                id="secondCity"
+                name="secondCity"
+                type="text"
+                placeholder="Ex : Médine"
+                data-placeholder-fr="Ex : Médine"
+                data-placeholder-en="Ex: Medina"
+                data-placeholder-ar="مثال: المدينة المنورة"
+              />
+            </div>
+
+            <div class="field">
+              <label for="nights">
+                <i class="fa-solid fa-moon"></i>
+                <span
+                  data-fr="Nombre de nuits"
+                  data-en="Number of nights"
+                  data-ar="عدد الليالي"
+                  >Nombre de nuits</span
+                >
+              </label>
+              <input
+                id="nights"
+                name="nights"
+                type="number"
+                min="1"
+                step="1"
+                placeholder="Ex : 15"
+                data-placeholder-fr="Ex : 15"
+                data-placeholder-en="Ex: 15"
+                data-placeholder-ar="مثال: 15"
+              />
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>04</span>
+            <h3
+              data-fr="Transport aérien"
+              data-en="Air transport"
+              data-ar="النقل الجوي"
+            >
+              Transport aérien
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="airline">
+                <i class="fa-solid fa-plane"></i>
+                <span
+                  data-fr="Compagnie aérienne"
+                  data-en="Airline"
+                  data-ar="شركة الطيران"
+                  >Compagnie aérienne</span
+                >
+              </label>
+              <select id="airline" name="airline">
+                <option
+                  value=""
+                  data-fr="Non précisée"
+                  data-en="Not specified"
+                  data-ar="غير محددة"
+                >
+                  Non précisée
+                </option>
+                <option value="Air Algérie">Air Algérie</option>
+                <option value="Turkish Airlines">Turkish Airlines</option>
+                <option value="AJet">AJet</option>
+                <option value="EgyptAir">EgyptAir</option>
+                <option value="Royal Air Maroc">Royal Air Maroc</option>
+                <option value="Qatar Airways">Qatar Airways</option>
+                <option value="Emirates">Emirates</option>
+                <option value="Saudia">Saudia</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="flightType">
+                <i class="fa-solid fa-route"></i>
+                <span
+                  data-fr="Type de vol"
+                  data-en="Flight type"
+                  data-ar="نوع الرحلة"
+                  >Type de vol</span
+                >
+              </label>
+              <select id="flightType" name="flightType">
+                <option
+                  value=""
+                  data-fr="Non précisé"
+                  data-en="Not specified"
+                  data-ar="غير محدد"
+                >
+                  Non précisé
+                </option>
+                <option
+                  value="direct"
+                  data-fr="Vol direct"
+                  data-en="Direct flight"
+                  data-ar="رحلة مباشرة"
+                >
+                  Vol direct
+                </option>
+                <option
+                  value="stopover"
+                  data-fr="Avec escale"
+                  data-en="With stopover"
+                  data-ar="مع توقف"
+                >
+                  Avec escale
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>05</span>
+            <h3
+              data-fr="Hébergement à La Mecque"
+              data-en="Accommodation in Mecca"
+              data-ar="الإقامة في مكة"
+            >
+              Hébergement à La Mecque
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="meccaHotel">
+                <i class="fa-solid fa-hotel"></i>
+                <span
+                  data-fr="Nom de l'hôtel"
+                  data-en="Hotel name"
+                  data-ar="اسم الفندق"
+                  >Nom de l'hôtel</span
+                >
+              </label>
+              <input
+                id="meccaHotel"
+                name="meccaHotel"
+                type="text"
+                placeholder="Nom de l'hôtel"
+                data-placeholder-fr="Nom de l'hôtel"
+                data-placeholder-en="Hotel name"
+                data-placeholder-ar="اسم الفندق"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="meccaHotelStars">
+                <i class="fa-solid fa-star"></i>
+                <span
+                  data-fr="Nombre d'étoiles"
+                  data-en="Hotel stars"
+                  data-ar="عدد النجوم"
+                  >Nombre d'étoiles</span
+                >
+              </label>
+              <select id="meccaHotelStars" name="meccaHotelStars" required>
+                <option
+                  value=""
+                  data-fr="Choisir"
+                  data-en="Choose"
+                  data-ar="اختر"
+                >
+                  Choisir
+                </option>
+                <option value="1">★ 1</option>
+                <option value="2">★ 2</option>
+                <option value="3">★ 3</option>
+                <option value="4">★ 4</option>
+                <option value="5">★ 5</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="meccaHotelAddress">
+              <i class="fa-solid fa-location-dot"></i>
+              <span
+                data-fr="Adresse / emplacement"
+                data-en="Address / location"
+                data-ar="العنوان / الموقع"
+                >Adresse / emplacement</span
+              >
+            </label>
+            <input
+              id="meccaHotelAddress"
+              name="meccaHotelAddress"
+              type="text"
+              placeholder="Adresse ou emplacement de l'hôtel"
+              data-placeholder-fr="Adresse ou emplacement de l'hôtel"
+              data-placeholder-en="Hotel address or location"
+              data-placeholder-ar="عنوان أو موقع الفندق"
+              required
+            />
+          </div>
+
+          <div class="form-grid two hotel-extra-grid">
+            <div class="field">
+              <label for="meccaHotelRoomType">
+                <i class="fa-solid fa-bed"></i>
+                <span
+                  data-fr="Type de chambre"
+                  data-en="Room type"
+                  data-ar="نوع الغرفة"
+                  >Type de chambre</span
+                >
+              </label>
+              <select id="meccaHotelRoomType" name="meccaHotelRoomType">
+                <option
+                  value=""
+                  data-fr="Non précisé"
+                  data-en="Not specified"
+                  data-ar="غير محددة"
+                >
+                  Non précisé
+                </option>
+                <option
+                  value="family"
+                  data-fr="Chambre familiale"
+                  data-en="Family room"
+                  data-ar="غرفة عائلية"
+                >
+                  Chambre familiale
+                </option>
+                <option
+                  value="double"
+                  data-fr="Chambre double"
+                  data-en="Double room"
+                  data-ar="غرفة ثنائية"
+                >
+                  Chambre double
+                </option>
+                <option
+                  value="triple"
+                  data-fr="Chambre triple"
+                  data-en="Triple room"
+                  data-ar="غرفة ثلاثية"
+                >
+                  Chambre triple
+                </option>
+                <option
+                  value="quadruple"
+                  data-fr="Chambre quadruple"
+                  data-en="Quadruple room"
+                  data-ar="غرفة رباعية"
+                >
+                  Chambre quadruple
+                </option>
+                <option
+                  value="quintuple"
+                  data-fr="Chambre quintuple"
+                  data-en="Quintuple room"
+                  data-ar="غرفة خماسية"
+                >
+                  Chambre quintuple
+                </option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="meccaHotelDistance">
+                <i class="fa-solid fa-road"></i>
+                <span
+                  data-fr="Distance de l'hôtel au Masjid al-Haram (m)"
+                  data-en="Hotel distance to Masjid al-Haram (m)"
+                  data-ar="مسافة الفندق عن المسجد الحرام (متر)"
+                  >Distance de l'hôtel au Masjid al-Haram (m)</span
+                >
+              </label>
+              <input
+                id="meccaHotelDistance"
+                name="meccaHotelDistance"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="Ex : 500"
+                data-placeholder-fr="Ex : 500"
+                data-placeholder-en="Ex: 500"
+                data-placeholder-ar="مثال: 500"
+              />
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>06</span>
+            <h3
+              data-fr="Hébergement à Médine"
+              data-en="Accommodation in Medina"
+              data-ar="الإقامة في المدينة"
+            >
+              Hébergement à Médine
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="medinaHotel">
+                <i class="fa-solid fa-hotel"></i>
+                <span
+                  data-fr="Nom de l'hôtel"
+                  data-en="Hotel name"
+                  data-ar="اسم الفندق"
+                  >Nom de l'hôtel</span
+                >
+              </label>
+              <input
+                id="medinaHotel"
+                name="medinaHotel"
+                type="text"
+                placeholder="Nom de l'hôtel"
+                data-placeholder-fr="Nom de l'hôtel"
+                data-placeholder-en="Hotel name"
+                data-placeholder-ar="اسم الفندق"
+              />
+            </div>
+
+            <div class="field">
+              <label for="medinaHotelStars">
+                <i class="fa-solid fa-star"></i>
+                <span
+                  data-fr="Nombre d'étoiles"
+                  data-en="Hotel stars"
+                  data-ar="عدد النجوم"
+                  >Nombre d'étoiles</span
+                >
+              </label>
+              <select id="medinaHotelStars" name="medinaHotelStars">
+                <option
+                  value=""
+                  data-fr="Non précisé"
+                  data-en="Not specified"
+                  data-ar="غير محدد"
+                >
+                  Non précisé
+                </option>
+                <option value="1">★ 1</option>
+                <option value="2">★ 2</option>
+                <option value="3">★ 3</option>
+                <option value="4">★ 4</option>
+                <option value="5">★ 5</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="medinaHotelAddress">
+              <i class="fa-solid fa-location-dot"></i>
+              <span
+                data-fr="Adresse / emplacement"
+                data-en="Address / location"
+                data-ar="العنوان / الموقع"
+                >Adresse / emplacement</span
+              >
+            </label>
+            <input
+              id="medinaHotelAddress"
+              name="medinaHotelAddress"
+              type="text"
+              placeholder="Adresse ou emplacement de l'hôtel"
+              data-placeholder-fr="Adresse ou emplacement de l'hôtel"
+              data-placeholder-en="Hotel address or location"
+              data-placeholder-ar="عنوان أو موقع الفندق"
+            />
+          </div>
+
+          <div class="form-grid two hotel-extra-grid">
+            <div class="field">
+              <label for="medinaHotelRoomType">
+                <i class="fa-solid fa-bed"></i>
+                <span
+                  data-fr="Type de chambre"
+                  data-en="Room type"
+                  data-ar="نوع الغرفة"
+                  >Type de chambre</span
+                >
+              </label>
+              <select id="medinaHotelRoomType" name="medinaHotelRoomType">
+                <option
+                  value=""
+                  data-fr="Non précisé"
+                  data-en="Not specified"
+                  data-ar="غير محددة"
+                >
+                  Non précisé
+                </option>
+                <option
+                  value="family"
+                  data-fr="Chambre familiale"
+                  data-en="Family room"
+                  data-ar="غرفة عائلية"
+                >
+                  Chambre familiale
+                </option>
+                <option
+                  value="double"
+                  data-fr="Chambre double"
+                  data-en="Double room"
+                  data-ar="غرفة ثنائية"
+                >
+                  Chambre double
+                </option>
+                <option
+                  value="triple"
+                  data-fr="Chambre triple"
+                  data-en="Triple room"
+                  data-ar="غرفة ثلاثية"
+                >
+                  Chambre triple
+                </option>
+                <option
+                  value="quadruple"
+                  data-fr="Chambre quadruple"
+                  data-en="Quadruple room"
+                  data-ar="غرفة رباعية"
+                >
+                  Chambre quadruple
+                </option>
+                <option
+                  value="quintuple"
+                  data-fr="Chambre quintuple"
+                  data-en="Quintuple room"
+                  data-ar="غرفة خماسية"
+                >
+                  Chambre quintuple
+                </option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="medinaHotelDistance">
+                <i class="fa-solid fa-road"></i>
+                <span
+                  data-fr="Distance de l'hôtel à la Mosquée du Prophète (m)"
+                  data-en="Hotel distance to the Prophet's Mosque (m)"
+                  data-ar="مسافة الفندق عن المسجد النبوي (متر)"
+                  >Distance de l'hôtel à la Mosquée du Prophète (m)</span
+                >
+              </label>
+              <input
+                id="medinaHotelDistance"
+                name="medinaHotelDistance"
+                type="number"
+                min="0"
+                step="1"
+                placeholder="Ex : 300"
+                data-placeholder-fr="Ex : 300"
+                data-placeholder-en="Ex: 300"
+                data-placeholder-ar="مثال: 300"
+              />
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>07</span>
+            <h3
+              data-fr="Services religieux"
+              data-en="Religious services"
+              data-ar="الخدمات الدينية"
+            >
+              Services religieux
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="religiousGuide">
+                <i class="fa-solid fa-user-tie"></i>
+                <span
+                  data-fr="Guide / accompagnateur religieux"
+                  data-en="Religious guide / coordinator"
+                  data-ar="المرشد / المؤطر الديني"
+                  >Guide / accompagnateur religieux</span
+                >
+              </label>
+              <select id="religiousGuide" name="religiousGuide">
+                <option
+                  value=""
+                  data-fr="Non précisé"
+                  data-en="Not specified"
+                  data-ar="غير محدد"
+                >
+                  Non précisé
+                </option>
+                <option
+                  value="with"
+                  data-fr="Avec accompagnateur"
+                  data-en="With coordinator"
+                  data-ar="مع مؤطر ديني"
+                >
+                  Avec accompagnateur
+                </option>
+                <option
+                  value="without"
+                  data-fr="Sans accompagnateur"
+                  data-en="Without coordinator"
+                  data-ar="بدون مؤطر"
+                >
+                  Sans accompagnateur
+                </option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="ziyarat">
+                <i class="fa-solid fa-mosque"></i>
+                <span
+                  data-fr="Visites / Ziyarat"
+                  data-en="Visits / Ziyarat"
+                  data-ar="الزيارات"
+                  >Visites / Ziyarat</span
+                >
+              </label>
+              <select id="ziyarat" name="ziyarat">
+                <option
+                  value=""
+                  data-fr="Non précisé"
+                  data-en="Not specified"
+                  data-ar="غير محدد"
+                >
+                  Non précisé
+                </option>
+                <option
+                  value="included"
+                  data-fr="Incluses"
+                  data-en="Included"
+                  data-ar="مشمولة"
+                >
+                  Incluses
+                </option>
+                <option
+                  value="optional"
+                  data-fr="Optionnelles"
+                  data-en="Optional"
+                  data-ar="اختيارية"
+                >
+                  Optionnelles
+                </option>
+                <option
+                  value="not-included"
+                  data-fr="Non incluses"
+                  data-en="Not included"
+                  data-ar="غير مشمولة"
+                >
+                  Non incluses
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>08</span>
+            <h3 data-fr="Bagages" data-en="Baggage" data-ar="الأمتعة">
+              Bagages
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field">
+              <label for="baggageCount">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <span
+                  data-fr="Nombre de bagages"
+                  data-en="Number of bags"
+                  data-ar="عدد الحقائب"
+                  >Nombre de bagages</span
+                >
+              </label>
+              <select id="baggageCount" name="baggageCount">
+                <option
+                  value=""
+                  data-fr="Non précisé"
+                  data-en="Not specified"
+                  data-ar="غير محدد"
+                >
+                  Non précisé
+                </option>
+                <option
+                  value="1"
+                  data-fr="1 bagage"
+                  data-en="1 bag"
+                  data-ar="حقيبة واحدة"
+                >
+                  1 bagage
+                </option>
+                <option
+                  value="2"
+                  data-fr="2 bagages"
+                  data-en="2 bags"
+                  data-ar="حقيبتان"
+                >
+                  2 bagages
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div id="baggageFields" class="form-grid two hidden">
+            <div class="field">
+              <label for="baggage1Weight">
+                <i class="fa-solid fa-weight-hanging"></i>
+                <span
+                  data-fr="Poids du bagage 1 (kg)"
+                  data-en="Bag 1 weight (kg)"
+                  data-ar="وزن الحقيبة 1 (كغ)"
+                  >Poids du bagage 1 (kg)</span
+                >
+              </label>
+              <input
+                id="baggage1Weight"
+                name="baggage1Weight"
+                type="number"
+                min="0"
+                step="0.1"
+                placeholder="Ex : 23"
+                data-placeholder-fr="Ex : 23"
+                data-placeholder-en="Ex: 23"
+                data-placeholder-ar="مثال: 23"
+              />
+            </div>
+
+            <div id="baggage2Field" class="field hidden">
+              <label for="baggage2Weight">
+                <i class="fa-solid fa-weight-hanging"></i>
+                <span
+                  data-fr="Poids du bagage 2 (kg)"
+                  data-en="Bag 2 weight (kg)"
+                  data-ar="وزن الحقيبة 2 (كغ)"
+                  >Poids du bagage 2 (kg)</span
+                >
+              </label>
+              <input
+                id="baggage2Weight"
+                name="baggage2Weight"
+                type="number"
+                min="0"
+                step="0.1"
+                placeholder="Ex : 23"
+                data-placeholder-fr="Ex : 23"
+                data-placeholder-en="Ex: 23"
+                data-placeholder-ar="مثال: 23"
+              />
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>09</span>
+            <h3
+              data-fr="Prix du programme"
+              data-en="Program price"
+              data-ar="سعر البرنامج"
+            >
+              Prix du programme
+            </h3>
+          </div>
+
+          <div class="form-grid two">
+            <div class="field price-field">
+              <label for="price">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span
+                  data-fr="Prix par personne"
+                  data-en="Price per person"
+                  data-ar="السعر للشخص"
+                  >Prix par personne</span
+                >
+              </label>
+              <div class="price-input">
+                <input
+                  id="price"
+                  name="price"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="0"
+                  required
+                />
+                <select id="currency" name="currency" aria-label="Currency">
+                  <option value="DZD">DZD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="USD">USD</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>10</span>
+            <h3
+              data-fr="Médias"
+              data-en="Media"
+              data-ar="الصور والفيديوهات وخطة الرحلة"
+            >
+              Médias
+            </h3>
+          </div>
+
+          <div class="media-grid">
+            <div class="media-box">
+              <div class="media-icon image-icon">
+                <i class="fa-solid fa-images"></i>
+              </div>
+              <h4
+                data-fr="Photos du programme"
+                data-en="Program photos"
+                data-ar="صور البرنامج"
+              >
+                Photos du programme
+              </h4>
+              <p
+                data-fr="Ajoutez les photos de La Mecque, Médine, hôtels et services."
+                data-en="Add photos of Mecca, Medina, hotels and services."
+                data-ar="أضف صور مكة والمدينة والفنادق والخدمات."
+              >
+                Ajoutez les photos de La Mecque, Médine, hôtels et services.
+              </p>
+              <label class="upload-btn">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span
+                  data-fr="Ajouter des photos"
+                  data-en="Add photos"
+                  data-ar="إضافة الصور"
+                  >Ajouter des photos</span
+                >
+                <input
+                  id="images"
+                  name="images"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+              </label>
+              <div id="imagePreview" class="preview-grid"></div>
+            </div>
+
+            <div class="media-box">
+              <div class="media-icon video-icon">
+                <i class="fa-solid fa-video"></i>
+              </div>
+              <h4
+                data-fr="Vidéos du programme"
+                data-en="Program videos"
+                data-ar="فيديوهات البرنامج"
+              >
+                Vidéos du programme
+              </h4>
+              <p
+                data-fr="Ajoutez les vidéos qui seront visibles par les clients."
+                data-en="Add videos that will be visible to customers."
+                data-ar="أضف الفيديوهات التي ستظهر للزبائن."
+              >
+                Ajoutez les vidéos qui seront visibles par les clients.
+              </p>
+              <label class="upload-btn">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span
+                  data-fr="Ajouter des vidéos"
+                  data-en="Add videos"
+                  data-ar="إضافة الفيديوهات"
+                  >Ajouter des vidéos</span
+                >
+                <input
+                  id="videos"
+                  name="videos"
+                  type="file"
+                  accept="video/*"
+                  multiple
+                />
+              </label>
+              <div id="videoPreview" class="preview-list"></div>
+            </div>
+
+            <div class="media-box">
+              <div class="media-icon pdf-icon">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <h4
+                data-fr="Programme détaillé PDF"
+                data-en="Detailed program PDF"
+                data-ar="برنامج الرحلة PDF"
+              >
+                Programme détaillé PDF
+              </h4>
+              <p
+                data-fr="Ajoutez le PDF contenant tous les détails du programme."
+                data-en="Add the PDF containing all program details."
+                data-ar="أضف ملف PDF الذي يحتوي على تفاصيل البرنامج كاملة."
+              >
+                Ajoutez le PDF contenant tous les détails du programme.
+              </p>
+              <label class="upload-btn">
+                <i class="fa-solid fa-file-arrow-up"></i>
+                <span
+                  data-fr="Ajouter le PDF"
+                  data-en="Add PDF"
+                  data-ar="إضافة PDF"
+                  >Ajouter le PDF</span
+                >
+                <input
+                  id="tripPdf"
+                  name="tripPdf"
+                  type="file"
+                  accept="application/pdf,.pdf"
+                />
+              </label>
+              <div id="pdfPreview" class="preview-list"></div>
+            </div>
+          </div>
+
+          <div class="section-title">
+            <span>11</span>
+            <h3
+              data-fr="Description du programme"
+              data-en="Program description"
+              data-ar="وصف البرنامج"
+            >
+              Description du programme
+            </h3>
+          </div>
+
+          <div class="field">
+            <label for="description">
+              <i class="fa-solid fa-file-lines"></i>
+              <span
+                data-fr="Description complète"
+                data-en="Full description"
+                data-ar="الوصف الكامل"
+                >Description complète</span
+              >
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              rows="8"
+              placeholder="Décrivez le programme, les étapes, les services inclus, les visites, les conditions..."
+              data-placeholder-fr="Décrivez le programme, les étapes, les services inclus, les visites, les conditions..."
+              data-placeholder-en="Describe the program, stages, included services, visits, conditions..."
+              data-placeholder-ar="اكتب وصف البرنامج والمراحل والخدمات المشمولة والزيارات والشروط..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-footer">
+            <div class="form-status" id="formStatus"></div>
+            <button type="submit" id="submitBtn" class="submit-btn">
+              <i class="fa-solid fa-kaaba"></i>
+              <span
+                data-fr="Envoyer le programme"
+                data-en="Submit program"
+                data-ar="إرسال البرنامج"
+                >Envoyer le programme</span
+              >
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer ultra-footer">
+      <div class="ultra-footer-inner">
+        <div class="ultra-footer-brand">
+          <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+          <div>
+            <strong>AQUAREV TRAVEL</strong>
+            <span
+              data-fr="Agence de voyages de luxe"
+              data-en="Luxury Travel Agency"
+              data-ar="وكالة سفر فاخرة"
+              >Agence de voyages de luxe</span
+            >
+          </div>
+        </div>
+
+        <div class="ultra-footer-contact">
+          <a href="mailto:aquarev.travel@gmail.com" class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>
+              <small data-fr="Email" data-en="Email" data-ar="البريد الإلكتروني"
+                >Email</small
+              >
+              <strong>aquarev.travel@gmail.com</strong>
+            </span>
+          </a>
+
+          <a
+            href="https://wa.me/213541116245"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-contact-item"
+          >
+            <i class="fab fa-whatsapp"></i>
+            <span>
+              <small data-fr="WhatsApp" data-en="WhatsApp" data-ar="واتساب"
+                >WhatsApp</small
+              >
+              <strong>0541 11 62 45</strong>
+            </span>
+          </a>
+
+          <a
+            href="https://wa.me/213554957858"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-contact-item"
+          >
+            <i class="fab fa-whatsapp"></i>
+            <span>
+              <small data-fr="WhatsApp" data-en="WhatsApp" data-ar="واتساب"
+                >WhatsApp</small
+              >
+              <strong>0554 95 78 58</strong>
+            </span>
+          </a>
+
+          <div class="footer-contact-item footer-address">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+              <small data-fr="Adresse" data-en="Address" data-ar="العنوان"
+                >Adresse</small
+              >
+              <strong
+                data-fr="Carrefour Allaghen, Tazmalt, Béjaïa, Algérie"
+                data-en="Carrefour Allaghen, Tazmalt, Béjaïa, Algeria"
+                data-ar="كارفور ألاقن، تازمالت، بجاية، الجزائر"
+                >Carrefour Allaghen, Tazmalt, Béjaïa, Algérie</strong
+              >
+            </span>
+          </div>
+        </div>
+
+        <div class="ultra-footer-social">
+          <a
+            href="https://www.facebook.com/aquarevtravel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/aquarevtravel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.tiktok.com/@aquarev_travel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+          >
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a
+            href="https://wa.me/213541116245"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="mailto:aquarev.travel@gmail.com" aria-label="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+        <div class="ultra-footer-copy">
+          © <span id="footerYear"></span> AQUAREV Travel.
+          <span
+            data-fr="Tous droits réservés."
+            data-en="All Rights Reserved."
+            data-ar="جميع الحقوق محفوظة."
+            >Tous droits réservés.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <div id="successModal" class="modal hidden">
+      <div class="modal-card">
+        <div class="modal-icon success">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h2
+          data-fr="Programme envoyé !"
+          data-en="Program submitted!"
+          data-ar="تم إرسال البرنامج!"
+        >
+          Programme envoyé !
+        </h2>
+        <p
+          data-fr="Votre programme Omra & Hajj a été enregistré avec succès."
+          data-en="Your Umrah & Hajj program has been saved successfully."
+          data-ar="تم حفظ برنامج العمرة والحج بنجاح."
+        >
+          Votre programme Omra & Hajj a été enregistré avec succès.
+        </p>
+        <button
+          id="closeSuccess"
+          class="modal-btn"
+          data-fr="Fermer"
+          data-en="Close"
+          data-ar="إغلاق"
+        >
+          Fermer
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const footerYear = document.getElementById("footerYear");
+      if (footerYear) footerYear.textContent = new Date().getFullYear();
+    </script>
+
+    <script type="module" src="omra-hajj.js"></script>
+  </body>
+</html>
