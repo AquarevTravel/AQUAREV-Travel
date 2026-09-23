@@ -19,6 +19,44 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="voyages_programmes.css" />
+    <style>
+      .programs-section {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+      }
+      .voyages-background-video {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+        object-fit: cover;
+        z-index: -2;
+        pointer-events: none;
+        border-radius: 18px;
+      }
+      .voyages-video-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(3, 25, 42, 0.68),
+          rgba(7, 45, 65, 0.5) 45%,
+          rgba(255, 255, 255, 0.18) 100%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+      .programs-section .section-heading,
+      .programs-section .programs-status,
+      .programs-section .programs-grid {
+        position: relative;
+        z-index: 2;
+      }
+    </style>
     <title>AQUAREV Travel | Programmes touristiques</title>
   </head>
   <body>
@@ -148,6 +186,18 @@
 
     <main>
       <section class="programs-section">
+        <video
+          class="voyages-background-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="assets/videos/voyages-programmes.mp4" type="video/mp4" />
+        </video>
+        <div class="voyages-video-overlay"></div>
+
         <div class="section-heading">
           <div class="section-kicker">
             <i class="fa-solid fa-sun"></i>

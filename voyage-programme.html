@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="UTF-8" />
@@ -146,7 +145,6 @@
         >
       </div>
     </header>
-
     <main>
       <section class="program-detail-section">
         <div id="programLoading" class="program-loading">
@@ -158,16 +156,18 @@
             >Chargement du programme...</span
           >
         </div>
-
         <div
           id="programError"
           class="program-message error-message"
           hidden
         ></div>
-
         <article id="programDetail" class="program-detail" hidden>
           <div class="program-top">
-            <a href="voyages-programmes.html" class="back-link">
+            <a
+              href="voyages-programmes.html"
+              id="backToProgramsLink"
+              class="back-link"
+            >
               <i class="fa-solid fa-arrow-left"></i>
               <span
                 data-fr="Retour aux programmes"
@@ -177,7 +177,6 @@
               >
             </a>
           </div>
-
           <div class="program-hero">
             <div class="hero-media">
               <img id="programMainImage" src="" alt="AQUAREV Travel" />
@@ -211,7 +210,6 @@
               </a>
             </div>
           </div>
-
           <div class="program-content-grid">
             <section class="program-info-card">
               <div class="card-heading">
@@ -302,7 +300,6 @@
                 </div>
               </div>
             </section>
-
             <section
               id="descriptionCard"
               class="program-description-card"
@@ -315,7 +312,6 @@
                 </h2>
               </div>
               <p id="programDescription"></p>
-
               <div id="pdfProgramBox" class="program-pdf-box" hidden>
                 <a
                   id="pdfProgramButton"
@@ -335,7 +331,6 @@
               </div>
             </section>
           </div>
-
           <section id="photosSection" class="media-section" hidden>
             <div class="section-heading">
               <div>
@@ -357,7 +352,6 @@
             </div>
             <div id="photosGrid" class="photos-grid"></div>
           </section>
-
           <section id="videosSection" class="media-section" hidden>
             <div class="section-heading">
               <div>
@@ -379,9 +373,12 @@
             </div>
             <div id="videosGrid" class="videos-grid"></div>
           </section>
-
           <div class="bottom-action">
-            <a href="voyages-programmes.html" class="secondary-button">
+            <a
+              href="voyages-programmes.html"
+              id="bottomProgramsLink"
+              class="secondary-button"
+            >
               <i class="fa-solid fa-arrow-left"></i>
               <span
                 data-fr="Tous les programmes"
@@ -403,7 +400,6 @@
         </article>
       </section>
     </main>
-
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-column footer-brand">
@@ -420,7 +416,6 @@
             mesure et des expériences inoubliables.
           </p>
         </div>
-
         <div class="footer-column">
           <h3 data-fr="Contact" data-en="Contact" data-ar="التواصل">Contact</h3>
           <a href="mailto:aquarev.travel@gmail.com"
@@ -437,7 +432,6 @@
             ><i class="fa-brands fa-whatsapp"></i><span>0541 11 62 45</span></a
           >
         </div>
-
         <div class="footer-column">
           <h3 data-fr="Notre agence" data-en="Our agency" data-ar="وكالتنا">
             Notre agence
@@ -479,7 +473,6 @@
             ></a
           >
         </div>
-
         <div class="footer-column">
           <h3 data-fr="Suivez-nous" data-en="Follow us" data-ar="تابعونا">
             Suivez-nous
@@ -523,7 +516,6 @@
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
         <span
           >© <span id="currentYear"></span> AQUAREV Travel.
@@ -542,7 +534,6 @@
         >
       </div>
     </footer>
-
     <div id="imageModal" class="image-modal">
       <button type="button" id="imageModalClose" class="modal-close">
         <i class="fa-solid fa-xmark"></i>
@@ -556,7 +547,6 @@
       </button>
       <div id="modalCounter" class="modal-counter"></div>
     </div>
-
     <button
       type="button"
       class="back-top"
@@ -565,7 +555,21 @@
     >
       <i class="fa-solid fa-chevron-up"></i>
     </button>
-
+    <script>
+      (function () {
+        const referrer = document.referrer || "";
+        const params = new URLSearchParams(window.location.search);
+        const source = params.get("source") || "";
+        let backUrl = "voyages-programmes.html";
+        if (source === "omra" || referrer.includes("omra-programmes.html")) {
+          backUrl = "omra-programmes.html";
+        }
+        const backLink = document.getElementById("backToProgramsLink");
+        const bottomLink = document.getElementById("bottomProgramsLink");
+        if (backLink) backLink.href = backUrl;
+        if (bottomLink) bottomLink.href = backUrl;
+      })();
+    </script>
     <script type="module" src="voyage-programme.js"></script>
   </body>
 </html>

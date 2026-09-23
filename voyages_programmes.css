@@ -244,3 +244,25 @@ html{scroll-behavior:auto}
 .additional-dates-list span{display:flex;align-items:center;justify-content:flex-start;gap:6px;padding:7px 9px;border-radius:10px;background:#fff;font-size:10px;font-weight:600;color:#526d79}
 .additional-dates-list span i{color:var(--sky);font-size:9px}
 [dir="rtl"] .additional-dates-list span{flex-direction:row-reverse}
+
+
+
+
+.section-kicker{
+color:#fff!important;
+}
+.section-kicker i{
+color:#fff!important;
+}
+.section-heading h2{
+color:#fff!important;
+}
+.section-heading p{
+color:rgba(255,255,255,.95)!important;
+}
+
+
+
+.programs-section .section-heading{
+transform:translateY(-35px);
+}

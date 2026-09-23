@@ -77,12 +77,12 @@
               AR
             </button>
           </div>
-          <a href="index.html#contact" class="header-contact"
-            ><i class="fa-solid fa-phone"></i
-            ><span data-fr="Contact" data-en="Contact" data-ar="اتصل بنا"
+          <a href="index.html#contact" class="header-contact">
+            <i class="fa-solid fa-phone"></i>
+            <span data-fr="Contact" data-en="Contact" data-ar="اتصل بنا"
               >Contact</span
-            ></a
-          >
+            >
+          </a>
           <button
             type="button"
             class="mobile-menu-btn"
@@ -131,13 +131,23 @@
         >
       </nav>
     </header>
-
     <main>
       <section class="programs-section">
+        <video
+          class="omra-background-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="assets/videos/omra-kaaba.webm" type="video/webm" />
+        </video>
+        <div class="omra-video-overlay"></div>
         <div class="section-heading">
           <div class="section-kicker">
-            <i class="fa-solid fa-kaaba"></i
-            ><span
+            <i class="fa-solid fa-kaaba"></i>
+            <span
               data-fr="Omra & Hajj"
               data-en="Umrah & Hajj"
               data-ar="العمرة والحج"
@@ -164,14 +174,12 @@
         <div class="programs-grid" id="programsGrid"></div>
       </section>
     </main>
-
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" /><span
-              >AQUAREV <b>TRAVEL</b></span
-            >
+            <img src="assets/logo/aquarev.png" alt="AQUAREV Travel" />
+            <span>AQUAREV <b>TRAVEL</b></span>
           </div>
           <p
             data-fr="Votre agence de voyage pour des expériences exceptionnelles."
@@ -263,7 +271,6 @@
         >
       </div>
     </footer>
-
     <button
       type="button"
       class="back-top"
@@ -272,7 +279,6 @@
     >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
-
     <script type="module" src="omra-programmes.js"></script>
   </body>
 </html>
