@@ -1,539 +1,276 @@
 *{margin:0;padding:0;box-sizing:border-box}
-
 :root{--sea:#00b4d8;--sky:#48cae4;--sky-light:#90e0ef;--cyan:#caf0f8;--gold:#d4af37;--white:#fff;--light:#f2fcff;--text:#164052;--border:#c9edf5;--blue:#0077b6}
-
 html{scroll-behavior:smooth}
-
 body{font-family:Poppins,Cairo,sans-serif;background:linear-gradient(180deg,#e8fbff 0%,#fff 40%,#effcff 100%);color:var(--text);min-height:100vh}
-
 button,a{font-family:inherit}
-
 a{text-decoration:none}
-
 .visa-header{height:82px;background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:relative;z-index:1000;box-shadow:0 4px 20px rgba(0,119,182,.12);border-bottom:1px solid rgba(0,180,216,.2)}
-
 .visa-logo img{width:145px;display:block}
-
 .visa-language{position:relative}
-
 .language-button{border:1px solid #bdebf4;background:#effcff;color:#087b99;border-radius:30px;padding:10px 15px;cursor:pointer;display:flex;align-items:center;gap:9px;font-size:16px}
-
 .language-button i{color:var(--sea)}
-
 .language-menu{position:absolute;right:0;top:48px;width:150px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,119,182,.18);padding:7px;display:none}
-
 .language-menu.open{display:block}
-
 .language-menu button{display:block;width:100%;border:0;background:none;text-align:left;padding:10px;border-radius:8px;cursor:pointer;color:#087b99;font-size:14px}
-
 .language-menu button:hover{background:#e9faff}
-
-.visa-service-selector{position:relative;overflow:hidden;background:linear-gradient(135deg,#e8fbff 0%,#caf0f8 35%,#90e0ef 68%,#48cae4 100%);color:#07516a;display:flex;align-items:center;justify-content:center;padding:20px 20px 18px;isolation:isolate;border-bottom:1px solid rgba(0,180,216,.2);box-shadow:0 5px 22px rgba(0,119,182,.1)}
-
+.visa-service-selector{position:relative;overflow:hidden;background:linear-gradient(135deg,#e8fbff 0%,#caf0f8 35%,#90e0ef 68%,#48cae4 100%);color:#07516a;display:flex;align-items:center;justify-content:center;padding:15px 20px 13px;isolation:isolate;border-bottom:1px solid rgba(0,180,216,.2);box-shadow:0 5px 22px rgba(0,119,182,.1);transform:translateY(-8px);margin-bottom:-8px}
 .selector-content{position:relative;z-index:10;width:100%;max-width:1050px;text-align:center}
-
-.selector-brand{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:5px;color:var(--gold)}
-
-.selector-brand span{width:38px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.9))}
-
+.selector-brand{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:3px;color:var(--gold)}
+.selector-brand span{width:30px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.9))}
 .selector-brand span:last-child{background:linear-gradient(90deg,rgba(212,175,55,.9),transparent)}
-
-.selector-brand i{font-size:14px;text-shadow:0 0 12px rgba(212,175,55,.45)}
-
-.selector-content h1{font-family:Cinzel,serif;font-size:18px;letter-spacing:2px;margin-bottom:3px;color:#07516a}
-
-.selector-content>p{font-size:10px;color:#17677d;line-height:1.4;margin:0 auto 12px}
-
-.luxury-circles{display:flex;justify-content:center;align-items:center;gap:18px;position:relative}
-
-.luxury-circle{width:145px;height:145px;border:0;background:transparent;border-radius:50%;position:relative;cursor:pointer;color:#07516a;padding:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s ease}
-
-.luxury-circle:before{content:"";position:absolute;inset:5px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(202,240,248,.78));border:1px solid rgba(255,255,255,.95);box-shadow:inset 0 0 20px rgba(255,255,255,.7),0 9px 25px rgba(0,119,182,.18);backdrop-filter:blur(5px)}
-
-.luxury-circle:after{content:"";position:absolute;inset:10px;border-radius:50%;border:1px solid rgba(212,175,55,.65);box-shadow:inset 0 0 12px rgba(0,180,216,.12)}
-
-.luxury-circle:hover{transform:translateY(-4px) scale(1.025);filter:brightness(1.04)}
-
-.circle-glow{position:absolute;width:95px;height:95px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(0,180,216,.18),rgba(0,180,216,0) 70%);filter:blur(2px);transition:.4s}
-
-.luxury-circle:hover .circle-glow{width:120px;height:120px}
-
+.selector-brand i{font-size:12px;text-shadow:0 0 12px rgba(212,175,55,.45)}
+.selector-content h1{font-family:Cinzel,serif;font-size:16px;letter-spacing:1.7px;margin-bottom:2px;color:#07516a}
+.selector-content>p{font-size:9px;color:#17677d;line-height:1.3;margin:0 auto 8px}
+.luxury-circles{display:flex;justify-content:center;align-items:center;gap:12px;position:relative}
+.luxury-circle{width:185px!important;height:185px!important;border:0;background:transparent;border-radius:50%;position:relative;cursor:pointer;color:#07516a;padding:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s ease}
+.luxury-circle:before{content:"";position:absolute;inset:5px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(202,240,248,.78));border:1px solid rgba(255,255,255,.95);box-shadow:inset 0 0 18px rgba(255,255,255,.7),0 8px 22px rgba(0,119,182,.18);backdrop-filter:blur(5px)}
+.luxury-circle:after{content:"";position:absolute;inset:9px;border-radius:50%;border:1px solid rgba(212,175,55,.65);box-shadow:inset 0 0 10px rgba(0,180,216,.12)}
+.luxury-circle:hover{transform:translateY(-3px) scale(1.025);filter:brightness(1.04)}
+.circle-glow{position:absolute;width:80px;height:80px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(0,180,216,.18),rgba(0,180,216,0) 70%);filter:blur(2px);transition:.4s}
+.luxury-circle:hover .circle-glow{width:100px;height:100px}
 .circle-ring{position:absolute;border-radius:50%;pointer-events:none}
-
-.circle-ring-one{inset:-4px;border:1px solid rgba(0,180,216,.3);border-left-color:rgba(212,175,55,.9);border-bottom-color:rgba(212,175,55,.65);animation:circleRotate 18s linear infinite}
-
-.circle-ring-two{inset:-8px;border:1px dashed rgba(255,255,255,.8);animation:circleRotateReverse 25s linear infinite}
-
-.circle-inner{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px}
-
-.circle-icon{width:31px;height:31px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,.7);background:rgba(255,255,255,.78);color:var(--sea);font-size:13px;box-shadow:0 0 12px rgba(0,180,216,.18);margin-bottom:5px}
-
-.circle-small{font-size:8px;letter-spacing:1.3px;color:#16829c;margin-bottom:3px}
-
-.circle-inner strong{font-family:Cinzel,serif;font-size:12px;letter-spacing:.5px;color:#07516a;line-height:1.25}
-
-.circle-description{font-size:8px;color:#357489;margin-top:3px;line-height:1.25;max-width:115px}
-
-.circle-action{margin-top:5px;width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);border:1px solid rgba(212,175,55,.5);background:rgba(255,255,255,.75);transition:.3s;font-size:8px}
-
+.circle-ring-one{inset:-3px;border:1px solid rgba(0,180,216,.3);border-left-color:rgba(212,175,55,.9);border-bottom-color:rgba(212,175,55,.65);animation:circleRotate 18s linear infinite}
+.circle-ring-two{inset:-6px;border:1px dashed rgba(255,255,255,.8);animation:circleRotateReverse 25s linear infinite}
+.circle-inner{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px}
+.circle-icon{width:27px;height:27px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,.7);background:rgba(255,255,255,.78);color:var(--sea);font-size:11px;box-shadow:0 0 10px rgba(0,180,216,.18);margin-bottom:4px}
+.circle-small{font-size:7px;letter-spacing:1.1px;color:#16829c;margin-bottom:2px}
+.circle-inner strong{font-family:Cinzel,serif;font-size:10.5px;letter-spacing:.4px;color:#07516a;line-height:1.2}
+.circle-description{font-size:7px;color:#357489;margin-top:2px;line-height:1.2;max-width:105px}
+.circle-action{margin-top:4px;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);border:1px solid rgba(212,175,55,.5);background:rgba(255,255,255,.75);transition:.3s;font-size:7px}
 .luxury-circle:hover .circle-action{background:var(--gold);color:#fff;transform:translateY(2px)}
-
 .future-circle:before{background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(144,224,239,.72))}
-
 .selector-background{position:absolute;border-radius:50%;pointer-events:none;border:1px solid rgba(255,255,255,.35)}
-
 .selector-background-one{width:400px;height:400px;left:-260px;top:-230px}
-
 .selector-background-two{width:500px;height:500px;right:-320px;bottom:-360px;border-color:rgba(212,175,55,.14)}
-
 .selector-wave{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.25);pointer-events:none}
-
 .selector-wave-one{width:650px;height:120px;left:-250px;bottom:-70px;transform:rotate(-7deg)}
-
 .selector-wave-two{width:550px;height:100px;right:-220px;top:-65px;transform:rotate(7deg)}
-
 @keyframes circleRotate{to{transform:rotate(360deg)}}
-
 @keyframes circleRotateReverse{to{transform:rotate(-360deg)}}
-
 .visa-main-content{display:none;opacity:0;transform:translateY(15px)}
-
 .visa-main-content.visa-main-visible{display:block;opacity:1;transform:translateY(0);animation:mainOpen .45s ease}
-
 @keyframes mainOpen{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-
 .visa-content-panel,.evisa-content-panel{display:none}
-
 .visa-content-panel.active,.evisa-content-panel.active{display:block}
-
 .visa-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#90e0ef,#00b4d8,#48cae4);color:#fff;text-align:center;padding:72px 20px 105px}
-
 .visa-hero:after{content:"";position:absolute;left:-5%;right:-5%;bottom:-68px;height:115px;background:#e8faff;border-radius:50% 50% 0 0}
-
 .visa-hero-content{position:relative;z-index:4;max-width:850px;margin:auto}
-
 .visa-icon{width:78px;height:78px;border-radius:50%;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.75);box-shadow:0 0 30px rgba(255,255,255,.25);font-size:33px;color:#fff}
-
 .visa-hero h1,.evisa-hero h1{font-family:Cinzel,serif;font-size:clamp(30px,5vw,55px);letter-spacing:3px;margin-bottom:18px}
-
 .visa-hero p,.evisa-hero p{max-width:760px;margin:auto;font-size:16px;line-height:1.8;color:#effcff}
-
 .sea-decoration,.evisa-bubble{position:absolute;border-radius:50%;border:2px solid rgba(255,255,255,.22)}
-
 .sea-decoration-one{width:300px;height:300px;left:-160px;top:30px}
-
 .sea-decoration-two{width:430px;height:430px;right:-230px;top:-100px}
-
 .wave{position:absolute;border:2px solid rgba(255,255,255,.22);border-radius:50%;z-index:1}
-
 .wave-one{width:600px;height:150px;left:-180px;bottom:10px;transform:rotate(-8deg)}
-
 .wave-two{width:500px;height:130px;right:-170px;bottom:30px;transform:rotate(8deg)}
-
 .country-section,.evisa-country-section{padding:38px 20px 15px;position:relative;z-index:5}
-
+.evisa-country-section-compact{padding-top:28px}
 .section-heading{display:flex;align-items:center;justify-content:center;gap:15px;margin:0 auto 25px;max-width:1000px}
-
 .section-heading h2{font-family:Cinzel,serif;color:#087b99;font-size:clamp(17px,3vw,24px);text-align:center;letter-spacing:1px}
-
 .heading-line{height:2px;background:linear-gradient(90deg,transparent,var(--sky));width:80px}
-
 .heading-line:last-child{background:linear-gradient(90deg,var(--sky),transparent)}
-
 .country-navigation{max-width:950px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-
 .country-card{position:relative;border:2px solid #c5eaf3;background:rgba(255,255,255,.95);border-radius:18px;padding:22px 18px;cursor:pointer;color:#087b99;transition:.3s;box-shadow:0 8px 25px rgba(0,180,216,.1);overflow:hidden}
-
 .country-card:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--sea);transform:scaleX(0);transition:.3s}
-
 .country-card:hover,.country-card.active{transform:translateY(-7px);border-color:var(--sea);box-shadow:0 12px 30px rgba(0,180,216,.2);background:#fff}
-
 .country-card:hover:after,.country-card.active:after{transform:scaleX(1)}
-
 .country-flag{display:flex;align-items:center;justify-content:center;width:34px;height:23px;margin:0 auto 8px;font-size:24px}
-
 .country-name{display:block;font-size:21px;font-weight:700;letter-spacing:1px}
-
 .country-card small{display:block;color:#648091;margin-top:4px}
-
 .country-card i{position:absolute;right:17px;top:50%;transform:translateY(-50%);color:var(--sea);opacity:.5;transition:.3s}
-
 .country-card:hover i,.country-card.active i{opacity:1;right:13px}
-
 .visa-offer-section{padding:15px 20px 30px}
-
 .offer-container{max-width:1050px;margin:auto;background:#fff;border-radius:25px;box-shadow:0 15px 50px rgba(0,180,216,.12);overflow:hidden;border:1px solid #d8f2f7}
-
-.offer-header{padding:38px 35px;background:linear-gradient(135deg,#f7fdff,#e8faff);border-bottom:1px solid #d9f1f6}
-
-.offer-country{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,#00b4d8,#48cae4);color:#fff;padding:7px 14px;border-radius:20px;font-size:13px;margin-bottom:13px;line-height:1;white-space:nowrap}
-
-.offer-header h2{font-family:Cinzel,serif;color:#087b99;font-size:clamp(21px,4vw,32px);line-height:1.4;margin-bottom:12px}
-
-.offer-header p{color:#557080;line-height:1.7}
-
+.offer-header{padding:28px 28px;background:linear-gradient(135deg,#f7fdff,#e8faff);border-bottom:1px solid #d9f1f6}
+.offer-country{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(135deg,#00b4d8,#48cae4);color:#fff;padding:6px 11px;border-radius:18px;font-size:11px;margin-bottom:9px;line-height:1;white-space:nowrap}
+.offer-header h2{font-family:Cinzel,serif;color:#087b99;font-size:clamp(18px,3vw,27px);line-height:1.3;margin-bottom:8px}
+.offer-header p{color:#557080;line-height:1.55;font-size:13px}
 .services-box,.dossier-box{padding:35px}
-
 .box-heading,.dossier-title{display:flex;align-items:center;gap:12px;margin-bottom:25px}
-
 .box-heading i,.dossier-title i{color:var(--sea);font-size:23px}
-
 .services-box h3,.dossier-title h3{color:#087b99;font-size:22px;letter-spacing:1px}
-
 .service-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-
 .service-item{display:flex;gap:15px;padding:18px;border-radius:14px;background:#f4fcfe;border-left:4px solid var(--sea);transition:.25s}
-
 .service-item:hover{transform:translateY(-3px);box-shadow:0 7px 20px rgba(0,119,182,.08)}
-
 .service-number{font-weight:700;color:var(--sea);font-size:17px;min-width:27px}
-
 .service-item p{line-height:1.65;font-size:14px}
-
 .dossier-box{border-top:1px solid #e2f1f4;background:#fff}
-
 .dossier-intro{color:#648091;margin:-10px 0 22px;line-height:1.7}
-
 .profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
-
 .profile-card{border:1px solid #cbeaf1;background:#f8fdff;color:#087b99;border-radius:12px;padding:17px 10px;display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;transition:.25s;font-size:14px}
-
 .profile-card i{color:var(--sea)}
-
 .profile-card:hover,.profile-card.selected{background:linear-gradient(135deg,#00b4d8,#48cae4);color:#fff;border-color:var(--sea);transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,180,216,.15)}
-
 .profile-card:hover i,.profile-card.selected i{color:#fff}
-
 .documents-panel{display:none;margin-top:25px;padding:25px;background:linear-gradient(135deg,#f3fbfd,#fafdff);border-radius:17px;border:1px solid #d6eef4;animation:documentsOpen .35s ease}
-
 .documents-panel.open{display:block}
-
 @keyframes documentsOpen{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-
 .documents-panel-header{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #d8edf2;padding-bottom:17px;margin-bottom:18px}
-
 .documents-panel-header i{font-size:30px;color:var(--sea);opacity:.7}
-
 .selected-profile-label{display:block;color:var(--sea);font-size:12px;text-transform:uppercase;font-weight:700;letter-spacing:1px;margin-bottom:4px}
-
 .documents-panel h4{color:#087b99;font-size:19px}
-
 .documents-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
 .document-item{background:#fff;border:1px solid #e0f1f5;border-radius:10px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6}
-
 .document-item i{color:var(--sea);font-size:12px;margin-top:5px}
-
 .offer-price{margin:0 35px 35px;padding:22px;border-radius:16px;background:linear-gradient(135deg,#00b4d8,#48cae4);color:#fff;text-align:center;font-weight:700;font-size:18px;line-height:1.7;box-shadow:0 8px 25px rgba(0,180,216,.15)}
-
 .offer-price:empty{display:none}
-
 .visa-note{max-width:1050px;margin:0 auto 45px;padding:20px 25px;border-radius:15px;background:#fff8df;border:1px solid #f0df9b;color:#685b28;display:flex;gap:13px;align-items:flex-start;font-size:13px;line-height:1.7}
-
 .visa-note i{color:var(--gold);font-size:19px;margin-top:2px}
-
 .evisa-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#48cae4,#00b4d8,#90e0ef);color:#fff;text-align:center;padding:72px 20px 105px}
-
 .evisa-hero:after{content:"";position:absolute;left:-5%;right:-5%;bottom:-68px;height:115px;background:#e8faff;border-radius:50% 50% 0 0}
-
 .evisa-hero-content{position:relative;z-index:4;max-width:950px;margin:auto}
-
 .evisa-icon{width:82px;height:82px;border-radius:50%;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.8);font-size:35px}
-
 .evisa-bubble-one{width:350px;height:350px;left:-170px;top:-100px}
-
 .evisa-bubble-two{width:500px;height:500px;right:-250px;bottom:-300px}
-
-.evisa-carousel{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px}
-
+.evisa-carousel{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;transform:translateY(-7px)}
 .evisa-country-viewport{overflow:hidden;flex:1;padding:20px 5px}
-
-.evisa-country-track{display:flex;align-items:center;gap:22px;transition:transform .35s ease}
-
-.evisa-country-item{flex:0 0 118px;width:118px;height:118px;border-radius:50%;border:2px solid #c7edf5;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;color:#087b99;box-shadow:0 8px 22px rgba(0,180,216,.1);transition:.35s;padding:10px;overflow:hidden}
-
+.evisa-country-track{display:flex;align-items:center;gap:18px;transition:transform .35s ease}
+.evisa-country-item{flex:0 0 100px;width:100px;height:100px;border-radius:50%;border:2px solid #c7edf5;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;color:#087b99;box-shadow:0 8px 22px rgba(0,180,216,.1);transition:.35s;padding:8px;overflow:hidden}
 .evisa-country-item:hover{transform:translateY(-5px);border-color:var(--sea)}
-
-.evisa-country-item.active{width:145px;height:145px;flex-basis:145px;background:linear-gradient(145deg,#e9fbff,#fff);border:3px solid var(--sea);box-shadow:0 15px 35px rgba(0,180,216,.23);transform:scale(1.08)}
-
-.evisa-country-item .flag{display:flex;align-items:center;justify-content:center;width:44px;height:32px;font-size:0;line-height:1;margin:0 0 7px;flex-shrink:0}
-
-.evisa-country-item .flag svg{display:block;width:44px;height:30px;max-width:100%;max-height:100%;border-radius:4px;object-fit:cover;box-shadow:0 2px 7px rgba(0,80,110,.15)}
-
-.evisa-country-item.active .flag{width:54px;height:39px}
-
-.evisa-country-item.active .flag svg{width:54px;height:37px}
-
-.evisa-country-item .name{font-size:11px;font-weight:700;text-align:center;line-height:1.25;max-width:95px}
-
+.evisa-country-item.active{width:122px;height:122px;flex-basis:122px;background:linear-gradient(145deg,#e9fbff,#fff);border:3px solid var(--sea);box-shadow:0 15px 35px rgba(0,180,216,.23);transform:scale(1.05)}
+.evisa-country-item .flag{display:flex;align-items:center;justify-content:center;width:38px;height:28px;font-size:0;line-height:1;margin:0 0 6px;flex-shrink:0}
+.evisa-country-item .flag svg{display:block;width:38px;height:26px;max-width:100%;max-height:100%;border-radius:4px;object-fit:cover;box-shadow:0 2px 7px rgba(0,80,110,.15)}
+.evisa-country-item.active .flag{width:47px;height:34px}
+.evisa-country-item.active .flag svg{width:47px;height:32px}
+.evisa-country-item .name{font-size:10px;font-weight:700;text-align:center;line-height:1.2;max-width:82px}
 .evisa-arrow{width:48px;height:48px;min-width:48px;border-radius:50%;border:2px solid #9de3ef;background:#fff;color:var(--sea);cursor:pointer;font-size:17px;transition:.25s}
-
 .evisa-arrow:hover{background:var(--sea);color:#fff;transform:scale(1.08)}
-
-.evisa-selected-country{max-width:650px;margin:15px auto 0;padding:22px 30px;border-radius:22px;background:#fff;border:2px solid #cceff5;box-shadow:0 12px 30px rgba(0,180,216,.12);display:flex;align-items:center;justify-content:center;gap:20px}
-
-.evisa-selected-flag{display:flex;align-items:center;justify-content:center;width:75px;height:54px;font-size:0;line-height:1;flex-shrink:0}
-
-.evisa-selected-flag svg{display:block;width:75px;height:51px;border-radius:5px;object-fit:cover;box-shadow:0 3px 10px rgba(0,80,110,.16)}
-
-.evisa-selected-label{display:block;font-size:10px;letter-spacing:2px;color:var(--sea);font-weight:700;margin-bottom:4px}
-
-.evisa-selected-country h2{font-family:Cinzel,serif;color:#087b99;font-size:27px}
-
-.evisa-offers-section{padding:30px 20px 60px}
-
-.evisa-offers-container{max-width:1100px;margin:auto;background:#fff;border:1px solid #d8f2f7;border-radius:25px;overflow:hidden;box-shadow:0 15px 50px rgba(0,180,216,.1)}
-
-.evisa-offers-heading{padding:30px 35px;background:linear-gradient(135deg,#f2fcff,#e3f9fd);display:flex;gap:15px;align-items:center;border-bottom:1px solid #d8f2f7}
-
-.evisa-offers-heading>i{font-size:30px;color:var(--sea)}
-
-.evisa-offers-heading h2{color:#087b99;font-family:Cinzel,serif}
-
-.evisa-offers-heading p{font-size:13px;color:#648091;margin-top:5px}
-
-.evisa-offers{padding:25px}
-
-.evisa-offer-card{border:1px solid #ccecf3;border-radius:18px;margin-bottom:16px;overflow:hidden;background:#fbfeff}
-
+.evisa-offers-section{padding:26px 20px 50px}
+.evisa-offers-container{max-width:1050px;margin:auto;background:#fff;border:1px solid #d8f2f7;border-radius:21px;overflow:hidden;box-shadow:0 12px 40px rgba(0,180,216,.09)}
+.evisa-offers-heading{padding:25px 30px;background:linear-gradient(135deg,#f2fcff,#e3f9fd);display:flex;gap:13px;align-items:center;border-bottom:1px solid #d8f2f7}
+.evisa-offers-heading>i{font-size:27px;color:var(--sea)}
+.evisa-offers-heading h2{color:#087b99;font-family:Cinzel,serif;font-size:21px}
+.evisa-offers-heading p{font-size:12px;color:#648091;margin-top:4px}
+.evisa-offers{padding:20px}
+.evisa-offer-card{border:1px solid #ccecf3;border-radius:15px;margin-bottom:13px;overflow:hidden;background:#fbfeff}
 .evisa-offer-card:last-child{margin-bottom:0}
-
 .evisa-offer-top{display:grid;grid-template-columns:1.1fr 1fr .8fr .8fr;gap:0;background:linear-gradient(135deg,#eafaff,#f9feff);border-bottom:1px solid #d7f0f5}
-
-.evisa-offer-cell{padding:18px;border-right:1px solid #d7f0f5}
-
+.evisa-offer-cell{padding:15px;border-right:1px solid #d7f0f5}
 .evisa-offer-cell:last-child{border-right:0}
-
-.evisa-label{display:block;color:var(--sea);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-
-.evisa-value{font-size:14px;font-weight:600;color:#164052;line-height:1.5}
-
-.evisa-offer-body{display:grid;grid-template-columns:1fr 1fr;padding:18px;gap:18px}
-
-.evisa-detail{padding:15px;border-radius:12px;background:#f5fcfe}
-
-.evisa-detail h4{font-size:12px;color:var(--sea);margin-bottom:7px;text-transform:uppercase;letter-spacing:.7px}
-
-.evisa-detail p{font-size:13px;line-height:1.7;color:#557080;white-space:pre-line}
-
-.evisa-global-notes{max-width:1100px;margin:25px auto 0;padding:22px 25px;border-radius:18px;background:#fff8df;border:1px solid #f0df9b;color:#685b28}
-
-.evisa-global-notes div{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:13px;line-height:1.6}
-
+.evisa-label{display:block;color:var(--sea);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
+.evisa-value{font-size:13px;font-weight:600;color:#164052;line-height:1.45}
+.evisa-offer-body{display:grid;grid-template-columns:1fr 1fr;padding:15px;gap:15px}
+.evisa-detail{padding:13px;border-radius:11px;background:#f5fcfe}
+.evisa-detail h4{font-size:11px;color:var(--sea);margin-bottom:6px;text-transform:uppercase;letter-spacing:.7px}
+.evisa-detail p{font-size:12px;line-height:1.6;color:#557080;white-space:pre-line}
+.evisa-global-notes{max-width:1050px;margin:22px auto 0;padding:19px 22px;border-radius:16px;background:#fff8df;border:1px solid #f0df9b;color:#685b28}
+.evisa-global-notes div{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;font-size:12px;line-height:1.6}
 .evisa-global-notes div:last-child{margin-bottom:0}
-
 .evisa-global-notes i{color:var(--gold);margin-top:3px}
-
 .visa-footer{background:#00a4c5;color:#fff;padding:11px 12px 7px;text-align:center}
-
 .footer-logo img{width:78px;margin-bottom:3px}
-
 .footer-content h3{font-family:Cinzel,serif;font-size:14px;margin:0}
-
 .footer-content>p{color:#e8fbff;margin:1px 0;font-size:9px;line-height:1.3}
-
 .footer-links{display:flex;justify-content:center;gap:14px;margin:5px 0}
-
 .footer-links a{color:#fff;font-size:10px}
-
 .footer-links i{color:#fff;margin-right:3px}
-
 .footer-social{display:flex;justify-content:center;gap:6px;margin-bottom:5px}
-
 .footer-social a{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,.15);font-size:10px}
-
 .footer-social a:hover{background:var(--gold);transform:translateY(-1px)}
-
 .copyright{font-size:8px!important;color:#d9f8ff!important;margin:0;line-height:1.2}
-
 html[dir="rtl"] .service-item{border-left:0;border-right:4px solid var(--sea)}
-
 html[dir="rtl"] .documents-panel-header{flex-direction:row-reverse}
-
 html[dir="rtl"] .visa-note{flex-direction:row-reverse}
-
 html[dir="rtl"] .country-card{text-align:right}
-
 html[dir="rtl"] .country-card i{right:auto;left:17px}
-
 html[dir="rtl"] .country-card:hover i,html[dir="rtl"] .country-card.active i{left:13px}
-
 html[dir="rtl"] .evisa-offer-cell{border-right:0;border-left:1px solid #d7f0f5}
-
 html[dir="rtl"] .evisa-offer-cell:last-child{border-left:0}
-
+.evisa-dossier-list{margin:0;padding:0 0 0 20px;display:flex;flex-direction:column;gap:7px}
+.evisa-dossier-list li{font-size:12px;line-height:1.6;color:#557080;padding-left:3px}
+html[dir="rtl"] .evisa-dossier-list{padding:0 20px 0 0}
+html[dir="rtl"] .evisa-dossier-list li{padding-left:0;padding-right:3px}
 @media(max-width:700px){
-
 .visa-header{height:70px;padding:0 18px}
-
 .visa-logo img{width:120px}
-
-.visa-service-selector{padding:14px 10px 12px}
-
-.selector-brand{margin-bottom:3px}
-
-.selector-brand span{width:25px}
-
-.selector-brand i{font-size:11px}
-
-.selector-content h1{font-size:14px;letter-spacing:1.5px;margin-bottom:2px}
-
-.selector-content>p{font-size:8px;margin-bottom:8px}
-
-.luxury-circles{gap:10px}
-
-.luxury-circle{width:105px;height:105px}
-
+.visa-service-selector{padding:11px 10px 10px;transform:translateY(-8px);margin-bottom:-8px}
+.selector-brand{margin-bottom:2px}
+.selector-brand span{width:22px}
+.selector-brand i{font-size:10px}
+.selector-content h1{font-size:12px;letter-spacing:1.2px;margin-bottom:2px}
+.selector-content>p{font-size:7px;margin-bottom:6px}
+.luxury-circles{gap:8px}
+.luxury-circle{width:96px!important;height:96px!important}
 .luxury-circle:before{inset:4px}
-
-.luxury-circle:after{inset:8px}
-
-.circle-glow{width:70px;height:70px}
-
-.luxury-circle:hover .circle-glow{width:85px;height:85px}
-
+.luxury-circle:after{inset:7px}
+.circle-glow{width:63px;height:63px}
+.luxury-circle:hover .circle-glow{width:78px;height:78px}
 .circle-ring-one{inset:-3px}
-
 .circle-ring-two{inset:-6px}
-
-.circle-inner{padding:10px}
-
-.circle-icon{width:23px;height:23px;font-size:9px;margin-bottom:3px}
-
-.circle-small{font-size:5.5px;letter-spacing:.8px;margin-bottom:2px}
-
-.circle-inner strong{font-size:8px;letter-spacing:.2px}
-
-.circle-description{font-size:6px;margin-top:2px;max-width:88px}
-
-.circle-action{width:14px;height:14px;margin-top:3px;font-size:6px}
-
-.selector-background-one{width:280px;height:280px;left:-190px;top:-170px}
-
-.selector-background-two{width:350px;height:350px;right:-250px;bottom:-270px}
-
-.selector-wave-one,.selector-wave-two{display:none}
-
-.visa-hero,.evisa-hero{padding:55px 18px 85px}
-
-.visa-hero h1,.evisa-hero h1{letter-spacing:1px}
-
-.section-heading{gap:8px}
-
-.heading-line{width:35px}
-
-.country-navigation{grid-template-columns:1fr;gap:12px;max-width:420px}
-
-.country-card{display:grid;grid-template-columns:45px 1fr 25px;grid-template-rows:auto auto;align-items:center;column-gap:8px;text-align:left;padding:13px 18px}
-
-.country-flag{grid-column:1;grid-row:1/3;width:34px;height:23px;margin:0;align-self:center;justify-self:center}
-
-.country-name{grid-column:2;grid-row:1;align-self:end;justify-self:center;text-align:center;line-height:1.2}
-
-.country-card small{grid-column:2;grid-row:2;align-self:start;justify-self:center;text-align:center;margin-top:2px;line-height:1.2}
-
-.country-card i{grid-column:3;grid-row:1/3;position:static;transform:none;justify-self:end;align-self:center}
-
-.country-card:hover i,.country-card.active i{right:auto}
-
-.service-list,.profile-grid,.documents-list{grid-template-columns:1fr}
-
-.services-box,.dossier-box{padding:25px 20px}
-
-.offer-header{padding:28px 20px}
-
-.offer-price{margin:0 20px 25px}
-
-.visa-note{margin:0 15px 35px}
-
-.documents-panel{padding:20px 15px}
-
-.evisa-carousel{gap:5px}
-
-.evisa-country-viewport{padding:20px 0}
-
-.evisa-country-track{gap:15px}
-
-.evisa-country-item{flex-basis:95px;width:95px;height:95px}
-
-.evisa-country-item.active{flex-basis:120px;width:120px;height:120px}
-
-.evisa-country-item .flag{width:32px;height:24px;margin-bottom:5px}
-
-.evisa-country-item .flag svg{width:32px;height:22px}
-
-.evisa-country-item.active .flag{width:42px;height:31px}
-
-.evisa-country-item.active .flag svg{width:42px;height:29px}
-
-.evisa-country-item .name{font-size:9px}
-
-.evisa-arrow{width:40px;height:40px;min-width:40px}
-
-.evisa-selected-country{margin:10px 15px 0;padding:18px}
-
-.evisa-selected-flag{width:55px;height:40px}
-
-.evisa-selected-flag svg{width:55px;height:37px}
-
-.evisa-selected-country h2{font-size:21px}
-
-.evisa-offers-section{padding:25px 12px 45px}
-
-.evisa-offers-container{border-radius:18px}
-
-.evisa-offers-heading{padding:23px 18px}
-
-.evisa-offers{padding:15px}
-
-.evisa-offer-top{grid-template-columns:1fr 1fr}
-
-.evisa-offer-cell{border-bottom:1px solid #d7f0f5}
-
-.evisa-offer-cell:nth-child(2){border-right:0}
-
-.evisa-offer-cell:nth-child(3),.evisa-offer-cell:nth-child(4){border-bottom:0}
-
-.evisa-offer-body{grid-template-columns:1fr;padding:12px}
-
-.evisa-global-notes{margin:20px 12px 0;padding:18px}
-
-}
-
-@media(max-width:380px){
-
-.luxury-circle{width:92px;height:92px}
-
 .circle-inner{padding:8px}
-
-.circle-icon{width:21px;height:21px;font-size:8px}
-
-.circle-inner strong{font-size:7.5px}
-
-.circle-description{font-size:5.5px;max-width:78px}
-
-.circle-action{width:13px;height:13px;font-size:5px}
-
-.evisa-country-item{flex-basis:82px;width:82px;height:82px}
-
+.circle-icon{width:21px;height:21px;font-size:8px;margin-bottom:2px}
+.circle-small{font-size:5px;letter-spacing:.7px;margin-bottom:2px}
+.circle-inner strong{font-size:7px;letter-spacing:.15px}
+.circle-description{font-size:5.5px;margin-top:2px;max-width:78px}
+.circle-action{width:13px;height:13px;margin-top:2px;font-size:5px}
+.selector-background-one{width:280px;height:280px;left:-190px;top:-170px}
+.selector-background-two{width:350px;height:350px;right:-250px;bottom:-270px}
+.selector-wave-one,.selector-wave-two{display:none}
+.visa-hero,.evisa-hero{padding:55px 18px 85px}
+.visa-hero h1,.evisa-hero h1{letter-spacing:1px}
+.section-heading{gap:8px}
+.heading-line{width:35px}
+.country-navigation{grid-template-columns:1fr;gap:12px;max-width:420px}
+.country-card{display:grid;grid-template-columns:45px 1fr 25px;grid-template-rows:auto auto;align-items:center;column-gap:8px;text-align:left;padding:13px 18px}
+.country-flag{grid-column:1;grid-row:1/3;width:34px;height:23px;margin:0;align-self:center;justify-self:center}
+.country-name{grid-column:2;grid-row:1;align-self:end;justify-self:center;text-align:center;line-height:1.2}
+.country-card small{grid-column:2;grid-row:2;align-self:start;justify-self:center;text-align:center;margin-top:2px;line-height:1.2}
+.country-card i{grid-column:3;grid-row:1/3;position:static;transform:none;justify-self:end;align-self:center}
+.country-card:hover i,.country-card.active i{right:auto}
+.service-list,.profile-grid,.documents-list{grid-template-columns:1fr}
+.services-box,.dossier-box{padding:25px 20px}
+.offer-header{padding:24px 18px}
+.offer-price{margin:0 20px 25px}
+.visa-note{margin:0 15px 35px}
+.documents-panel{padding:20px 15px}
+.evisa-country-section-compact{padding-top:20px}
+.evisa-carousel{gap:5px;transform:translateY(-5px)}
+.evisa-country-viewport{padding:14px 0}
+.evisa-country-track{gap:12px}
+.evisa-country-item{flex-basis:82px;width:82px;height:82px;padding:7px}
 .evisa-country-item.active{flex-basis:105px;width:105px;height:105px}
-
-.evisa-country-item .flag{width:28px;height:21px}
-
-.evisa-country-item .flag svg{width:28px;height:19px}
-
-.evisa-country-item.active .flag{width:37px;height:28px}
-
-.evisa-country-item.active .flag svg{width:37px;height:26px}
-
-.evisa-country-item .name{font-size:8px}
-
+.evisa-country-item .flag{width:30px;height:22px;margin-bottom:4px}
+.evisa-country-item .flag svg{width:30px;height:20px}
+.evisa-country-item.active .flag{width:40px;height:29px}
+.evisa-country-item.active .flag svg{width:40px;height:27px}
+.evisa-country-item .name{font-size:8.5px}
+.evisa-arrow{width:40px;height:40px;min-width:40px}
+.evisa-offers-section{padding:22px 12px 42px}
+.evisa-offers-container{border-radius:18px}
+.evisa-offers-heading{padding:21px 18px}
+.evisa-offers-heading h2{font-size:18px}
+.evisa-offers-heading p{font-size:11px}
+.evisa-offers{padding:13px}
+.evisa-offer-card{border-radius:13px;margin-bottom:11px}
+.evisa-offer-cell{padding:13px}
+.evisa-value{font-size:12px}
+.evisa-offer-body{padding:12px;gap:12px}
+.evisa-detail{padding:11px}
+.evisa-detail h4{font-size:10px}
+.evisa-detail p{font-size:11.5px;line-height:1.55}
+.evisa-offer-top{grid-template-columns:1fr 1fr}
+.evisa-offer-cell{border-bottom:1px solid #d7f0f5}
+.evisa-offer-cell:nth-child(2){border-right:0}
+.evisa-offer-cell:nth-child(3),.evisa-offer-cell:nth-child(4){border-bottom:0}
+.evisa-offer-body{grid-template-columns:1fr;padding:12px}
+.evisa-global-notes{margin:20px 12px 0;padding:18px}
+.evisa-dossier-list{padding-left:18px;gap:6px}
+.evisa-dossier-list li{font-size:11.5px}
+html[dir="rtl"] .evisa-dossier-list{padding-left:0;padding-right:18px}
+html[dir="rtl"] .evisa-dossier-list li{padding-right:2px}
 }
-
-
-
-
-.luxury-circle{
-  width:220px!important;
-  height:220px!important;
+@media(max-width:380px){
+.luxury-circle{width:88px!important;height:88px!important}
+.circle-inner{padding:7px}
+.circle-icon{width:20px;height:20px;font-size:7px}
+.circle-inner strong{font-size:6.8px}
+.circle-description{font-size:5px;max-width:73px}
+.circle-action{width:12px;height:12px;font-size:4.5px}
+.evisa-country-item{flex-basis:72px;width:72px;height:72px}
+.evisa-country-item.active{flex-basis:92px;width:92px;height:92px}
+.evisa-country-item .flag{width:26px;height:19px}
+.evisa-country-item .flag svg{width:26px;height:18px}
+.evisa-country-item.active .flag{width:35px;height:26px}
+.evisa-country-item.active .flag svg{width:35px;height:24px}
+.evisa-country-item .name{font-size:7.5px}
 }

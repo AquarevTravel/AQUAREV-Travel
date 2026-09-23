@@ -337,6 +337,29 @@ renderEvisaCountry(true);
 });
 }
 
+function renderEvisaDossier(value){
+const dossier=text(value);
+if(!dossier)return`<ul class="evisa-dossier-list"><li>${labels[currentLanguage].noData}</li></ul>`;
+
+let items=[];
+if(Array.isArray(value?.[currentLanguage])){
+items=value[currentLanguage];
+}else{
+let normalized=dossier.replace(/;\s*/g,"|");
+normalized=normalized.replace(/\s+peut être remplacé par\s+/i,"|Peut être remplacé par ");
+normalized=normalized.replace(/,\s+which may be replaced by\s+/i,"|Which may be replaced by ");
+normalized=normalized.replace(/\s+ويمكن استبداله(?:\s+ب)?\s*/i,"|ويمكن استبداله ");
+items=normalized.split("|").map(item=>item.trim()).filter(Boolean);
+}
+
+if(items.length===1){
+const commaItems=items[0].split(/,\s+/).map(item=>item.trim()).filter(Boolean);
+if(commaItems.length>1)items=commaItems;
+}
+
+return`<ul class="evisa-dossier-list">${items.map(item=>`<li>${item}</li>`).join("")}</ul>`;
+}
+
 function renderEvisaCountry(scroll=true){
 const country=evisaData[currentEvisaIndex];
 if(!country)return;
@@ -370,7 +393,7 @@ evisaOffers.innerHTML=country.offers.map(offer=>`
 <div class="evisa-offer-body">
 <div class="evisa-detail">
 <h4>${labels[currentLanguage].dossier}</h4>
-<p>${text(offer.dossier)||labels[currentLanguage].noData}</p>
+${renderEvisaDossier(offer.dossier)}
 </div>
 <div class="evisa-detail">
 <h4>${labels[currentLanguage].service}</h4>
